@@ -1,5 +1,3 @@
-using System;
-using Common;
 using TMPro;
 using UI;
 using UnityEngine;
@@ -19,7 +17,6 @@ public class GameView : ViewBase
     [SerializeField] private GameBoard gameBoard;
     [SerializeField] private GameObject loadingMask;
     [SerializeField] private Button startBtn;
-    [SerializeField] private Button fastDownBtn;
     [SerializeField] private TextMeshProUGUI scoreTxt;
 
     public override void OnCreate(params object[] objects)
@@ -27,12 +24,10 @@ public class GameView : ViewBase
         gameBoard.Init(() => loadingMask.SetActive(false));
 
         startBtn.onClick.AddListener(StartGame);
-        fastDownBtn.onClick.AddListener(FastDown);
 
         UIEvent.Add("Restart", () =>
         {
             startBtn.gameObject.SetActive(true);
-            fastDownBtn.gameObject.SetActive(false);
         });
 
         UIEvent.Add("RefreshScore", () => scoreTxt.text = $"Score: {gameBoard.Score}");
@@ -42,16 +37,15 @@ public class GameView : ViewBase
     {
         gameBoard.GenerateNewRow();
         startBtn.gameObject.SetActive(false);
-        fastDownBtn.gameObject.SetActive(true);
-    }
-
-    private void FastDown()
-    {
-        gameBoard.DoFastDown();
     }
 
     private Vector3 _originPos;
     private void Update()
+    {
+        FastDown();
+    }
+
+    private void FastDown()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -67,7 +61,7 @@ public class GameView : ViewBase
 
             if (angle <= 30 && Vector3.Distance(targetPos, _originPos) >= 200)
             {
-                FastDown();
+                gameBoard.DoFastDown();
             }
         }
     }
