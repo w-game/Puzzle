@@ -1,4 +1,5 @@
 using System;
+using Common;
 using TMPro;
 using UI;
 using UnityEngine;
@@ -47,5 +48,27 @@ public class GameView : ViewBase
     private void FastDown()
     {
         gameBoard.DoFastDown();
+    }
+
+    private Vector3 _originPos;
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            _originPos = Input.mousePosition;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            var targetPos = Input.mousePosition;
+            var dir = (targetPos - _originPos).normalized;
+
+            var angle = Vector3.Angle(Vector3.down, dir);
+
+            if (angle <= 30 && Vector3.Distance(targetPos, _originPos) >= 200)
+            {
+                FastDown();
+            }
+        }
     }
 }

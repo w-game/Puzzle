@@ -1,16 +1,14 @@
+using Common;
 using UnityEngine;
 
-namespace Common.Blocks
+public class AnyBlock : Block
 {
-    public class AnyBlock : Block
+    public bool Used { get; set; }
+    protected override void CalcPattern()
     {
-        public bool Used { get; set; }
-        protected override void CalcPattern()
+        AddressableMgr.Load<Sprite>("Textures/any", sprite =>
         {
-            AddressableMgr.Load<Sprite>("Textures/any", sprite =>
-            {
-                _img.sprite = sprite;
-            });
-        }
+            _img.sprite = sprite;
+        });
     }
 }

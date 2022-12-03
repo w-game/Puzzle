@@ -25,4 +25,7 @@ public abstract class Block : MonoBehaviour
     /// 计算图案
     /// </summary>
     protected abstract void CalcPattern();
+
+    public virtual void OnPlaced() { }
+    public virtual void OnRemove() { }
 }
