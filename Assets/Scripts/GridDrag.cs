@@ -6,11 +6,11 @@ public class GridDrag : MonoBehaviour, IDragHandler
 {
     public GridControl control;
     public GridSlot Slot { get; set; }
-    private GameGrid _self;
+    private Block _self;
 
     void Awake()
     {
-        _self = GetComponent<GameGrid>();
+        _self = GetComponent<Block>();
     }
 
     public void OnDrag(PointerEventData eventData)

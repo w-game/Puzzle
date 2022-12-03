@@ -11,11 +11,6 @@ public class GridControl : MonoBehaviour
     private List<int> remaining = new List<int>();
     internal void NextRow()
     {
-        foreach (var slot in nextGridSlots)
-        {
-            slot.RemoveGrid();
-        }
-
         remaining.AddRange(indexs);
         var num = Random.Range(1, 6);
         for (int i = 0; i < num; i++)
@@ -27,7 +22,6 @@ public class GridControl : MonoBehaviour
             var drag = grid.gameObject.AddComponent<GridDrag>();
             drag.control = this;
             drag.Slot = slot;
-            grid.Pattern = GameBoard.GameColor[Random.Range(0, GameBoard.GameColor.Count)];
         }
 
         remaining.Clear();
