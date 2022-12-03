@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Common;
+using Common.Blocks;
 using UnityEngine;
 
 public class GameBoard : MonoSingleton<GameBoard>
@@ -10,12 +11,12 @@ public class GameBoard : MonoSingleton<GameBoard>
 
     [SerializeField] private GridControl control;
 
-    public static List<Color> GameColor = new List<Color>()
+    public static List<Color> GameColor = new()
     {
         Color.red, Color.green, Color.blue, Color.yellow, Color.cyan
     };
 
-    private Dictionary<GameGrid, GridSlot> _undeterminedGrids = new Dictionary<GameGrid, GridSlot>();
+    private Dictionary<Block, GridSlot> _undeterminedGrids = new Dictionary<Block, GridSlot>();
 
     public List<GridSlot> GridSlots { get; } = new List<GridSlot>();
 
@@ -72,10 +73,10 @@ public class GameBoard : MonoSingleton<GameBoard>
 
     public void GenerateNewRow()
     {
-        GameGrid grid;
         for (int i = 0; i < control.NextGridSlots.Count; i++)
         {
-            grid = control.NextGridSlots[i].SubGrid;
+            var ctrlSlot = control.NextGridSlots[i];
+            var grid = ctrlSlot.SubGrid;
             if (grid != null)
             {
                 var slot = GridSlots[i];
@@ -86,9 +87,9 @@ public class GameBoard : MonoSingleton<GameBoard>
                     return;
                 }
 
-                var newGrid = slot.GenerateGrid();
-                newGrid.Pattern = grid.Pattern;
-                _undeterminedGrids.Add(newGrid, slot);
+                ctrlSlot.SubGrid = null;
+                slot.SetGrid(grid);
+                _undeterminedGrids.Add(grid, slot);
             }
         }
 
@@ -109,7 +110,7 @@ public class GameBoard : MonoSingleton<GameBoard>
                 return;
             }
 
-            foreach (var grid in new List<GameGrid>(_undeterminedGrids.Keys))
+            foreach (var grid in new List<Block>(_undeterminedGrids.Keys))
             {
                 var slot = _undeterminedGrids[grid];
                 if (CheckCanMove(slot))
@@ -137,12 +138,11 @@ public class GameBoard : MonoSingleton<GameBoard>
     {
         for (int i = 0; i < 9; i++)
         {
-            CheckSameCol(GridSlots[i]);
-        }
-
-        for (int j = 0; j < 16; j++)
-        {
-            CheckSameRow(GridSlots[j * 9]);
+            for (int j = 0; j < 16; j++)
+            {
+                CheckSameCol(GridSlots[j * 9 + i]);
+                CheckSameRow(GridSlots[j * 9 + i]);
+            }
         }
 
         foreach (var slot in removeList)
@@ -156,56 +156,116 @@ public class GameBoard : MonoSingleton<GameBoard>
         var result = CheckComeDown();
         if (result) CheckRemove();
     }
-
+    
+    private Color _curCheckColor;
     private void CheckSameCol(GridSlot slot)
     {
-        if (slot == null) return;
+        if (!slot || !slot.SubGrid) return;
+
         List<GridSlot> sameSlots = new List<GridSlot>() { slot };
-        while (slot.DownSlot != null)
+        
+        if (slot.SubGrid is not AnyBlock)
         {
-            if (slot.SubGrid != null && slot.DownSlot.SubGrid != null && slot.SubGrid.Pattern == slot.DownSlot.SubGrid.Pattern)
+            _curCheckColor = slot.SubGrid.Pattern;
+
+            var originSlot = slot;
+            while (slot.UpSlot && slot.UpSlot.SubGrid)
             {
-                sameSlots.Add(slot.DownSlot);
+                if (slot.UpSlot.SubGrid.Pattern == _curCheckColor ||
+                    slot.UpSlot.SubGrid is AnyBlock { Used: false })
+                {
+                    slot = slot.UpSlot;
+                    sameSlots.Add(slot);
+                }
+                else
+                {
+                    break;
+                }
             }
-            else
+
+            slot = originSlot;
+            while (slot.DownSlot && slot.DownSlot.SubGrid)
             {
-                break;
+                if (slot.DownSlot.SubGrid.Pattern == _curCheckColor ||
+                    slot.DownSlot.SubGrid is AnyBlock { Used: false})
+                {
+                    slot = slot.DownSlot;
+                    sameSlots.Add(slot);
+                }
+                else
+                {
+                    break;
+                }
             }
-            slot = slot.DownSlot;
         }
 
         if (sameSlots.Count >= 3)
         {
             removeList.AddRange(sameSlots);
-        }
 
-        CheckSameCol(sameSlots.Last().DownSlot);
+            foreach (var s in sameSlots)
+            {
+                if (s.SubGrid is AnyBlock anyBlock)
+                {
+                    anyBlock.Used = true;
+                }
+            }
+        }
     }
 
     private void CheckSameRow(GridSlot slot)
     {
-        if (slot == null) return;
+        if (!slot || !slot.SubGrid) return;
+
         List<GridSlot> sameSlots = new List<GridSlot>() { slot };
 
-        while (slot.RightSlot != null)
+        if (slot.SubGrid is not AnyBlock)
         {
-            if (slot.SubGrid != null && slot.RightSlot.SubGrid != null && slot.SubGrid.Pattern == slot.RightSlot.SubGrid.Pattern)
+            _curCheckColor = slot.SubGrid.Pattern;
+
+            var originSlot = slot;
+            while (slot.LeftSlot && slot.LeftSlot.SubGrid)
             {
-                sameSlots.Add(slot.RightSlot);
+                if (slot.LeftSlot.SubGrid.Pattern == _curCheckColor ||
+                    slot.LeftSlot.SubGrid is AnyBlock { Used: false })
+                {
+                    slot = slot.LeftSlot;
+                    sameSlots.Add(slot);
+                }
+                else
+                {
+                    break;
+                }
             }
-            else
+
+            slot = originSlot;
+            while (slot.RightSlot && slot.RightSlot.SubGrid)
             {
-                break;
+                if (slot.RightSlot.SubGrid.Pattern == _curCheckColor ||
+                    slot.RightSlot.SubGrid is AnyBlock { Used: false })
+                {
+                    slot = slot.RightSlot;
+                    sameSlots.Add(slot);
+                }
+                else
+                {
+                    break;
+                }
             }
-            slot = slot.RightSlot;
         }
 
         if (sameSlots.Count >= 3)
         {
             removeList.AddRange(sameSlots);
+            
+            foreach (var s in sameSlots)
+            {
+                if (s.SubGrid is AnyBlock anyBlock)
+                {
+                    anyBlock.Used = true;
+                }
+            }
         }
-
-        CheckSameRow(sameSlots.Last().RightSlot);
     }
 
     private bool CheckComeDown()

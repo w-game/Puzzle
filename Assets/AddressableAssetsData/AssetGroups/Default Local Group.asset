@@ -41,6 +41,10 @@ MonoBehaviour:
     m_Address: Prefabs/UI/View/HomeView
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 910003d2822e64662bbf589b4b715e24
+    m_Address: Textures/any
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2b925b1802ff143b1842bb3154200482, type: 2}
   m_SchemaSet:
