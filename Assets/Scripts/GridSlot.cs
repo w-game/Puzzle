@@ -1,4 +1,3 @@
-using Common.Blocks;
 using UnityEngine;
 
 public class GridSlot : MonoBehaviour

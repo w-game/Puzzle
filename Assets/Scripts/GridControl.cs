@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Common;
 using UnityEngine;
 
 public class GridControl : MonoBehaviour
@@ -7,16 +6,16 @@ public class GridControl : MonoBehaviour
     [SerializeField] private List<GridSlot> nextGridSlots;
     public List<GridSlot> NextGridSlots => nextGridSlots;
 
-    private static List<int> indexs = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
-    private List<int> remaining = new List<int>();
+    private static List<int> _indexs = new() { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+    private List<int> _remaining = new();
     internal void NextRow()
     {
-        remaining.AddRange(indexs);
+        _remaining.AddRange(_indexs);
         var num = Random.Range(1, 6);
         for (int i = 0; i < num; i++)
         {
-            var index = remaining[Random.Range(0, remaining.Count)];
-            remaining.Remove(index);
+            var index = _remaining[Random.Range(0, _remaining.Count)];
+            _remaining.Remove(index);
             var slot = nextGridSlots[index];
             var grid = slot.GenerateGrid();
             var drag = grid.gameObject.AddComponent<GridDrag>();
@@ -24,13 +23,19 @@ public class GridControl : MonoBehaviour
             drag.Slot = slot;
         }
 
-        remaining.Clear();
+        _remaining.Clear();
+    }
 
-
-        // SLog.D("Grid Control", $"{remaining.Count}");
-        // for (int i = 0; i < remaining.Count; i++)
-        // {
-        //     nextGrids[remaining[i]].Pattern = Color.white;
-        // }
+    public void Regenerate()
+    {
+        foreach (var slot in nextGridSlots)
+        {
+            if (slot.SubGrid)
+            {
+                slot.RemoveGrid();
+            }
+        }
+        
+        NextRow();
     }
 }

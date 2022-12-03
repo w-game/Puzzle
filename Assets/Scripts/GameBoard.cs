@@ -1,34 +1,30 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Common;
-using Common.Blocks;
 using UnityEngine;
 
 public class GameBoard : MonoSingleton<GameBoard>
 {
-    public const float MOVE_SPEED = 1f;
+    private const float MOVE_SPEED = 1f;
+    public static GameObject GridPrefab { get; private set; }
 
     [SerializeField] private GridControl control;
 
-    public static List<Color> GameColor = new()
-    {
-        Color.red, Color.green, Color.blue, Color.yellow, Color.cyan
-    };
+    public GridControl Control => control;
 
-    private Dictionary<Block, GridSlot> _undeterminedGrids = new Dictionary<Block, GridSlot>();
+    public static List<Color> GameColor = new() { Color.red, Color.green, Color.blue, Color.yellow, Color.cyan };
 
-    public List<GridSlot> GridSlots { get; } = new List<GridSlot>();
+    private Dictionary<Block, GridSlot> _undeterminedGrids = new();
+
+    public List<GridSlot> GridSlots { get; } = new();
 
     private Timer _moveTimer;
-
-    public static GameObject GridPrefab { get; private set; }
 
     private int _score;
     public int Score
     {
         get => _score;
-        set
+        private set
         {
             _score = value;
             UIEvent.Invoke("RefreshScore");
@@ -148,6 +144,7 @@ public class GameBoard : MonoSingleton<GameBoard>
         foreach (var slot in removeList)
         {
             Score += 20;
+            slot.SubGrid?.OnRemove();
             slot.RemoveGrid();
         }
 
