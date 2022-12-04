@@ -12,7 +12,8 @@ public class GameBoard : MonoSingleton<GameBoard>
 
     public GridControl Control => control;
 
-    public static List<Color> GameColor = new() { Color.red, Color.green, Color.blue, Color.yellow, Color.cyan };
+    // public static List<Color> GameColor = new() { Color.red, Color.green, Color.blue, Color.yellow, Color.cyan };
+    public static List<int> BlockLabels = new();
 
     private Dictionary<Block, GridSlot> _undeterminedGrids = new();
 
@@ -50,7 +51,7 @@ public class GameBoard : MonoSingleton<GameBoard>
             AddressableMgr.Load<GameObject>("Prefabs/Grid", prefab =>
             {
                 GridPrefab = prefab;
-                control.NextRow();
+                RefreshBoard();
                 callback?.Invoke();
             });
         });
@@ -58,6 +59,10 @@ public class GameBoard : MonoSingleton<GameBoard>
 
     public void RefreshBoard()
     {
+        BlockLabels.Add(0);
+        BlockLabels.Add(1);
+        BlockLabels.Add(2);
+        
         Score = 0;
         _undeterminedGrids.Clear();
         foreach (var slot in GridSlots)
@@ -84,6 +89,7 @@ public class GameBoard : MonoSingleton<GameBoard>
                 }
 
                 ctrlSlot.SubGrid = null;
+                Destroy(grid.gameObject.GetComponent<GridDrag>());
                 slot.SetGrid(grid);
                 _undeterminedGrids.Add(grid, slot);
             }
@@ -154,7 +160,7 @@ public class GameBoard : MonoSingleton<GameBoard>
         if (result) CheckRemove();
     }
     
-    private Color _curCheckColor;
+    private int _curCheckColor;
     private void CheckSameCol(GridSlot slot)
     {
         if (!slot || !slot.SubGrid) return;

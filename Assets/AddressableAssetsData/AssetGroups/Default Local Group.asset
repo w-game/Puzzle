@@ -45,6 +45,22 @@ MonoBehaviour:
     m_Address: Textures/any
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: f6d5f58465fff456eb84bd071b3134b9
+    m_Address: Textures/Blocks/normal_block_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7cea976e1ace4444f9ba08733394d76a
+    m_Address: Textures/Blocks/normal_block_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8f984065dded1464b9b14d7a205f5275
+    m_Address: Textures/Blocks/normal_block_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f2b62771849b945c19db9d3747441d14
+    m_Address: Textures/Blocks/chest
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2b925b1802ff143b1842bb3154200482, type: 2}
   m_SchemaSet:
