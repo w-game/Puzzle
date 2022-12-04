@@ -12,7 +12,7 @@ namespace Common
     {
         public static void D(string tag, object msg)
         {
-            Debug.Log($"[{tag}] - {msg}");
+            Debug.Log($"{tag} -> {msg}");
         }
     }
 }

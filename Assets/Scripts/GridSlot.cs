@@ -32,7 +32,15 @@ public class GridSlot : MonoBehaviour
         }
         else
         {
-            block = go.AddComponent<AnyBlock>();
+            value = Random.value;
+            if (value >= 0.5f)
+            {
+                block = go.AddComponent<AnyBlock>();
+            }
+            else
+            {
+                block = go.AddComponent<GiftBlock>();
+            }
         }
 
         return block;
