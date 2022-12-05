@@ -43,11 +43,13 @@
   <ItemGroup>
      <Compile Include="Assets/Scripts/UI/Common/ViewStack/MainStack.cs" />
      <Compile Include="Assets/Scripts/GridSlot.cs" />
+     <Compile Include="Assets/Scripts/RemoveUnit.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopGameResult.cs" />
      <Compile Include="Assets/Scripts/UI/View/MainView.cs" />
      <Compile Include="Assets/Scripts/UI/View/GameView.cs" />
      <Compile Include="Assets/Scripts/SLog.cs" />
      <Compile Include="Assets/Scripts/UI/Common/Element.cs" />
+     <Compile Include="Assets/Scripts/Challenge/HorizontalRemoveChallenge.cs" />
      <Compile Include="Assets/Scripts/Blocks/GiftBlock.cs" />
      <Compile Include="Assets/Scripts/Blocks/Block.cs" />
      <Compile Include="Assets/Scripts/UI/View/HomeView.cs" />
@@ -60,15 +62,18 @@
      <Compile Include="Assets/Scripts/Common/Timer/TimerManager.cs" />
      <Compile Include="Assets/Scripts/UI/Common/ViewStack.cs" />
      <Compile Include="Assets/Scripts/AddressableMgr.cs" />
-     <Compile Include="Assets/Scripts/Event/UIEvent.cs" />
+     <Compile Include="Assets/Scripts/Event/EventCenter.cs" />
      <Compile Include="Assets/Scripts/GameBoard.cs" />
      <Compile Include="Assets/Scripts/Common/Timer/Timer.cs" />
+     <Compile Include="Assets/Scripts/Challenge/Challenge.cs" />
+     <Compile Include="Assets/Scripts/Challenge/ChallengeSystem.cs" />
      <Compile Include="Assets/Scripts/Blocks/AnyBlock.cs" />
      <Compile Include="Assets/Scripts/UI/Common/ViewStack/PopStack.cs" />
      <Compile Include="Assets/Scripts/UI/Common/BaseView.cs" />
      <Compile Include="Assets/Scripts/GridControl.cs" />
      <Compile Include="Assets/Scripts/Common/Singleton.cs" />
      <Compile Include="Assets/Scripts/GridDrag.cs" />
+     <Compile Include="Assets/Scripts/Challenge/RemoveCountChallenge.cs" />
      <Compile Include="Assets/Scripts/User.cs" />
      <Compile Include="Assets/Scripts/GameTool/GameTool.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
