@@ -25,12 +25,12 @@ public class GameView : ViewBase
 
         startBtn.onClick.AddListener(StartGame);
 
-        UIEvent.Add("Restart", () =>
+        EventCenter.Add("Restart", () =>
         {
             startBtn.gameObject.SetActive(true);
         });
 
-        UIEvent.Add("RefreshScore", () => scoreTxt.text = $"Score: {gameBoard.Score}");
+        EventCenter.Add("RefreshScore", () => scoreTxt.text = $"Score: {gameBoard.Score}");
     }
 
     private void StartGame()

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class UIEvent
+public static class EventCenter
 {
     private static Dictionary<string, List<Action>> _events = new Dictionary<string, List<Action>>();
 

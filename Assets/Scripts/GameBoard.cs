@@ -28,7 +28,7 @@ public class GameBoard : MonoSingleton<GameBoard>
         private set
         {
             _score = value;
-            UIEvent.Invoke("RefreshScore");
+            EventCenter.Invoke("RefreshScore");
         }
     }
 
@@ -134,7 +134,7 @@ public class GameBoard : MonoSingleton<GameBoard>
         return slot.Pos.y >= 15 || GridSlots[(slot.Pos.y + 1) * 9 + slot.Pos.x].SubGrid != null;
     }
 
-    private List<GridSlot> removeList = new List<GridSlot>();
+    private List<RemoveUnit> _removeList = new();
 
     private void CheckRemove()
     {
@@ -147,14 +147,12 @@ public class GameBoard : MonoSingleton<GameBoard>
             }
         }
 
-        foreach (var slot in removeList)
+        foreach (var removeUnit in _removeList)
         {
-            Score += 20;
-            slot.SubGrid?.OnRemove();
-            slot.RemoveGrid();
+            Score += removeUnit.Execute(1);
         }
 
-        removeList.Clear();
+        _removeList.Clear();
 
         var result = CheckComeDown();
         if (result) CheckRemove();
@@ -204,7 +202,8 @@ public class GameBoard : MonoSingleton<GameBoard>
 
         if (sameSlots.Count >= 3)
         {
-            removeList.AddRange(sameSlots);
+            RemoveUnit removeUnit = new RemoveUnit(sameSlots, RemoveType.Vertical);
+            _removeList.Add(removeUnit);
 
             foreach (var s in sameSlots)
             {
@@ -259,7 +258,8 @@ public class GameBoard : MonoSingleton<GameBoard>
 
         if (sameSlots.Count >= 3)
         {
-            removeList.AddRange(sameSlots);
+            RemoveUnit removeUnit = new RemoveUnit(sameSlots, RemoveType.Horizontal);
+            _removeList.Add(removeUnit);
             
             foreach (var s in sameSlots)
             {

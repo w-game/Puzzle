@@ -22,7 +22,7 @@ public class PopGameResult : ViewBase
     public void Restart()
     {
         GameBoard.Instance.RefreshBoard();
-        UIEvent.Invoke("Restart");
+        EventCenter.Invoke("Restart");
         CloseView();
     }
 }
