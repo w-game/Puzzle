@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class GridSlot : MonoBehaviour
@@ -48,10 +49,16 @@ public class GridSlot : MonoBehaviour
 
     internal void RemoveGrid()
     {
-        if (SubGrid != null)
+        if (SubGrid)
         {
-            Destroy(SubGrid.gameObject);
+            var block = SubGrid;
             SubGrid = null;
+            var anima = block.transform.DOScale(0, 0.2f);
+            anima.onComplete += () =>
+            {
+                Destroy(block.gameObject);
+                anima.Kill();
+            };
         }
     }
 
