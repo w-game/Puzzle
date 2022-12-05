@@ -4,12 +4,11 @@ namespace GameSystem
 {
     public class RemoveCountChallenge : Challenge
     {
-        public int RemoveIndex { get; set; }
+        public Color RemoveIndex { get; set; }
         
         protected override void OnRefresh()
         {
             MaxCount = Random.Range(0, 20);
-            RemoveIndex = Random.Range(0, GameBoard.BlockLabels.Count);
         }
 
         public override void CheckProcess(RemoveUnit removeUnit)

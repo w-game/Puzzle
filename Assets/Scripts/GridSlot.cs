@@ -6,10 +6,10 @@ public class GridSlot : MonoBehaviour
     public Vector2Int Pos { get; set; }
     public Block SubGrid { get; set; }
 
-    public GridSlot UpSlot => Pos.y > 0 ? GameBoard.Instance.GridSlots[(Pos.y - 1) * 9 + Pos.x] : null;
-    public GridSlot DownSlot => Pos.y < 15 ? GameBoard.Instance.GridSlots[(Pos.y + 1) * 9 + Pos.x] : null;
-    public GridSlot RightSlot => Pos.x < 8 ? GameBoard.Instance.GridSlots[Pos.y * 9 + Pos.x + 1] : null;
-    public GridSlot LeftSlot => Pos.x > 0 ? GameBoard.Instance.GridSlots[Pos.y * 9 + Pos.x - 1] : null;
+    public GridSlot UpSlot => Pos.y > 0 ? GameBoard.Instance.GridSlots[(Pos.y - 1) * GameBoard.BoardWidth + Pos.x] : null;
+    public GridSlot DownSlot => Pos.y < GameBoard.BoardLength - 1 ? GameBoard.Instance.GridSlots[(Pos.y + 1) * GameBoard.BoardWidth + Pos.x] : null;
+    public GridSlot RightSlot => Pos.x < GameBoard.BoardWidth - 1 ? GameBoard.Instance.GridSlots[Pos.y * GameBoard.BoardWidth + Pos.x + 1] : null;
+    public GridSlot LeftSlot => Pos.x > 0 ? GameBoard.Instance.GridSlots[Pos.y * GameBoard.BoardWidth + Pos.x - 1] : null;
 
     public bool IsEmpty => SubGrid == null;
 
@@ -24,25 +24,25 @@ public class GridSlot : MonoBehaviour
 
     private Block CalcBlockType(GameObject go)
     {
-        var value = Random.value;
+        // var value = Random.value;
 
-        Block block;
-        if (value <= 0.9f)
-        {
-            block = go.AddComponent<NormalBlock>();
-        }
-        else
-        {
-            value = Random.value;
-            if (value >= 0.5f)
-            {
-                block = go.AddComponent<AnyBlock>();
-            }
-            else
-            {
-                block = go.AddComponent<GiftBlock>();
-            }
-        }
+        Block block = go.AddComponent<NormalBlock>();
+        // if (value <= 0.9f)
+        // {
+        //     block = go.AddComponent<NormalBlock>();
+        // }
+        // else
+        // {
+        //     value = Random.value;
+        //     if (value >= 0.5f)
+        //     {
+        //         block = go.AddComponent<AnyBlock>();
+        //     }
+        //     else
+        //     {
+        //         block = go.AddComponent<GiftBlock>();
+        //     }
+        // }
 
         return block;
     }
@@ -62,10 +62,17 @@ public class GridSlot : MonoBehaviour
         }
     }
 
-    internal void SetGrid(Block grid)
+    internal void SetGrid(Block grid, bool anima = false)
     {
         grid.transform.SetParent(transform);
         SubGrid = grid;
-        grid.transform.localPosition = Vector3.zero;
+        if (!anima)
+        {
+            grid.transform.localPosition = Vector3.zero;
+        }
+        else
+        {
+            grid.transform.DOLocalMove(Vector3.zero, 0.2f).SetEase(Ease.InQuad);
+        }
     }
 }

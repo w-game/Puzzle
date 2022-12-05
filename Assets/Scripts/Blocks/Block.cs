@@ -9,7 +9,17 @@ public abstract class Block : MonoBehaviour
     protected Transform SpecialFrame;
     private Image _specialIcon;
 
-    public int Pattern { get; protected set; } = -1;
+    private Color _pattern;
+
+    public Color Pattern
+    {
+        get => _pattern;
+        protected set
+        {
+            _pattern = value;
+            _img.color = value;
+        }
+    }
 
     public void Init()
     {

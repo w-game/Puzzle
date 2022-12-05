@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public enum RemoveType
 {
@@ -10,7 +11,7 @@ public class RemoveUnit
 {
     public RemoveType RemoveType { get; }
     public List<GridSlot> Slots { get; }
-    public int BlockIndex { get; }
+    public Color BlockIndex { get; }
 
     public RemoveUnit(List<GridSlot> slots, RemoveType removeType)
     {
