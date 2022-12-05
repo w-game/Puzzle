@@ -77,6 +77,9 @@
      <Compile Include="Assets/Scripts/User.cs" />
      <Compile Include="Assets/Scripts/GameTool/GameTool.cs" />
      <Compile Include="Assets/Scripts/ColorLibrary.cs" />
+     <Compile Include="Assets/Scripts/Process/ProcessSystem.cs" />
+     <Compile Include="Assets/Scripts/Process/Process.cs" />
+     <Compile Include="Assets/Scripts/Process/ProcessUnit.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />

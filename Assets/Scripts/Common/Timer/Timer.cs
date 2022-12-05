@@ -3,26 +3,30 @@ using UnityEngine;
 
 public class Timer
 {
-    public float _interval;
-    public float _count;
+    public float Interval { get; }
+    public Action Callback { get; }
     public int Repeat { get; private set; }
-    public Action _callback;
+    public bool IsPause { get; set; }
+
+    private float _count;
 
     public Timer(float interval, int repeat = 1, Action callback = null)
     {
-        _interval = interval;
+        Interval = interval;
         Repeat = repeat;
-        _callback = callback;
+        Callback = callback;
         TimerManager.Instance.AddTimer(this);
     }
 
     public void Update(float increase)
     {
+        if (IsPause) return;
+        
         _count += increase;
-        if (_count >= _interval)
+        if (_count >= Interval)
         {
-            _callback?.Invoke();
-            _count -= _interval;
+            Callback?.Invoke();
+            _count -= Interval;
 
             if (Repeat > -1) Repeat--;
         }
@@ -31,5 +35,15 @@ public class Timer
     internal void End()
     {
         TimerManager.Instance.ReadyToRemove(this);
+    }
+
+    public void Pause()
+    {
+        IsPause = true;
+    }
+
+    public void Play()
+    {
+        IsPause = false;
     }
 }

@@ -22,8 +22,6 @@ public class GameBoard : MonoSingleton<GameBoard>
 
     public List<GridSlot> GridSlots { get; } = new();
 
-    private Timer _moveTimer;
-
     private int _score;
     public int Score
     {
@@ -34,6 +32,8 @@ public class GameBoard : MonoSingleton<GameBoard>
             EventCenter.Invoke("RefreshScore");
         }
     }
+    
+    private Timer _bottomGenerateTimer;
 
     public void Init(Action callback)
     {
@@ -72,6 +72,7 @@ public class GameBoard : MonoSingleton<GameBoard>
         }
         EventCenter.Invoke("EnableStartBtn");
         control.Refresh();
+        _bottomGenerateTimer.Play();
     }
 
     private void RefreshBlockColor()
@@ -94,12 +95,6 @@ public class GameBoard : MonoSingleton<GameBoard>
             if (grid != null)
             {
                 var slot = GridSlots[i];
-                if (slot.SubGrid != null)
-                {
-                    _moveTimer?.End();
-                    UIManager.Instance.PushPop<PopGameResultData>();
-                    return;
-                }
 
                 ctrlSlot.SubGrid = null;
                 Destroy(grid.gameObject.GetComponent<GridDrag>());
@@ -322,9 +317,74 @@ public class GameBoard : MonoSingleton<GameBoard>
 
         _undeterminedGrids.Clear();
     }
-    
+
+    private void Awake()
+    {
+        _bottomGenerateTimer = new Timer(15f, -1, GenerateNewRowAtBottom);
+    }
+
+    private void GenerateNewRowAtBottom()
+    {
+        for (int i = 0; i < BoardWidth; i++)
+        {
+            var slot = GridSlots[(BoardLength - 1) * BoardWidth + i];
+            if (slot.SubGrid)
+            {
+                MoveUp(slot);
+            }
+
+            if (!slot.SubGrid)
+            {
+                slot.GenerateGrid();
+            }
+        }
+        
+        InvokeCheckRemove();
+    }
+
+    private void MoveUp(GridSlot slot)
+    {
+        if (slot.UpSlot)
+        {
+            if (slot.UpSlot.SubGrid)
+            {
+                MoveUp(slot.UpSlot);
+            }
+
+            if (!slot.UpSlot.SubGrid)
+            {
+                slot.UpSlot.SetGrid(slot.SubGrid);
+                slot.SubGrid = null;
+            }
+            else
+            {
+                GameOver();
+            }
+        }
+    }
+
+    private void CheckGameOver()
+    {
+        for (int i = 0; i < BoardWidth; i++)
+        {
+            var slot = GridSlots[i];
+            if (slot.SubGrid)
+            {
+                GameOver();
+                return;
+            }
+        }
+    }
+
     private void OperationComplete()
     {
         EventCenter.Invoke("EnableStartBtn");
+        CheckGameOver();
+    }
+    
+    private void GameOver()
+    {
+        _bottomGenerateTimer.Pause();
+        UIManager.Instance.PushPop<PopGameResultData>();
     }
 }
