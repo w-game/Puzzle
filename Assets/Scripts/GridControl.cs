@@ -28,6 +28,11 @@ public class GridControl : MonoBehaviour
 
     public void Regenerate()
     {
+        Refresh();
+    }
+
+    public void Refresh()
+    {
         foreach (var slot in nextGridSlots)
         {
             if (slot.SubGrid)

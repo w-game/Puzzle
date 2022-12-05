@@ -19,31 +19,27 @@ public class GameView : ViewBase
     [SerializeField] private Button startBtn;
     [SerializeField] private TextMeshProUGUI scoreTxt;
 
+    private bool _switch = true;
     public override void OnCreate(params object[] objects)
     {
         gameBoard.Init(() => loadingMask.SetActive(false));
 
         startBtn.onClick.AddListener(StartGame);
 
-        EventCenter.Add("Restart", () =>
-        {
-            startBtn.gameObject.SetActive(true);
-        });
-
         EventCenter.Add("RefreshScore", () => scoreTxt.text = $"Score: {gameBoard.Score}");
+        EventCenter.Add("EnableStartBtn", () => _switch = true);
     }
 
     private void StartGame()
     {
-        gameBoard.GenerateNewRow();
-        startBtn.gameObject.SetActive(false);
+        if (_switch)
+        {
+            gameBoard.GenerateNewRow();
+            _switch = false;
+        }
     }
 
     private Vector3 _originPos;
-    private void Update()
-    {
-        FastDown();
-    }
 
     private void FastDown()
     {

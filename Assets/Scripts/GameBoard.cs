@@ -1,19 +1,22 @@
 using System;
 using System.Collections.Generic;
 using Common;
+using DG.Tweening;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameBoard : MonoSingleton<GameBoard>
 {
-    private const float MOVE_SPEED = 1f;
     public static GameObject GridPrefab { get; private set; }
 
     [SerializeField] private GridControl control;
 
+    public const int BoardWidth = 9;
+    public const int BoardLength = 9;
+
     public GridControl Control => control;
 
-    // public static List<Color> GameColor = new() { Color.red, Color.green, Color.blue, Color.yellow, Color.cyan };
-    public static List<int> BlockLabels = new();
+    public static List<Color> BlockColor = new();
 
     private Dictionary<Block, GridSlot> _undeterminedGrids = new();
 
@@ -37,9 +40,9 @@ public class GameBoard : MonoSingleton<GameBoard>
         Score = 0;
         AddressableMgr.Load<GameObject>("Prefabs/GridSlot", prefab =>
         {
-            for (int j = 0; j < 16; j++)
+            for (int j = 0; j < BoardLength; j++)
             {
-                for (int i = 0; i < 9; i++)
+                for (int i = 0; i < BoardWidth; i++)
                 {
                     var slot = Instantiate(prefab, transform).GetComponent<GridSlot>();
                     slot.name = $"GridSlot_{i}_{j}";
@@ -59,9 +62,7 @@ public class GameBoard : MonoSingleton<GameBoard>
 
     public void RefreshBoard()
     {
-        BlockLabels.Add(0);
-        BlockLabels.Add(1);
-        BlockLabels.Add(2);
+        RefreshBlockColor();
         
         Score = 0;
         _undeterminedGrids.Clear();
@@ -69,7 +70,19 @@ public class GameBoard : MonoSingleton<GameBoard>
         {
             slot.RemoveGrid();
         }
-        control.NextRow();
+        EventCenter.Invoke("EnableStartBtn");
+        control.Refresh();
+    }
+
+    private void RefreshBlockColor()
+    {
+        BlockColor.Clear();
+        while (BlockColor.Count < 3)
+        {
+            var colorCode = ColorLibrary.ColorCoder[Random.Range(0, ColorLibrary.ColorCoder.Count)];
+            ColorUtility.TryParseHtmlString(colorCode, out var color);
+            if (!BlockColor.Contains(color)) BlockColor.Add(color);
+        }
     }
 
     public void GenerateNewRow()
@@ -101,49 +114,39 @@ public class GameBoard : MonoSingleton<GameBoard>
 
     private void StartMove()
     {
-        _moveTimer?.End();
-        _moveTimer = new Timer(MOVE_SPEED, -1, () =>
+        foreach (var grid in _undeterminedGrids.Keys)
         {
-            if (_undeterminedGrids.Count == 0)
+            var slot = _undeterminedGrids[grid];
+            var downSlot = slot;
+            while (downSlot.DownSlot && downSlot.DownSlot.SubGrid == null)
             {
-                CheckRemove();
-                _moveTimer?.End();
-                GenerateNewRow();
-                return;
+                downSlot = downSlot.DownSlot;
             }
 
-            foreach (var grid in new List<Block>(_undeterminedGrids.Keys))
-            {
-                var slot = _undeterminedGrids[grid];
-                if (CheckCanMove(slot))
-                {
-                    _undeterminedGrids.Remove(slot.SubGrid);
-                    continue;
-                }
-
-                var nextSlot = GridSlots[(slot.Pos.y + 1) * 9 + slot.Pos.x];
-                nextSlot.SetGrid(grid);
-                slot.SubGrid = null;
-                _undeterminedGrids[grid] = nextSlot;
-            }
-        });
-    }
-
-    private bool CheckCanMove(GridSlot slot)
-    {
-        return slot.Pos.y >= 15 || GridSlots[(slot.Pos.y + 1) * 9 + slot.Pos.x].SubGrid != null;
+            slot.SubGrid = null;
+            downSlot.SetGrid(grid, true);
+        }
+        _undeterminedGrids.Clear();
+        InvokeCheckRemove();
     }
 
     private List<RemoveUnit> _removeList = new();
 
+    private void InvokeCheckRemove()
+    {
+        var sequence = DOTween.Sequence();
+        sequence.AppendInterval(0.3f);
+        sequence.AppendCallback(CheckRemove);
+    }
+
     private void CheckRemove()
     {
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < BoardWidth; i++)
         {
-            for (int j = 0; j < 16; j++)
+            for (int j = 0; j < BoardLength; j++)
             {
-                CheckSameCol(GridSlots[j * 9 + i]);
-                CheckSameRow(GridSlots[j * 9 + i]);
+                CheckSameCol(GridSlots[j * BoardWidth + i]);
+                CheckSameRow(GridSlots[j * BoardWidth + i]);
             }
         }
 
@@ -155,10 +158,11 @@ public class GameBoard : MonoSingleton<GameBoard>
         _removeList.Clear();
 
         var result = CheckComeDown();
-        if (result) CheckRemove();
+        if (result) InvokeCheckRemove();
+        else OperationComplete();
     }
     
-    private int _curCheckColor;
+    private Color _curCheckColor;
     private void CheckSameCol(GridSlot slot)
     {
         if (!slot || !slot.SubGrid) return;
@@ -274,11 +278,11 @@ public class GameBoard : MonoSingleton<GameBoard>
     private bool CheckComeDown()
     {
         bool result = false;
-        for (int j = 15; j >= 0; j--)
+        for (int j = BoardLength - 1; j >= 0; j--)
         {
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < BoardWidth; i++)
             {
-                var slot = GridSlots[j * 9 + i];
+                var slot = GridSlots[j * BoardWidth + i];
 
                 if (slot.SubGrid != null)
                 {
@@ -317,5 +321,10 @@ public class GameBoard : MonoSingleton<GameBoard>
         }
 
         _undeterminedGrids.Clear();
+    }
+    
+    private void OperationComplete()
+    {
+        EventCenter.Invoke("EnableStartBtn");
     }
 }

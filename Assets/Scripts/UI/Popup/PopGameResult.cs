@@ -19,7 +19,7 @@ public class PopGameResult : ViewBase
         restart.onClick.AddListener(Restart);
     }
 
-    public void Restart()
+    private void Restart()
     {
         GameBoard.Instance.RefreshBoard();
         EventCenter.Invoke("Restart");
