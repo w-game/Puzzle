@@ -1,3 +1,4 @@
+using Common;
 using TMPro;
 using UI;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class GameView : ViewBase
     [SerializeField] private GameBoard gameBoard;
     [SerializeField] private GameObject loadingMask;
     [SerializeField] private Button startBtn;
+    [SerializeField] private Button homeBtn;
     [SerializeField] private TextMeshProUGUI scoreTxt;
 
     private bool _switch = true;
@@ -25,8 +27,9 @@ public class GameView : ViewBase
         gameBoard.Init(() => loadingMask.SetActive(false));
 
         startBtn.onClick.AddListener(StartGame);
+        homeBtn.onClick.AddListener(OnHomeBtnClicked);
 
-        EventCenter.Add("RefreshScore", () => scoreTxt.text = $"Score: {gameBoard.Score}");
+        EventCenter.Add("RefreshScore", () => scoreTxt.text = $"{gameBoard.Score}");
         EventCenter.Add("EnableStartBtn", () => _switch = true);
     }
 
@@ -37,6 +40,13 @@ public class GameView : ViewBase
             gameBoard.GenerateNewRow();
             _switch = false;
         }
+    }
+
+    private void OnHomeBtnClicked()
+    {
+        gameBoard.Stop();
+        CloseView();
+        SLog.D("GameView", "OnHomeBtnClicked");
     }
 
     private Vector3 _originPos;

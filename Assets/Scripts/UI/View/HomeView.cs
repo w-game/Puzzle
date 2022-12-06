@@ -1,3 +1,4 @@
+using TMPro;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,14 +14,23 @@ public class HomeViewData : ViewData
 
 public class HomeView : ViewBase
 {
-    [SerializeField] private Button StartGameBtn;
+    [SerializeField] private Button startGameBtn;
+    [SerializeField] private TextMeshProUGUI maxScore;
     public override void OnCreate(params object[] objects)
     {
-        StartGameBtn.onClick.AddListener(StartGame);
+        startGameBtn.onClick.AddListener(StartGame);
+        
+        ShowMaxScore();
+        EventCenter.Add("HomeViewMaxScore", ShowMaxScore);
     }
 
     private void StartGame()
     {
         UIManager.Instance.PushMain<GameViewData>();
+    }
+
+    private void ShowMaxScore()
+    {
+        maxScore.text = GameManager.User.MaxScore.ToString();
     }
 }

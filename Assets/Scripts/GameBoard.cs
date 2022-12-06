@@ -73,6 +73,8 @@ public class GameBoard : MonoSingleton<GameBoard>
         EventCenter.Invoke("EnableStartBtn");
         control.Refresh();
         _bottomGenerateTimer.Play();
+        
+        GenerateNewRow();
     }
 
     private void RefreshBlockColor()
@@ -386,5 +388,11 @@ public class GameBoard : MonoSingleton<GameBoard>
     {
         _bottomGenerateTimer.Pause();
         UIManager.Instance.PushPop<PopGameResultData>();
+        GameManager.User.MaxScore = _score;
+    }
+    
+    public void Stop()
+    {
+        _bottomGenerateTimer.End();
     }
 }
