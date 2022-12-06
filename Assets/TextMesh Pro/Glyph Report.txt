@@ -1,0 +1,12 @@
+Font: Alibaba PuHuiTi 2.0  Style: 105 Heavy
+Point Size: 361   SP/PD Ratio: 2.5%
+
+Characters included: 7/7
+Missing characters: 0
+Excluded characters: 0
+
+Characters missing from font file:
+----------------------------------------
+
+Characters excluded from packing:
+----------------------------------------

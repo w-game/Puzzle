@@ -47,9 +47,11 @@
      <Compile Include="Assets/Scripts/UI/Popup/PopGameResult.cs" />
      <Compile Include="Assets/Scripts/UI/View/MainView.cs" />
      <Compile Include="Assets/Scripts/UI/View/GameView.cs" />
+     <Compile Include="Assets/Scripts/Process/ProcessUnit.cs" />
      <Compile Include="Assets/Scripts/SLog.cs" />
      <Compile Include="Assets/Scripts/UI/Common/Element.cs" />
      <Compile Include="Assets/Scripts/Challenge/HorizontalRemoveChallenge.cs" />
+     <Compile Include="Assets/Scripts/Process/ProcessSystem.cs" />
      <Compile Include="Assets/Scripts/Blocks/GiftBlock.cs" />
      <Compile Include="Assets/Scripts/Blocks/Block.cs" />
      <Compile Include="Assets/Scripts/UI/View/HomeView.cs" />
@@ -68,6 +70,8 @@
      <Compile Include="Assets/Scripts/Challenge/Challenge.cs" />
      <Compile Include="Assets/Scripts/Challenge/ChallengeSystem.cs" />
      <Compile Include="Assets/Scripts/Blocks/AnyBlock.cs" />
+     <Compile Include="Assets/Scripts/Process/Process.cs" />
+     <Compile Include="Assets/Scripts/ColorLibrary.cs" />
      <Compile Include="Assets/Scripts/UI/Common/ViewStack/PopStack.cs" />
      <Compile Include="Assets/Scripts/UI/Common/BaseView.cs" />
      <Compile Include="Assets/Scripts/GridControl.cs" />
@@ -76,11 +80,8 @@
      <Compile Include="Assets/Scripts/Challenge/RemoveCountChallenge.cs" />
      <Compile Include="Assets/Scripts/User.cs" />
      <Compile Include="Assets/Scripts/GameTool/GameTool.cs" />
-     <Compile Include="Assets/Scripts/ColorLibrary.cs" />
-     <Compile Include="Assets/Scripts/Process/ProcessSystem.cs" />
-     <Compile Include="Assets/Scripts/Process/Process.cs" />
-     <Compile Include="Assets/Scripts/Process/ProcessUnit.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
+     <None Include="Assets/TextMesh Pro/Glyph Report.txt" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
