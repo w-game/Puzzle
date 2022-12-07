@@ -1,3 +1,4 @@
+using Common;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -12,7 +13,6 @@ public class GridDrag : MonoBehaviour, IDragHandler
         {
             MoveBlock(Slot, 1);
         }
-        
         else if (gap <= -50)
         {
             MoveBlock(Slot, -1);
@@ -37,6 +37,7 @@ public class GridDrag : MonoBehaviour, IDragHandler
                 nextSlot.SetGrid(slot.SubGrid);
                 nextSlot.SubGrid.GetComponent<GridDrag>().Slot = nextSlot;
                 slot.SubGrid = null;
+                SoundManager.Instance.PlaySlideSound();
             }
         }
     }

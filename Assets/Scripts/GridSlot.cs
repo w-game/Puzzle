@@ -1,3 +1,4 @@
+using Common;
 using DG.Tweening;
 using UnityEngine;
 
@@ -53,7 +54,7 @@ public class GridSlot : MonoBehaviour
         {
             var block = SubGrid;
             SubGrid = null;
-            var anima = block.transform.DOScale(0, 0.2f);
+            var anima = block.transform.DOScale(0, GameBoard.MoveTime);
             anima.onComplete += () =>
             {
                 Destroy(block.gameObject);
@@ -72,7 +73,7 @@ public class GridSlot : MonoBehaviour
         }
         else
         {
-            grid.transform.DOLocalMove(Vector3.zero, 0.2f).SetEase(Ease.InQuad);
+            grid.transform.DOLocalMove(Vector3.zero, GameBoard.MoveTime).SetEase(Ease.InQuad);
         }
     }
 }
