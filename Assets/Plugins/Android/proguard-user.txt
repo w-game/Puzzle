@@ -167,7 +167,7 @@
 
 
 
-#oaid 不同的版本混淆代码不太一致,你注意你接入的oaid版本
+#oaid 不同的版本混淆代码不太一致，你注意你接入的oaid版本
 -dontwarn com.bun.**
 -keep class com.bun.** {*;}
 -keep class a.**{*;}
@@ -212,7 +212,3 @@
 -keep com.bytedance.ad.sdk.mediation.TToast { *; }
 -keep com.bytedance.ad.sdk.mediation.UIUtils { *; }
 -keep com.bytedance.ad.sdk.mediation.VideoOptionUtil { *; }
-
-
-#自定义adn,adapter相关类,如果您自定义的类名和这个有差别,可自行修改
--keep class com.bytedance.ad.sdk.mediation.adapter.**{*;}
