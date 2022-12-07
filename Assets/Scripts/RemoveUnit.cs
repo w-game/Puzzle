@@ -22,16 +22,14 @@ public class RemoveUnit
 
     public int Execute(int rate)
     {
-        var score = 0;
         foreach (var slot in Slots)
         {
-            score += 5 * rate;
             slot.SubGrid?.OnRemove();
             slot.RemoveGrid();
         }
 
         GameManager.Instance.ChallengeSystem.CheckProcess(this);
 
-        return score;
+        return Slots.Count * rate;
     }
 }

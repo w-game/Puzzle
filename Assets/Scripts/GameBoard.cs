@@ -8,17 +8,20 @@ using Random = UnityEngine.Random;
 public class GameBoard : MonoSingleton<GameBoard>
 {
     public static GameObject GridPrefab { get; private set; }
+    public const float MoveTime = 0.3f;
+    private const float TrendTime = 30f;
 
     [SerializeField] private GridControl control;
 
     public const int BoardWidth = 9;
     public const int BoardLength = 9;
+    public const int BlockSize = 160;
 
     public GridControl Control => control;
 
-    public static List<Color> BlockColor = new();
+    public static readonly List<Color> BlockColor = new();
 
-    private Dictionary<Block, GridSlot> _undeterminedGrids = new();
+    private readonly Dictionary<Block, GridSlot> _undeterminedGrids = new();
 
     public List<GridSlot> GridSlots { get; } = new();
 
@@ -34,6 +37,16 @@ public class GameBoard : MonoSingleton<GameBoard>
     }
     
     private Timer _bottomGenerateTimer;
+    private bool GameStatus { get; set; }
+    
+    private void Awake()
+    {
+        _bottomGenerateTimer = new Timer(TrendTime, -1, GenerateNewRowAtBottom);
+        var rectTransform = GetComponent<RectTransform>();
+        rectTransform.sizeDelta = new Vector2(
+            BlockSize * BoardWidth + (BoardWidth - 1) * 10,
+            BlockSize * BoardLength + (BoardLength - 1) * 10);
+    }
 
     public void Init(Action callback)
     {
@@ -72,9 +85,30 @@ public class GameBoard : MonoSingleton<GameBoard>
         }
         EventCenter.Invoke("EnableStartBtn");
         control.Refresh();
-        _bottomGenerateTimer.Play();
+        _bottomGenerateTimer?.Play();
         
         GenerateNewRow();
+        GameStatus = true;
+    }
+    
+    public void Revive()
+    {
+        GameStatus = true;
+        EventCenter.Invoke("EnableStartBtn");
+        _bottomGenerateTimer.Play();
+        
+        for (int j = BoardLength - 1; j > BoardLength - 4; j--)
+        {
+            for (int i = 0; i < BoardWidth; i++)
+            {
+                var slot = GridSlots[j * BoardWidth + i];
+                slot.RemoveGrid();
+            }
+        }
+        
+        var sequence = DOTween.Sequence();
+        sequence.AppendInterval(MoveTime);
+        sequence.AppendCallback(() => CheckComeDown());
     }
 
     private void RefreshBlockColor()
@@ -132,7 +166,7 @@ public class GameBoard : MonoSingleton<GameBoard>
     private void InvokeCheckRemove()
     {
         var sequence = DOTween.Sequence();
-        sequence.AppendInterval(0.3f);
+        sequence.AppendInterval(MoveTime);
         sequence.AppendCallback(CheckRemove);
     }
 
@@ -147,16 +181,24 @@ public class GameBoard : MonoSingleton<GameBoard>
             }
         }
 
+        var rate = 1;
+        if (_removeList.Count != 0) SoundManager.Instance.PlayRemoveSound();
         foreach (var removeUnit in _removeList)
         {
-            Score += removeUnit.Execute(1);
+            Score += removeUnit.Execute(rate);
+            rate++;
         }
 
         _removeList.Clear();
-
-        var result = CheckComeDown();
-        if (result) InvokeCheckRemove();
-        else OperationComplete();
+        
+        var sequence = DOTween.Sequence();
+        sequence.AppendInterval(MoveTime);
+        sequence.AppendCallback(() =>
+        {
+            var result = CheckComeDown();
+            if (result) InvokeCheckRemove();
+            else OperationComplete();
+        });
     }
     
     private Color _curCheckColor;
@@ -203,6 +245,7 @@ public class GameBoard : MonoSingleton<GameBoard>
 
         if (sameSlots.Count >= 3)
         {
+            if (CheckSlotStatus(sameSlots)) return;
             RemoveUnit removeUnit = new RemoveUnit(sameSlots, RemoveType.Vertical);
             _removeList.Add(removeUnit);
 
@@ -259,6 +302,7 @@ public class GameBoard : MonoSingleton<GameBoard>
 
         if (sameSlots.Count >= 3)
         {
+            if (CheckSlotStatus(sameSlots)) return;
             RemoveUnit removeUnit = new RemoveUnit(sameSlots, RemoveType.Horizontal);
             _removeList.Add(removeUnit);
             
@@ -270,6 +314,22 @@ public class GameBoard : MonoSingleton<GameBoard>
                 }
             }
         }
+    }
+
+    private bool CheckSlotStatus(List<GridSlot> sameSlots)
+    {
+        var unit = _removeList.Find(_ =>
+        {
+            var result = false;
+            foreach (var sameSlot in sameSlots)
+            {
+                result = _.Slots.Contains(sameSlot);
+            }
+
+            return result;
+        });
+
+        return unit != null;
     }
 
     private bool CheckComeDown()
@@ -291,7 +351,7 @@ public class GameBoard : MonoSingleton<GameBoard>
                             bottom = bottom.DownSlot;
                         }
 
-                        bottom.SetGrid(slot.SubGrid);
+                        bottom.SetGrid(slot.SubGrid, true);
                         slot.SubGrid = null;
 
                         result = true;
@@ -318,11 +378,6 @@ public class GameBoard : MonoSingleton<GameBoard>
         }
 
         _undeterminedGrids.Clear();
-    }
-
-    private void Awake()
-    {
-        _bottomGenerateTimer = new Timer(15f, -1, GenerateNewRowAtBottom);
     }
 
     private void GenerateNewRowAtBottom()
@@ -364,6 +419,45 @@ public class GameBoard : MonoSingleton<GameBoard>
             }
         }
     }
+    
+    private void OperationComplete()
+    {
+        CheckGameOver();
+        CheckAddBlockType();
+        EventCenter.Invoke("EnableStartBtn");
+    }
+
+    private void CheckAddBlockType()
+    {
+        if (_score >= 256 && BlockColor.Count < 4)
+        {
+            AddColor();
+        }
+
+        if (_score >= 512 && BlockColor.Count < 5)
+        {
+            AddColor();
+        }
+        
+        if (_score >= 1024 && BlockColor.Count < 6)
+        {
+            AddColor();
+        }
+    }
+
+    private void AddColor()
+    {
+        while (true)
+        {
+            var colorCode = ColorLibrary.ColorCoder[Random.Range(0, ColorLibrary.ColorCoder.Count)];
+            ColorUtility.TryParseHtmlString(colorCode, out var color);
+            if (!BlockColor.Contains(color))
+            {
+                BlockColor.Add(color);
+                break;
+            }
+        }
+    }
 
     private void CheckGameOver()
     {
@@ -378,14 +472,10 @@ public class GameBoard : MonoSingleton<GameBoard>
         }
     }
 
-    private void OperationComplete()
-    {
-        EventCenter.Invoke("EnableStartBtn");
-        CheckGameOver();
-    }
-    
     private void GameOver()
     {
+        if (!GameStatus) return;
+        GameStatus = false;
         _bottomGenerateTimer.Pause();
         UIManager.Instance.PushPop<PopGameResultData>();
         GameManager.User.MaxScore = _score;
