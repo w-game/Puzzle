@@ -1,8 +1,11 @@
+using UnityEngine;
+
 public class AnyBlock : Block
 {
     public bool Used { get; set; }
-    protected override void CalcPattern()
+
+    protected override void SetPattern(Color color)
     {
-        SetPattern("Textures/any");
+        SetIcon("Textures/any");
     }
 }

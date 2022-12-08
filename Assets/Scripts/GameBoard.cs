@@ -14,11 +14,12 @@ public class GameBoard : MonoSingleton<GameBoard>
     [SerializeField] private GridControl control;
 
     public const int BoardWidth = 9;
-    public const int BoardLength = 9;
+    public const int BoardLength = 12;
     public const int BlockSize = 160;
 
     public GridControl Control => control;
 
+    public static readonly List<Color> BlockColorLastLevel = new();
     public static readonly List<Color> BlockColor = new();
 
     private readonly Dictionary<Block, GridSlot> _undeterminedGrids = new();
@@ -114,12 +115,7 @@ public class GameBoard : MonoSingleton<GameBoard>
     private void RefreshBlockColor()
     {
         BlockColor.Clear();
-        while (BlockColor.Count < 3)
-        {
-            var colorCode = ColorLibrary.ColorCoder[Random.Range(0, ColorLibrary.ColorCoder.Count)];
-            ColorUtility.TryParseHtmlString(colorCode, out var color);
-            if (!BlockColor.Contains(color)) BlockColor.Add(color);
-        }
+        AddColor(_ => _ < 3);
     }
 
     public void GenerateNewRow()
@@ -392,7 +388,7 @@ public class GameBoard : MonoSingleton<GameBoard>
 
             if (!slot.SubGrid)
             {
-                slot.GenerateGrid();
+                slot.GenerateGrid(BlockColorLastLevel);
             }
         }
         
@@ -429,34 +425,34 @@ public class GameBoard : MonoSingleton<GameBoard>
 
     private void CheckAddBlockType()
     {
-        if (_score >= 256 && BlockColor.Count < 4)
+        if (_score >= 128 && BlockColor.Count < 4)
         {
-            AddColor();
+            AddColor(_ => _ < 4);
         }
 
         if (_score >= 512 && BlockColor.Count < 5)
         {
-            AddColor();
+            AddColor(_ => _ < 5);
         }
         
         if (_score >= 1024 && BlockColor.Count < 6)
         {
-            AddColor();
+            AddColor(_ => _ < 6);
         }
     }
 
-    private void AddColor()
+    private void AddColor(Predicate<int> match)
     {
-        while (true)
+        BlockColorLastLevel.Clear();
+        BlockColorLastLevel.AddRange(BlockColor);
+        while (match(BlockColor.Count))
         {
             var colorCode = ColorLibrary.ColorCoder[Random.Range(0, ColorLibrary.ColorCoder.Count)];
             ColorUtility.TryParseHtmlString(colorCode, out var color);
-            if (!BlockColor.Contains(color))
-            {
-                BlockColor.Add(color);
-                break;
-            }
+            if (!BlockColor.Contains(color)) BlockColor.Add(color);
         }
+        
+        if (BlockColorLastLevel.Count < 3) BlockColorLastLevel.AddRange(BlockColor);
     }
 
     private void CheckGameOver()

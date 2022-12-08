@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Common;
 using DG.Tweening;
 using UnityEngine;
@@ -14,12 +15,14 @@ public class GridSlot : MonoBehaviour
 
     public bool IsEmpty => SubGrid == null;
 
-    internal Block GenerateGrid()
+    internal Block GenerateGrid(List<Color> blockColors)
     {
         var blockGo = Instantiate(GameBoard.GridPrefab, transform);
         SubGrid = CalcBlockType(blockGo);
-        
-        SubGrid.Init();
+
+        var color = blockColors[Random.Range(0, blockColors.Count)];
+        SubGrid.Init(color);
+
         return SubGrid;
     }
 

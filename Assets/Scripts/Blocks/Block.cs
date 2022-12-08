@@ -21,15 +21,17 @@ public abstract class Block : MonoBehaviour
         }
     }
 
-    public void Init()
+    public void Init(Color color)
     {
         _img = transform.Find("Icon").GetComponent<Image>();
         SpecialFrame = transform.Find("SpecialFrame");
         _specialIcon = transform.Find("SpecialIcon").GetComponent<Image>();
-        CalcPattern();
+        SetPattern(color);
     }
 
-    protected void SetPattern(string path)
+    protected abstract void SetPattern(Color color);
+
+    protected void SetIcon(string path)
     {
         AddressableMgr.Load<Sprite>(path, sprite =>
         {
@@ -45,11 +47,6 @@ public abstract class Block : MonoBehaviour
             _specialIcon.gameObject.SetActive(true);
         });
     }
-
-    /// <summary>
-    /// 计算图案
-    /// </summary>
-    protected abstract void CalcPattern();
 
     public virtual void OnPlaced() { }
     public virtual void OnRemove() { }
