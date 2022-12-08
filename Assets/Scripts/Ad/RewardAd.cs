@@ -90,7 +90,6 @@ namespace Common
             Debug.Log("<Unity Log>..." + "OnRewardVideoCached");
             ToastManager.Instance.ShowToast("OnRewardVideoCached");
             _rewardAd.LoadSuccess = true;
-            _rewardAd.ShowAd();
         }
     }
 
@@ -113,6 +112,7 @@ namespace Common
             string adnName = ABURewardVideoAd.GetAdRitInfoAdnName();
             Debug.Log("<Unity Log>..." + ", ecpm:" + ecpm + ",  " + "ritID:" + ritID + ",  " + "adnName:" + adnName);
 
+            _rewardAd.LoadAd();
         }
 
         public void OnViewRenderFail(int code, string message)
