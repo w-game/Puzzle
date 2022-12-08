@@ -10,6 +10,6 @@ public class GameManager : MonoSingleton<GameManager>
     {
         UIManager.Instance.PushMain<HomeViewData>();
         User.Init();
-        
+        AdManager.Instance.Init();
     }
 }

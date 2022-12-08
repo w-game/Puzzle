@@ -1,3 +1,4 @@
+using Common;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,6 +32,7 @@ public class PopGameResult : ViewBase
     private void Revive()
     {
         GameBoard.Instance.Revive();
+        AdManager.Instance.LoadRewardAd();
         CloseView();
     }
 }
