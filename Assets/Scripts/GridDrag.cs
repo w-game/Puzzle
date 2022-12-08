@@ -1,14 +1,24 @@
+using System.Linq;
 using Common;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class GridDrag : MonoBehaviour, IDragHandler
+public class GridDrag : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
     public GridControl control;
     public GridSlot Slot { get; set; }
+
+    private Vector2 _lastPos;
+    
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        _lastPos = eventData.position;
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
         var gap = eventData.position.x - transform.position.x;
+
         if (gap >= 50)
         {
             MoveBlock(Slot, 1);
@@ -17,14 +27,33 @@ public class GridDrag : MonoBehaviour, IDragHandler
         {
             MoveBlock(Slot, -1);
         }
+
+        _lastPos = eventData.position;
     }
 
     private void MoveBlock(GridSlot slot, int dir)
     {
         var index = control.NextGridSlots.IndexOf(slot) + dir;
-        if (index < 0 || index > control.NextGridSlots.Count - 1) return;
+        GridSlot nextSlot = null;
+        if (index >= 0 && index <= control.NextGridSlots.Count - 1)
+        {
+            nextSlot = control.NextGridSlots[index];
+        }
+
+
+        if (slot != Slot && !nextSlot)
+        {
+            if (dir == 1)
+            {
+                nextSlot = control.NextGridSlots.First();
+            }
+            else if (dir == -1)
+            {
+                nextSlot = control.NextGridSlots.Last();
+            }
+        }
         
-        var nextSlot = control.NextGridSlots[index];
+        
         if (nextSlot)
         {
             if (nextSlot.SubGrid)

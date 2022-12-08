@@ -15,7 +15,7 @@ public class GameBoard : MonoSingleton<GameBoard>
 
     public const int BoardWidth = 9;
     public const int BoardLength = 12;
-    public const int BlockSize = 160;
+    public const int BlockSize = 80;
 
     public GridControl Control => control;
 
@@ -39,12 +39,15 @@ public class GameBoard : MonoSingleton<GameBoard>
     
     private Timer _bottomGenerateTimer;
     private bool GameStatus { get; set; }
+
+    private static RectTransform _rect;
+    public static Vector2 BoardSize => _rect.sizeDelta;
     
     private void Awake()
     {
         _bottomGenerateTimer = new Timer(TrendTime, -1, GenerateNewRowAtBottom);
-        var rectTransform = GetComponent<RectTransform>();
-        rectTransform.sizeDelta = new Vector2(
+        _rect = GetComponent<RectTransform>();
+        _rect.sizeDelta = new Vector2(
             BlockSize * BoardWidth + (BoardWidth - 1) * 10,
             BlockSize * BoardLength + (BoardLength - 1) * 10);
     }
@@ -110,6 +113,16 @@ public class GameBoard : MonoSingleton<GameBoard>
         var sequence = DOTween.Sequence();
         sequence.AppendInterval(MoveTime);
         sequence.AppendCallback(() => CheckComeDown());
+    }
+
+    private GridSlot GetSlotByPos(Vector2Int pos)
+    {
+        if (pos.x is < 0 or > BoardWidth - 1 ||
+            pos.y is < 0 or > BoardLength - 1)
+        {
+            return null;
+        }
+        return GridSlots[pos.y * BoardWidth + pos.x];
     }
 
     private void RefreshBlockColor()
@@ -280,6 +293,18 @@ public class GameBoard : MonoSingleton<GameBoard>
                 }
             }
 
+            if (!slot.LeftSlot)
+            {
+                slot = GetSlotByPos(new Vector2Int(BoardWidth - 1, slot.Pos.y));
+                if (slot.SubGrid != null)
+                {
+                    if (slot.SubGrid.Pattern == _curCheckColor || slot.SubGrid is AnyBlock { Used: false })
+                    {
+                        sameSlots.Add(slot);
+                    }
+                }
+            }
+
             slot = originSlot;
             while (slot.RightSlot && slot.RightSlot.SubGrid)
             {
@@ -292,6 +317,18 @@ public class GameBoard : MonoSingleton<GameBoard>
                 else
                 {
                     break;
+                }
+            }
+            
+            if (!slot.RightSlot)
+            {
+                slot = GetSlotByPos(new Vector2Int(0, slot.Pos.y));
+                if (slot.SubGrid != null)
+                {
+                    if (slot.SubGrid.Pattern == _curCheckColor || slot.SubGrid is AnyBlock { Used: false })
+                    {
+                        sameSlots.Add(slot);
+                    }
                 }
             }
         }
