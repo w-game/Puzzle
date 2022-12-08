@@ -17,7 +17,7 @@ public class GridControl : MonoBehaviour
             var index = _remaining[Random.Range(0, _remaining.Count)];
             _remaining.Remove(index);
             var slot = nextGridSlots[index];
-            var grid = slot.GenerateGrid();
+            var grid = slot.GenerateGrid(GameBoard.BlockColor);
             var drag = grid.gameObject.AddComponent<GridDrag>();
             drag.control = this;
             drag.Slot = slot;
