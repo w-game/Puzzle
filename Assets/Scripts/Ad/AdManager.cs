@@ -1,17 +1,21 @@
-using System.Collections.Generic;
 using ByteDance.Union;
-using Newtonsoft.Json;
-using UnityEngine;
 
 namespace Common
 {
     public class AdManager : Singleton<AdManager>
     {
-        protected override void Init()
+        private RewardAd _rewardAd;
+        
+        public override void Init()
         {
             ABUUserConfig userConfig = new();
             userConfig.logEnable = true;
-            ABUAdSDK.setupMSDK("", "msdk demo", userConfig);
+            ABUAdSDK.setupMSDK("5354735", "msdk demo", userConfig);
+        }
+
+        public void LoadRewardAd()
+        {
+            _rewardAd.LoadAd();
         }
     }
 }

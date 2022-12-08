@@ -17,6 +17,6 @@ namespace Common
             }
         }
 
-        protected virtual void Init() { }
+        public virtual void Init() { }
     }
 }
