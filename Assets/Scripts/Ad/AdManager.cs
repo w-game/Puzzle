@@ -4,18 +4,20 @@ namespace Common
 {
     public class AdManager : Singleton<AdManager>
     {
-        private RewardAd _rewardAd;
+        public RewardAd RewardAd { get; } = new();
         
         public override void Init()
         {
             ABUUserConfig userConfig = new();
             userConfig.logEnable = true;
             ABUAdSDK.setupMSDK("5354735", "msdk demo", userConfig);
+            
+            PreloadAd();
         }
 
-        public void LoadRewardAd()
+        private void PreloadAd()
         {
-            _rewardAd.LoadAd();
+            RewardAd.LoadAd();
         }
     }
 }

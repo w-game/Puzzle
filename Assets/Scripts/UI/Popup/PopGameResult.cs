@@ -32,7 +32,7 @@ public class PopGameResult : ViewBase
     private void Revive()
     {
         GameBoard.Instance.Revive();
-        AdManager.Instance.LoadRewardAd();
+        AdManager.Instance.RewardAd.ShowAd();
         CloseView();
     }
 }
