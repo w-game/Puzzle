@@ -1020,6 +1020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startGameBtn: {fileID: 3203315616591525835}
   maxScore: {fileID: 4411623691610836614}
+  allRemove: {fileID: 751152866}
 --- !u!1 &6901063799989530188
 GameObject:
   m_ObjectHideFlags: 0
