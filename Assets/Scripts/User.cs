@@ -21,25 +21,27 @@ public class User
         }
     }
 
-    private int _allRemoveCount;
     public int AllRemoveCount
     {
-        get => _allRemoveCount;
-        set
+        get
         {
-            if (value > _allRemoveCount)
+            PlayerPrefs.GetInt("AllRemoveCount", 0);
+            var level = 2;
+            var count = 0;
+            while (true)
             {
-                _allRemoveCount = value;
-                PlayerPrefs.SetInt("AllRemoveCount", value);
-                EventCenter.Invoke("RefreshView");
+                if (!PlayerPrefs.HasKey($"AllRemoveCount_{level}")) break;
+                count += PlayerPrefs.GetInt($"AllRemoveCount_{level}", 0);
+                level++;
             }
+
+            return count;
         }
     }
 
     public void Init()
     {
         _maxScore = PlayerPrefs.GetInt("MaxScore", 0);
-        _allRemoveCount = PlayerPrefs.GetInt("AllRemoveCount", 0);
         Tools.Add(GameToolName.RefreshBlock, new RefreshBlock() { Number = 1 });
         Tools.Add(GameToolName.ChangeBlockLocation, new ChangeBlockLocation());
     }
@@ -49,5 +51,12 @@ public class User
         var tool = (GameToolName) Random.Range(0, Tools.Count);
         Tools[tool].Number++;
         SLog.D("User", $"获得一个游戏道具 [{tool}]");
+    }
+
+    public void UpdateAllRemoveCount(int blockColorCount)
+    {
+        var count = PlayerPrefs.GetInt($"AllRemoveCount_{blockColorCount}", 0) + 1;
+        PlayerPrefs.SetInt($"AllRemoveCount_{blockColorCount}", count);
+        EventCenter.Invoke("RefreshView");
     }
 }

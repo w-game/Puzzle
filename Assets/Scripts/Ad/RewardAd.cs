@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using ByteDance.Union;
 using Newtonsoft.Json;
@@ -34,7 +35,7 @@ namespace Common
             ABURewardVideoAd.LoadRewardVideoAd(adSlot, new RewardVideoAdListener(this));
         }
 
-        public void ShowAd()
+        public void ShowAd(Action<bool> callback)
         {
             // 为保障播放流畅，建议在视频加载完成后展示
             if (!LoadSuccess || !ABURewardVideoAd.isReady())
@@ -56,7 +57,7 @@ namespace Common
             // 同时请务必设置
             ritSceneMap_custom.Add(ABUConstantHelper.ABUShowExtroInfoKeySceneDescription, "custom info");
             // 普通展示方式
-            ABURewardVideoAd.ShowRewardVideoAd(new RewardAdInteractionListener(this));
+            ABURewardVideoAd.ShowRewardVideoAd(new RewardAdInteractionListener(this) { Callback = callback });
             // 带scene的展示方式
             //ABURewardVideoAd.ShowRewardVideoAdWithRitScene(new RewardAdInteractionListener(this), ritSceneMap);
             LoadSuccess = false;
@@ -96,6 +97,7 @@ namespace Common
     public sealed class RewardAdInteractionListener : ABURewardAdInteractionCallback
     {
         private RewardAd _rewardAd;
+        public Action<bool> Callback { get; set; }
 
         public RewardAdInteractionListener(RewardAd rewardAd)
         {
@@ -113,6 +115,7 @@ namespace Common
             Debug.Log("<Unity Log>..." + ", ecpm:" + ecpm + ",  " + "ritID:" + ritID + ",  " + "adnName:" + adnName);
 
             _rewardAd.LoadAd();
+            Callback?.Invoke(true);
         }
 
         public void OnViewRenderFail(int code, string message)
@@ -120,6 +123,7 @@ namespace Common
             var s = "code : " + code + "--message = " + message;
             Log.D("<Unity Log>..." + s);
             ToastManager.Instance.ShowToast(s);
+            Callback?.Invoke(false);
         }
 
         public void OnAdVideoBarClick()
