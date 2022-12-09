@@ -1,4 +1,5 @@
 using Common;
+using DG.Tweening;
 using TMPro;
 using UI;
 using UnityEngine;
@@ -20,8 +21,14 @@ public class GameView : ViewBase
     [SerializeField] private Button startBtn;
     [SerializeField] private Button homeBtn;
     [SerializeField] private TextMeshProUGUI scoreTxt;
+    [SerializeField] private TextMeshProUGUI comboTxt;
+    [SerializeField] private TextMeshProUGUI nextBlockScore;
 
     private bool _switch = true;
+
+    private const float ComboTime = 10f;
+    private float _curComboTime;
+    private int _comboCount;
     public override void OnCreate(params object[] objects)
     {
         gameBoard.Init(() => loadingMask.SetActive(false));
@@ -29,8 +36,10 @@ public class GameView : ViewBase
         startBtn.onClick.AddListener(StartGame);
         homeBtn.onClick.AddListener(OnHomeBtnClicked);
 
-        EventCenter.Add("RefreshScore", () => scoreTxt.text = $"{gameBoard.Score}");
         EventCenter.Add("EnableStartBtn", () => _switch = true);
+        EventCenter.Add("CheckCombo", CheckCombo);
+        EventCenter.Add("RefreshGameView", Refresh);
+        Refresh();
     }
 
     private void StartGame()
@@ -47,6 +56,33 @@ public class GameView : ViewBase
         gameBoard.Stop();
         CloseView();
         SLog.D("GameView", "OnHomeBtnClicked");
+    }
+
+    private void Refresh()
+    {
+        scoreTxt.text = $"{gameBoard.Score}";
+        nextBlockScore.text = $"还差<color=#C24347>{gameBoard.NextBlockScore - gameBoard.Score}</color>分";
+    }
+
+    private void CheckCombo()
+    {
+        _comboCount++;
+        _curComboTime = ComboTime;
+        comboTxt.text = $"Combo x{_comboCount}";
+        comboTxt.gameObject.SetActive(true);
+        var sequence = DOTween.Sequence();
+        sequence.Append(comboTxt.transform.DOScale(1.2f, 0.2f));
+        sequence.Append(comboTxt.transform.DOScale(1f, 0.2f));
+    }
+
+    private void Update()
+    {
+        _curComboTime -= Time.deltaTime;
+        if (_curComboTime <= 0)
+        {
+            _comboCount = 0;
+            comboTxt.gameObject.SetActive(false);
+        }
     }
 
     private Vector3 _originPos;

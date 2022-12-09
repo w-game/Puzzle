@@ -19,29 +19,21 @@ public class GameBoard : MonoSingleton<GameBoard>
 
     public GridControl Control => control;
 
-    public static readonly List<Color> BlockColorLastLevel = new();
     public static readonly List<Color> BlockColor = new();
 
     private readonly Dictionary<Block, GridSlot> _undeterminedGrids = new();
 
     public List<GridSlot> GridSlots { get; } = new();
-
-    private int _score;
-    public int Score
-    {
-        get => _score;
-        private set
-        {
-            _score = value;
-            EventCenter.Invoke("RefreshScore");
-        }
-    }
+    
+    public int Score { get; set; }
     
     private Timer _bottomGenerateTimer;
     private bool GameStatus { get; set; }
 
     private static RectTransform _rect;
     public static Vector2 BoardSize => _rect.sizeDelta;
+
+    public float NextBlockScore => Mathf.Pow(4, BlockColor.Count + 1);
     
     private void Awake()
     {
@@ -88,6 +80,7 @@ public class GameBoard : MonoSingleton<GameBoard>
             slot.RemoveGrid();
         }
         EventCenter.Invoke("EnableStartBtn");
+        EventCenter.Invoke("RefreshGameView");
         control.Refresh();
         _bottomGenerateTimer?.Play();
         
@@ -128,7 +121,7 @@ public class GameBoard : MonoSingleton<GameBoard>
     private void RefreshBlockColor()
     {
         BlockColor.Clear();
-        AddColor(_ => _ < 2);
+        AddColor(_ => _ < 3);
     }
 
     public void GenerateNewRow()
@@ -191,13 +184,19 @@ public class GameBoard : MonoSingleton<GameBoard>
         }
 
         var rate = 1;
-        if (_removeList.Count != 0) SoundManager.Instance.PlayRemoveSound();
         foreach (var removeUnit in _removeList)
         {
+            EventCenter.Invoke("CheckCombo");
             Score += removeUnit.Execute(rate);
             rate++;
         }
-
+        
+        if (_removeList.Count != 0)
+        {
+            SoundManager.Instance.PlayRemoveSound();
+            EventCenter.Invoke("RefreshGameView");
+        }
+        
         _removeList.Clear();
         
         var sequence = DOTween.Sequence();
@@ -408,7 +407,7 @@ public class GameBoard : MonoSingleton<GameBoard>
 
             if (!slot.SubGrid)
             {
-                slot.GenerateGrid(BlockColorLastLevel);
+                slot.GenerateGrid(BlockColor);
             }
         }
         
@@ -438,6 +437,21 @@ public class GameBoard : MonoSingleton<GameBoard>
     
     private void OperationComplete()
     {
+        var isAllRemove = true;
+        foreach (var slot in GridSlots)
+        {
+            if (slot.SubGrid)
+            {
+                isAllRemove = false;
+                break;
+            }
+        }
+
+        if (isAllRemove)
+        {
+            GameManager.User.UpdateAllRemoveCount(BlockColor.Count);
+        }
+        
         CheckGameOver();
         CheckAddBlockType();
         EventCenter.Invoke("EnableStartBtn");
@@ -445,7 +459,7 @@ public class GameBoard : MonoSingleton<GameBoard>
 
     private void CheckAddBlockType()
     {
-        if (_score >= Mathf.Pow(4, BlockColor.Count + 1))
+        if (Score >= NextBlockScore)
         {
             var count = BlockColor.Count + 1;
             AddColor(_ => _ < count);
@@ -454,16 +468,12 @@ public class GameBoard : MonoSingleton<GameBoard>
 
     private void AddColor(Predicate<int> match)
     {
-        BlockColorLastLevel.Clear();
-        BlockColorLastLevel.AddRange(BlockColor);
         while (match(BlockColor.Count))
         {
             var colorCode = ColorLibrary.ColorCoder[Random.Range(0, ColorLibrary.ColorCoder.Count)];
             ColorUtility.TryParseHtmlString(colorCode, out var color);
             if (!BlockColor.Contains(color)) BlockColor.Add(color);
         }
-        
-        if (BlockColorLastLevel.Count < 2) BlockColorLastLevel.AddRange(BlockColor);
     }
 
     private void CheckGameOver()
@@ -485,7 +495,7 @@ public class GameBoard : MonoSingleton<GameBoard>
         GameStatus = false;
         _bottomGenerateTimer.Pause();
         UIManager.Instance.PushPop<PopGameResultData>();
-        GameManager.User.MaxScore = _score;
+        GameManager.User.MaxScore = Score;
     }
     
     public void Stop()

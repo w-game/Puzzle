@@ -33,6 +33,6 @@ public class HomeView : ViewBase
     private void RefreshView()
     {
         maxScore.text = GameManager.User.MaxScore.ToString();
-        allRemove.text = GameManager.User.AllRemoveCount.ToString();
+        allRemove.text = $"共完成过{GameManager.User.AllRemoveCount}次全部消除";
     }
 }

@@ -1,5 +1,6 @@
 using Common;
 using GameSystem;
+using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -11,5 +12,7 @@ public class GameManager : MonoSingleton<GameManager>
         UIManager.Instance.PushMain<HomeViewData>();
         User.Init();
         AdManager.Instance.Init();
+
+        Application.targetFrameRate = 60;
     }
 }
