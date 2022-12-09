@@ -128,7 +128,7 @@ public class GameBoard : MonoSingleton<GameBoard>
     private void RefreshBlockColor()
     {
         BlockColor.Clear();
-        AddColor(_ => _ < 3);
+        AddColor(_ => _ < 2);
     }
 
     public void GenerateNewRow()
@@ -267,6 +267,13 @@ public class GameBoard : MonoSingleton<GameBoard>
             }
         }
     }
+    
+    private GridSlot GetRowNextSlot(Vector2Int pos)
+    {
+        if (pos.x < 0) pos.x = BoardWidth - 1;
+        if (pos.x > BoardWidth - 1) pos.x = 0;
+        return GridSlots[pos.y * BoardWidth + pos.x];
+    }
 
     private void CheckSameRow(GridSlot slot)
     {
@@ -279,56 +286,32 @@ public class GameBoard : MonoSingleton<GameBoard>
             _curCheckColor = slot.SubGrid.Pattern;
 
             var originSlot = slot;
-            while (slot.LeftSlot && slot.LeftSlot.SubGrid)
+            while (GetRowNextSlot(slot.Pos + Vector2Int.left).SubGrid)
             {
-                if (slot.LeftSlot.SubGrid.Pattern == _curCheckColor ||
-                    slot.LeftSlot.SubGrid is AnyBlock { Used: false })
+                if (GetRowNextSlot(slot.Pos + Vector2Int.left).SubGrid.Pattern == _curCheckColor ||
+                    GetRowNextSlot(slot.Pos + Vector2Int.left).SubGrid is AnyBlock { Used: false })
                 {
-                    slot = slot.LeftSlot;
+                    slot = GetRowNextSlot(slot.Pos + Vector2Int.left);
                     sameSlots.Add(slot);
                 }
                 else
                 {
                     break;
-                }
-            }
-
-            if (!slot.LeftSlot)
-            {
-                slot = GetSlotByPos(new Vector2Int(BoardWidth - 1, slot.Pos.y));
-                if (slot.SubGrid != null)
-                {
-                    if (slot.SubGrid.Pattern == _curCheckColor || slot.SubGrid is AnyBlock { Used: false })
-                    {
-                        sameSlots.Add(slot);
-                    }
                 }
             }
 
             slot = originSlot;
-            while (slot.RightSlot && slot.RightSlot.SubGrid)
+            while (GetRowNextSlot(slot.Pos + Vector2Int.right).SubGrid)
             {
-                if (slot.RightSlot.SubGrid.Pattern == _curCheckColor ||
-                    slot.RightSlot.SubGrid is AnyBlock { Used: false })
+                if (GetRowNextSlot(slot.Pos + Vector2Int.right).SubGrid.Pattern == _curCheckColor ||
+                    GetRowNextSlot(slot.Pos + Vector2Int.right).SubGrid is AnyBlock { Used: false })
                 {
-                    slot = slot.RightSlot;
+                    slot = GetRowNextSlot(slot.Pos + Vector2Int.right);
                     sameSlots.Add(slot);
                 }
                 else
                 {
                     break;
-                }
-            }
-            
-            if (!slot.RightSlot)
-            {
-                slot = GetSlotByPos(new Vector2Int(0, slot.Pos.y));
-                if (slot.SubGrid != null)
-                {
-                    if (slot.SubGrid.Pattern == _curCheckColor || slot.SubGrid is AnyBlock { Used: false })
-                    {
-                        sameSlots.Add(slot);
-                    }
                 }
             }
         }
@@ -462,19 +445,10 @@ public class GameBoard : MonoSingleton<GameBoard>
 
     private void CheckAddBlockType()
     {
-        if (_score >= 128 && BlockColor.Count < 4)
+        if (_score >= Mathf.Pow(4, BlockColor.Count + 1))
         {
-            AddColor(_ => _ < 4);
-        }
-
-        if (_score >= 512 && BlockColor.Count < 5)
-        {
-            AddColor(_ => _ < 5);
-        }
-        
-        if (_score >= 1024 && BlockColor.Count < 6)
-        {
-            AddColor(_ => _ < 6);
+            var count = BlockColor.Count + 1;
+            AddColor(_ => _ < count);
         }
     }
 
@@ -489,7 +463,7 @@ public class GameBoard : MonoSingleton<GameBoard>
             if (!BlockColor.Contains(color)) BlockColor.Add(color);
         }
         
-        if (BlockColorLastLevel.Count < 3) BlockColorLastLevel.AddRange(BlockColor);
+        if (BlockColorLastLevel.Count < 2) BlockColorLastLevel.AddRange(BlockColor);
     }
 
     private void CheckGameOver()

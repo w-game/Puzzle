@@ -16,12 +16,13 @@ public class HomeView : ViewBase
 {
     [SerializeField] private Button startGameBtn;
     [SerializeField] private TextMeshProUGUI maxScore;
+    [SerializeField] private TextMeshProUGUI allRemove;
     public override void OnCreate(params object[] objects)
     {
         startGameBtn.onClick.AddListener(StartGame);
         
-        ShowMaxScore();
-        EventCenter.Add("HomeViewMaxScore", ShowMaxScore);
+        RefreshView();
+        EventCenter.Add("RefreshView", RefreshView);
     }
 
     private void StartGame()
@@ -29,8 +30,9 @@ public class HomeView : ViewBase
         UIManager.Instance.PushMain<GameViewData>();
     }
 
-    private void ShowMaxScore()
+    private void RefreshView()
     {
         maxScore.text = GameManager.User.MaxScore.ToString();
+        allRemove.text = GameManager.User.AllRemoveCount.ToString();
     }
 }

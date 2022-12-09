@@ -16,7 +16,22 @@ public class User
             {
                 _maxScore = value;
                 PlayerPrefs.SetInt("MaxScore", value);
-                EventCenter.Invoke("HomeViewMaxScore");
+                EventCenter.Invoke("RefreshView");
+            }
+        }
+    }
+
+    private int _allRemoveCount;
+    public int AllRemoveCount
+    {
+        get => _allRemoveCount;
+        set
+        {
+            if (value > _allRemoveCount)
+            {
+                _allRemoveCount = value;
+                PlayerPrefs.SetInt("AllRemoveCount", value);
+                EventCenter.Invoke("RefreshView");
             }
         }
     }
@@ -24,6 +39,7 @@ public class User
     public void Init()
     {
         _maxScore = PlayerPrefs.GetInt("MaxScore", 0);
+        _allRemoveCount = PlayerPrefs.GetInt("AllRemoveCount", 0);
         Tools.Add(GameToolName.RefreshBlock, new RefreshBlock() { Number = 1 });
         Tools.Add(GameToolName.ChangeBlockLocation, new ChangeBlockLocation());
     }
@@ -34,6 +50,4 @@ public class User
         Tools[tool].Number++;
         SLog.D("User", $"获得一个游戏道具 [{tool}]");
     }
-    
-    
 }
