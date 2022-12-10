@@ -27,6 +27,7 @@ public class HomeView : ViewBase
         
         RefreshView();
         AddEvent("RefreshView", RefreshView);
+        UIManager.Instance.CloseSplash();
     }
 
     private void StartGame()
@@ -41,7 +42,7 @@ public class HomeView : ViewBase
 
     private void OnSettingBtnClick()
     {
-        
+        UIManager.Instance.PushPop<PopSettingData>();
     }
 
     private void RefreshView()

@@ -56,7 +56,7 @@ public class GridSlot : MonoBehaviour
         {
             var block = SubGrid;
             SubGrid = null;
-            var anima = block.transform.DOScale(0, GameBoard.MoveTime);
+            var anima = block.transform.DOScale(0, GameBoard.MoveTime).SetEase(Ease.InQuad);
             anima.onComplete += () =>
             {
                 Destroy(block.gameObject);
