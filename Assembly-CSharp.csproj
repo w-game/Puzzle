@@ -46,6 +46,7 @@
      <Compile Include="Assets/MSDK/Scripts/Dummy/ABURewardVideoAd.cs" />
      <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/NativeAdExample.cs" />
      <Compile Include="Assets/MSDK/Scripts/iOS/dto/ABUAdUnit.cs" />
+     <Compile Include="Assets/Scripts/UI/Popup/PopNewPlayerGuide.cs" />
      <Compile Include="Assets/Sample/Scripts/Utils/PlatformUtil.cs" />
      <Compile Include="Assets/Sample/Scripts/Main/Helper/ItemClickDelegate.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdInteractionType.cs" />
@@ -91,6 +92,7 @@
      <Compile Include="Assets/Scripts/Process/ProcessSystem.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/enum/ABURitSceneType.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/ABUBannerAd.cs" />
+     <Compile Include="Assets/Scripts/UI/Common/PopupBase.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/callback/ABUFullScreenVideoAdCallback.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/callback/ABUDrawAdInteractionCallback.cs" />
      <Compile Include="Assets/Scripts/Blocks/GiftBlock.cs" />
@@ -110,11 +112,13 @@
      <Compile Include="Assets/Sample/Scripts/Main/Helper/ToastManager.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialAdCallback.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/ABUInterstitialFullAd.cs" />
+     <Compile Include="Assets/Scripts/UI/Popup/PopSetting.cs" />
      <Compile Include="Assets/MSDK/Scripts/Dummy/ABUSDKInitConfig.cs" />
      <Compile Include="Assets/MSDK/Scripts/iOS/ABUInterstitialAd.cs" />
      <Compile Include="Assets/Scripts/UI/Element/GameToolElement.cs" />
      <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/DrawAdExample.cs" />
      <Compile Include="Assets/Sample/Scripts/Main/Ui/ThirdLevelItemScript.cs" />
+     <Compile Include="Assets/Scripts/Common/Util.cs" />
      <Compile Include="Assets/Sample/Scripts/Main/ABUMSDKHelper.cs" />
      <Compile Include="Assets/MSDK/Scripts/iOS/ABUAdDislike.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/callback/ABUSplashAdListener.cs" />
@@ -213,8 +217,7 @@
      <Compile Include="Assets/Sample/Scripts/Main/Ui/DetailUiViewScript.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/NativeAd.cs" />
      <Compile Include="Assets/Scripts/Ad/RewardAd.cs" />
-     <Compile Include="Assets/Scripts/UI/Common/PopupBase.cs" />
-     <Compile Include="Assets/Scripts/UI/Popup/PopNewPlayerGuide.cs" />
+     <Compile Include="Assets/Scripts/UI/Common/ViewStack/TopStack.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Glyph Report.txt" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
@@ -223,6 +226,7 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets/Import/ArcadeGameBGM#17/ReadMe.txt" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
@@ -231,6 +235,7 @@
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
+     <None Include="Assets/Import/MgLEGO Moody Tunes/Moody Tunes ReadMe.txt" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
