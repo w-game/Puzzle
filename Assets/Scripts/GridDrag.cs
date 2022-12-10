@@ -19,11 +19,11 @@ public class GridDrag : MonoBehaviour, IBeginDragHandler, IDragHandler
     {
         var gap = eventData.position.x - transform.position.x;
 
-        if (gap >= 60)
+        if (gap >= 80)
         {
             MoveBlock(Slot, 1);
         }
-        else if (gap <= -60)
+        else if (gap <= -80)
         {
             MoveBlock(Slot, -1);
         }
