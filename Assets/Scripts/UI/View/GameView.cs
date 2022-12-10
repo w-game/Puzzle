@@ -31,14 +31,25 @@ public class GameView : ViewBase
     private int _comboCount;
     public override void OnCreate(params object[] objects)
     {
-        gameBoard.Init(() => loadingMask.SetActive(false));
+        gameBoard.Init(() =>
+        {
+            loadingMask.SetActive(false);
+            if (GameManager.User.IsNewPlayer)
+            {
+                UIManager.Instance.PushPop<PopNewPlayerGuideData>(gameBoard);
+            }
+            else
+            {
+                gameBoard.RefreshBoard();
+            }
+        });
 
         startBtn.onClick.AddListener(StartGame);
         homeBtn.onClick.AddListener(OnHomeBtnClicked);
 
-        EventCenter.Add("EnableStartBtn", () => _switch = true);
-        EventCenter.Add("CheckCombo", CheckCombo);
-        EventCenter.Add("RefreshGameView", Refresh);
+        AddEvent("EnableStartBtn", () => _switch = true);
+        AddEvent("CheckCombo", CheckCombo);
+        AddEvent("RefreshGameView", Refresh);
         Refresh();
     }
 

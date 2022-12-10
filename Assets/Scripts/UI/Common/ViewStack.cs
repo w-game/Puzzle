@@ -6,7 +6,7 @@ namespace UI
 {
     public class ViewStack : MonoBehaviour
     {
-        private List<BaseView> _views = new List<BaseView>();
+        private readonly List<BaseView> _views = new();
         public void Push<T>(params object[] objects) where T : ViewData, new()
         {
             var viewData = new T();

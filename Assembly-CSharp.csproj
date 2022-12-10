@@ -213,6 +213,8 @@
      <Compile Include="Assets/Sample/Scripts/Main/Ui/DetailUiViewScript.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/NativeAd.cs" />
      <Compile Include="Assets/Scripts/Ad/RewardAd.cs" />
+     <Compile Include="Assets/Scripts/UI/Common/PopupBase.cs" />
+     <Compile Include="Assets/Scripts/UI/Popup/PopNewPlayerGuide.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Glyph Report.txt" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />

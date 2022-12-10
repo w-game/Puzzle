@@ -1205,6 +1205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2017aa950a59748b59085714037b8d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panel: {fileID: 1581790855216294740}
   restart: {fileID: 5322647922100310899}
   revive: {fileID: 1876204842}
 --- !u!1 &6631539967573531520

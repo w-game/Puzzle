@@ -39,6 +39,15 @@ public class User
         }
     }
 
+    public bool IsNewPlayer
+    {
+        get
+        {
+            var status = PlayerPrefs.GetInt($"NewPlayer", 0);
+            return status == 0;
+        }
+    }
+
     public void Init()
     {
         _maxScore = PlayerPrefs.GetInt("MaxScore", 0);
@@ -58,5 +67,10 @@ public class User
         var count = PlayerPrefs.GetInt($"AllRemoveCount_{blockColorCount}", 0) + 1;
         PlayerPrefs.SetInt($"AllRemoveCount_{blockColorCount}", count);
         EventCenter.Invoke("RefreshView");
+    }
+
+    public void SetOldPlayer()
+    {
+        PlayerPrefs.SetInt("NewPlayer", 1);
     }
 }
