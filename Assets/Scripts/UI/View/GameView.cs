@@ -48,6 +48,9 @@ public class GameView : ViewBase
         {
             gameBoard.GenerateNewRow();
             _switch = false;
+            var sequence = DOTween.Sequence();
+            sequence.Append(startBtn.transform.DOLocalMove(Vector3.up * 30, 0.2f).SetEase(Ease.OutQuad));
+            sequence.Append(startBtn.transform.DOLocalMove(Vector3.zero, 0.2f).SetEase(Ease.InQuad));
         }
     }
 

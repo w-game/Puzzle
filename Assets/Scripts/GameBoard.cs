@@ -61,11 +61,11 @@ public class GameBoard : MonoSingleton<GameBoard>
                     GridSlots.Add(slot);
                 }
             }
-            Control.Init();
 
             AddressableMgr.Load<GameObject>("Prefabs/Grid", gridPrefab =>
             {
                 GridPrefab = gridPrefab;
+                Control.Init();
                 RefreshBoard();
                 callback?.Invoke();
             });
@@ -441,8 +441,10 @@ public class GameBoard : MonoSingleton<GameBoard>
     private void OperationComplete()
     {
         var isAllRemove = true;
-        foreach (var slot in GridSlots)
+
+        for (int i = 0; i < BoardWidth; i++)
         {
+            var slot = GridSlots[(BoardLength - 1) * BoardWidth + i];
             if (slot.SubGrid)
             {
                 isAllRemove = false;

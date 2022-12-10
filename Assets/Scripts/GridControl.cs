@@ -5,8 +5,10 @@ using UnityEngine.UI;
 public class GridControl : MonoBehaviour
 {
     [SerializeField] private Transform mainCtrlContent;
+    [SerializeField] private Transform secondaryCtrlContent;
     
     public List<GridSlot> NextGridSlots { get; } = new();
+    private List<GridSlot> NextNextGridSlots { get; } = new();
 
     private static List<int> _indexs = new() { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
     private List<int> _remaining = new();
@@ -16,13 +18,41 @@ public class GridControl : MonoBehaviour
         for (int i = 0; i < GameBoard.BoardWidth; i++)
         {
             var slot = Instantiate(GameBoard.SlotPrefab, mainCtrlContent).GetComponent<GridSlot>();
-            ColorUtility.TryParseHtmlString("#1E588D", out var color);
+            ColorUtility.TryParseHtmlString("#0B2837", out var color);
             slot.GetComponent<Image>().color = color;
             NextGridSlots.Add(slot);
         }
+
+        for (int i = 0; i < GameBoard.BoardWidth; i++)
+        {
+            var slot = Instantiate(GameBoard.SlotPrefab, secondaryCtrlContent).GetComponent<GridSlot>();
+            slot.GetComponent<RectTransform>().sizeDelta *= 0.3f;
+            NextNextGridSlots.Add(slot);
+        }
+    }
+
+    public void NextRow()
+    {
+        for (int i = 0; i < GameBoard.BoardWidth; i++)
+        {
+            var slot = NextNextGridSlots[i];
+            var target = NextGridSlots[i];
+            if (slot.SubGrid)
+            {
+                target.SetGrid(slot.SubGrid);
+                slot.SubGrid = null;
+                
+                target.SubGrid.transform.localScale = Vector3.one;
+                var drag = target.SubGrid.gameObject.AddComponent<GridDrag>();
+                drag.control = this;
+                drag.Slot = target;
+            }
+        }
+
+        GeneratePreview();
     }
     
-    internal void NextRow()
+    public void GeneratePreview()
     {
         _remaining.AddRange(_indexs);
         var num = Random.Range(1, 6);
@@ -30,11 +60,9 @@ public class GridControl : MonoBehaviour
         {
             var index = _remaining[Random.Range(0, _remaining.Count)];
             _remaining.Remove(index);
-            var slot = NextGridSlots[index];
+            var slot = NextNextGridSlots[index];
             var grid = slot.GenerateGrid(GameBoard.BlockColor);
-            var drag = grid.gameObject.AddComponent<GridDrag>();
-            drag.control = this;
-            drag.Slot = slot;
+            grid.transform.localScale *= 0.3f;
         }
 
         _remaining.Clear();
@@ -54,6 +82,16 @@ public class GridControl : MonoBehaviour
                 slot.RemoveGrid();
             }
         }
+
+        foreach (var slot in NextNextGridSlots)
+        {
+            if (slot.SubGrid)
+            {
+                slot.RemoveGrid();
+            }
+        }
+        
+        GeneratePreview();
         
         NextRow();
     }
