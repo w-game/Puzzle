@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public static class EventCenter
@@ -16,11 +17,20 @@ public static class EventCenter
         _events[key].Add(callback);
     }
 
+    public static void AddFromNonUI(string key, Action callback)
+    {
+        Add(key, callback);
+    }
+
     public static void Remove(string key, Action callback)
     {
         if (!_events.ContainsKey(key)) return;
 
-        _events[key].Remove(callback);
+        var keyEvents = _events[key];
+        if (keyEvents.Contains(callback))
+        {
+            keyEvents.Remove(callback);
+        }
     }
 
     public static void Invoke(string key)

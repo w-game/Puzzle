@@ -15,19 +15,33 @@ public class HomeViewData : ViewData
 public class HomeView : ViewBase
 {
     [SerializeField] private Button startGameBtn;
+    [SerializeField] private Button guideBtn;
+    [SerializeField] private Button settingBtn;
     [SerializeField] private TextMeshProUGUI maxScore;
     [SerializeField] private TextMeshProUGUI allRemove;
     public override void OnCreate(params object[] objects)
     {
         startGameBtn.onClick.AddListener(StartGame);
+        guideBtn.onClick.AddListener(OnGuideBtnClick);
+        settingBtn.onClick.AddListener(OnSettingBtnClick);
         
         RefreshView();
-        EventCenter.Add("RefreshView", RefreshView);
+        AddEvent("RefreshView", RefreshView);
     }
 
     private void StartGame()
     {
         UIManager.Instance.PushMain<GameViewData>();
+    }
+
+    private void OnGuideBtnClick()
+    {
+        UIManager.Instance.PushPop<PopNewPlayerGuideData>();
+    }
+
+    private void OnSettingBtnClick()
+    {
+        
     }
 
     private void RefreshView()

@@ -10,9 +10,10 @@ public class PopGameResultData : ViewData
     public override ViewType ViewType => ViewType.Popup;
 
     public override bool Mask => true;
+    public override bool AnimaSwitch => true;
 }
 
-public class PopGameResult : ViewBase
+public class PopGameResult : PopupBase
 {
     [SerializeField] private Button restart;
     [SerializeField] private Button revive;

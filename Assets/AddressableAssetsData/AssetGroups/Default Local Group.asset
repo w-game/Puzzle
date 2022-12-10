@@ -61,6 +61,10 @@ MonoBehaviour:
     m_Address: Textures/Blocks/chest
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: a39c973fc2496476c95df443f1d17648
+    m_Address: Prefabs/UI/Popup/PopNewPlayerGuide
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2b925b1802ff143b1842bb3154200482, type: 2}
   m_SchemaSet:

@@ -47,7 +47,6 @@ public class GameBoard : MonoSingleton<GameBoard>
 
     public void Init(Action callback)
     {
-        Score = 0;
         AddressableMgr.Load<GameObject>("Prefabs/GridSlot", prefab =>
         {
             SlotPrefab = prefab;
@@ -66,7 +65,6 @@ public class GameBoard : MonoSingleton<GameBoard>
             {
                 GridPrefab = gridPrefab;
                 Control.Init();
-                RefreshBoard();
                 callback?.Invoke();
             });
         });
