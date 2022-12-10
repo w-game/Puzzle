@@ -457,6 +457,7 @@ public class GameBoard : MonoSingleton<GameBoard>
         
         CheckGameOver();
         CheckAddBlockType();
+        EventCenter.Invoke("RefreshGameView");
         EventCenter.Invoke("EnableStartBtn");
     }
 

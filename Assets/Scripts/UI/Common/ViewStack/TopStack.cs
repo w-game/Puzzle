@@ -12,7 +12,7 @@ namespace UI
         public void CloseSplash()
         {
             var sequence = DOTween.Sequence();
-            sequence.AppendInterval(1.5f);
+            sequence.AppendInterval(1f);
             sequence.Append(splash.DOFade(0, 0.2f));
             sequence.AppendCallback(() =>
             {
