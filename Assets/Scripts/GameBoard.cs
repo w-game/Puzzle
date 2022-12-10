@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class GameBoard : MonoSingleton<GameBoard>
 {
     public static GameObject GridPrefab { get; private set; }
+    public static GameObject SlotPrefab { get; private set; }
     public const float MoveTime = 0.3f;
     private const float TrendTime = 30f;
 
@@ -49,20 +50,22 @@ public class GameBoard : MonoSingleton<GameBoard>
         Score = 0;
         AddressableMgr.Load<GameObject>("Prefabs/GridSlot", prefab =>
         {
+            SlotPrefab = prefab;
             for (int j = 0; j < BoardLength; j++)
             {
                 for (int i = 0; i < BoardWidth; i++)
                 {
-                    var slot = Instantiate(prefab, transform).GetComponent<GridSlot>();
+                    var slot = Instantiate(SlotPrefab, transform).GetComponent<GridSlot>();
                     slot.name = $"GridSlot_{i}_{j}";
                     slot.Pos = new Vector2Int(i, j);
                     GridSlots.Add(slot);
                 }
             }
+            Control.Init();
 
-            AddressableMgr.Load<GameObject>("Prefabs/Grid", prefab =>
+            AddressableMgr.Load<GameObject>("Prefabs/Grid", gridPrefab =>
             {
-                GridPrefab = prefab;
+                GridPrefab = gridPrefab;
                 RefreshBoard();
                 callback?.Invoke();
             });
