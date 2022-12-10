@@ -9,7 +9,7 @@ namespace Common
         public override void Init()
         {
             ABUUserConfig userConfig = new();
-            userConfig.logEnable = true;
+            userConfig.logEnable = false;
             ABUAdSDK.setupMSDK("5354735", "msdk demo", userConfig);
             
             PreloadAd();

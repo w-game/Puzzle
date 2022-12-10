@@ -8,6 +8,7 @@ public class UIManager : MonoSingleton<UIManager>
     [SerializeField] private ViewStack popStack;
     [SerializeField] private ViewStack topStack;
 
+    private TopStack TopStack => topStack as TopStack;
     public void PushMain<T>(params object[] objs) where T : ViewData, new()
     {
         mainStack.Push<T>(objs);
@@ -20,7 +21,11 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void CloseSplash()
     {
-        var stack = topStack as TopStack;
-        stack?.CloseSplash();
+        TopStack.CloseSplash();
+    }
+
+    public void ShowAddBlockTip(Color color)
+    {
+        TopStack.AddBlockTip.ShowTip(color);
     }
 }

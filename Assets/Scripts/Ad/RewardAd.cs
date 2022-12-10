@@ -42,7 +42,6 @@ namespace Common
             {
                 var msg = "请先加载广告或等广告加载完成";
                 Debug.Log("<Unity Log>..." + msg);
-                ToastManager.Instance.ShowToast(msg);
                 return;
             }
             // ritScene信息
@@ -77,19 +76,16 @@ namespace Common
         {
             var errMsg = "OnRewardVideoAdLoadError-- code : " + code + "--message : " + message;
             Debug.LogError("<Unity Log>..." + errMsg);
-            ToastManager.Instance.ShowToast(errMsg);
         }
 
         public void OnRewardVideoAdLoad(object ad)
         {
-            ToastManager.Instance.ShowToast("OnRewardVideoAdLoad");
             Debug.Log("<Unity Log>..." + "OnRewardVideoAdLoad");
         }
 
         public void OnRewardVideoAdCached()
         {
             Debug.Log("<Unity Log>..." + "OnRewardVideoCached");
-            ToastManager.Instance.ShowToast("OnRewardVideoCached");
             _rewardAd.LoadSuccess = true;
         }
     }
@@ -107,7 +103,6 @@ namespace Common
         public void OnAdShow()
         {
             Debug.Log("<Unity Log>..." + "expressRewardAd show");
-            ToastManager.Instance.ShowToast("expressRewardAd show");
             _rewardAd.LoadSuccess = false;
             string ecpm = ABURewardVideoAd.GetPreEcpm();
             string ritID = ABURewardVideoAd.GetAdNetworkRitId();
@@ -122,48 +117,41 @@ namespace Common
         {
             var s = "code : " + code + "--message = " + message;
             Log.D("<Unity Log>..." + s);
-            ToastManager.Instance.ShowToast(s);
             Callback?.Invoke(false);
         }
 
         public void OnAdVideoBarClick()
         {
             Debug.Log("<Unity Log>..." + "expressRewardAd bar click");
-            ToastManager.Instance.ShowToast("expressRewardAd bar click");
         }
 
         public void OnAdClose()
         {
             Debug.Log("<Unity Log>..." + "expressRewardAd close");
-            ToastManager.Instance.ShowToast("expressRewardAd close");
             _rewardAd.LoadSuccess = false;
         }
 
         public void OnVideoComplete()
         {
             Debug.Log("<Unity Log>..." + "expressRewardAd complete");
-            ToastManager.Instance.ShowToast("expressRewardAd complete");
         }
 
         public void OnVideoError(int errCode, string errMsg)
         {
             string logs = " < Unity Log > ..." + "play error code:" + errCode + ",errMsg:" + errMsg;
             Debug.LogError(logs);
-            ToastManager.Instance.ShowToast(logs);
         }
 
         public void OnRewardVerify(bool rewardVerify)
         {
             var message = "verify:" + rewardVerify;
             Debug.Log("<Unity Log>..." + message);
-            ToastManager.Instance.ShowToast(message);
         }
 
         public void OnSkippedVideo()
         {
             var message = "expressrewardAd OnSkippedVideo for Android";
             Debug.Log("<Unity Log>..." + message);
-            ToastManager.Instance.ShowToast(message);
         }
 
         /// <summary>

@@ -26,7 +26,7 @@ public class User
         get
         {
             PlayerPrefs.GetInt("AllRemoveCount", 0);
-            var level = 2;
+            var level = 3;
             var count = 0;
             while (true)
             {
