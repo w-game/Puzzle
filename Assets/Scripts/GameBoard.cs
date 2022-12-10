@@ -465,18 +465,22 @@ public class GameBoard : MonoSingleton<GameBoard>
         if (Score >= NextBlockScore)
         {
             var count = BlockColor.Count + 1;
-            AddColor(_ => _ < count);
+            var color = AddColor(_ => _ < count);
+            UIManager.Instance.ShowAddBlockTip(color);
         }
     }
 
-    private void AddColor(Predicate<int> match)
+    private Color AddColor(Predicate<int> match)
     {
+        Color color = default;
         while (match(BlockColor.Count))
         {
             var colorCode = ColorLibrary.ColorCoder[Random.Range(0, ColorLibrary.ColorCoder.Count)];
-            ColorUtility.TryParseHtmlString(colorCode, out var color);
+            ColorUtility.TryParseHtmlString(colorCode, out color);
             if (!BlockColor.Contains(color)) BlockColor.Add(color);
         }
+
+        return color;
     }
 
     private void CheckGameOver()
