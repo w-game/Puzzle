@@ -1,3 +1,4 @@
+using Android;
 using Common;
 using DG.Tweening;
 using TMPro;
@@ -23,6 +24,7 @@ public class GameView : ViewBase
     [SerializeField] private TextMeshProUGUI scoreTxt;
     [SerializeField] private TextMeshProUGUI comboTxt;
     [SerializeField] private TextMeshProUGUI nextBlockScore;
+    [SerializeField] private LayoutElement topElementAdapt;
 
     private bool _switch = true;
 
@@ -51,6 +53,13 @@ public class GameView : ViewBase
         AddEvent("CheckCombo", CheckCombo);
         AddEvent("RefreshGameView", Refresh);
         Refresh();
+        
+        SLog.D("Home View", Screen.safeArea);
+    }
+
+    public override void ScreenAdapt(Rect rect)
+    {
+        topElementAdapt.minHeight += rect.y;
     }
 
     private void StartGame()

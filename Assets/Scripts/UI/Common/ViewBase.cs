@@ -25,6 +25,8 @@ namespace UI
 
         private Dictionary<string, List<Action>> _events = new();
         public virtual void OnCreate(params object[] objects) { }
+        
+        public virtual void ScreenAdapt(Rect rect) { }
         protected void CloseView()
         {
             BaseView.CloseView();
