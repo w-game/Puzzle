@@ -1,4 +1,4 @@
-using System;
+using Android;
 using Common;
 using UnityEngine;
 
@@ -26,6 +26,12 @@ namespace UI
                 _subView.BaseView = this;
                 _subView.ViewData = viewData;
 
+#if UNITY_IOS
+                _subView.ScreenAdapt(Screen.safeArea);
+#elif UNITY_ANDROID
+                var safeArea = Screen.safeArea;
+                _subView.ScreenAdapt(new Rect(0, AndroidNative.GetNotchHeight(), safeArea.width, safeArea.height));
+#endif
                 if (viewData.AnimaSwitch)
                 {
                     _subView.DoOpenAnima();
