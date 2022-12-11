@@ -69,6 +69,10 @@ MonoBehaviour:
     m_Address: Prefabs/UI/Popup/PopSetting
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 10004a3e22da743d5a59e01d7ccdbd11
+    m_Address: Textures/SpriteList
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2b925b1802ff143b1842bb3154200482, type: 2}
   m_SchemaSet:

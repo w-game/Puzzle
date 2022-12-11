@@ -7,10 +7,11 @@ TrueTypeFontImporter:
   forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
-  includeFontData: 1
+  includeFontData: 0
   fontNames:
   - Resource Han Rounded CN
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9eb903444885d45f58a4b6a06cd7712a, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
