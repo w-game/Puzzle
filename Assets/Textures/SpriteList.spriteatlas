@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SpriteList
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Android
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 811a2718dea6b4c88971f166a1d9456e, type: 3}
+    - {fileID: 2800000, guid: 02abde02c8d7c4a80a1990bcbbf15910, type: 3}
+    - {fileID: 2800000, guid: f526060818b5440d4825f29835c78ff2, type: 3}
+    - {fileID: 21300000, guid: 48d3a06bd884149ad8e6ccc5a59d3815, type: 3}
+    - {fileID: 2800000, guid: 5b1d610f5877042a581c418847709013, type: 3}
+    - {fileID: 2800000, guid: f0583966fdd7845b4801c9715939742f, type: 3}
+    - {fileID: 2800000, guid: 564dce84a6d894f93bf48fb8b20ac798, type: 3}
+    - {fileID: 2800000, guid: 3d1736481d99b44f59e5ebd620b31a64, type: 3}
+    - {fileID: 21300000, guid: 6e6fe5ff96c174b3c9b6627f1db23232, type: 3}
+    - {fileID: 2800000, guid: 2c124838dc6984d8c94966ac4438b189, type: 3}
+    - {fileID: 21300000, guid: a4f69a70d967b491ba010d592044ab6a, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: a4f69a70d967b491ba010d592044ab6a, type: 3}
+  - {fileID: 21300000, guid: 02abde02c8d7c4a80a1990bcbbf15910, type: 3}
+  - {fileID: 21300000, guid: 564dce84a6d894f93bf48fb8b20ac798, type: 3}
+  - {fileID: 21300000, guid: f0583966fdd7845b4801c9715939742f, type: 3}
+  - {fileID: 21300000, guid: f526060818b5440d4825f29835c78ff2, type: 3}
+  - {fileID: 21300000, guid: 811a2718dea6b4c88971f166a1d9456e, type: 3}
+  - {fileID: 21300000, guid: 2c124838dc6984d8c94966ac4438b189, type: 3}
+  - {fileID: 21300000, guid: 3d1736481d99b44f59e5ebd620b31a64, type: 3}
+  - {fileID: 21300000, guid: 48d3a06bd884149ad8e6ccc5a59d3815, type: 3}
+  - {fileID: 21300000, guid: 5b1d610f5877042a581c418847709013, type: 3}
+  - {fileID: 21300000, guid: 6e6fe5ff96c174b3c9b6627f1db23232, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - frame00
+  - icon_game
+  - icon_setting
+  - icon_play
+  - icon_ad
+  - bg
+  - icon_medal
+  - icon_menu
+  - icon_book
+  - icon_home
+  - icon_trophy
+  m_RenderDataMap: {}
+  m_Tag: SpriteList
+  m_IsVariant: 0
