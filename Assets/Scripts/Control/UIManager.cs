@@ -19,6 +19,18 @@ public class UIManager : MonoSingleton<UIManager>
         popStack.Push<T>(objs);
     }
 
+    public void CheckCloseSplash()
+    {
+        if (GameManager.User.PrivacyPolicy)
+        {
+            TopStack.Push<PopPrivacyPolicyData>();
+        }
+        else
+        {
+            CloseSplash();
+        }
+    }
+
     public void CloseSplash()
     {
         TopStack.CloseSplash();
@@ -27,5 +39,10 @@ public class UIManager : MonoSingleton<UIManager>
     public void ShowAddBlockTip(Color color)
     {
         TopStack.AddBlockTip.ShowTip(color);
+    }
+
+    public void ShowToast(string msg)
+    {
+        TopStack.ShowToast(msg);
     }
 }
