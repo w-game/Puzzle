@@ -195,6 +195,7 @@
      <Compile Include="Assets/MSDK/Scripts/common/callback/ABUDislikeInteractionListener.cs" />
      <Compile Include="Assets/Scripts/GridControl.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/ABUAdSDK.cs" />
+     <Compile Include="Assets/Scripts/Android/AndroidNative.cs" />
      <Compile Include="Assets/Sample/Scripts/Utils/Log.cs" />
      <Compile Include="Assets/Scripts/Common/Singleton.cs" />
      <Compile Include="Assets/Scripts/GridDrag.cs" />
@@ -219,7 +220,8 @@
      <Compile Include="Assets/Sample/Scripts/Main/Ui/DetailUiViewScript.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/NativeAd.cs" />
      <Compile Include="Assets/Scripts/Ad/RewardAd.cs" />
-     <Compile Include="Assets/Scripts/Android/AndroidNative.cs" />
+     <Compile Include="Assets/Scripts/UI/Popup/PopPrivacyPolicy.cs" />
+     <Compile Include="Assets/Scripts/Common/SToast.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />

@@ -48,6 +48,12 @@ public class User
         }
     }
 
+    public bool PrivacyPolicy
+    {
+        get => PlayerPrefs.GetInt("PrivacyPolicy", 0) == 0;
+        set => PlayerPrefs.SetInt("PrivacyPolicy", value ? 0 : 1);
+    }
+
     public void Init()
     {
         _maxScore = PlayerPrefs.GetInt("MaxScore", 0);

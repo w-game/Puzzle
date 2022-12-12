@@ -1,3 +1,4 @@
+using Common;
 using DG.Tweening;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace UI
     {
         [SerializeField] private CanvasGroup splash;
         [SerializeField] private AddBlockTip addBlockTip;
+        [SerializeField] private SToast toast;
 
         public AddBlockTip AddBlockTip => addBlockTip;
         public void CloseSplash()
@@ -18,6 +20,11 @@ namespace UI
             {
                 splash.gameObject.SetActive(false);
             });
+        }
+
+        public void ShowToast(string msg)
+        {
+            toast.ShowToast(msg);
         }
     }
 }

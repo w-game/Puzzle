@@ -29,7 +29,7 @@ public class HomeView : ViewBase
         
         RefreshView();
         AddEvent("RefreshView", RefreshView);
-        UIManager.Instance.CloseSplash();
+        UIManager.Instance.CheckCloseSplash();
     }
 
     private void StartGame()
