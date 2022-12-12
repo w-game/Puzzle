@@ -69,8 +69,8 @@ public class GameView : ViewBase
             gameBoard.GenerateNewRow();
             _switch = false;
             var sequence = DOTween.Sequence();
-            sequence.Append(startBtn.transform.DOLocalMove(Vector3.up * 30, 0.2f).SetEase(Ease.OutQuad));
-            sequence.Append(startBtn.transform.DOLocalMove(Vector3.zero, 0.2f).SetEase(Ease.InQuad));
+            sequence.Append(startBtn.transform.DOLocalMove(Vector3.up * 30, 0.1f).SetEase(Ease.OutQuad));
+            sequence.Append(startBtn.transform.DOLocalMove(Vector3.zero, 0.1f).SetEase(Ease.InQuad));
         }
     }
 
@@ -95,7 +95,10 @@ public class GameView : ViewBase
         comboTxt.gameObject.SetActive(true);
         var sequence = DOTween.Sequence();
         sequence.Append(comboTxt.transform.DOScale(1.2f, 0.2f));
+        sequence.Join(comboTxt.DOFade(1, 0.2f));
         sequence.Append(comboTxt.transform.DOScale(1f, 0.2f));
+        sequence.AppendInterval(3f);
+        sequence.Append(comboTxt.DOFade(0.5f, 0.2f));
     }
 
     private void Update()
@@ -104,7 +107,8 @@ public class GameView : ViewBase
         if (_curComboTime <= 0)
         {
             _comboCount = 0;
-            comboTxt.gameObject.SetActive(false);
+            // comboTxt.gameObject.SetActive(false);
+            comboTxt.text = $"Combo x{_comboCount}";
         }
     }
 
