@@ -15,7 +15,7 @@ public class GameBoard : MonoSingleton<GameBoard>
     [SerializeField] private GridControl control;
 
     public const int BoardWidth = 9;
-    public const int BoardLength = 12;
+    public const int BoardLength = 9;
     public const int BlockSize = 80;
 
     public GridControl Control => control;
@@ -122,7 +122,9 @@ public class GameBoard : MonoSingleton<GameBoard>
     private void RefreshBlockColor()
     {
         BlockColor.Clear();
-        AddColor(_ => _ < 3);
+
+        var colorLib = ColorLibrary.FirstColorCoder[Random.Range(0, ColorLibrary.FirstColorCoder.Count)];
+        AddColor(_ => _ < 3, colorLib);
     }
 
     public void GenerateNewRow()
@@ -466,17 +468,17 @@ public class GameBoard : MonoSingleton<GameBoard>
         if (Score >= NextBlockScore)
         {
             var count = BlockColor.Count + 1;
-            var color = AddColor(_ => _ < count);
+            var color = AddColor(_ => _ < count, ColorLibrary.RandomColorCoder);
             UIManager.Instance.ShowAddBlockTip(color);
         }
     }
 
-    private Color AddColor(Predicate<int> match)
+    private Color AddColor(Predicate<int> match, List<string> colorLib)
     {
         Color color = default;
         while (match(BlockColor.Count))
         {
-            var colorCode = ColorLibrary.ColorCoder[Random.Range(0, ColorLibrary.ColorCoder.Count)];
+            var colorCode = colorLib[Random.Range(0, colorLib.Count)];
             ColorUtility.TryParseHtmlString(colorCode, out color);
             if (!BlockColor.Contains(color)) BlockColor.Add(color);
         }
