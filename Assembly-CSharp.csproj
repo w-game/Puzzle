@@ -126,6 +126,7 @@
      <Compile Include="Assets/MSDK/Scripts/common/callback/ABUSplashAdListener.cs" />
      <Compile Include="Assets/Sample/Scripts/Utils/SingleTon.cs" />
      <Compile Include="Assets/Scripts/GameManager.cs" />
+     <Compile Include="Assets/Scripts/Common/SToast.cs" />
      <Compile Include="Assets/MSDK/Scripts/Dummy/ABUBannerAd.cs" />
      <Compile Include="Assets/MSDK/Scripts/iOS/ABUDrawAd.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSize.cs" />
@@ -192,6 +193,7 @@
      <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialFullAdCallback.cs" />
      <Compile Include="Assets/Sample/Scripts/Utils/UiUtil.cs" />
      <Compile Include="Assets/Scripts/UI/Common/BaseView.cs" />
+     <Compile Include="Assets/Scripts/UI/Popup/PopPrivacyPolicy.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/callback/ABUDislikeInteractionListener.cs" />
      <Compile Include="Assets/Scripts/GridControl.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/ABUAdSDK.cs" />
@@ -220,8 +222,6 @@
      <Compile Include="Assets/Sample/Scripts/Main/Ui/DetailUiViewScript.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/NativeAd.cs" />
      <Compile Include="Assets/Scripts/Ad/RewardAd.cs" />
-     <Compile Include="Assets/Scripts/UI/Popup/PopPrivacyPolicy.cs" />
-     <Compile Include="Assets/Scripts/Common/SToast.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />

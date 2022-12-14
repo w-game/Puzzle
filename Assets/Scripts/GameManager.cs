@@ -11,7 +11,6 @@ public class GameManager : MonoSingleton<GameManager>
     {
         UIManager.Instance.PushMain<HomeViewData>();
         User.Init();
-        AdManager.Instance.Init();
         SoundManager.Instance.Init();
         Application.targetFrameRate = 60;
     }
