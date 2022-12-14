@@ -15,7 +15,8 @@ public class PopPrivacyPolicyData : ViewData
 
 public class PopPrivacyPolicy : PopupBase
 {
-    [SerializeField] private Button btn;
+    [SerializeField] private Button sureBtn;
+    [SerializeField] private Button cancelBtn;
 
     private static readonly string[] Permissions = {
         "android.permission.READ_PHONE_STATE",
@@ -37,7 +38,8 @@ public class PopPrivacyPolicy : PopupBase
 
     public override void OnCreate(params object[] objects)
     {
-        btn.onClick.AddListener(RequestPermission);
+        sureBtn.onClick.AddListener(RequestPermission);
+        cancelBtn.onClick.AddListener(Application.Quit);
     }
 
     private void RequestPermission()
