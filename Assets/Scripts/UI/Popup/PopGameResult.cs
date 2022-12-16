@@ -25,7 +25,7 @@ public class PopGameResult : PopupBase
 
     private void Restart()
     {
-        GameBoard.Instance.RefreshBoard();
+        GameManager.Instance.GameMode.Restart();
         EventCenter.Invoke("Restart");
         CloseView();
     }
@@ -36,7 +36,9 @@ public class PopGameResult : PopupBase
         {
             if (result)
             {
-                GameBoard.Instance.Revive();
+                var game = GameManager.Instance.GameMode as UnlimitationGameMode;
+                game?.Revive();
+                
                 CloseView();
             }
         });

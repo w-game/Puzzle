@@ -24,16 +24,11 @@ public class PopNewPlayerGuide : PopupBase
     // [SerializeField] private List<PlayingTipData> playingTipDatas;
 
     private int _index = -1;
-    private GameBoard _gameBoard;
     public override void OnCreate(params object[] objects)
     {
         // preTipBtn.onClick.AddListener(PreTip);
         // nextTipBtn.onClick.AddListener(NextTip);
         endTipBtn.onClick.AddListener(EndTip);
-        if (objects.Length > 0)
-        {
-            _gameBoard = objects[0] as GameBoard;
-        }
         
         // RefreshBtns();
         // NextTip();
@@ -70,7 +65,7 @@ public class PopNewPlayerGuide : PopupBase
     {
         CloseView();
         GameManager.User.SetOldPlayer();
-        _gameBoard?.RefreshBoard();
+        GameManager.Instance.GameMode?.Restart();
     }
 }
 

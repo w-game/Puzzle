@@ -17,6 +17,12 @@ public class Timer
         Callback = callback;
         TimerManager.Instance.AddTimer(this);
     }
+    
+    public void Reset()
+    {
+        _count = 0;
+        Play();
+    }
 
     public void Update(float increase)
     {
