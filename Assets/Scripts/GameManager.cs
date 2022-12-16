@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
     public static User User { get; } = new();
+    
+    public PuzzleGame GameMode { get; set; }
 
     public ChallengeSystem ChallengeSystem { get; } = new();
     void Awake()

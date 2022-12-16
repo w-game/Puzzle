@@ -1,4 +1,3 @@
-using Android;
 using Common;
 using DG.Tweening;
 using TMPro;
@@ -17,7 +16,8 @@ public class GameViewData : ViewData
 
 public class GameView : ViewBase
 {
-    [SerializeField] private GameBoard gameBoard;
+    // [SerializeField] private GameBoard gameBoard;
+    [SerializeField] private GameObject gameBoard;
     [SerializeField] private GameObject loadingMask;
     [SerializeField] private Button startBtn;
     [SerializeField] private Button homeBtn;
@@ -31,9 +31,12 @@ public class GameView : ViewBase
     private const float ComboTime = 10f;
     private float _curComboTime;
     private int _comboCount;
+
+    private PuzzleGame GameMode => GameManager.Instance.GameMode;
     public override void OnCreate(params object[] objects)
     {
-        gameBoard.Init(() =>
+        GameManager.Instance.GameMode = gameBoard.AddComponent<UnlimitationGameMode>();
+        GameMode.Init(() =>
         {
             loadingMask.SetActive(false);
             if (GameManager.User.IsNewPlayer)
@@ -42,7 +45,7 @@ public class GameView : ViewBase
             }
             else
             {
-                gameBoard.RefreshBoard();
+                GameMode.Restart();
             }
         });
 
@@ -66,7 +69,7 @@ public class GameView : ViewBase
     {
         if (_switch)
         {
-            gameBoard.GenerateNewRow();
+            GameMode.NextRound();
             _switch = false;
             var sequence = DOTween.Sequence();
             sequence.Append(startBtn.transform.DOLocalMove(Vector3.up * 30, 0.1f).SetEase(Ease.OutQuad));
@@ -76,15 +79,15 @@ public class GameView : ViewBase
 
     private void OnHomeBtnClicked()
     {
-        gameBoard.Stop();
+        // _puzzleGame.Stop();
         CloseView();
         SLog.D("GameView", "OnHomeBtnClicked");
     }
 
     private void Refresh()
     {
-        scoreTxt.text = $"{gameBoard.Score}";
-        nextBlockScore.text = $"还差<color=#C24347>{gameBoard.NextBlockScore - gameBoard.Score}</color>分";
+        scoreTxt.text = $"{GameMode.Score}";
+        nextBlockScore.text = $"还差<color=#C24347>{GameMode.NextBlockScore - GameMode.Score}</color>分";
     }
 
     private void CheckCombo()
@@ -130,7 +133,7 @@ public class GameView : ViewBase
 
             if (angle <= 30 && Vector3.Distance(targetPos, _originPos) >= 200)
             {
-                gameBoard.DoFastDown();
+                // gameBoard.DoFastDown();
             }
         }
     }

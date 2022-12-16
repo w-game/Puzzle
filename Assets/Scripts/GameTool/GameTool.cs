@@ -23,7 +23,8 @@ public class RefreshBlock : GameTool
 {
     protected override void Use()
     {
-        GameBoard.Instance.Control.Regenerate();
+        GridControl.Instance.Regenerate();
+        // GameBoard.Instance.Control.Regenerate();
     }
 }
 

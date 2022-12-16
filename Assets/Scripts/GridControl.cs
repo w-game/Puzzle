@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using Common;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GridControl : MonoBehaviour
+public class GridControl : MonoSingleton<GridControl>
 {
     [SerializeField] private Transform mainCtrlContent;
     [SerializeField] private Transform secondaryCtrlContent;
@@ -15,17 +16,17 @@ public class GridControl : MonoBehaviour
 
     public void Init()
     {
-        for (int i = 0; i < GameBoard.BoardWidth; i++)
+        for (int i = 0; i < PuzzleGame.BoardWidth; i++)
         {
-            var slot = Instantiate(GameBoard.SlotPrefab, mainCtrlContent).GetComponent<GridSlot>();
+            var slot = Instantiate(PuzzleGame.SlotPrefab, mainCtrlContent).GetComponent<GridSlot>();
             ColorUtility.TryParseHtmlString("#0B2837", out var color);
             slot.GetComponent<Image>().color = color;
             NextGridSlots.Add(slot);
         }
 
-        for (int i = 0; i < GameBoard.BoardWidth; i++)
+        for (int i = 0; i < PuzzleGame.BoardWidth; i++)
         {
-            var slot = Instantiate(GameBoard.SlotPrefab, secondaryCtrlContent).GetComponent<GridSlot>();
+            var slot = Instantiate(PuzzleGame.SlotPrefab, secondaryCtrlContent).GetComponent<GridSlot>();
             slot.GetComponent<RectTransform>().sizeDelta *= 0.3f;
             NextNextGridSlots.Add(slot);
         }
@@ -33,7 +34,7 @@ public class GridControl : MonoBehaviour
 
     public void NextRow()
     {
-        for (int i = 0; i < GameBoard.BoardWidth; i++)
+        for (int i = 0; i < PuzzleGame.BoardWidth; i++)
         {
             var slot = NextNextGridSlots[i];
             var target = NextGridSlots[i];
@@ -61,7 +62,7 @@ public class GridControl : MonoBehaviour
             var index = _remaining[Random.Range(0, _remaining.Count)];
             _remaining.Remove(index);
             var slot = NextNextGridSlots[index];
-            var grid = slot.GenerateGrid(GameBoard.BlockColor);
+            var grid = slot.GenerateGrid(PuzzleGame.BlockColor);
             grid.transform.localScale *= 0.3f;
         }
 

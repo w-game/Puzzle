@@ -7,16 +7,16 @@ public class GridSlot : MonoBehaviour
     public Vector2Int Pos { get; set; }
     public Block SubGrid { get; set; }
 
-    public GridSlot UpSlot => Pos.y > 0 ? GameBoard.Instance.GridSlots[(Pos.y - 1) * GameBoard.BoardWidth + Pos.x] : null;
-    public GridSlot DownSlot => Pos.y < GameBoard.BoardLength - 1 ? GameBoard.Instance.GridSlots[(Pos.y + 1) * GameBoard.BoardWidth + Pos.x] : null;
-    public GridSlot RightSlot => Pos.x < GameBoard.BoardWidth - 1 ? GameBoard.Instance.GridSlots[Pos.y * GameBoard.BoardWidth + Pos.x + 1] : null;
-    public GridSlot LeftSlot => Pos.x > 0 ? GameBoard.Instance.GridSlots[Pos.y * GameBoard.BoardWidth + Pos.x - 1] : null;
+    public GridSlot UpSlot => Pos.y > 0 ? GameManager.Instance.GameMode.GridSlots[(Pos.y - 1) * PuzzleGame.BoardWidth + Pos.x] : null;
+    public GridSlot DownSlot => Pos.y < PuzzleGame.BoardLength - 1 ? GameManager.Instance.GameMode.GridSlots[(Pos.y + 1) * PuzzleGame.BoardWidth + Pos.x] : null;
+    public GridSlot RightSlot => Pos.x < PuzzleGame.BoardWidth - 1 ? GameManager.Instance.GameMode.GridSlots[Pos.y * PuzzleGame.BoardWidth + Pos.x + 1] : null;
+    public GridSlot LeftSlot => Pos.x > 0 ? GameManager.Instance.GameMode.GridSlots[Pos.y * PuzzleGame.BoardWidth + Pos.x - 1] : null;
 
     public bool IsEmpty => SubGrid == null;
 
     internal Block GenerateGrid(List<Color> blockColors)
     {
-        var blockGo = Instantiate(GameBoard.GridPrefab, transform);
+        var blockGo = Instantiate(PuzzleGame.GridPrefab, transform);
         SubGrid = CalcBlockType(blockGo);
 
         var color = blockColors[Random.Range(0, blockColors.Count)];
@@ -56,7 +56,7 @@ public class GridSlot : MonoBehaviour
         {
             var block = SubGrid;
             SubGrid = null;
-            var anima = block.transform.DOScale(0, GameBoard.MoveTime).SetEase(Ease.InQuad);
+            var anima = block.transform.DOScale(0, PuzzleGame.AnimaTime).SetEase(Ease.InQuad);
             anima.onComplete += () =>
             {
                 Destroy(block.gameObject);
@@ -75,7 +75,7 @@ public class GridSlot : MonoBehaviour
         }
         else
         {
-            grid.transform.DOLocalMove(Vector3.zero, GameBoard.MoveTime).SetEase(Ease.InQuad);
+            grid.transform.DOLocalMove(Vector3.zero, PuzzleGame.AnimaTime).SetEase(Ease.InQuad);
         }
     }
 }

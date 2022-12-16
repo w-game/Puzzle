@@ -2000,7 +2000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede305c0a5b6c43fc8cde23e26053da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameBoard: {fileID: 7239406958829620744}
+  gameBoard: {fileID: 7239406958829620756}
   loadingMask: {fileID: 6298962833473390311}
   startBtn: {fileID: 7568587755679790805}
   homeBtn: {fileID: 653590303407732162}
@@ -2227,7 +2227,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7239406958829620757}
-  - component: {fileID: 7239406958829620744}
   - component: {fileID: 7239406958829620745}
   m_Layer: 5
   m_Name: GameBoard
@@ -2256,19 +2255,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 800, y: 1110}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7239406958829620744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7239406958829620756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68647225451aa4d99836341ec14f2cae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: {fileID: 7239406958445204851}
 --- !u!114 &7239406958829620745
 MonoBehaviour:
   m_ObjectHideFlags: 0
