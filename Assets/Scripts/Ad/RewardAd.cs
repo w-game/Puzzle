@@ -4,12 +4,12 @@ using ByteDance.Union;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace Common
+namespace Ad
 {
-    public class RewardAd
+    public class RewardAd : AdBase
     {
         public bool LoadSuccess { get; set; }
-        public void LoadAd()
+        public override void LoadAd()
         {
             var dict = new Dictionary<string, string>();
             dict.Add("key1", "value1");
@@ -18,7 +18,7 @@ namespace Common
             var dictJson = JsonConvert.SerializeObject(dict);
 
             var adSlot = new GMAdSlotRewardVideo.Builder()
-                .SetCodeId(AdIds.RewardAdId)
+                .SetCodeId(AdIds.RewardAd)
                 // .SetRewardName("金币") // 奖励的名称
                 // .SetRewardAmount(3) // 奖励的数量
                 .SetUserID("user123") // 用户id,必传参数   只对穿山甲adn有效
@@ -35,7 +35,7 @@ namespace Common
             ABURewardVideoAd.LoadRewardVideoAd(adSlot, new RewardVideoAdListener(this));
         }
 
-        public void ShowAd(Action<bool> callback)
+        public override void ShowAd(Action<bool> callback)
         {
             // 为保障播放流畅，建议在视频加载完成后展示
             if (!LoadSuccess || !ABURewardVideoAd.isReady())

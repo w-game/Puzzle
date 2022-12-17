@@ -1,5 +1,4 @@
 using System;
-using System.Reflection;
 using Common;
 
 namespace GameMode.LevelGame
@@ -9,12 +8,12 @@ namespace GameMode.LevelGame
         public int LevelIndex { get; set; }
         public LevelGoal Goal { get; set; }
         
-        public GameLevel(LevelConfig config)
+        public void Init(LevelConfig config)
         {
             try
             {
-                Assembly assembly = Assembly.GetExecutingAssembly();
-                Goal = assembly.CreateInstance("GameMode.LevelGame." + $"{config.goal.type}Goal") as LevelGoal;
+                var type = Type.GetType("GameMode.LevelGame." + $"{config.goal.type}Goal");
+                Goal = Activator.CreateInstance(type) as LevelGoal;
                 Goal.Init(config.goal);
             }
             catch (Exception e)

@@ -1,4 +1,6 @@
 using System;
+using Ad;
+using Common;
 using DG.Tweening;
 using UnityEngine;
 
@@ -17,6 +19,11 @@ namespace UI
         {
             var anima = panel.DOScale(0, 0.2f);
             anima.onComplete += () => onComplete?.Invoke();
+        }
+
+        protected void ShowNativeAd()
+        {
+            AdManager.Instance.NativeAd.ShowAd(null);
         }
     }
 }

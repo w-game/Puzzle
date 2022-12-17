@@ -1,4 +1,5 @@
 using Common;
+using GameMode.LevelGame;
 using GameSystem;
 using UnityEngine;
 
@@ -15,5 +16,10 @@ public class GameManager : MonoSingleton<GameManager>
         User.Init();
         SoundManager.Instance.Init();
         Application.targetFrameRate = 60;
+        
+        new SingleColorRemoveGoal();
+        new ThreeBlockRemoveGoal();
+        new HorizontalRemoveGoal();
+        new VerticalRemoveGoal();
     }
 }

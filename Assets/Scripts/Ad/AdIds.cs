@@ -1,7 +1,8 @@
-namespace Common
+namespace Ad
 {
     public class AdIds
     {
-        public static string RewardAdId = "102222640";
+        public static string RewardAd = "102222640";
+        public static string NativeAd = "102233976";
     }
 }

@@ -1,10 +1,13 @@
 using ByteDance.Union;
+using Common;
 
-namespace Common
+namespace Ad
 {
     public class AdManager : Singleton<AdManager>
     {
         public RewardAd RewardAd { get; } = new();
+        public NativeAd NativeAd { get; } = new();
+        public BannerAd BannerAd { get; } = new();
         
         public override void Init()
         {
@@ -18,6 +21,7 @@ namespace Common
         private void PreloadAd()
         {
             RewardAd.LoadAd();
+            NativeAd.LoadAd();
         }
     }
 }
