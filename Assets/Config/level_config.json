@@ -34,9 +34,25 @@
     },
     {
       "goal": {
-        "type": "TowardRemove",
+        "type": "HorizontalRemove",
         "counts": [
           5
+        ]
+      }
+    },
+    {
+      "goal": {
+        "type": "VerticalRemove",
+        "counts": [
+          5
+        ]
+      }
+    },
+    {
+      "goal": {
+        "type": "VerticalRemove",
+        "counts": [
+          5, 10
         ]
       }
     }

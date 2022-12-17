@@ -54,6 +54,7 @@ public class LevelGameMode : PuzzleGame
     public void NextLevel()
     {
         CurLevel = CreateLevel(GameManager.User.GameLevel);
+        ClearSlots();
     }
 
     private GameLevel CreateLevel(int levelIndex)

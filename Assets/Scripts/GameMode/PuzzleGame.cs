@@ -106,16 +106,24 @@ public abstract class PuzzleGame : MonoBehaviour
         Score = 0;
         
         _undeterminedGrids.Clear();
-        foreach (var slot in GridSlots)
-        {
-            slot.RemoveGrid();
-        }
+        ClearSlots();
         
         EventCenter.Invoke("EnableStartBtn");
         EventCenter.Invoke("RefreshGameView");
         Control.Refresh();
         
         OnRefresh();
+    }
+
+    /// <summary>
+    /// 清除棋盘
+    /// </summary>
+    protected void ClearSlots()
+    {
+        foreach (var slot in GridSlots)
+        {
+            slot.RemoveGrid();
+        }
     }
 
     private void RefreshBlockColor()
