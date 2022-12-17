@@ -5,25 +5,14 @@ using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameViewData : ViewData
-{
-    public override string ViewName => "GameView";
-
-    public override ViewType ViewType => ViewType.View;
-
-    public override bool Mask => true;
-}
-
 public class GameView : ViewBase
 {
-    // [SerializeField] private GameBoard gameBoard;
-    [SerializeField] private GameObject gameBoard;
+    [SerializeField] protected PuzzleGame puzzleGame;
     [SerializeField] private GameObject loadingMask;
     [SerializeField] private Button startBtn;
     [SerializeField] private Button homeBtn;
     [SerializeField] private TextMeshProUGUI scoreTxt;
     [SerializeField] private TextMeshProUGUI comboTxt;
-    [SerializeField] private TextMeshProUGUI nextBlockScore;
     [SerializeField] private LayoutElement topElementAdapt;
 
     private bool _switch = true;
@@ -32,22 +21,22 @@ public class GameView : ViewBase
     private float _curComboTime;
     private int _comboCount;
 
-    private PuzzleGame GameMode => GameManager.Instance.GameMode;
     public override void OnCreate(params object[] objects)
     {
-        GameManager.Instance.GameMode = gameBoard.AddComponent<UnlimitationGameMode>();
-        GameMode.Init(() =>
+        GameManager.Instance.GameMode = puzzleGame;
+        puzzleGame.OnGameInit += () =>
         {
             loadingMask.SetActive(false);
             if (GameManager.User.IsNewPlayer)
             {
-                UIManager.Instance.PushPop<PopNewPlayerGuideData>(gameBoard);
+                UIManager.Instance.PushPop<PopNewPlayerGuideData>(puzzleGame);
             }
             else
             {
-                GameMode.Restart();
+                puzzleGame.Restart();
             }
-        });
+        };
+        puzzleGame.Init();
 
         startBtn.onClick.AddListener(StartGame);
         homeBtn.onClick.AddListener(OnHomeBtnClicked);
@@ -56,8 +45,6 @@ public class GameView : ViewBase
         AddEvent("CheckCombo", CheckCombo);
         AddEvent("RefreshGameView", Refresh);
         Refresh();
-        
-        SLog.D("Home View", Screen.safeArea);
     }
 
     public override void ScreenAdapt(Rect rect)
@@ -69,7 +56,7 @@ public class GameView : ViewBase
     {
         if (_switch)
         {
-            GameMode.NextRound();
+            puzzleGame.NextRound();
             _switch = false;
             var sequence = DOTween.Sequence();
             sequence.Append(startBtn.transform.DOLocalMove(Vector3.up * 30, 0.1f).SetEase(Ease.OutQuad));
@@ -79,15 +66,14 @@ public class GameView : ViewBase
 
     private void OnHomeBtnClicked()
     {
-        // _puzzleGame.Stop();
+        puzzleGame.EndGame();
         CloseView();
         SLog.D("GameView", "OnHomeBtnClicked");
     }
 
-    private void Refresh()
+    protected virtual void Refresh()
     {
-        scoreTxt.text = $"{GameMode.Score}";
-        nextBlockScore.text = $"还差<color=#C24347>{GameMode.NextBlockScore - GameMode.Score}</color>分";
+        scoreTxt.text = $"{puzzleGame.Score}";
     }
 
     private void CheckCombo()

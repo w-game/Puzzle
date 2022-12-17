@@ -11,6 +11,8 @@ namespace UI
 
         private ViewStack _viewStack;
         private ViewBase _subView;
+        
+        public ViewData ViewData { get; private set; }
         public void CreateSubView(ViewData viewData, ViewStack stack, params object[] objects)
         {
             if (viewData.Mask)
@@ -24,7 +26,7 @@ namespace UI
                 var go = Instantiate(prefab, content);
                 _subView = go.GetComponent<ViewBase>();
                 _subView.BaseView = this;
-                _subView.ViewData = viewData;
+                ViewData = viewData;
 
 #if UNITY_IOS
                 _subView.ScreenAdapt(Screen.safeArea);
@@ -41,9 +43,9 @@ namespace UI
             });
         }
 
-        internal void CloseView()
+        public void CloseView()
         {
-            if (_subView.ViewData.AnimaSwitch)
+            if (ViewData.AnimaSwitch)
             {
                 _subView.DoCloseAnima(() =>
                 {

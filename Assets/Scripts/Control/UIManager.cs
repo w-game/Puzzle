@@ -19,6 +19,11 @@ public class UIManager : MonoSingleton<UIManager>
         popStack.Push<T>(objs);
     }
 
+    public void PopMain<T>() where T : ViewData
+    {
+        mainStack.Pop<T>();
+    }
+
     public void CheckCloseSplash()
     {
         if (GameManager.User.PrivacyPolicy)

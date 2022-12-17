@@ -26,5 +26,14 @@ namespace UI
             _views.Remove(baseView);
             Destroy(baseView.gameObject);
         }
+
+        public void Pop<T>() where T : ViewData
+        {
+            var baseView = _views.Find(_ => _.ViewData is T);
+            if (baseView)
+            {
+                baseView.CloseView();
+            }
+        }
     }
 }

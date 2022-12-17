@@ -1,15 +1,23 @@
 using Common;
 using DG.Tweening;
 
-public class UnlimitationGameMode : PuzzleGame
+public class UnlimitedGameMode : PuzzleGame
 {
     private const float TrendTime = 30f;
 
     private Timer _trendTimer;
 
+    protected override void AddInitGameProcess(Process process)
+    {
+        process.Add("", p =>
+        {
+            _trendTimer = new Timer(TrendTime, -1, GenerateNewRowAtBottom);
+            p.Next();
+        });
+    }
+
     protected override void OnInit()
     {
-        _trendTimer = new Timer(TrendTime, -1, GenerateNewRowAtBottom);
     }
 
     protected override void OnStart()
@@ -32,7 +40,12 @@ public class UnlimitationGameMode : PuzzleGame
     {
         _trendTimer.Pause();
     }
-    
+
+    protected override void OnGameEnd()
+    {
+        _trendTimer.End();
+    }
+
     public void Revive()
     {
         for (int j = BoardLength - 1; j > BoardLength - 4; j--)
@@ -67,7 +80,7 @@ public class UnlimitationGameMode : PuzzleGame
 
         if (isAllRemove)
         {
-            GameManager.User.UpdateAllRemoveCount(BlockColor.Count);
+            GameManager.User.UpdateAllRemoveCount(BlockColors.Count);
         }
     }
     
@@ -75,7 +88,7 @@ public class UnlimitationGameMode : PuzzleGame
     {
         if (Score >= NextBlockScore)
         {
-            var count = BlockColor.Count + 1;
+            var count = BlockColors.Count + 1;
             var color = AddColor(_ => _ < count, ColorLibrary.RandomColorCoder);
             UIManager.Instance.ShowAddBlockTip(color);
         }
@@ -114,10 +127,10 @@ public class UnlimitationGameMode : PuzzleGame
 
             if (!slot.SubGrid)
             {
-                slot.GenerateGrid(BlockColor);
+                slot.GenerateGrid(BlockColors);
             }
         }
         
-        InvokeCheckRemove();
+        DoAnima(CheckRemove);
     }
 }

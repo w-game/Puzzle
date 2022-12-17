@@ -12,6 +12,7 @@ public class RemoveUnit
     public RemoveType RemoveType { get; }
     public List<GridSlot> Slots { get; }
     public Color BlockIndex { get; }
+    public int BlockCount => Slots.Count;
 
     public RemoveUnit(List<GridSlot> slots, RemoveType removeType)
     {

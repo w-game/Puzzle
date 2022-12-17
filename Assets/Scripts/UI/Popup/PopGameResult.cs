@@ -36,7 +36,7 @@ public class PopGameResult : PopupBase
         {
             if (result)
             {
-                var game = GameManager.Instance.GameMode as UnlimitationGameMode;
+                var game = GameManager.Instance.GameMode as UnlimitedGameMode;
                 game?.Revive();
                 
                 CloseView();

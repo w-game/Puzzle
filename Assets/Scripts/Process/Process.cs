@@ -25,9 +25,6 @@ namespace Common
                 Owner = this
             };
             _units.Add(unit);
-            CurExecute = unit;
-            
-            CurExecute.Execute();
         }
 
         public void Next()
@@ -48,6 +45,13 @@ namespace Common
             }
 
             CurExecute = _units[index];
+            CurExecute.Execute();
+        }
+
+        public void Start()
+        {
+            if (_units.Count == 0) return;
+            CurExecute = _units[0];
             CurExecute.Execute();
         }
 
