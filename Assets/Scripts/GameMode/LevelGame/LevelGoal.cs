@@ -32,6 +32,8 @@ namespace GameMode.LevelGame
             }
         }
 
+        protected abstract void IncreaseCount(RemoveUnit unit);
+
         protected void IncreaseCount(Color color, int count)
         {
             if (CurCount.ContainsKey(color))
@@ -45,8 +47,29 @@ namespace GameMode.LevelGame
         {
             return GoalCount[color] - CurCount[color];
         }
-        
-        public abstract bool CheckStatus(RemoveUnit unit);
-        public abstract void Complete();
+
+        public bool CheckStatus(RemoveUnit unit)
+        {
+            IncreaseCount(unit);
+            
+            foreach (var key in GoalCount.Keys)
+            {
+                if (CurCount[key] < GoalCount[key])
+                {
+                    return false;
+                }
+            }
+
+            Complete();
+            return true;
+        }
+
+        private void Complete()
+        {
+            IsComplete = true;
+            OnComplete();
+        }
+
+        protected virtual void OnComplete() { }
     }
 }

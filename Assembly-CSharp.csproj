@@ -149,7 +149,6 @@
      <Compile Include="Assets/MSDK/Scripts/common/ABUUserConfig.cs" />
      <Compile Include="Assets/Scripts/UI/Common/ViewStack.cs" />
      <Compile Include="Assets/Sample/Scripts/Main/Ui/DetailItemViewScript.cs" />
-     <Compile Include="Assets/Scripts/GameMode/LevelGame/TowardRemoveGoal.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/dto/ABUAdUnit.cs" />
      <Compile Include="Assets/Sample/Scripts/Main/Ui/ScreenOrentationAdapterScript.cs" />
      <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/InterstitalAdExample.cs" />
@@ -236,6 +235,8 @@
      <Compile Include="Assets/Scripts/UI/Element/LevelGoalItemElement.cs" />
      <Compile Include="Assets/Scripts/Ad/RewardAd.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopPassLevel.cs" />
+     <Compile Include="Assets/Scripts/GameMode/LevelGame/VerticalRemoveGoal.cs" />
+     <Compile Include="Assets/Scripts/GameMode/LevelGame/HorizontalRemoveGoal.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />

@@ -86,7 +86,19 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 93766085be6294d0fbb2603d4d5391de
+    m_Address: Prefabs/UI/Element/HorizontalRemoveGoal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bf7946719c18d40eb901b01f0addb6dc
+    m_Address: Prefabs/UI/Popup/PopPassLevel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 476242ca56be5466d99a8a0f0bbb1d8f
     m_Address: Prefabs/UI/Element/SingleColorRemoveGoal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 89f0ead450d5541039ad5b1c61af7203
+    m_Address: Prefabs/UI/Element/ThreeBlockRemoveGoal
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

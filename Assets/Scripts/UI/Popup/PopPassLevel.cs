@@ -10,6 +10,7 @@ namespace UI.Popup
         public override string ViewName => "PopPassLevel";
         public override ViewType ViewType => ViewType.Popup;
         public override bool Mask => true;
+        public override bool AnimaSwitch => true;
     }
     
     public class PopPassLevel : PopupBase
