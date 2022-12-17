@@ -24,6 +24,8 @@ namespace UI.Popup
             scoreTxt.text = $"{objects[0]}";
             nextLevelBtn.onClick.AddListener(NextLevel);
             homeBtn.onClick.AddListener(BackToHome);
+            
+            ShowNativeAd();
         }
 
         private void NextLevel()

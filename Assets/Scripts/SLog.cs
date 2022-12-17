@@ -14,5 +14,10 @@ namespace Common
         {
             Debug.Log($"{tag} -> {msg}");
         }
+        
+        public static void E(string tag, object msg)
+        {
+            Debug.LogError($"{tag} -> {msg}");
+        }
     }
 }

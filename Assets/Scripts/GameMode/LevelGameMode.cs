@@ -61,9 +61,13 @@ public class LevelGameMode : PuzzleGame
     {
         var config = _configs.levels[GameManager.User.GameLevel];
         SLog.D("Level Game", $"当前关卡：{levelIndex} Goal Type:{config.goal.type}");
-        return new GameLevel(config)
+        var gameLevel = new GameLevel
         {
             LevelIndex = levelIndex
         };
+        
+        gameLevel.Init(config);
+
+        return gameLevel;
     }
 }
