@@ -20,7 +20,6 @@ namespace UI
 
     public abstract class ViewBase : MonoBehaviour
     {
-        public ViewData ViewData { get; set; }
         public BaseView BaseView { get; set; }
 
         private Dictionary<string, List<Action>> _events = new();

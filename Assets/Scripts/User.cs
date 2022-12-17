@@ -54,6 +54,12 @@ public class User
         set => PlayerPrefs.SetInt("PrivacyPolicy", value ? 0 : 1);
     }
 
+    public int GameLevel
+    {
+        get => PlayerPrefs.GetInt("GameLevel", 0);
+        set => PlayerPrefs.SetInt("GameLevel", value);
+    }
+
     public void Init()
     {
         _maxScore = PlayerPrefs.GetInt("MaxScore", 0);

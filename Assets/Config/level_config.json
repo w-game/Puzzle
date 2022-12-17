@@ -1,0 +1,44 @@
+{
+  "levels": [
+    {
+      "goal": {
+        "type": "SingleColorRemove",
+        "counts": [
+          10
+        ]
+      }
+    },
+    {
+      "goal": {
+        "type": "SingleColorRemove",
+        "counts": [
+          20
+        ]
+      }
+    },
+    {
+      "goal": {
+        "type": "SingleColorRemove",
+        "counts": [
+          20, 30
+        ]
+      }
+    },
+    {
+      "goal": {
+        "type": "ThreeBlockRemove",
+        "counts": [
+          5
+        ]
+      }
+    },
+    {
+      "goal": {
+        "type": "TowardRemove",
+        "counts": [
+          5
+        ]
+      }
+    }
+  ]
+}

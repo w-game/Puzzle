@@ -1,7 +1,6 @@
-using Android;
-using Common;
 using TMPro;
 using UI;
+using UI.View;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,14 +15,16 @@ public class HomeViewData : ViewData
 
 public class HomeView : ViewBase
 {
-    [SerializeField] private Button startGameBtn;
+    [SerializeField] private Button levelStartGameBtn;
+    [SerializeField] private Button unlimitedStartGameBtn;
     [SerializeField] private Button guideBtn;
     [SerializeField] private Button settingBtn;
     [SerializeField] private TextMeshProUGUI maxScore;
     [SerializeField] private TextMeshProUGUI allRemove;
     public override void OnCreate(params object[] objects)
     {
-        startGameBtn.onClick.AddListener(StartGame);
+        levelStartGameBtn.onClick.AddListener(() => StartGame(PuzzleGameMode.Level));
+        unlimitedStartGameBtn.onClick.AddListener(() => StartGame(PuzzleGameMode.Unlimited));
         guideBtn.onClick.AddListener(OnGuideBtnClick);
         settingBtn.onClick.AddListener(OnSettingBtnClick);
         
@@ -32,9 +33,17 @@ public class HomeView : ViewBase
         UIManager.Instance.CheckCloseSplash();
     }
 
-    private void StartGame()
+    private void StartGame(PuzzleGameMode gameMode)
     {
-        UIManager.Instance.PushMain<GameViewData>();
+        switch (gameMode)
+        {
+            case PuzzleGameMode.Level:
+                UIManager.Instance.PushMain<LevelGameViewData>(gameMode);
+                break;
+            case PuzzleGameMode.Unlimited:
+                UIManager.Instance.PushMain<UnlimitedGameViewData>(gameMode);
+                break;
+        }
     }
 
     private void OnGuideBtnClick()

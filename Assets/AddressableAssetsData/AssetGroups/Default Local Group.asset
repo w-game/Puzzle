@@ -34,7 +34,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: cac25d0d539964dc58a7b49e9d210a68
-    m_Address: Prefabs/UI/View/GameView
+    m_Address: Prefabs/UI/View/UnlimitedGameView
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 0958b4392885d4bf98176e9859e38ec8
@@ -75,6 +75,18 @@ MonoBehaviour:
     m_SerializedLabels: []
   - m_GUID: 4d1b2eb3ccef749fb8a6eb960d604336
     m_Address: Prefabs/UI/Popup/PopPrivacyPolicy
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c36d18a6d734d4a7193744f7e0bedf9f
+    m_Address: Prefabs/UI/View/LevelGameView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 938d11fae9c04494a20566855b3339c0
+    m_Address: Config/level_config
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 93766085be6294d0fbb2603d4d5391de
+    m_Address: Prefabs/UI/Element/SingleColorRemoveGoal
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

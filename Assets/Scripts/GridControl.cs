@@ -62,7 +62,7 @@ public class GridControl : MonoSingleton<GridControl>
             var index = _remaining[Random.Range(0, _remaining.Count)];
             _remaining.Remove(index);
             var slot = NextNextGridSlots[index];
-            var grid = slot.GenerateGrid(PuzzleGame.BlockColor);
+            var grid = slot.GenerateGrid(PuzzleGame.BlockColors);
             grid.transform.localScale *= 0.3f;
         }
 

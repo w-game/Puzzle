@@ -5,6 +5,12 @@ using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+public enum PuzzleGameMode
+{
+    Level = 0,
+    Unlimited = 1
+}
+
 public abstract class PuzzleGame : MonoBehaviour
 {
     public const int BoardWidth = 9;
@@ -15,10 +21,10 @@ public abstract class PuzzleGame : MonoBehaviour
     public static GameObject GridPrefab { get; private set; }
     public static GameObject SlotPrefab { get; private set; }
     
-    public static readonly List<Color> BlockColor = new();
+    public static readonly List<Color> BlockColors = new();
     public List<GridSlot> GridSlots { get; } = new();
     public int Score { get; private set; }
-    public float NextBlockScore => Mathf.Pow(4, BlockColor.Count + 1);
+    public float NextBlockScore => Mathf.Pow(4, BlockColors.Count + 1);
     
     
     private static RectTransform _rect;
@@ -28,6 +34,9 @@ public abstract class PuzzleGame : MonoBehaviour
 
     private RemoveCheck _removeCheck = new(BoardWidth, BoardLength);
 
+    public event Action OnGameInit;
+
+    private Process _initGameProcess;
     private void Awake()
     {
         _rect = GetComponent<RectTransform>();
@@ -35,37 +44,54 @@ public abstract class PuzzleGame : MonoBehaviour
             BlockSize * BoardWidth + (BoardWidth - 1) * 10,
             BlockSize * BoardLength + (BoardLength - 1) * 10);
     }
-    
+
+    protected virtual void AddInitGameProcess(Process process) { }
     protected virtual void OnInit() { }
     protected virtual void OnStart() { }
     protected virtual void OnRefresh() { }
+    protected virtual void OnBlocksRemove(RemoveUnit unit) { }
     protected virtual void OnRoundEnd() { }
     protected virtual void OnGameOver() { }
+    protected virtual void OnGameEnd() { }
     
-    public void Init(Action callback)
+    public void Init()
     {
-        AddressableMgr.Load<GameObject>("Prefabs/GridSlot", prefab =>
+        _initGameProcess = new Process();
+        _initGameProcess.Add("", p =>
         {
-            SlotPrefab = prefab;
-            for (int j = 0; j < BoardLength; j++)
+            AddressableMgr.Load<GameObject>("Prefabs/GridSlot", prefab =>
             {
-                for (int i = 0; i < BoardWidth; i++)
+                SlotPrefab = prefab;
+                for (int j = 0; j < BoardLength; j++)
                 {
-                    var slot = Instantiate(SlotPrefab, transform).GetComponent<GridSlot>();
-                    slot.name = $"GridSlot_{i}_{j}";
-                    slot.Pos = new Vector2Int(i, j);
-                    GridSlots.Add(slot);
+                    for (int i = 0; i < BoardWidth; i++)
+                    {
+                        var slot = Instantiate(SlotPrefab, transform).GetComponent<GridSlot>();
+                        slot.name = $"GridSlot_{i}_{j}";
+                        slot.Pos = new Vector2Int(i, j);
+                        GridSlots.Add(slot);
+                    }
                 }
-            }
-
+                
+                p.Next();
+            });
+        });
+        _initGameProcess.Add("", p =>
+        {
             AddressableMgr.Load<GameObject>("Prefabs/Grid", gridPrefab =>
             {
                 GridPrefab = gridPrefab;
                 GridControl.Instance.Init();
-                OnInit();
-                callback?.Invoke();
+                
+                p.Next();
             });
         });
+        AddInitGameProcess(_initGameProcess);
+        _initGameProcess.Add("", p =>
+        {
+            OnGameInit?.Invoke();
+        });
+        _initGameProcess.Start();
     }
     
     public void Restart()
@@ -92,9 +118,9 @@ public abstract class PuzzleGame : MonoBehaviour
         OnRefresh();
     }
 
-    protected void RefreshBlockColor()
+    private void RefreshBlockColor()
     {
-        BlockColor.Clear();
+        BlockColors.Clear();
 
         var colorLib = ColorLibrary.FirstColorCoder[Random.Range(0, ColorLibrary.FirstColorCoder.Count)];
         AddColor(_ => _ < 3, colorLib);
@@ -103,11 +129,11 @@ public abstract class PuzzleGame : MonoBehaviour
     protected Color AddColor(Predicate<int> match, List<string> colorLib)
     {
         Color color = default;
-        while (match(BlockColor.Count))
+        while (match(BlockColors.Count))
         {
             var colorCode = colorLib[Random.Range(0, colorLib.Count)];
             ColorUtility.TryParseHtmlString(colorCode, out color);
-            if (!BlockColor.Contains(color)) BlockColor.Add(color);
+            if (!BlockColors.Contains(color)) BlockColors.Add(color);
         }
 
         return color;
@@ -149,17 +175,17 @@ public abstract class PuzzleGame : MonoBehaviour
             downSlot.SetGrid(grid, true);
         }
         _undeterminedGrids.Clear();
-        InvokeCheckRemove();
+        DoAnima(CheckRemove);
     }
     
-    protected void InvokeCheckRemove()
+    protected void DoAnima(TweenCallback callback)
     {
         var sequence = DOTween.Sequence();
         sequence.AppendInterval(AnimaTime);
-        sequence.AppendCallback(CheckRemove);
+        sequence.AppendCallback(callback);
     }
     
-    private void CheckRemove()
+    protected void CheckRemove()
     {
         var removeUnits = _removeCheck.Check(GridSlots);
 
@@ -169,6 +195,7 @@ public abstract class PuzzleGame : MonoBehaviour
             EventCenter.Invoke("CheckCombo");
             Score += removeUnit.Execute(rate);
             rate++;
+            OnBlocksRemove(removeUnit);
         }
         
         if (removeUnits.Count != 0)
@@ -177,14 +204,10 @@ public abstract class PuzzleGame : MonoBehaviour
             EventCenter.Invoke("RefreshGameView");
         }
         
-        removeUnits.Clear();
-        
-        var sequence = DOTween.Sequence();
-        sequence.AppendInterval(AnimaTime);
-        sequence.AppendCallback(() =>
+        DoAnima(() =>
         {
             var result = CheckComeDown();
-            if (result) InvokeCheckRemove();
+            if (result) DoAnima(CheckRemove);
             else EndRound();
         });
     }
@@ -252,5 +275,10 @@ public abstract class PuzzleGame : MonoBehaviour
         UIManager.Instance.PushPop<PopGameResultData>();
         GameManager.User.MaxScore = Score;
         OnGameOver();
+    }
+
+    public void EndGame()
+    {
+        OnGameEnd();
     }
 }
