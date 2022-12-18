@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using Common;
 using UnityEngine;
 
 namespace GameMode.LevelGame
@@ -7,58 +5,34 @@ namespace GameMode.LevelGame
     public abstract class LevelGoal
     {
         public abstract string ElementPath { get; }
-        public Dictionary<Color, int> GoalCount { get; } = new();
-        public Dictionary<Color, int> CurCount { get; } = new();
-        public bool IsComplete { get; protected set; }
+        public Color Pattern { get; set; }
+        public int GoalCount { get; set; }
+        public int CurCount { get; set; }
+        public int RemainCount => GoalCount - CurCount;
+        public bool IsComplete { get; private set; }
 
-        public void Init(LevelGoalConfig config)
+        public void Init(LevelGoalConfig config, Color color)
         {
-            if (config.counts.Count > PuzzleGame.BlockColors.Count)
-            {
-                SLog.D("Level Goal", "目标数配置大于方块数，请检查配置");
-                return;
-            }
-            
-            foreach (var count in config.counts)
-            {
-                var color = PuzzleGame.BlockColors[Random.Range(0, PuzzleGame.BlockColors.Count)];
-                while (GoalCount.ContainsKey(color))
-                {
-                    color = PuzzleGame.BlockColors[Random.Range(0, PuzzleGame.BlockColors.Count)];
-                }
-
-                GoalCount.Add(color, count);
-                CurCount.Add(color, 0);
-            }
+            Pattern = color;
+            GoalCount = config.count;
         }
 
         protected abstract void IncreaseCount(RemoveUnit unit);
 
         protected void IncreaseCount(Color color, int count)
         {
-            if (CurCount.ContainsKey(color))
+            if (Pattern == color)
             {
-                var newValue = CurCount[color] + count;
-                CurCount[color] = newValue > GoalCount[color] ? GoalCount[color] : newValue;
+                var newValue = CurCount + count;
+                CurCount = newValue > GoalCount ? GoalCount : newValue;
             }
-        }
-        
-        public int GetRemainCount(Color color)
-        {
-            return GoalCount[color] - CurCount[color];
         }
 
         public bool CheckStatus(RemoveUnit unit)
         {
             IncreaseCount(unit);
             
-            foreach (var key in GoalCount.Keys)
-            {
-                if (CurCount[key] < GoalCount[key])
-                {
-                    return false;
-                }
-            }
+            if (CurCount < GoalCount) return false;
 
             Complete();
             return true;

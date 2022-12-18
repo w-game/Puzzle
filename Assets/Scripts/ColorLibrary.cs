@@ -94,7 +94,7 @@ namespace Common
             {
                 "#50312F",
                 "#CBO000",
-                "＃E4EA8C",
+                "#E4EA8C",
                 "#3F6C45"
             },
             new List<string>()

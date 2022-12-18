@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace UI.View
@@ -12,6 +13,7 @@ namespace UI.View
     public class LevelGameView : GameView
     {
         [SerializeField] private LevelGoalElement levelGoalElement;
+        [SerializeField] private TextMeshProUGUI levelTxt;
 
         private LevelGameMode _levelGameMode;
         public override void OnCreate(params object[] objects)
@@ -25,7 +27,8 @@ namespace UI.View
 
         private void SetGoal()
         {
-            levelGoalElement.SetGoal(_levelGameMode.CurLevel.Goal);
+            levelGoalElement.SetGoal(_levelGameMode.CurLevel.Goals);
+            levelTxt.text = $"第{_levelGameMode.CurLevel.LevelIndex + 1}关";
         }
 
         private void RefreshGoal()

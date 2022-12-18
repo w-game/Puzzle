@@ -60,7 +60,7 @@ public class LevelGameMode : PuzzleGame
     private GameLevel CreateLevel(int levelIndex)
     {
         var config = _configs.levels[GameManager.User.GameLevel];
-        SLog.D("Level Game", $"当前关卡：{levelIndex} Goal Type:{config.goal.type}");
+        SLog.D("Level Game", $"当前关卡：{levelIndex} Goal Count:{config.goal.Count}");
         var gameLevel = new GameLevel
         {
             LevelIndex = levelIndex

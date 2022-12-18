@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using TMPro;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,7 +20,7 @@ public class PopNewPlayerGuide : PopupBase
 
     // [SerializeField] private List<PlayingTipData> playingTipDatas;
 
-    private int _index = -1;
+    // private int _index = -1;
     public override void OnCreate(params object[] objects)
     {
         // preTipBtn.onClick.AddListener(PreTip);
@@ -69,9 +66,9 @@ public class PopNewPlayerGuide : PopupBase
     }
 }
 
-[Serializable]
-public struct PlayingTipData
-{
-    public Sprite gif;
-    public string tip;
-}
+// [Serializable]
+// public struct PlayingTipData
+// {
+//     public Sprite gif;
+//     public string tip;
+// }

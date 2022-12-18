@@ -12,13 +12,13 @@ namespace GameMode.LevelGame
     [Serializable]
     public class LevelConfig
     {
-        public LevelGoalConfig goal;
+        public List<LevelGoalConfig> goal;
     }
     
     [Serializable]
     public class LevelGoalConfig
     {
         public string type;
-        public List<int> counts;
+        public int count;
     }
 }
