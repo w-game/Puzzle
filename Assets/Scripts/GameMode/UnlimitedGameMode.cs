@@ -61,7 +61,7 @@ public class UnlimitedGameMode : PuzzleGame
         sequence.AppendInterval(AnimaTime);
         sequence.AppendCallback(() => CheckComeDown());
         _trendTimer.Reset();
-        EventCenter.Invoke("EnableStartBtn");
+        EventCenter.Invoke(GameView.EventKeys.EnableStartBtn);
     }
 
     private void CheckAllRemove()

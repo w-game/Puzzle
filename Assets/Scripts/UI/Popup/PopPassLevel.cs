@@ -32,7 +32,7 @@ namespace UI.Popup
         {
             CloseView();
             var levelGameMode = GameManager.Instance.GameMode as LevelGameMode;
-            levelGameMode.NextLevel();
+            levelGameMode.InitLevel();
         }
 
         private void BackToHome()

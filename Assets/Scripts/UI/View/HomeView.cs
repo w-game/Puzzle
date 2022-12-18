@@ -15,6 +15,11 @@ public class HomeViewData : ViewData
 
 public class HomeView : ViewBase
 {
+    public enum EventKeys
+    {
+        RefreshView
+    }
+    
     [SerializeField] private Button levelStartGameBtn;
     [SerializeField] private Button unlimitedStartGameBtn;
     [SerializeField] private Button guideBtn;
@@ -29,7 +34,7 @@ public class HomeView : ViewBase
         settingBtn.onClick.AddListener(OnSettingBtnClick);
         
         RefreshView();
-        AddEvent("RefreshView", RefreshView);
+        AddEvent(EventKeys.RefreshView, RefreshView);
         UIManager.Instance.CheckCloseSplash();
     }
 

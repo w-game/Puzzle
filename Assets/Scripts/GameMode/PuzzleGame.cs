@@ -94,22 +94,22 @@ public abstract class PuzzleGame : MonoBehaviour
         _initGameProcess.Start();
     }
     
-    public void Restart()
+    public virtual void Restart()
     {
         RefreshBlockColor();
         RefreshBoard();
         OnStart();
     }
 
-    private void RefreshBoard()
+    protected void RefreshBoard()
     {
         Score = 0;
         
         _undeterminedGrids.Clear();
         ClearSlots();
         
-        EventCenter.Invoke("EnableStartBtn");
-        EventCenter.Invoke("RefreshGameView");
+        EventCenter.Invoke(GameView.EventKeys.EnableStartBtn);
+        EventCenter.Invoke(GameView.EventKeys.RefreshView);
         Control.Refresh();
         
         OnRefresh();
@@ -126,12 +126,12 @@ public abstract class PuzzleGame : MonoBehaviour
         }
     }
 
-    private void RefreshBlockColor()
+    protected void RefreshBlockColor(int count = 3)
     {
         BlockColors.Clear();
 
         var colorLib = ColorLibrary.FirstColorCoder[Random.Range(0, ColorLibrary.FirstColorCoder.Count)];
-        AddColor(_ => _ < 3, colorLib);
+        AddColor(_ => _ < count, colorLib);
     }
     
     protected Color AddColor(Predicate<int> match, List<string> colorLib)
@@ -200,7 +200,7 @@ public abstract class PuzzleGame : MonoBehaviour
         var rate = 1;
         foreach (var removeUnit in removeUnits)
         {
-            EventCenter.Invoke("CheckCombo");
+            EventCenter.Invoke(GameView.EventKeys.CheckCombo);
             Score += removeUnit.Execute(rate);
             rate++;
             OnBlocksRemove(removeUnit);
@@ -209,7 +209,7 @@ public abstract class PuzzleGame : MonoBehaviour
         if (removeUnits.Count != 0)
         {
             SoundManager.Instance.PlayRemoveSound();
-            EventCenter.Invoke("RefreshGameView");
+            EventCenter.Invoke(GameView.EventKeys.RefreshView);
         }
         
         DoAnima(() =>
@@ -259,8 +259,8 @@ public abstract class PuzzleGame : MonoBehaviour
     {
         CheckGameOver();
         OnRoundEnd();
-        EventCenter.Invoke("RefreshGameView");
-        EventCenter.Invoke("EnableStartBtn");
+        EventCenter.Invoke(GameView.EventKeys.RefreshView);
+        EventCenter.Invoke(GameView.EventKeys.EnableStartBtn);
     }
     
     private void CheckGameOver()

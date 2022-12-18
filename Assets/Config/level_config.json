@@ -5,12 +5,10 @@
         {
           "type": "SingleColorRemove",
           "count": 10
-        },
-        {
-          "type": "ThreeBlockRemove",
-          "count": 5
         }
-      ]
+      ],
+      "blockCount": 3,
+      "time": 60
     },
     {
       "goal": [
@@ -18,15 +16,29 @@
           "type": "SingleColorRemove",
           "count": 20
         }
-      ]
+      ],
+      "blockCount": 3,
+      "time": 60
     },
     {
       "goal": [
         {
           "type": "SingleColorRemove",
-          "count": 20
+          "count": 40
         }
-      ]
+      ],
+      "blockCount": 3,
+      "time": 60
+    },
+    {
+      "goal": [
+        {
+          "type": "SingleColorRemove",
+          "count": 40
+        }
+      ],
+      "blockCount": 4,
+      "time": 60
     },
     {
       "goal": [
@@ -34,7 +46,9 @@
           "type": "ThreeBlockRemove",
           "count": 5
         }
-      ]
+      ],
+      "blockCount": 3,
+      "time": 30
     },
     {
       "goal": [
@@ -42,7 +56,9 @@
           "type": "HorizontalRemove",
           "count": 5
         }
-      ]
+      ],
+      "blockCount": 3,
+      "time": 30
     },
     {
       "goal": [
@@ -50,7 +66,9 @@
           "type": "VerticalRemove",
           "count": 5
         }
-      ]
+      ],
+      "blockCount": 3,
+      "time": 30
     },
     {
       "goal": [
@@ -58,7 +76,9 @@
           "type": "VerticalRemove",
           "count": 10
         }
-      ]
+      ],
+      "blockCount": 3,
+      "time": 30
     }
   ]
 }

@@ -187,6 +187,7 @@
      <Compile Include="Assets/MSDK/Scripts/Android/ABUInterstitialAd.cs" />
      <Compile Include="Assets/Sample/Scripts/Internationalization/LanguageType.cs" />
      <Compile Include="Assets/Sample/Scripts/Main/Helper/PrefabLoader.cs" />
+     <Compile Include="Assets/Scripts/UI/Element/LevelTime.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/ABUSDKInitConfig.cs" />
      <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/BannerAdExample.cs" />
      <Compile Include="Assets/Sample/Scripts/Main/Helper/LocalImageLoader.cs" />
@@ -240,6 +241,7 @@
      <Compile Include="Assets/MSDK/Scripts/Android/NativeAd.cs" />
      <Compile Include="Assets/Scripts/UI/Element/LevelGoalItemElement.cs" />
      <Compile Include="Assets/Scripts/Ad/RewardAd.cs" />
+     <Compile Include="Assets/Scripts/UI/Popup/PopLevelGameOver.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />

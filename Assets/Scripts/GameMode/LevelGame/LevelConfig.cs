@@ -13,6 +13,8 @@ namespace GameMode.LevelGame
     public class LevelConfig
     {
         public List<LevelGoalConfig> goal;
+        public int blockCount;
+        public float time;
     }
     
     [Serializable]

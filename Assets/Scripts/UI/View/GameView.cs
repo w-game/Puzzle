@@ -7,6 +7,13 @@ using UnityEngine.UI;
 
 public class GameView : ViewBase
 {
+    public enum EventKeys
+    {
+        EnableStartBtn,
+        CheckCombo,
+        RefreshView
+    }
+    
     [SerializeField] protected PuzzleGame puzzleGame;
     [SerializeField] private GameObject loadingMask;
     [SerializeField] private Button startBtn;
@@ -41,9 +48,9 @@ public class GameView : ViewBase
         startBtn.onClick.AddListener(StartGame);
         homeBtn.onClick.AddListener(OnHomeBtnClicked);
 
-        AddEvent("EnableStartBtn", () => _switch = true);
-        AddEvent("CheckCombo", CheckCombo);
-        AddEvent("RefreshGameView", Refresh);
+        AddEvent(EventKeys.EnableStartBtn, () => _switch = true);
+        AddEvent(EventKeys.CheckCombo, CheckCombo);
+        AddEvent(EventKeys.EnableStartBtn, Refresh);
         Refresh();
     }
 
