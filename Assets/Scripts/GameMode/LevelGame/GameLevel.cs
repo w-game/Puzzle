@@ -9,18 +9,28 @@ namespace GameMode.LevelGame
     {
         public int LevelIndex { get; set; }
         public List<LevelGoal> Goals { get; } = new();
-        
+        public float MaxTime { get; private set; }
+        public int BlockCount { get; private set; }
+
+        private LevelConfig _config;
         public void Init(LevelConfig config)
+        {
+            _config = config;
+            MaxTime = config.time;
+            BlockCount = config.blockCount;
+        }
+
+        public void InitGoals()
         {
             try
             {
-                if (config.goal.Count > PuzzleGame.BlockColors.Count)
+                if (_config.goal.Count > PuzzleGame.BlockColors.Count)
                 {
                     SLog.D("Level Goal", "目标数配置大于方块数，请检查配置");
                     return;
                 }
                 
-                foreach (var goalConfig in config.goal)
+                foreach (var goalConfig in _config.goal)
                 {
                     var color = PuzzleGame.BlockColors[Random.Range(0, PuzzleGame.BlockColors.Count)];
                     while (Goals.Find(_ => _.Pattern == color) != null)
@@ -36,8 +46,7 @@ namespace GameMode.LevelGame
             }
             catch (Exception e)
             {
-                var s = $"关卡创建失败！ {e}";
-                SLog.D("Game Level", s);
+                SLog.D("Game Level", $"关卡目标初始化失败！ \n{e}");
             }
         }
 

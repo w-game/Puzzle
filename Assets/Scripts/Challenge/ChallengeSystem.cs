@@ -13,7 +13,7 @@ namespace GameSystem
         {
             InitChallenge(new RemoveCountChallenge());
             
-            EventCenter.AddFromNonUI("OnChallengeComplete", OnChallengeComplete);
+            // EventCenter.AddFromNonUI("OnChallengeComplete", OnChallengeComplete);
         }
 
         private void InitChallenge(Challenge challenge)

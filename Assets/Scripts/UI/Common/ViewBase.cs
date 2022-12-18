@@ -22,7 +22,7 @@ namespace UI
     {
         public BaseView BaseView { get; set; }
 
-        private Dictionary<string, List<Action>> _events = new();
+        private Dictionary<Enum, List<object>> _events = new();
         public virtual void OnCreate(params object[] objects) { }
         
         public virtual void ScreenAdapt(Rect rect) { }
@@ -40,16 +40,24 @@ namespace UI
         {
             
         }
-
-        protected void AddEvent(string key, Action callback)
+        
+        protected void AddEvent(Enum key, Action callback)
         {
-            if (!_events.ContainsKey(key)) _events.Add(key, new List<Action>());
+            if (!_events.ContainsKey(key)) _events.Add(key, new List<object>());
 
             _events[key].Add(callback);
             EventCenter.Add(key, callback);
         }
 
-        protected void RemoveEvent(string key, Action callback)
+        protected void AddEvent<T>(Enum key, Action<T> callback)
+        {
+            if (!_events.ContainsKey(key)) _events.Add(key, new List<object>());
+
+            _events[key].Add(callback);
+            EventCenter.Add(key, callback);
+        }
+
+        protected void RemoveEvent(Enum key, object callback)
         {
             if (!_events.ContainsKey(key)) return;
 
@@ -65,7 +73,7 @@ namespace UI
         {
             foreach (var key in _events.Keys)
             {
-                foreach (var callback in new List<Action>(_events[key]))
+                foreach (var callback in new List<object>(_events[key]))
                 {
                     RemoveEvent(key, callback);
                 }

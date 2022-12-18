@@ -20,7 +20,7 @@ namespace GameSystem
 
             if (CurCount == MaxCount)
             {
-                EventCenter.Invoke("OnChallengeComplete");
+                // EventCenter.Invoke("OnChallengeComplete");
             }
         }
 

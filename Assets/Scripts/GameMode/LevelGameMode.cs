@@ -1,22 +1,13 @@
 using Common;
 using GameMode.LevelGame;
 using UI.Popup;
+using UI.View;
 using UnityEngine;
 
 public class LevelGameMode : PuzzleGame
 {
     private LevelConfigs _configs;
-    private GameLevel _curLevel;
-    public GameLevel CurLevel
-    {
-        get => _curLevel;
-        private set
-        {
-            if (value == null) return;
-            _curLevel = value;
-            EventCenter.Invoke("SetGoal");
-        }
-    }
+    public GameLevel CurLevel { get; private set; }
 
     protected override void AddInitGameProcess(Process process)
     {
@@ -30,9 +21,9 @@ public class LevelGameMode : PuzzleGame
         });
     }
 
-    protected override void OnStart()
+    public override void Restart()
     {
-        NextLevel();
+        InitLevel();
     }
 
     protected override void OnBlocksRemove(RemoveUnit unit)
@@ -43,18 +34,21 @@ public class LevelGameMode : PuzzleGame
     private void CheckLevelGoal(RemoveUnit unit)
     {
         var result = CurLevel.CheckLevelGoal(unit);
-        EventCenter.Invoke("RefreshGoal");
+        EventCenter.Invoke(LevelGameView.EventKeys.RefreshGoal);
         if (result)
         {
             GameManager.User.GameLevel++;
-            UIManager.Instance.PushPop<PopPassLevelData>(Score);
+            EventCenter.Invoke(LevelGameView.EventKeys.OnLevelPass, Score);
         }
     }
 
-    public void NextLevel()
+    public void InitLevel()
     {
         CurLevel = CreateLevel(GameManager.User.GameLevel);
-        ClearSlots();
+        RefreshBlockColor(CurLevel.BlockCount);
+        CurLevel.InitGoals();
+        EventCenter.Invoke(LevelGameView.EventKeys.SetGoal);
+        RefreshBoard();
     }
 
     private GameLevel CreateLevel(int levelIndex)
@@ -69,5 +63,10 @@ public class LevelGameMode : PuzzleGame
         gameLevel.Init(config);
 
         return gameLevel;
+    }
+
+    public void LevelFail()
+    {
+        
     }
 }

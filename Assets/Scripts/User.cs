@@ -16,7 +16,7 @@ public class User
             {
                 _maxScore = value;
                 PlayerPrefs.SetInt("MaxScore", value);
-                EventCenter.Invoke("RefreshView");
+                EventCenter.Invoke(HomeView.EventKeys.RefreshView);
             }
         }
     }
@@ -78,7 +78,7 @@ public class User
     {
         var count = PlayerPrefs.GetInt($"AllRemoveCount_{blockColorCount}", 0) + 1;
         PlayerPrefs.SetInt($"AllRemoveCount_{blockColorCount}", count);
-        EventCenter.Invoke("RefreshView");
+        EventCenter.Invoke(HomeView.EventKeys.RefreshView);
     }
 
     public void SetOldPlayer()
