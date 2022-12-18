@@ -10,14 +10,14 @@ namespace UI
         [SerializeField] private Transform content;
 
         private List<LevelGoalItemElement> _items = new();
-        private LevelGoal _levelGoal;
+        private List<LevelGoal> _levelGoals;
 
-        public void SetGoal(LevelGoal levelGoal)
+        public void SetGoal(List<LevelGoal> levelGoals)
         {
-            GenerateItem(levelGoal);
+            GenerateItem(levelGoals);
         }
 
-        private void GenerateItem(LevelGoal levelGoal)
+        private void GenerateItem(List<LevelGoal> levelGoals)
         {
             foreach (var item in _items)
             {
@@ -25,23 +25,23 @@ namespace UI
             }
             _items.Clear();
             
-            _levelGoal = levelGoal;
-            AddressableMgr.Load<GameObject>("Prefabs/UI/Element/" + levelGoal.ElementPath, p =>
+            _levelGoals = levelGoals;
+            foreach (var levelGoal in _levelGoals)
             {
-                foreach (var color in levelGoal.GoalCount.Keys)
+                AddressableMgr.Load<GameObject>("Prefabs/UI/Element/" + levelGoal.ElementPath, p =>
                 {
                     var item = Instantiate(p, content).GetComponent<LevelGoalItemElement>();
-                    item.Init(color, levelGoal.GoalCount[color]);
+                    item.Init(levelGoal);
                     _items.Add(item);
-                }
-            });
+                });
+            }
         }
 
         public void RefreshGoal()
         {
             foreach (var item in _items)
             {
-                item.SetData(_levelGoal.GetRemainCount(item.Color));
+                item.RefreshData();
             }
         }
     }

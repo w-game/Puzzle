@@ -1,60 +1,64 @@
 {
   "levels": [
     {
-      "goal": {
-        "type": "SingleColorRemove",
-        "counts": [
-          10
-        ]
-      }
+      "goal": [
+        {
+          "type": "SingleColorRemove",
+          "count": 10
+        },
+        {
+          "type": "ThreeBlockRemove",
+          "count": 5
+        }
+      ]
     },
     {
-      "goal": {
-        "type": "SingleColorRemove",
-        "counts": [
-          20
-        ]
-      }
+      "goal": [
+        {
+          "type": "SingleColorRemove",
+          "count": 20
+        }
+      ]
     },
     {
-      "goal": {
-        "type": "SingleColorRemove",
-        "counts": [
-          20, 30
-        ]
-      }
+      "goal": [
+        {
+          "type": "SingleColorRemove",
+          "count": 20
+        }
+      ]
     },
     {
-      "goal": {
-        "type": "ThreeBlockRemove",
-        "counts": [
-          5
-        ]
-      }
+      "goal": [
+        {
+          "type": "ThreeBlockRemove",
+          "count": 5
+        }
+      ]
     },
     {
-      "goal": {
-        "type": "HorizontalRemove",
-        "counts": [
-          5
-        ]
-      }
+      "goal": [
+        {
+          "type": "HorizontalRemove",
+          "count": 5
+        }
+      ]
     },
     {
-      "goal": {
-        "type": "VerticalRemove",
-        "counts": [
-          5
-        ]
-      }
+      "goal": [
+        {
+          "type": "VerticalRemove",
+          "count": 5
+        }
+      ]
     },
     {
-      "goal": {
-        "type": "VerticalRemove",
-        "counts": [
-          5, 10
-        ]
-      }
+      "goal": [
+        {
+          "type": "VerticalRemove",
+          "count": 10
+        }
+      ]
     }
   ]
 }

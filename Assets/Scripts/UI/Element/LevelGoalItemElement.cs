@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using GameMode.LevelGame;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,20 +11,21 @@ namespace UI
         [SerializeField] private List<Image> icons;
         [SerializeField] private TextMeshProUGUI countTxt;
 
-        public Color Color { get; private set; }
-        public void Init(Color color, int count)
+        private LevelGoal _levelGoal;
+        public void Init(LevelGoal levelGoal)
         {
-            Color = color;
+            _levelGoal = levelGoal;
             foreach (var icon in icons)
             {
-                icon.color = color;
+                icon.color = _levelGoal.Pattern;
             }
-            SetData(count);
+            
+            RefreshData();
         }
         
-        public void SetData(int count)
+        public void RefreshData()
         {
-            countTxt.text = $"x{count}";
+            countTxt.text = $"x{_levelGoal.RemainCount}";
         }
     }
 }
