@@ -17,7 +17,8 @@ namespace UI.View
         {
             SetGoal,
             RefreshGoal,
-            OnLevelPass
+            OnLevelPass,
+            OnGameOver
         }
         
         [SerializeField] private LevelGoalElement levelGoalElement;
@@ -33,13 +34,14 @@ namespace UI.View
             AddEvent(EventKeys.SetGoal, SetGoal);
             AddEvent(EventKeys.RefreshGoal, RefreshGoal);
             AddEvent<int>(EventKeys.OnLevelPass, OnLevelPass);
+            AddEvent(EventKeys.OnGameOver, OnGameOver);
         }
 
         private void SetGoal()
         {
             levelGoalElement.SetGoal(_levelGameMode.CurLevel.Goals);
             levelTxt.text = $"第{_levelGameMode.CurLevel.LevelIndex + 1}关";
-            levelTime.SetTime(_levelGameMode.CurLevel.MaxTime, OnLevelTimeEnd);
+            levelTime.SetTime(_levelGameMode.CurLevel.MaxTime, OnGameOver);
         }
         
         private void RefreshGoal()
@@ -53,7 +55,7 @@ namespace UI.View
             UIManager.Instance.PushPop<PopPassLevelData>(score);
         }
 
-        private void OnLevelTimeEnd()
+        private void OnGameOver()
         {
             levelTime.Stop();
             UIManager.Instance.PushPop<PopLevelGameOverData>();

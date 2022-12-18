@@ -25,6 +25,7 @@ namespace UI.Popup
 
         private void Restart()
         {
+            CloseView();
             GameManager.Instance.GameMode.Restart();
         }
 

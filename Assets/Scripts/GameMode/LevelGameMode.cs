@@ -31,6 +31,11 @@ public class LevelGameMode : PuzzleGame
         CheckLevelGoal(unit);
     }
 
+    protected override void OnGameOver()
+    {
+        EventCenter.Invoke(LevelGameView.EventKeys.OnGameOver);
+    }
+
     private void CheckLevelGoal(RemoveUnit unit)
     {
         var result = CurLevel.CheckLevelGoal(unit);

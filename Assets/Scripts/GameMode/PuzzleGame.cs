@@ -280,7 +280,6 @@ public abstract class PuzzleGame : MonoBehaviour
     {
         // if (!GameStatus) return;
         // GameStatus = false;
-        UIManager.Instance.PushPop<PopGameResultData>();
         GameManager.User.MaxScore = Score;
         OnGameOver();
     }

@@ -38,6 +38,7 @@ public class UnlimitedGameMode : PuzzleGame
 
     protected override void OnGameOver()
     {
+        UIManager.Instance.PushPop<PopGameResultData>();
         _trendTimer.Pause();
     }
 
