@@ -11,6 +11,7 @@ namespace GameMode.LevelGame
         public List<LevelGoal> Goals { get; } = new();
         public float MaxTime { get; private set; }
         public int BlockCount { get; private set; }
+        public bool IsPass { get; private set; }
 
         private LevelConfig _config;
         public void Init(LevelConfig config)
@@ -52,6 +53,7 @@ namespace GameMode.LevelGame
 
         public bool CheckLevelGoal(RemoveUnit unit)
         {
+            if (IsPass) return false;
             var result = true;
             foreach (var goal in Goals)
             {
@@ -62,6 +64,8 @@ namespace GameMode.LevelGame
                     result = false;
                 }
             }
+
+            if (result) IsPass = true;
 
             return result;
         }

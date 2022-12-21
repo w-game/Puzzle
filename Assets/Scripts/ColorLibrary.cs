@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Common
 {
@@ -93,7 +94,7 @@ namespace Common
             new List<string>()
             {
                 "#50312F",
-                "#CBO000",
+                "#CB0000",
                 "#E4EA8C",
                 "#3F6C45"
             },
@@ -105,6 +106,8 @@ namespace Common
                 "#CB6318"
             }
         };
+
+        public static List<string> ThemeColorCoder { get; private set; }
 
         public static List<string> RandomColorCoder = new()
         {
@@ -135,5 +138,9 @@ namespace Common
         //     "#C24347",
         //     "#1E588D",
         // };
+        public static void InitThemeColorCoder()
+        {
+            ThemeColorCoder = FirstColorCoder[Random.Range(0, FirstColorCoder.Count)];
+        }
     }
 }

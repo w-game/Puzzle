@@ -64,7 +64,7 @@ public class PopNewPlayerGuide : PopupBase
     {
         CloseView();
         GameManager.User.SetOldPlayer();
-        _puzzleGame?.Restart();
+        _puzzleGame?.StartGame();
     }
 }
 

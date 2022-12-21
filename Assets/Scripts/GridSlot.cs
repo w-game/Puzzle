@@ -24,6 +24,16 @@ public class GridSlot : MonoBehaviour
 
         return SubGrid;
     }
+    
+    internal Block GenerateGrid(Color color)
+    {
+        var blockGo = Instantiate(PuzzleGame.GridPrefab, transform);
+        SubGrid = CalcBlockType(blockGo);
+
+        SubGrid.Init(color);
+
+        return SubGrid;
+    }
 
     private Block CalcBlockType(GameObject go)
     {

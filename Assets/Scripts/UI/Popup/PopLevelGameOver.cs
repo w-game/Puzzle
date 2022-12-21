@@ -28,7 +28,7 @@ namespace UI.Popup
         private void Restart()
         {
             CloseView();
-            GameManager.Instance.GameMode.Restart();
+            GameManager.Instance.GameMode.StartGame();
         }
 
         private void BackToHome()
