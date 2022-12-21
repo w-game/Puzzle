@@ -90,7 +90,7 @@ public class UnlimitedGameMode : PuzzleGame
         if (Score >= NextBlockScore)
         {
             var count = BlockColors.Count + 1;
-            var color = AddColor(_ => _ < count, ColorLibrary.RandomColorCoder);
+            var color = AddColor(_ => _ < count);
             UIManager.Instance.ShowAddBlockTip(color);
         }
     }

@@ -41,7 +41,7 @@ namespace UI.View
         {
             levelGoalElement.SetGoal(_levelGameMode.CurLevel.Goals);
             levelTxt.text = $"第{_levelGameMode.CurLevel.LevelIndex + 1}关";
-            levelTime.SetTime(_levelGameMode.CurLevel.MaxTime, OnGameOver);
+            // levelTime.SetTime(_levelGameMode.CurLevel.MaxTime, OnGameOver);
         }
         
         private void RefreshGoal()
@@ -51,13 +51,13 @@ namespace UI.View
 
         private void OnLevelPass(int score)
         {
-            levelTime.Stop();
+            // levelTime.Stop();
             UIManager.Instance.PushPop<PopPassLevelData>(score);
         }
 
         private void OnGameOver()
         {
-            levelTime.Stop();
+            // levelTime.Stop();
             UIManager.Instance.PushPop<PopLevelGameOverData>();
             _levelGameMode.LevelFail();
         }

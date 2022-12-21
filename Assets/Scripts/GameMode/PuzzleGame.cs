@@ -93,24 +93,24 @@ public abstract class PuzzleGame : MonoBehaviour
         });
         _initGameProcess.Start();
     }
-    
-    public virtual void Restart()
+
+    public virtual void StartGame()
     {
         RefreshBlockColor();
         RefreshBoard();
         OnStart();
     }
 
-    protected void RefreshBoard()
+    protected void RefreshBoard(bool clearSlots = true)
     {
         Score = 0;
-        
         _undeterminedGrids.Clear();
-        ClearSlots();
+        if (clearSlots) ClearSlots();
+        
+        Control.Refresh();
         
         EventCenter.Invoke(GameView.EventKeys.EnableStartBtn);
         EventCenter.Invoke(GameView.EventKeys.RefreshView);
-        Control.Refresh();
         
         OnRefresh();
     }
@@ -129,16 +129,16 @@ public abstract class PuzzleGame : MonoBehaviour
     protected void RefreshBlockColor(int count = 3)
     {
         BlockColors.Clear();
-
-        var colorLib = ColorLibrary.FirstColorCoder[Random.Range(0, ColorLibrary.FirstColorCoder.Count)];
-        AddColor(_ => _ < count, colorLib);
+        ColorLibrary.InitThemeColorCoder();
+        AddColor(_ => _ < count);
     }
     
-    protected Color AddColor(Predicate<int> match, List<string> colorLib)
+    protected Color AddColor(Predicate<int> match)
     {
         Color color = default;
         while (match(BlockColors.Count))
         {
+            var colorLib = BlockColors.Count < 4 ? ColorLibrary.ThemeColorCoder : ColorLibrary.RandomColorCoder;
             var colorCode = colorLib[Random.Range(0, colorLib.Count)];
             ColorUtility.TryParseHtmlString(colorCode, out color);
             if (!BlockColors.Contains(color)) BlockColors.Add(color);
@@ -257,13 +257,14 @@ public abstract class PuzzleGame : MonoBehaviour
     /// </summary>
     private void EndRound()
     {
-        CheckGameOver();
-        OnRoundEnd();
+        var result = CheckGameOver();
+        if (!result) OnRoundEnd();
+        
         EventCenter.Invoke(GameView.EventKeys.RefreshView);
         EventCenter.Invoke(GameView.EventKeys.EnableStartBtn);
     }
     
-    private void CheckGameOver()
+    private bool CheckGameOver()
     {
         for (int i = 0; i < BoardWidth; i++)
         {
@@ -271,9 +272,11 @@ public abstract class PuzzleGame : MonoBehaviour
             if (slot.SubGrid)
             {
                 GameOver();
-                return;
+                return true;
             }
         }
+
+        return false;
     }
 
     protected void GameOver()

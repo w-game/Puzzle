@@ -40,7 +40,7 @@ public class GameView : ViewBase
             }
             else
             {
-                puzzleGame.Restart();
+                puzzleGame.StartGame();
             }
         };
         puzzleGame.Init();

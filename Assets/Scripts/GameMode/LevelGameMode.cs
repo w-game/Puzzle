@@ -1,11 +1,12 @@
+using System;
 using Common;
 using GameMode.LevelGame;
-using UI.Popup;
 using UI.View;
 using UnityEngine;
 
 public class LevelGameMode : PuzzleGame
 {
+    private const string Tag = "Level Game";
     private LevelConfigs _configs;
     public GameLevel CurLevel { get; private set; }
 
@@ -21,8 +22,26 @@ public class LevelGameMode : PuzzleGame
         });
     }
 
-    public override void Restart()
+    public override void StartGame()
     {
+        ClearSlots();
+        var config = _configs.levels[GameManager.User.GameLevel];
+        RefreshBlockColor(config.blockCount);
+        
+        var board = PlayerPrefsX.GetIntArray("Game Board", Array.Empty<int>());
+        if (board.Length != 0)
+        {
+            SLog.D(Tag, $"board length: {board.Length}");
+            for (int i = board.Length - 1; i >= 0; i--)
+            {
+                var colorIndex = board[i];
+                if (colorIndex != -1)
+                {
+                    var slot = GridSlots[i];
+                    slot.GenerateGrid(BlockColors[colorIndex]);
+                }
+            }
+        }
         InitLevel();
     }
 
@@ -50,10 +69,33 @@ public class LevelGameMode : PuzzleGame
     public void InitLevel()
     {
         CurLevel = CreateLevel(GameManager.User.GameLevel);
-        RefreshBlockColor(CurLevel.BlockCount);
+        AddColor(_ => _ < CurLevel.BlockCount);
         CurLevel.InitGoals();
         EventCenter.Invoke(LevelGameView.EventKeys.SetGoal);
-        RefreshBoard();
+        RefreshBoard(false);
+        SaveBoard();
+    }
+
+    private void SaveBoard()
+    {
+        int[] boardData = new int[BoardWidth * BoardLength];
+        for (int i = BoardLength - 1; i > -1; i--)
+        {
+            for (int j = 0; j < BoardWidth; j++)
+            {
+                var slot = GridSlots[i * BoardWidth + j];
+                if (slot.SubGrid)
+                {
+                    boardData[i * BoardWidth + j] = BlockColors.IndexOf(slot.SubGrid.Pattern);
+                }
+                else
+                {
+                    boardData[i * BoardWidth + j] = -1;
+                }
+            }
+        }
+
+        PlayerPrefsX.SetIntArray("Game Board", boardData);
     }
 
     private GameLevel CreateLevel(int levelIndex)
@@ -73,5 +115,10 @@ public class LevelGameMode : PuzzleGame
     public void LevelFail()
     {
         
+    }
+
+    protected override void OnGameEnd()
+    {
+        SaveBoard();
     }
 }

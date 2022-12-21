@@ -25,7 +25,7 @@ public class PopGameResult : PopupBase
 
     private void Restart()
     {
-        GameManager.Instance.GameMode.Restart();
+        GameManager.Instance.GameMode.StartGame();
         CloseView();
     }
 
