@@ -23,7 +23,8 @@ namespace UI
 
         protected void ShowNativeAd()
         {
-            AdManager.Instance.NativeAd.ShowAd(null);
+            // AdManager.Instance.NativeAd.ShowAd(null);
+            AdManager.Instance.BannerAd.ShowAd(null);
         }
     }
 }

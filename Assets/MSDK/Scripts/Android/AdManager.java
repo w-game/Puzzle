@@ -55,6 +55,8 @@ import com.bytedance.msdk.api.v2.slot.GMAdSlotNative;
 import com.bytedance.msdk.api.v2.slot.paltform.GMAdSlotGDTOption;
 import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
 
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -314,12 +316,21 @@ public class AdManager {
         if (context == null) {
             return null;
         }
+
+        FrameLayout relativeLayout = new FrameLayout(context);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        params.gravity = Gravity.CENTER;
+        relativeLayout.setLayoutParams(params);
+
+        ViewGroup rootGroup = getRootLayout(context);
+        rootGroup.addView(relativeLayout);
+
         FrameLayout frameLayout = new FrameLayout(context);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.gravity = Gravity.CENTER;
+        layoutParams.gravity = Gravity.BOTTOM;
         frameLayout.setLayoutParams(layoutParams);
-        ViewGroup rootGroup = getRootLayout(context);
-        rootGroup.addView(frameLayout);
+        relativeLayout.addView(frameLayout);
+
         return frameLayout;
     }
 

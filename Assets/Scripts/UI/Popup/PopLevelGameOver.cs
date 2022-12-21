@@ -21,6 +21,8 @@ namespace UI.Popup
         {
             restartBtn.onClick.AddListener(Restart);
             backBtn.onClick.AddListener(BackToHome);
+            
+            ShowNativeAd();
         }
 
         private void Restart()
