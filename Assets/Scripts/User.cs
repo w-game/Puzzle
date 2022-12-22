@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class User
 {
+    private const string Tag = "User";
+    public const int MaxPower = 5;
     public Dictionary<GameToolName, GameTool> Tools { get; } = new();
 
     private int _maxScore;
@@ -60,11 +62,55 @@ public class User
         set => PlayerPrefs.SetInt("GameLevel", value);
     }
 
+    private int _power;
+
+    public int Power
+    {
+        get => _power;
+        private set
+        {
+            SLog.D(Tag, $"修改体力 修改的预定值value: {value}");
+            if (value > MaxPower)
+            {
+                _power = MaxPower;
+                _powerTimer.Pause();
+            }
+            else
+            {
+                _power = value;
+                _powerTimer.Reset();
+            }
+            PlayerPrefs.SetInt("Power", _power);
+        }
+    }
+
+    private Timer _powerTimer;
+
     public void Init()
     {
+        InitPower();
+
         _maxScore = PlayerPrefs.GetInt("MaxScore", 0);
         Tools.Add(GameToolName.RefreshBlock, new RefreshBlock() { Number = 1 });
         Tools.Add(GameToolName.ChangeBlockLocation, new ChangeBlockLocation());
+    }
+
+    private void InitPower()
+    {
+        _powerTimer = new Timer(10 * 60, -1, () =>
+        {
+            Power++;
+        });
+        _power = PlayerPrefs.GetInt("Power", MaxPower);
+
+        var gap = PlayerPrefs.GetInt("OfflineAccTime", 0);
+        gap += GameManager.Instance.LaunchGameGap;
+        var endGamePower = gap / 600;
+        gap -= endGamePower * 600;
+        SLog.D(Tag, $"线下剩余时间数: {gap}s");
+        PlayerPrefs.SetInt("OfflineAccTime", gap);
+        SLog.D(Tag, $"Power 线下增加的体力数: {endGamePower}");
+        Power += endGamePower;
     }
 
     public void GiftGameTool()
@@ -85,4 +131,19 @@ public class User
     {
         PlayerPrefs.SetInt("NewPlayer", 1);
     }
+
+    public void IncreasePower(int power)
+    {
+        Power += power;
+    }
+
+    public bool DecreasePower(int power)
+    {
+        if (_power < power) return false;
+
+        Power -= power;
+        return true;
+    }
+    
+    
 }

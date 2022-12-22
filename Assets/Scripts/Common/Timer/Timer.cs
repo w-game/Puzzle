@@ -52,4 +52,9 @@ public class Timer
     {
         IsPause = false;
     }
+
+    public void SetCount(float count)
+    {
+        _count = count;
+    }
 }

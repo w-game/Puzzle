@@ -25,8 +25,14 @@ public class PopGameResult : PopupBase
 
     private void Restart()
     {
-        GameManager.Instance.GameMode.StartGame();
-        CloseView();
+        GameManager.Instance.CheckPower(PuzzleGame.PowerCost.Unlimited, () =>
+        {
+            UIManager.Instance.DecreasePower(restart.transform, () =>
+            {
+                GameManager.Instance.GameMode.StartGame();
+                CloseView();
+            });
+        });
     }
 
     private void Revive()

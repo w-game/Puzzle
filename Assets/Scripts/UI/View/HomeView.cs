@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UI;
 using UI.View;
@@ -43,12 +44,23 @@ public class HomeView : ViewBase
         switch (gameMode)
         {
             case PuzzleGameMode.Level:
-                UIManager.Instance.PushMain<LevelGameViewData>(gameMode);
+                StartGame<LevelGameViewData>(levelStartGameBtn.transform);
                 break;
             case PuzzleGameMode.Unlimited:
-                UIManager.Instance.PushMain<UnlimitedGameViewData>(gameMode);
+                StartGame<UnlimitedGameViewData>(unlimitedStartGameBtn.transform);
                 break;
         }
+    }
+
+    private void StartGame<T>(Transform trans) where T : ViewData, new()
+    {
+        GameManager.Instance.CheckPower(PuzzleGame.PowerCost.Level, () =>
+        {
+            UIManager.Instance.DecreasePower(trans, () =>
+            {
+                UIManager.Instance.PushMain<T>();
+            });
+        });
     }
 
     private void OnGuideBtnClick()

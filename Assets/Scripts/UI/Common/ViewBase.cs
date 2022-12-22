@@ -24,6 +24,7 @@ namespace UI
 
         private Dictionary<Enum, List<object>> _events = new();
         public virtual void OnCreate(params object[] objects) { }
+        public virtual void OnClose() { }
         
         public virtual void ScreenAdapt(Rect rect) { }
         protected void CloseView()
