@@ -109,6 +109,10 @@ MonoBehaviour:
     m_Address: Prefabs/UI/Popup/PopLevelGameOver
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 3292b2fd7e5394e23802603ea5f100ff
+    m_Address: Prefabs/UI/Popup/PopPowerNotEnough
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2b925b1802ff143b1842bb3154200482, type: 2}
   m_SchemaSet:

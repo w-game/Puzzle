@@ -1,6 +1,5 @@
 using System;
 using Ad;
-using Common;
 using DG.Tweening;
 using UnityEngine;
 

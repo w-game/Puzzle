@@ -10,7 +10,7 @@ namespace UI
         [SerializeField] private Transform content;
 
         private ViewStack _viewStack;
-        private ViewBase _subView;
+        public ViewBase SubView { get; private set; }
         
         public ViewData ViewData { get; private set; }
         public void CreateSubView(ViewData viewData, ViewStack stack, params object[] objects)
@@ -24,30 +24,31 @@ namespace UI
             AddressableMgr.Load<GameObject>(path, prefab =>
             {
                 var go = Instantiate(prefab, content);
-                _subView = go.GetComponent<ViewBase>();
-                _subView.BaseView = this;
+                SubView = go.GetComponent<ViewBase>();
+                SubView.BaseView = this;
                 ViewData = viewData;
 
 #if UNITY_IOS
-                _subView.ScreenAdapt(Screen.safeArea);
+                SubView.ScreenAdapt(Screen.safeArea);
 #elif UNITY_ANDROID
                 var safeArea = Screen.safeArea;
-                _subView.ScreenAdapt(new Rect(0, AndroidNative.GetNotchHeight(), safeArea.width, safeArea.height));
+                SubView.ScreenAdapt(new Rect(0, AndroidNative.GetNotchHeight(), safeArea.width, safeArea.height));
 #endif
                 if (viewData.AnimaSwitch)
                 {
-                    _subView.DoOpenAnima();
+                    SubView.DoOpenAnima();
                 }
-                _subView.OnCreate(objects);
+                SubView.OnCreate(objects);
                 _viewStack = stack;
             });
         }
 
         public void CloseView()
         {
+            SubView.OnClose();
             if (ViewData.AnimaSwitch)
             {
-                _subView.DoCloseAnima(() =>
+                SubView.DoCloseAnima(() =>
                 {
                     _viewStack.Pop(this);
                 });

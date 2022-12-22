@@ -243,6 +243,10 @@
      <Compile Include="Assets/Scripts/UI/Element/LevelGoalItemElement.cs" />
      <Compile Include="Assets/Scripts/Ad/RewardAd.cs" />
      <Compile Include="Assets/Scripts/Common/PlayerPrefsX.cs" />
+     <Compile Include="Assets/Scripts/UI/Element/GamePower.cs" />
+     <Compile Include="Assets/Scripts/UI/Common/ElementBase.cs" />
+     <Compile Include="Assets/Scripts/Common/TimeUtil.cs" />
+     <Compile Include="Assets/Scripts/UI/Popup/PopPowerNotEnough.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />

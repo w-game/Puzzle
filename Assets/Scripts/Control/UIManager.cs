@@ -1,3 +1,4 @@
+using System;
 using Common;
 using UI;
 using UnityEngine;
@@ -49,5 +50,20 @@ public class UIManager : MonoSingleton<UIManager>
     public void ShowToast(string msg)
     {
         TopStack.ShowToast(msg);
+    }
+
+    public void DecreasePower(Transform target, Action callback)
+    {
+        EventCenter.Invoke<Action>(GamePower.EventKeys.OnDecreasePowerEnd, () =>
+        {
+            callback?.Invoke();
+        });
+        EventCenter.Invoke(GamePower.EventKeys.DecreasePower, target);
+    }
+
+    public void BackToHome()
+    {
+        mainStack.Clear();
+        popStack.Clear();
     }
 }

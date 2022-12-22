@@ -35,5 +35,16 @@ namespace UI
                 baseView.CloseView();
             }
         }
+
+        public void Clear()
+        {
+            foreach (var view in new List<BaseView>(_views))
+            {
+                if (view.SubView is not HomeView)
+                {
+                    Pop(view);
+                }
+            }
+        }
     }
 }

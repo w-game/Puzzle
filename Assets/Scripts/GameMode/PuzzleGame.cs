@@ -13,6 +13,11 @@ public enum PuzzleGameMode
 
 public abstract class PuzzleGame : MonoBehaviour
 {
+    public class PowerCost
+    {
+        public const int Level = 1;
+        public const int Unlimited = 2;
+    }
     public const int BoardWidth = 9;
     public const int BoardLength = 9;
     public const float AnimaTime = 0.3f;

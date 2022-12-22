@@ -27,8 +27,14 @@ namespace UI.Popup
 
         private void Restart()
         {
-            CloseView();
-            GameManager.Instance.GameMode.StartGame();
+            GameManager.Instance.CheckPower(PuzzleGame.PowerCost.Level, () =>
+            {
+                UIManager.Instance.DecreasePower(restartBtn.transform, () =>
+                {
+                    GameManager.Instance.GameMode.StartGame();
+                    CloseView();
+                });
+            });
         }
 
         private void BackToHome()
