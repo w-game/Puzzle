@@ -157,5 +157,14 @@
         "7,6": "RemoveStatic"
       }
     }
-  ]
+  ],
+  "levelNewBlock": {
+    "1": {
+      "type": "RemoveStaticBlock",
+      "blockName": "可消除型静态方块",
+      "des": "这个方块会被固定在其生成时的位置上不可移动。但当其周围有其他方块被消除时，这个方块会一起被消除。",
+      "path": "",
+      "color": "#FFFFFF"
+    }
+  }
 }

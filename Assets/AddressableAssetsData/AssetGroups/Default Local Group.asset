@@ -113,6 +113,14 @@ MonoBehaviour:
     m_Address: Prefabs/UI/Popup/PopPowerNotEnough
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: de9d4deeae4bd4022a8253e55dfaf0f9
+    m_Address: Prefabs/UI/Element/StaticBlockRemoveGoal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 22a5dc3aa0d3a46469d9f27526ea5117
+    m_Address: Prefabs/UI/Popup/PopNewBlockIntroduce
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2b925b1802ff143b1842bb3154200482, type: 2}
   m_SchemaSet:
