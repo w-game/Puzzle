@@ -2,6 +2,7 @@ using Common;
 using DG.Tweening;
 using TMPro;
 using UI;
+using UI.Popup;
 using UnityEngine;
 using UnityEngine.UI;
 

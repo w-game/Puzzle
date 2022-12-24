@@ -2,13 +2,14 @@ using System;
 using Common;
 using GameMode.LevelGame;
 using Newtonsoft.Json;
+using UI.Popup;
 using UI.View;
 using UnityEngine;
 
 public class LevelGameMode : PuzzleGame
 {
     private const string Tag = "Level Game";
-    private LevelConfigs _levelConfigs;
+    private LevelConfigs _configs;
     public GameLevel CurLevel { get; private set; }
 
     protected override void AddInitGameProcess(Process process)
@@ -17,7 +18,7 @@ public class LevelGameMode : PuzzleGame
         {
             AddressableMgr.Load<TextAsset>("Config/level_config", json =>
             {
-                _levelConfigs = JsonConvert.DeserializeObject<LevelConfigs>(json.text);
+                _configs = JsonConvert.DeserializeObject<LevelConfigs>(json.text);
                 p.Next();
             });
         });
@@ -26,7 +27,7 @@ public class LevelGameMode : PuzzleGame
     public override void StartGame()
     {
         ClearSlots();
-        var config = _levelConfigs.levels[GameManager.User.GameLevel];
+        var config = _configs.levels[GameManager.User.GameLevel];
         RefreshBlockColor(config.blockCount);
         
         var board = PlayerPrefsX.GetIntArray("Game Board", Array.Empty<int>());
@@ -76,13 +77,15 @@ public class LevelGameMode : PuzzleGame
         EventCenter.Invoke(LevelGameView.EventKeys.SetGoal);
         RefreshBoard(false);
         SaveBoard();
+
+        CheckShowNewBlockTip();
     }
 
     private void InitLevelBoard()
     {
         if (CurLevel.BoardIndex == -1) return;
 
-        var levelBoard = _levelConfigs.levelBoards[CurLevel.BoardIndex];
+        var levelBoard = _configs.levelBoards[CurLevel.BoardIndex];
         SLog.D(Tag, $"Board Config: {levelBoard}");
 
         foreach (var posStr in levelBoard.blocks.Keys)
@@ -122,7 +125,7 @@ public class LevelGameMode : PuzzleGame
 
     private GameLevel CreateLevel(int levelIndex)
     {
-        var config = _levelConfigs.levels[GameManager.User.GameLevel];
+        var config = _configs.levels[GameManager.User.GameLevel];
         SLog.D("Level Game", $"当前关卡：{levelIndex} Goal Count:{config.goal.Count}");
         var gameLevel = new GameLevel
         {
@@ -142,5 +145,13 @@ public class LevelGameMode : PuzzleGame
     protected override void OnGameEnd()
     {
         SaveBoard();
+    }
+
+    private void CheckShowNewBlockTip()
+    {
+        if (_configs.levelNewBlock.TryGetValue(GameManager.User.GameLevel, out var config))
+        {
+            UIManager.Instance.PushPop<PopNewBlockIntroduceData>(config);
+        }
     }
 }

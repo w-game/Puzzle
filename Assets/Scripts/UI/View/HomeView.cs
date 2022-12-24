@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UI;
+using UI.Popup;
 using UI.View;
 using UnityEngine;
 using UnityEngine.UI;
