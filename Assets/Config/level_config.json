@@ -1,6 +1,7 @@
 {
   "levels": [
     {
+      "index": 0,
       "goal": [
         {
           "type": "SingleColorRemove",
@@ -8,77 +9,153 @@
         }
       ],
       "blockCount": 3,
-      "time": 60
+      "boardIndex": -1
     },
     {
+      "index": 2,
       "goal": [
         {
           "type": "SingleColorRemove",
-          "count": 20
-        }
-      ],
-      "blockCount": 3,
-      "time": 60
-    },
-    {
-      "goal": [
-        {
-          "type": "SingleColorRemove",
-          "count": 40
-        }
-      ],
-      "blockCount": 3,
-      "time": 60
-    },
-    {
-      "goal": [
-        {
-          "type": "SingleColorRemove",
-          "count": 40
+          "count": 15
         }
       ],
       "blockCount": 4,
-      "time": 60
+      "boardIndex": 0
     },
     {
+      "index": 3,
       "goal": [
         {
-          "type": "ThreeBlockRemove",
+          "type": "StaticBlockRemove",
           "count": 5
         }
       ],
-      "blockCount": 3,
-      "time": 30
+      "blockCount": 4,
+      "boardIndex": 0
     },
     {
+      "index": 4,
       "goal": [
         {
-          "type": "HorizontalRemove",
-          "count": 5
-        }
-      ],
-      "blockCount": 3,
-      "time": 30
-    },
-    {
-      "goal": [
+          "type": "SingleColorRemove",
+          "count": 10
+        },
         {
-          "type": "VerticalRemove",
-          "count": 5
-        }
-      ],
-      "blockCount": 3,
-      "time": 30
-    },
-    {
-      "goal": [
-        {
-          "type": "VerticalRemove",
+          "type": "SingleColorRemove",
           "count": 10
         }
       ],
-      "blockCount": 3,
-      "time": 30
+      "blockCount": 4,
+      "boardIndex": 0
+    },
+    {
+      "index": 5,
+      "goal": [
+        {
+          "type": "SingleColorRemove",
+          "count": 10
+        },
+        {
+          "type": "StaticBlockRemove",
+          "count": 5
+        }
+      ],
+      "blockCount": 4,
+      "boardIndex": 0
+    },
+    {
+      "index": 6,
+      "goal": [
+        {
+          "type": "SingleColorRemove",
+          "count": 10
+        }
+      ],
+      "blockCount": 4,
+      "boardIndex": 1
+    },
+    {
+      "index": 7,
+      "goal": [
+        {
+          "type": "SingleColorRemove",
+          "count": 10
+        },
+        {
+          "type": "SingleColorRemove",
+          "count": 10
+        }
+      ],
+      "blockCount": 4,
+      "boardIndex": 1
+    },
+    {
+      "index": 8,
+      "goal": [
+        {
+          "type": "SingleColorRemove",
+          "count": 10
+        },
+        {
+          "type": "StaticBlockRemove",
+          "count": 10
+        }
+      ],
+      "blockCount": 4,
+      "boardIndex": 1
+    },
+    {
+      "index": 9,
+      "goal": [
+        {
+          "type": "StaticBlockRemove",
+          "count": 12
+        }
+      ],
+      "blockCount": 4,
+      "boardIndex": 1
+    },
+    {
+      "index": 10,
+      "goal": [
+        {
+          "type": "SingleColorRemove",
+          "count": 10
+        },
+        {
+          "type": "StaticBlockRemove",
+          "count": 12
+        }
+      ],
+      "blockCount": 4,
+      "boardIndex": 1
+    }
+  ],
+  "levelBoards": [
+    {
+      "blocks": {
+        "4,4": "RemoveStatic",
+        "3,3": "RemoveStatic",
+        "5,5": "RemoveStatic",
+        "3,5": "RemoveStatic",
+        "5,3": "RemoveStatic"
+      }
+    },
+    {
+      "blocks": {
+        "1,2": "RemoveStatic",
+        "2,2": "RemoveStatic",
+        "1,3": "RemoveStatic",
+        "6,2": "RemoveStatic",
+        "7,2": "RemoveStatic",
+        "7,3": "RemoveStatic",
+        "1,5": "RemoveStatic",
+        "1,6": "RemoveStatic",
+        "2,6": "RemoveStatic",
+        "7,5": "RemoveStatic",
+        "6,6": "RemoveStatic",
+        "7,6": "RemoveStatic"
+      }
     }
   ]
 }

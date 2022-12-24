@@ -1,17 +1,20 @@
 using UnityEngine;
 
-public class GiftBlock : Block
+namespace Blocks
 {
-
-    protected override void SetPattern(Color color)
+    public class GiftBlock : Block
     {
-        Pattern = color;
-        SetIcon($"Textures/Blocks/normal_block_{Pattern}");
-        SetSpecialIcon("Textures/Blocks/chest");
-    }
 
-    public override void OnRemove()
-    {
-        GameManager.User.GiftGameTool();
+        protected override void SetPattern(Color color)
+        {
+            Pattern = color;
+            SetIcon($"Textures/Blocks/normal_block_{Pattern}");
+            SetSpecialIcon("Textures/Blocks/chest");
+        }
+
+        public override void OnRemove()
+        {
+            GameManager.User.GiftGameTool();
+        }
     }
 }

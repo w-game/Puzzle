@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Blocks;
 using Common;
 using DG.Tweening;
 using UnityEngine;
@@ -27,14 +28,14 @@ public abstract class PuzzleGame : MonoBehaviour
     public static GameObject SlotPrefab { get; private set; }
     
     public static readonly List<Color> BlockColors = new();
-    public List<GridSlot> GridSlots { get; } = new();
+    public List<BlockSlot> BlockSlots { get; } = new();
     public int Score { get; private set; }
     public float NextBlockScore => Mathf.Pow(4, BlockColors.Count + 1);
     
     
     private static RectTransform _rect;
     
-    private readonly Dictionary<Block, GridSlot> _undeterminedGrids = new();
+    private readonly Dictionary<Block, BlockSlot> _undeterminedGrids = new();
     private GridControl Control => GridControl.Instance;
 
     private RemoveCheck _removeCheck = new(BoardWidth, BoardLength);
@@ -71,10 +72,10 @@ public abstract class PuzzleGame : MonoBehaviour
                 {
                     for (int i = 0; i < BoardWidth; i++)
                     {
-                        var slot = Instantiate(SlotPrefab, transform).GetComponent<GridSlot>();
+                        var slot = Instantiate(SlotPrefab, transform).GetComponent<BlockSlot>();
                         slot.name = $"GridSlot_{i}_{j}";
                         slot.Pos = new Vector2Int(i, j);
-                        GridSlots.Add(slot);
+                        BlockSlots.Add(slot);
                     }
                 }
                 
@@ -83,7 +84,7 @@ public abstract class PuzzleGame : MonoBehaviour
         });
         _initGameProcess.Add("", p =>
         {
-            AddressableMgr.Load<GameObject>("Prefabs/Grid", gridPrefab =>
+            AddressableMgr.Load<GameObject>("Prefabs/Block", gridPrefab =>
             {
                 GridPrefab = gridPrefab;
                 GridControl.Instance.Init();
@@ -125,9 +126,9 @@ public abstract class PuzzleGame : MonoBehaviour
     /// </summary>
     protected void ClearSlots()
     {
-        foreach (var slot in GridSlots)
+        foreach (var slot in BlockSlots)
         {
-            slot.RemoveGrid();
+            slot.RemoveBlock();
         }
     }
 
@@ -157,12 +158,12 @@ public abstract class PuzzleGame : MonoBehaviour
         for (int i = 0; i < Control.NextGridSlots.Count; i++)
         {
             var ctrlSlot = Control.NextGridSlots[i];
-            var grid = ctrlSlot.SubGrid;
+            var grid = ctrlSlot.SubBlock;
             if (grid != null)
             {
-                var slot = GridSlots[i];
+                var slot = BlockSlots[i];
 
-                ctrlSlot.SubGrid = null;
+                ctrlSlot.SubBlock = null;
                 Destroy(grid.gameObject.GetComponent<GridDrag>());
                 slot.SetGrid(grid);
                 _undeterminedGrids.Add(grid, slot);
@@ -179,12 +180,12 @@ public abstract class PuzzleGame : MonoBehaviour
         {
             var slot = _undeterminedGrids[grid];
             var downSlot = slot;
-            while (downSlot.DownSlot && downSlot.DownSlot.SubGrid == null)
+            while (downSlot.DownSlot && downSlot.DownSlot.SubBlock == null)
             {
                 downSlot = downSlot.DownSlot;
             }
 
-            slot.SubGrid = null;
+            slot.SubBlock = null;
             downSlot.SetGrid(grid, true);
         }
         _undeterminedGrids.Clear();
@@ -200,15 +201,25 @@ public abstract class PuzzleGame : MonoBehaviour
     
     protected void CheckRemove()
     {
-        var removeUnits = _removeCheck.Check(GridSlots);
+        var removeUnits = _removeCheck.Check(BlockSlots);
 
+        List<RemoveUnit> staticBlocksRemoveUnits = new List<RemoveUnit>();
         var rate = 1;
         foreach (var removeUnit in removeUnits)
         {
+            OnBlocksRemove(removeUnit);
+            
             EventCenter.Invoke(GameView.EventKeys.CheckCombo);
+            _removeCheck.CheckRemoveStaticBlocks(staticBlocksRemoveUnits, removeUnit.Slots);
             Score += removeUnit.Execute(rate);
             rate++;
+        }
+
+        foreach (var removeUnit in staticBlocksRemoveUnits)
+        {
             OnBlocksRemove(removeUnit);
+            Score += removeUnit.Execute(rate);
+            rate++;
         }
         
         if (removeUnits.Count != 0)
@@ -232,20 +243,20 @@ public abstract class PuzzleGame : MonoBehaviour
         {
             for (int i = 0; i < BoardWidth; i++)
             {
-                var slot = GridSlots[j * BoardWidth + i];
+                var slot = BlockSlots[j * BoardWidth + i];
 
-                if (slot.SubGrid != null)
+                if (slot.SubBlock != null && slot.SubBlock.CanMove)
                 {
-                    if (slot.DownSlot != null && slot.DownSlot.SubGrid == null)
+                    if (slot.DownSlot != null && slot.DownSlot.SubBlock == null)
                     {
-                        GridSlot bottom = slot.DownSlot;
+                        BlockSlot bottom = slot.DownSlot;
                         while (bottom.DownSlot != null && bottom.DownSlot.IsEmpty)
                         {
                             bottom = bottom.DownSlot;
                         }
 
-                        bottom.SetGrid(slot.SubGrid, true);
-                        slot.SubGrid = null;
+                        bottom.SetGrid(slot.SubBlock, true);
+                        slot.SubBlock = null;
 
                         result = true;
                     }
@@ -273,8 +284,8 @@ public abstract class PuzzleGame : MonoBehaviour
     {
         for (int i = 0; i < BoardWidth; i++)
         {
-            var slot = GridSlots[i];
-            if (slot.SubGrid)
+            var slot = BlockSlots[i];
+            if (slot.SubBlock)
             {
                 GameOver();
                 return true;

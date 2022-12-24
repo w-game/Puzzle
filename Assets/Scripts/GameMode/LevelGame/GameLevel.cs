@@ -9,15 +9,17 @@ namespace GameMode.LevelGame
     {
         public int LevelIndex { get; set; }
         public List<LevelGoal> Goals { get; } = new();
-        public float MaxTime { get; private set; }
+        // public float MaxTime { get; private set; }
         public int BlockCount { get; private set; }
+        public int BoardIndex { get; private set; }
         public bool IsPass { get; private set; }
 
         private LevelConfig _config;
         public void Init(LevelConfig config)
         {
             _config = config;
-            MaxTime = config.time;
+            // MaxTime = config.time;
+            BoardIndex = config.boardIndex;
             BlockCount = config.blockCount;
         }
 

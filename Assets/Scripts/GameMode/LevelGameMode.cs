@@ -1,13 +1,14 @@
 using System;
 using Common;
 using GameMode.LevelGame;
+using Newtonsoft.Json;
 using UI.View;
 using UnityEngine;
 
 public class LevelGameMode : PuzzleGame
 {
     private const string Tag = "Level Game";
-    private LevelConfigs _configs;
+    private LevelConfigs _levelConfigs;
     public GameLevel CurLevel { get; private set; }
 
     protected override void AddInitGameProcess(Process process)
@@ -16,7 +17,7 @@ public class LevelGameMode : PuzzleGame
         {
             AddressableMgr.Load<TextAsset>("Config/level_config", json =>
             {
-                _configs = JsonUtility.FromJson<LevelConfigs>(json.text);
+                _levelConfigs = JsonConvert.DeserializeObject<LevelConfigs>(json.text);
                 p.Next();
             });
         });
@@ -25,7 +26,7 @@ public class LevelGameMode : PuzzleGame
     public override void StartGame()
     {
         ClearSlots();
-        var config = _configs.levels[GameManager.User.GameLevel];
+        var config = _levelConfigs.levels[GameManager.User.GameLevel];
         RefreshBlockColor(config.blockCount);
         
         var board = PlayerPrefsX.GetIntArray("Game Board", Array.Empty<int>());
@@ -37,7 +38,7 @@ public class LevelGameMode : PuzzleGame
                 var colorIndex = board[i];
                 if (colorIndex != -1)
                 {
-                    var slot = GridSlots[i];
+                    var slot = BlockSlots[i];
                     slot.GenerateGrid(BlockColors[colorIndex]);
                 }
             }
@@ -70,10 +71,31 @@ public class LevelGameMode : PuzzleGame
     {
         CurLevel = CreateLevel(GameManager.User.GameLevel);
         AddColor(_ => _ < CurLevel.BlockCount);
+        InitLevelBoard();
         CurLevel.InitGoals();
         EventCenter.Invoke(LevelGameView.EventKeys.SetGoal);
         RefreshBoard(false);
         SaveBoard();
+    }
+
+    private void InitLevelBoard()
+    {
+        if (CurLevel.BoardIndex == -1) return;
+
+        var levelBoard = _levelConfigs.levelBoards[CurLevel.BoardIndex];
+        SLog.D(Tag, $"Board Config: {levelBoard}");
+
+        foreach (var posStr in levelBoard.blocks.Keys)
+        {
+            var pos = posStr.Split(',');
+            int x = int.Parse(pos[0]);
+            int y = int.Parse(pos[1]);
+            
+            var slot = BlockSlots[y * BoardWidth + x];
+            if (slot.SubBlock) slot.RemoveBlock();
+        
+            slot.GenerateBlock(Type.GetType($"Blocks.{levelBoard.blocks[posStr]}Block"));
+        }
     }
 
     private void SaveBoard()
@@ -83,10 +105,10 @@ public class LevelGameMode : PuzzleGame
         {
             for (int j = 0; j < BoardWidth; j++)
             {
-                var slot = GridSlots[i * BoardWidth + j];
-                if (slot.SubGrid)
+                var slot = BlockSlots[i * BoardWidth + j];
+                if (slot.SubBlock)
                 {
-                    boardData[i * BoardWidth + j] = BlockColors.IndexOf(slot.SubGrid.Pattern);
+                    boardData[i * BoardWidth + j] = BlockColors.IndexOf(slot.SubBlock.Pattern);
                 }
                 else
                 {
@@ -100,7 +122,7 @@ public class LevelGameMode : PuzzleGame
 
     private GameLevel CreateLevel(int levelIndex)
     {
-        var config = _configs.levels[GameManager.User.GameLevel];
+        var config = _levelConfigs.levels[GameManager.User.GameLevel];
         SLog.D("Level Game", $"当前关卡：{levelIndex} Goal Count:{config.goal.Count}");
         var gameLevel = new GameLevel
         {

@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public class AnyBlock : Block
+namespace Blocks
 {
-    public bool Used { get; set; }
-
-    protected override void SetPattern(Color color)
+    public class AnyBlock : Block
     {
-        SetIcon("Textures/any");
+        public bool Used { get; set; }
+
+        protected override void SetPattern(Color color)
+        {
+            SetIcon("Textures/any");
+        }
     }
 }

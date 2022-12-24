@@ -2,52 +2,56 @@ using Common;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class Block : MonoBehaviour
+namespace Blocks
 {
-    private Image _img;
-
-    protected Transform SpecialFrame;
-    private Image _specialIcon;
-
-    private Color _pattern;
-
-    public Color Pattern
+    public abstract class Block : MonoBehaviour
     {
-        get => _pattern;
-        protected set
-        {
-            _pattern = value;
-            _img.color = value;
-        }
-    }
-
-    public void Init(Color color)
-    {
-        _img = transform.Find("Icon").GetComponent<Image>();
-        SpecialFrame = transform.Find("SpecialFrame");
-        _specialIcon = transform.Find("SpecialIcon").GetComponent<Image>();
-        SetPattern(color);
-    }
-
-    protected abstract void SetPattern(Color color);
-
-    protected void SetIcon(string path)
-    {
-        AddressableMgr.Load<Sprite>(path, sprite =>
-        {
-            _img.sprite = sprite;
-        });
-    }
+        private Image _img;
     
-    protected void SetSpecialIcon(string path)
-    {
-        AddressableMgr.Load<Sprite>(path, sprite =>
+        private Image _specialIcon;
+    
+        private Color _pattern;
+    
+        public Color Pattern
         {
-            _specialIcon.sprite = sprite;
-            _specialIcon.gameObject.SetActive(true);
-        });
+            get => _pattern;
+            protected set
+            {
+                _pattern = value;
+                _img.color = value;
+            }
+        }
+    
+        public virtual bool CanMove => true;
+        public virtual bool CanRemove => true;
+    
+        public void Init(Color color)
+        {
+            _img = transform.Find("Icon").GetComponent<Image>();
+            _specialIcon = transform.Find("SpecialIcon").GetComponent<Image>();
+            SetPattern(color);
+        }
+    
+        protected abstract void SetPattern(Color color);
+    
+        protected void SetIcon(string path)
+        {
+            AddressableMgr.Load<Sprite>(path, sprite =>
+            {
+                _img.sprite = sprite;
+            });
+        }
+        
+        protected void SetSpecialIcon(string path)
+        {
+            AddressableMgr.Load<Sprite>(path, sprite =>
+            {
+                _specialIcon.sprite = sprite;
+                _specialIcon.gameObject.SetActive(true);
+            });
+        }
+    
+        public virtual void OnPlaced() { }
+        public virtual void OnRemove() { }
     }
-
-    public virtual void OnPlaced() { }
-    public virtual void OnRemove() { }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Blocks;
 using UnityEngine;
 
 public class RemoveCheck
@@ -7,7 +8,7 @@ public class RemoveCheck
     private int _lenght;
     
     private List<RemoveUnit> _removeList = new();
-    private List<GridSlot> GridSlots { get; set; }
+    private List<BlockSlot> GridSlots { get; set; }
     
     private Color _curCheckColor;
     
@@ -17,7 +18,7 @@ public class RemoveCheck
         _lenght = lenght;
     }
     
-    public List<RemoveUnit> Check(List<GridSlot> slots)
+    public List<RemoveUnit> Check(List<BlockSlot> slots)
     {
         GridSlots = slots;
         _removeList.Clear();
@@ -33,14 +34,23 @@ public class RemoveCheck
         return _removeList;
     }
     
-    private GridSlot GetRowNextSlot(Vector2Int pos)
+    private BlockSlot GetRowNextSlot(Vector2Int pos)
     {
         if (pos.x < 0) pos.x = _width - 1;
         if (pos.x > _width - 1) pos.x = 0;
         return GridSlots[pos.y * _width + pos.x];
     }
     
-    private bool CheckSlotStatus(List<GridSlot> sameSlots)
+    private BlockSlot GetSlotByPos(Vector2Int pos)
+    {
+        if (pos.y < 0 || pos.y > _lenght - 1) return null;
+        
+        if (pos.x < 0) pos.x = _width - 1;
+        if (pos.x > _width - 1) pos.x = 0;
+        return GridSlots[pos.y * _width + pos.x];
+    }
+
+    private bool CheckSlotStatus(List<BlockSlot> sameSlots)
     {
         var unit = _removeList.Find(_ =>
         {
@@ -56,21 +66,26 @@ public class RemoveCheck
         return unit != null;
     }
 
-    private void CheckSameRow(GridSlot slot)
+    private void CheckSameRow(BlockSlot slot)
     {
-        if (!slot || !slot.SubGrid) return;
+        if (!slot || !slot.SubBlock || !slot.SubBlock.CanRemove) return;
 
-        List<GridSlot> sameSlots = new List<GridSlot>() { slot };
+        List<BlockSlot> sameSlots = new List<BlockSlot>() { slot };
 
-        if (slot.SubGrid is not AnyBlock)
+        if (slot.SubBlock is not AnyBlock)
         {
-            _curCheckColor = slot.SubGrid.Pattern;
+            _curCheckColor = slot.SubBlock.Pattern;
 
             var originSlot = slot;
-            while (GetRowNextSlot(slot.Pos + Vector2Int.left).SubGrid)
+            while (GetRowNextSlot(slot.Pos + Vector2Int.left).SubBlock)
             {
-                if (GetRowNextSlot(slot.Pos + Vector2Int.left).SubGrid.Pattern == _curCheckColor ||
-                    GetRowNextSlot(slot.Pos + Vector2Int.left).SubGrid is AnyBlock { Used: false })
+                if (!GetRowNextSlot(slot.Pos + Vector2Int.left).SubBlock.CanRemove)
+                {
+                    break;
+                }
+                
+                if (GetRowNextSlot(slot.Pos + Vector2Int.left).SubBlock.Pattern == _curCheckColor ||
+                    GetRowNextSlot(slot.Pos + Vector2Int.left).SubBlock is AnyBlock { Used: false })
                 {
                     slot = GetRowNextSlot(slot.Pos + Vector2Int.left);
                     sameSlots.Add(slot);
@@ -82,10 +97,15 @@ public class RemoveCheck
             }
 
             slot = originSlot;
-            while (GetRowNextSlot(slot.Pos + Vector2Int.right).SubGrid)
+            while (GetRowNextSlot(slot.Pos + Vector2Int.right).SubBlock)
             {
-                if (GetRowNextSlot(slot.Pos + Vector2Int.right).SubGrid.Pattern == _curCheckColor ||
-                    GetRowNextSlot(slot.Pos + Vector2Int.right).SubGrid is AnyBlock { Used: false })
+                if (!GetRowNextSlot(slot.Pos + Vector2Int.right).SubBlock.CanRemove)
+                {
+                    break;
+                }
+                
+                if (GetRowNextSlot(slot.Pos + Vector2Int.right).SubBlock.Pattern == _curCheckColor ||
+                    GetRowNextSlot(slot.Pos + Vector2Int.right).SubBlock is AnyBlock { Used: false })
                 {
                     slot = GetRowNextSlot(slot.Pos + Vector2Int.right);
                     sameSlots.Add(slot);
@@ -105,7 +125,7 @@ public class RemoveCheck
             
             foreach (var s in sameSlots)
             {
-                if (s.SubGrid is AnyBlock anyBlock)
+                if (s.SubBlock is AnyBlock anyBlock)
                 {
                     anyBlock.Used = true;
                 }
@@ -113,21 +133,21 @@ public class RemoveCheck
         }
     }
 
-    private void CheckSameCol(GridSlot slot)
+    private void CheckSameCol(BlockSlot slot)
     {
-        if (!slot || !slot.SubGrid) return;
+        if (!slot || !slot.SubBlock) return;
 
-        List<GridSlot> sameSlots = new List<GridSlot>() { slot };
+        List<BlockSlot> sameSlots = new List<BlockSlot>() { slot };
         
-        if (slot.SubGrid is not AnyBlock)
+        if (slot.SubBlock is not AnyBlock)
         {
-            _curCheckColor = slot.SubGrid.Pattern;
+            _curCheckColor = slot.SubBlock.Pattern;
 
             var originSlot = slot;
-            while (slot.UpSlot && slot.UpSlot.SubGrid)
+            while (slot.UpSlot && slot.UpSlot.SubBlock)
             {
-                if (slot.UpSlot.SubGrid.Pattern == _curCheckColor ||
-                    slot.UpSlot.SubGrid is AnyBlock { Used: false })
+                if (slot.UpSlot.SubBlock.Pattern == _curCheckColor ||
+                    slot.UpSlot.SubBlock is AnyBlock { Used: false })
                 {
                     slot = slot.UpSlot;
                     sameSlots.Add(slot);
@@ -139,10 +159,10 @@ public class RemoveCheck
             }
 
             slot = originSlot;
-            while (slot.DownSlot && slot.DownSlot.SubGrid)
+            while (slot.DownSlot && slot.DownSlot.SubBlock)
             {
-                if (slot.DownSlot.SubGrid.Pattern == _curCheckColor ||
-                    slot.DownSlot.SubGrid is AnyBlock { Used: false})
+                if (slot.DownSlot.SubBlock.Pattern == _curCheckColor ||
+                    slot.DownSlot.SubBlock is AnyBlock { Used: false})
                 {
                     slot = slot.DownSlot;
                     sameSlots.Add(slot);
@@ -162,11 +182,35 @@ public class RemoveCheck
 
             foreach (var s in sameSlots)
             {
-                if (s.SubGrid is AnyBlock anyBlock)
+                if (s.SubBlock is AnyBlock anyBlock)
                 {
                     anyBlock.Used = true;
                 }
             }
+        }
+    }
+    
+    public void CheckRemoveStaticBlocks(List<RemoveUnit> units, List<BlockSlot> slots)
+    {
+        List<BlockSlot> removeSlots = new List<BlockSlot>();
+        foreach (var slot in slots)
+        {
+
+            CheckRemoveStaticBlock(removeSlots, slot.Pos + Vector2Int.left);
+            CheckRemoveStaticBlock(removeSlots, slot.Pos + Vector2Int.right);
+            CheckRemoveStaticBlock(removeSlots, slot.Pos + Vector2Int.up);
+            CheckRemoveStaticBlock(removeSlots, slot.Pos + Vector2Int.down);
+        }
+
+        if (removeSlots.Count != 0) units.Add(new RemoveUnit(removeSlots, RemoveType.Special));
+    }
+    
+    private void CheckRemoveStaticBlock(List<BlockSlot> slots, Vector2Int pos)
+    {
+        var slot = GetSlotByPos(pos);
+        if (slot && slot.SubBlock is RemoveStaticBlock)
+        {
+            slots.Add(slot);
         }
     }
 }

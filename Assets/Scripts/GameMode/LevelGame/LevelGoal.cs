@@ -5,13 +5,13 @@ namespace GameMode.LevelGame
     public abstract class LevelGoal
     {
         public abstract string ElementPath { get; }
-        public Color Pattern { get; set; }
-        public int GoalCount { get; set; }
-        public int CurCount { get; set; }
+        public Color Pattern { get; protected set; }
+        protected int GoalCount { get; set; }
+        private int CurCount { get; set; }
         public int RemainCount => GoalCount - CurCount;
         public bool IsComplete { get; private set; }
 
-        public void Init(LevelGoalConfig config, Color color)
+        public virtual void Init(LevelGoalConfig config, Color color)
         {
             Pattern = color;
             GoalCount = config.count;

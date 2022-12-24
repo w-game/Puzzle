@@ -53,7 +53,7 @@
      <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdInteractionType.cs" />
      <Compile Include="Assets/Sample/Scripts/Main/Ui/MainHeaderLayoutScript.cs" />
      <Compile Include="Assets/Scripts/GameMode/RemoveCheck.cs" />
-     <Compile Include="Assets/Scripts/GridSlot.cs" />
+     <Compile Include="Assets/Scripts/BlockSlot.cs" />
      <Compile Include="Assets/Scripts/RemoveUnit.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopGameResult.cs" />
      <Compile Include="Assets/Scripts/UI/View/MainView.cs" />
@@ -61,6 +61,7 @@
      <Compile Include="Assets/Scripts/GameMode/LevelGame/ThreeBlockRemoveGoal.cs" />
      <Compile Include="Assets/Scripts/UI/View/GameView.cs" />
      <Compile Include="Assets/Sample/Scripts/Main/Ui/ThirdLevelInputItemScript.cs" />
+     <Compile Include="Assets/Scripts/UI/Common/ElementBase.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/callback/ABURewardVideoAdCallback.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/callback/ABUBannerAdInteractionCallback.cs" />
      <Compile Include="Assets/MSDK/Scripts/iOS/ABUNativeAd.cs" />
@@ -144,6 +145,7 @@
      <Compile Include="Assets/Scripts/UI/Common/ViewBase.cs" />
      <Compile Include="Assets/Scripts/Blocks/NormalBlock.cs" />
      <Compile Include="Assets/Sample/Scripts/Utils/TimeUtil.cs" />
+     <Compile Include="Assets/Scripts/Common/TimeUtil.cs" />
      <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/InterstitalFullAdExample.cs" />
      <Compile Include="Assets/Scripts/Common/Timer/TimerManager.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/ABUDrawAd.cs" />
@@ -169,7 +171,7 @@
      <Compile Include="Assets/MSDK/Scripts/Android/ABUFullScreenVideoAd.cs" />
      <Compile Include="Assets/MSDK/Scripts/Dummy/ABUFullScreenVideoAd.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/callback/ABURewardAdInteractionCallback.cs" />
-     <Compile Include="Assets/Scripts/GameMode/LevelGame/LevelConfig.cs" />
+     <Compile Include="Assets/Scripts/Config/LevelConfig.cs" />
      <Compile Include="Assets/Scripts/Common/Timer/Timer.cs" />
      <Compile Include="Assets/MSDK/Scripts/iOS/ABUInterstitialFullAd.cs" />
      <Compile Include="Assets/Scripts/UI/View/LevelGameView.cs" />
@@ -185,6 +187,7 @@
      <Compile Include="Assets/Scripts/ColorLibrary.cs" />
      <Compile Include="Assets/MSDK/Scripts/iOS/ABUUserInfoForSegment.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/ABUInterstitialAd.cs" />
+     <Compile Include="Assets/Scripts/Common/PlayerPrefsX.cs" />
      <Compile Include="Assets/Sample/Scripts/Internationalization/LanguageType.cs" />
      <Compile Include="Assets/Sample/Scripts/Main/Helper/PrefabLoader.cs" />
      <Compile Include="Assets/Scripts/UI/Element/LevelTime.cs" />
@@ -223,8 +226,10 @@
      <Compile Include="Assets/Sample/Scripts/Main/Ui/PrimaryLevelItemScript.cs" />
      <Compile Include="Assets/MSDK/Scripts/Dummy/ABUAdDislike.cs" />
      <Compile Include="Assets/Sample/Scripts/Main/Sample.cs" />
+     <Compile Include="Assets/Scripts/UI/Element/GamePower.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/ABUUserInfoForSegment.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/ABUPrivacyConfig.cs" />
+     <Compile Include="Assets/Scripts/UI/Popup/PopPowerNotEnough.cs" />
      <Compile Include="Assets/Scripts/Challenge/RemoveCountChallenge.cs" />
      <Compile Include="Assets/Scripts/Ad/NativeAd.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/GameLevel.cs" />
@@ -242,11 +247,11 @@
      <Compile Include="Assets/MSDK/Scripts/Android/NativeAd.cs" />
      <Compile Include="Assets/Scripts/UI/Element/LevelGoalItemElement.cs" />
      <Compile Include="Assets/Scripts/Ad/RewardAd.cs" />
-     <Compile Include="Assets/Scripts/Common/PlayerPrefsX.cs" />
-     <Compile Include="Assets/Scripts/UI/Element/GamePower.cs" />
-     <Compile Include="Assets/Scripts/UI/Common/ElementBase.cs" />
-     <Compile Include="Assets/Scripts/Common/TimeUtil.cs" />
-     <Compile Include="Assets/Scripts/UI/Popup/PopPowerNotEnough.cs" />
+     <Compile Include="Assets/Scripts/Blocks/StaticBlock.cs" />
+     <Compile Include="Assets/Scripts/Blocks/RemoveStaticBlock.cs" />
+     <Compile Include="Assets/Scripts/Blocks/UnRemoveStaticBlock.cs" />
+     <Compile Include="Assets/Scripts/GameMode/LevelGame/StaticBlockRemoveGoal.cs" />
+     <Compile Include="Assets/Scripts/GameMode/LevelGame/AllRemoveGoal.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
