@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class GridDrag : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
     public GridControl control;
-    public GridSlot Slot { get; set; }
+    public BlockSlot Slot { get; set; }
 
     private Vector2 _lastPos;
     
@@ -31,10 +31,10 @@ public class GridDrag : MonoBehaviour, IBeginDragHandler, IDragHandler
         _lastPos = eventData.position;
     }
 
-    private void MoveBlock(GridSlot slot, int dir)
+    private void MoveBlock(BlockSlot slot, int dir)
     {
         var index = control.NextGridSlots.IndexOf(slot) + dir;
-        GridSlot nextSlot = null;
+        BlockSlot nextSlot = null;
         if (index >= 0 && index <= control.NextGridSlots.Count - 1)
         {
             nextSlot = control.NextGridSlots[index];
@@ -56,16 +56,16 @@ public class GridDrag : MonoBehaviour, IBeginDragHandler, IDragHandler
         
         if (nextSlot)
         {
-            if (nextSlot.SubGrid)
+            if (nextSlot.SubBlock)
             {
                 MoveBlock(nextSlot, dir);
             }
             
-            if (!nextSlot.SubGrid)
+            if (!nextSlot.SubBlock)
             {
-                nextSlot.SetGrid(slot.SubGrid);
-                nextSlot.SubGrid.GetComponent<GridDrag>().Slot = nextSlot;
-                slot.SubGrid = null;
+                nextSlot.SetGrid(slot.SubBlock);
+                nextSlot.SubBlock.GetComponent<GridDrag>().Slot = nextSlot;
+                slot.SubBlock = null;
                 SoundManager.Instance.PlaySlideSound();
             }
         }

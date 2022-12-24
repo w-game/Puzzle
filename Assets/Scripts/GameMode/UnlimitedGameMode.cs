@@ -53,8 +53,8 @@ public class UnlimitedGameMode : PuzzleGame
         {
             for (int i = 0; i < BoardWidth; i++)
             {
-                var slot = GridSlots[j * BoardWidth + i];
-                slot.RemoveGrid();
+                var slot = BlockSlots[j * BoardWidth + i];
+                slot.RemoveBlock();
             }
         }
         
@@ -71,8 +71,8 @@ public class UnlimitedGameMode : PuzzleGame
 
         for (int i = 0; i < BoardWidth; i++)
         {
-            var slot = GridSlots[(BoardLength - 1) * BoardWidth + i];
-            if (slot.SubGrid)
+            var slot = BlockSlots[(BoardLength - 1) * BoardWidth + i];
+            if (slot.SubBlock)
             {
                 isAllRemove = false;
                 break;
@@ -95,19 +95,19 @@ public class UnlimitedGameMode : PuzzleGame
         }
     }
     
-    private void MoveUp(GridSlot slot)
+    private void MoveUp(BlockSlot slot)
     {
         if (slot.UpSlot)
         {
-            if (slot.UpSlot.SubGrid)
+            if (slot.UpSlot.SubBlock)
             {
                 MoveUp(slot.UpSlot);
             }
 
-            if (!slot.UpSlot.SubGrid)
+            if (!slot.UpSlot.SubBlock)
             {
-                slot.UpSlot.SetGrid(slot.SubGrid);
-                slot.SubGrid = null;
+                slot.UpSlot.SetGrid(slot.SubBlock);
+                slot.SubBlock = null;
             }
             else
             {
@@ -120,15 +120,15 @@ public class UnlimitedGameMode : PuzzleGame
     {
         for (int i = 0; i < BoardWidth; i++)
         {
-            var slot = GridSlots[(BoardLength - 1) * BoardWidth + i];
-            if (slot.SubGrid)
+            var slot = BlockSlots[(BoardLength - 1) * BoardWidth + i];
+            if (slot.SubBlock)
             {
                 MoveUp(slot);
             }
 
-            if (!slot.SubGrid)
+            if (!slot.SubBlock)
             {
-                slot.GenerateGrid(BlockColors);
+                slot.GenerateGrid();
             }
         }
         

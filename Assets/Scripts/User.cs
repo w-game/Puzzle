@@ -5,7 +5,7 @@ using UnityEngine;
 public class User
 {
     private const string Tag = "User";
-    public const int MaxPower = 5;
+    public const int MaxPower = 30;
     public Dictionary<GameToolName, GameTool> Tools { get; } = new();
 
     private int _maxScore;

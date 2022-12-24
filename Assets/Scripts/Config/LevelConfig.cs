@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Blocks;
 
 namespace GameMode.LevelGame
 {
@@ -7,6 +8,7 @@ namespace GameMode.LevelGame
     public class LevelConfigs
     {
         public List<LevelConfig> levels;
+        public List<LevelBoardConfig> levelBoards;
     }
 
     [Serializable]
@@ -14,7 +16,7 @@ namespace GameMode.LevelGame
     {
         public List<LevelGoalConfig> goal;
         public int blockCount;
-        public float time;
+        public int boardIndex;
     }
     
     [Serializable]
@@ -22,5 +24,11 @@ namespace GameMode.LevelGame
     {
         public string type;
         public int count;
+    }
+
+    [Serializable]
+    public class LevelBoardConfig
+    {
+        public Dictionary<string, string> blocks;
     }
 }
