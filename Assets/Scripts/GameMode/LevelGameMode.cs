@@ -1,4 +1,5 @@
 using System;
+using Blocks;
 using Common;
 using GameMode.LevelGame;
 using Newtonsoft.Json;
@@ -40,7 +41,7 @@ public class LevelGameMode : PuzzleGame
                 if (colorIndex != -1)
                 {
                     var slot = BlockSlots[i];
-                    slot.GenerateGrid(BlockColors[colorIndex]);
+                    slot.GenerateBlock(typeof(NormalBlock), BlockColors[colorIndex]);
                 }
             }
         }
@@ -95,10 +96,12 @@ public class LevelGameMode : PuzzleGame
             int y = int.Parse(pos[1]);
             
             var slot = BlockSlots[y * BoardWidth + x];
-            if (slot.SubBlock) slot.RemoveBlock();
+            slot.RemoveAllBlock(false);
         
-            slot.GenerateBlock(Type.GetType($"Blocks.{levelBoard.blocks[posStr]}Block"));
+            slot.GenerateBlock(Type.GetType($"Blocks.{levelBoard.blocks[posStr]}Block"), Color.white);
         }
+
+        CheckComeDown();
     }
 
     private void SaveBoard()

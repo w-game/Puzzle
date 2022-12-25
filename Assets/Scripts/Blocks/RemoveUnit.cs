@@ -22,12 +22,32 @@ public class RemoveUnit
         BlockIndex = slots[0].SubBlock.Pattern;
     }
 
-    public int Execute(int rate)
+    public virtual int Execute(int rate)
     {
         foreach (var slot in Slots)
         {
             slot.SubBlock?.OnRemove();
-            slot.RemoveBlock();
+            slot.RemoveMainBlock();
+        }
+
+        GameManager.Instance.ChallengeSystem.CheckProcess(this);
+
+        return Slots.Count * rate;
+    }
+}
+
+public class SecondRemoveUnit : RemoveUnit
+{
+    public SecondRemoveUnit(List<BlockSlot> slots, RemoveType removeType) : base(slots, removeType)
+    {
+    }
+
+    public override int Execute(int rate)
+    {
+        foreach (var slot in Slots)
+        {
+            slot.SecondBlock?.OnRemove();
+            slot.RemoveSecondBlock();
         }
 
         GameManager.Instance.ChallengeSystem.CheckProcess(this);

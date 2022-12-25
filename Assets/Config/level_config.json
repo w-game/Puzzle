@@ -12,7 +12,7 @@
       "boardIndex": -1
     },
     {
-      "index": 2,
+      "index": 1,
       "goal": [
         {
           "type": "SingleColorRemove",
@@ -23,11 +23,26 @@
       "boardIndex": 0
     },
     {
-      "index": 3,
+      "index": 2,
       "goal": [
         {
           "type": "StaticBlockRemove",
           "count": 5
+        }
+      ],
+      "blockCount": 4,
+      "boardIndex": 0
+    },
+    {
+      "index": 3,
+      "goal": [
+        {
+          "type": "SingleColorRemove",
+          "count": 10
+        },
+        {
+          "type": "SingleColorRemove",
+          "count": 10
         }
       ],
       "blockCount": 4,
@@ -41,8 +56,8 @@
           "count": 10
         },
         {
-          "type": "SingleColorRemove",
-          "count": 10
+          "type": "StaticBlockRemove",
+          "count": 5
         }
       ],
       "blockCount": 4,
@@ -54,18 +69,18 @@
         {
           "type": "SingleColorRemove",
           "count": 10
-        },
-        {
-          "type": "StaticBlockRemove",
-          "count": 5
         }
       ],
       "blockCount": 4,
-      "boardIndex": 0
+      "boardIndex": 1
     },
     {
       "index": 6,
       "goal": [
+        {
+          "type": "SingleColorRemove",
+          "count": 10
+        },
         {
           "type": "SingleColorRemove",
           "count": 10
@@ -82,7 +97,7 @@
           "count": 10
         },
         {
-          "type": "SingleColorRemove",
+          "type": "StaticBlockRemove",
           "count": 10
         }
       ],
@@ -93,21 +108,6 @@
       "index": 8,
       "goal": [
         {
-          "type": "SingleColorRemove",
-          "count": 10
-        },
-        {
-          "type": "StaticBlockRemove",
-          "count": 10
-        }
-      ],
-      "blockCount": 4,
-      "boardIndex": 1
-    },
-    {
-      "index": 9,
-      "goal": [
-        {
           "type": "StaticBlockRemove",
           "count": 12
         }
@@ -116,7 +116,7 @@
       "boardIndex": 1
     },
     {
-      "index": 10,
+      "index": 9,
       "goal": [
         {
           "type": "SingleColorRemove",
@@ -138,7 +138,8 @@
         "3,3": "RemoveStatic",
         "5,5": "RemoveStatic",
         "3,5": "RemoveStatic",
-        "5,3": "RemoveStatic"
+        "5,3": "RemoveStatic",
+        "0,8": "Shadow"
       }
     },
     {
@@ -154,7 +155,8 @@
         "2,6": "RemoveStatic",
         "7,5": "RemoveStatic",
         "6,6": "RemoveStatic",
-        "7,6": "RemoveStatic"
+        "7,6": "RemoveStatic",
+        "0,8": "Shadow"
       }
     }
   ],

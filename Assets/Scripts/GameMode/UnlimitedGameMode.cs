@@ -1,3 +1,4 @@
+using Blocks;
 using Common;
 using DG.Tweening;
 
@@ -54,7 +55,7 @@ public class UnlimitedGameMode : PuzzleGame
             for (int i = 0; i < BoardWidth; i++)
             {
                 var slot = BlockSlots[j * BoardWidth + i];
-                slot.RemoveBlock();
+                slot.RemoveAllBlock();
             }
         }
         
@@ -128,7 +129,7 @@ public class UnlimitedGameMode : PuzzleGame
 
             if (!slot.SubBlock)
             {
-                slot.GenerateGrid();
+                slot.GenerateBlock(typeof(NormalBlock), RandomColor);
             }
         }
         

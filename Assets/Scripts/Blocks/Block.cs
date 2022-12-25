@@ -1,4 +1,5 @@
 using Common;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +8,6 @@ namespace Blocks
     public abstract class Block : MonoBehaviour
     {
         private Image _img;
-    
-        private Image _specialIcon;
     
         private Color _pattern;
     
@@ -21,14 +20,17 @@ namespace Blocks
                 _img.color = value;
             }
         }
+        
+        public Image SpecialIcon { get; private set; }
     
         public virtual bool CanMove => true;
         public virtual bool CanRemove => true;
+        public virtual bool MainBlock => true;
     
         public void Init(Color color)
         {
             _img = transform.Find("Icon").GetComponent<Image>();
-            _specialIcon = transform.Find("SpecialIcon").GetComponent<Image>();
+            SpecialIcon = _img.transform.Find("SpecialIcon").GetComponent<Image>();
             SetPattern(color);
         }
     
@@ -46,12 +48,30 @@ namespace Blocks
         {
             AddressableMgr.Load<Sprite>(path, sprite =>
             {
-                _specialIcon.sprite = sprite;
-                _specialIcon.gameObject.SetActive(true);
+                SpecialIcon.sprite = sprite;
+                SpecialIcon.gameObject.SetActive(true);
             });
         }
-    
+
         public virtual void OnPlaced() { }
         public virtual void OnRemove() { }
+
+        public void DoRemoveAnima(TweenCallback callback)
+        {
+            var sequence = DOTween.Sequence();
+            sequence.Append(transform.DOScale(0, PuzzleGame.AnimaTime).SetEase(Ease.InQuad));
+            sequence.AppendCallback(callback);
+        }
+        
+        public void ShowSpecialIcon(Sprite sprite)
+        {
+            SpecialIcon.sprite = sprite;
+            SpecialIcon.gameObject.SetActive(true);
+        }
+
+        public void HideSpecialIcon()
+        {
+            SpecialIcon.gameObject.SetActive(false);
+        }
     }
 }
