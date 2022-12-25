@@ -129,6 +129,17 @@
       ],
       "blockCount": 4,
       "boardIndex": 1
+    },
+    {
+      "index": 9,
+      "goal": [
+        {
+          "type": "ShadowBlockRemove",
+          "count": 9
+        }
+      ],
+      "blockCount": 4,
+      "boardIndex": 2
     }
   ],
   "levelBoards": [
@@ -138,8 +149,7 @@
         "3,3": "RemoveStatic",
         "5,5": "RemoveStatic",
         "3,5": "RemoveStatic",
-        "5,3": "RemoveStatic",
-        "0,8": "Shadow"
+        "5,3": "RemoveStatic"
       }
     },
     {
@@ -155,8 +165,20 @@
         "2,6": "RemoveStatic",
         "7,5": "RemoveStatic",
         "6,6": "RemoveStatic",
-        "7,6": "RemoveStatic",
-        "0,8": "Shadow"
+        "7,6": "RemoveStatic"
+      }
+    },
+    {
+      "blocks": {
+        "0,8": "Shadow",
+        "1,7": "Shadow",
+        "2,6": "Shadow",
+        "3,5": "Shadow",
+        "4,4": "Shadow",
+        "5,5": "Shadow",
+        "6,6": "Shadow",
+        "7,7": "Shadow",
+        "8,8": "Shadow"
       }
     }
   ],

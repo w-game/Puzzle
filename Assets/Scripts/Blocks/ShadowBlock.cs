@@ -3,14 +3,16 @@ using UnityEngine;
 
 namespace Blocks
 {
-    public class ShadowBlock : Block
+    public class ShadowBlock : SpecialBlock
     {
+        public static Color BlockPattern = new(0.5f, 0.5f, 0.5f);
+
         public override bool MainBlock => false;
 
         protected override void SetPattern(Color color)
         {
             SLog.D("Block", "Shadow Block created");
-            Pattern = new Color(0.5f, 0.5f, 0.5f);
+            Pattern = BlockPattern;
             SetSpecialIcon("Textures/shadow_block");
         }
     }

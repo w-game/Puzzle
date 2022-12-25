@@ -96,6 +96,7 @@
      <Compile Include="Assets/MSDK/Scripts/iOS/ABUBannerAd.cs" />
      <Compile Include="Assets/Scripts/Process/ProcessSystem.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/enum/ABURitSceneType.cs" />
+     <Compile Include="Assets/Scripts/Blocks/SpecialBlock.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/ABUBannerAd.cs" />
      <Compile Include="Assets/Scripts/UI/Common/PopupBase.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/callback/ABUFullScreenVideoAdCallback.cs" />
@@ -249,6 +250,7 @@
      <Compile Include="Assets/Scripts/Ad/AdBase.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/callback/ABUNativeAdInteractionCallback.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/callback/ABUFeedAdListener.cs" />
+     <Compile Include="Assets/Scripts/GameMode/LevelGame/ShadowBlockRemoveGoal.cs" />
      <Compile Include="Assets/Scripts/GameTool/GameTool.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotNative.cs" />
      <Compile Include="Assets/Sample/Scripts/Main/Ui/DetailUiViewScript.cs" />

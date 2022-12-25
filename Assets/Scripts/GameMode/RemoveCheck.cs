@@ -121,6 +121,7 @@ public class RemoveCheck
         {
             if (CheckSlotStatus(sameSlots)) return;
             RemoveUnit removeUnit = new RemoveUnit(sameSlots, RemoveType.Horizontal);
+            List<BlockSlot> secondSlots = new List<BlockSlot>();
             _removeList.Add(removeUnit);
             
             foreach (var s in sameSlots)
@@ -129,6 +130,16 @@ public class RemoveCheck
                 {
                     anyBlock.Used = true;
                 }
+                
+                if (s.SecondBlock)
+                {
+                    secondSlots.Add(s);
+                }
+            }
+            
+            if (secondSlots.Count != 0)
+            {
+                _removeList.Add(new SecondRemoveUnit(secondSlots, RemoveType.Special));
             }
         }
     }

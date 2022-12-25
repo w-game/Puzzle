@@ -5,6 +5,7 @@ namespace GameMode.LevelGame
     public abstract class LevelGoal
     {
         public abstract string ElementPath { get; }
+        public string SpritePath { get; protected set; }
         public Color Pattern { get; protected set; }
         protected int GoalCount { get; set; }
         private int CurCount { get; set; }
