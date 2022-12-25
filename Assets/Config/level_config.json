@@ -9,7 +9,8 @@
         }
       ],
       "blockCount": 3,
-      "boardIndex": -1
+      "boardIndex": -1,
+      "roundCount": 30
     },
     {
       "index": 1,
@@ -20,7 +21,8 @@
         }
       ],
       "blockCount": 4,
-      "boardIndex": 0
+      "boardIndex": 0,
+      "roundCount": 30
     },
     {
       "index": 2,
@@ -31,7 +33,8 @@
         }
       ],
       "blockCount": 4,
-      "boardIndex": 0
+      "boardIndex": 0,
+      "roundCount": 30
     },
     {
       "index": 3,
@@ -46,7 +49,8 @@
         }
       ],
       "blockCount": 4,
-      "boardIndex": 0
+      "boardIndex": 0,
+      "roundCount": 30
     },
     {
       "index": 4,
@@ -61,7 +65,8 @@
         }
       ],
       "blockCount": 4,
-      "boardIndex": 0
+      "boardIndex": 0,
+      "roundCount": 30
     },
     {
       "index": 5,
@@ -72,7 +77,8 @@
         }
       ],
       "blockCount": 4,
-      "boardIndex": 1
+      "boardIndex": 1,
+      "roundCount": 30
     },
     {
       "index": 6,
@@ -87,7 +93,8 @@
         }
       ],
       "blockCount": 4,
-      "boardIndex": 1
+      "boardIndex": 1,
+      "roundCount": 30
     },
     {
       "index": 7,
@@ -102,7 +109,8 @@
         }
       ],
       "blockCount": 4,
-      "boardIndex": 1
+      "boardIndex": 1,
+      "roundCount": 30
     },
     {
       "index": 8,
@@ -113,7 +121,8 @@
         }
       ],
       "blockCount": 4,
-      "boardIndex": 1
+      "boardIndex": 1,
+      "roundCount": 30
     },
     {
       "index": 9,
@@ -128,7 +137,8 @@
         }
       ],
       "blockCount": 4,
-      "boardIndex": 1
+      "boardIndex": 1,
+      "roundCount": 30
     },
     {
       "index": 9,
@@ -139,7 +149,8 @@
         }
       ],
       "blockCount": 4,
-      "boardIndex": 2
+      "boardIndex": 2,
+      "roundCount": 30
     }
   ],
   "levelBoards": [
@@ -186,8 +197,15 @@
     "1": {
       "type": "RemoveStaticBlock",
       "blockName": "可消除型静态方块",
-      "des": "这个方块会被固定在其生成时的位置上不可移动。但当其周围有其他方块被消除时，这个方块会一起被消除。",
+      "des": "这个方块会被固定在它生成时的位置上不可移动。但当它周围有其他方块被消除时，它也会被一起消除。",
       "path": "",
+      "color": "#FFFFFF"
+    },
+    "10": {
+      "type": "ShadowBlock",
+      "blockName": "标志方块",
+      "des": "这个方块会被固定在其生成时的位置上不可移动，并且不会阻挡其他方块。但当它所在棋格有其他方块被消除时，它也会一起被消除",
+      "path": "Textures/shadow_block",
       "color": "#FFFFFF"
     }
   }

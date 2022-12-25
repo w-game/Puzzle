@@ -5,6 +5,7 @@ namespace Blocks
 {
     public class ShadowBlock : SpecialBlock
     {
+        public override bool SpecialIconColorChange => true;
         public static Color BlockPattern = new(0.5f, 0.5f, 0.5f);
 
         public override bool MainBlock => false;

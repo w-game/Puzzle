@@ -1,6 +1,7 @@
 using System;
 using Common;
 using UI;
+using UI.Popup;
 using UnityEngine;
 
 public class UIManager : MonoSingleton<UIManager>
@@ -65,5 +66,30 @@ public class UIManager : MonoSingleton<UIManager>
     {
         mainStack.Clear();
         popStack.Clear();
+    }
+
+    private Vector3 _originPos;
+    private void Update()
+    {
+        if (GameManager.IsDebug)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                _originPos = Input.mousePosition;
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                var targetPos = Input.mousePosition;
+                var dir = (targetPos - _originPos).normalized;
+
+                var angle = Vector3.Angle(Vector3.down, dir);
+
+                if (angle <= 30 && Vector3.Distance(targetPos, _originPos) >= 200)
+                {
+                    PushPop<PopGMData>();
+                }
+            }
+        }
     }
 }

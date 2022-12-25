@@ -18,11 +18,13 @@ namespace UI.View
             SetGoal,
             RefreshGoal,
             OnLevelPass,
-            OnGameOver
+            OnGameOver,
+            RefreshRoundCount
         }
         
         [SerializeField] private LevelGoalElement levelGoalElement;
         [SerializeField] private TextMeshProUGUI levelTxt;
+        [SerializeField] private TextMeshProUGUI roundCountTxt;
         [SerializeField] private LevelTime levelTime;
 
         private LevelGameMode _levelGameMode;
@@ -35,6 +37,7 @@ namespace UI.View
             AddEvent(EventKeys.RefreshGoal, RefreshGoal);
             AddEvent<int>(EventKeys.OnLevelPass, OnLevelPass);
             AddEvent(EventKeys.OnGameOver, OnGameOver);
+            AddEvent(EventKeys.RefreshRoundCount, RefreshRoundCount);
         }
 
         private void SetGoal()
@@ -42,6 +45,11 @@ namespace UI.View
             levelGoalElement.SetGoal(_levelGameMode.CurLevel.Goals);
             levelTxt.text = $"第{_levelGameMode.CurLevel.LevelIndex + 1}关";
             // levelTime.SetTime(_levelGameMode.CurLevel.MaxTime, OnGameOver);
+        }
+
+        private void RefreshRoundCount()
+        {
+            roundCountTxt.text = $"{_levelGameMode.CurLevel.RoundCount}";
         }
         
         private void RefreshGoal()
@@ -59,7 +67,6 @@ namespace UI.View
         {
             // levelTime.Stop();
             UIManager.Instance.PushPop<PopLevelGameOverData>();
-            _levelGameMode.LevelFail();
         }
     }
 }

@@ -17,6 +17,7 @@ namespace GameMode.LevelGame
         public List<LevelGoalConfig> goal;
         public int blockCount;
         public int boardIndex;
+        public int roundCount;
     }
     
     [Serializable]
