@@ -7,16 +7,16 @@ namespace GameMode.LevelGame
     {
         public override void Init(LevelGoalConfig config, Color color)
         {
-            Pattern = Color.white;
+            Pattern = StaticBlock.BlockPattern;
             GoalCount = config.count;
         }
 
         public override string ElementPath => "StaticBlockRemoveGoal";
         protected override void IncreaseCount(RemoveUnit unit)
         {
-            if (unit.Slots[0].SubBlock is RemoveStaticBlock)
+            if (unit.Slots[0].SubBlock is RemoveStaticBlock block)
             {
-                IncreaseCount(Color.white, unit.BlockCount);
+                IncreaseCount(block.Pattern, unit.BlockCount);
             }
         }
     }

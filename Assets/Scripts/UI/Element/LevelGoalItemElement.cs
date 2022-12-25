@@ -18,6 +18,10 @@ namespace UI
             foreach (var icon in icons)
             {
                 icon.color = _levelGoal.Pattern;
+                if (!string.IsNullOrEmpty(_levelGoal.SpritePath))
+                {
+                    icon.SetImage(_levelGoal.SpritePath);
+                }
             }
             
             RefreshData();
