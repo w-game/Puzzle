@@ -14,7 +14,7 @@ public enum PuzzleGameMode
 
 public abstract class PuzzleGame : MonoBehaviour
 {
-    public class PowerCost
+    public static class PowerCost
     {
         public const int Level = 1;
         public const int Unlimited = 2;
@@ -28,6 +28,7 @@ public abstract class PuzzleGame : MonoBehaviour
     public static GameObject SlotPrefab { get; private set; }
     
     public static readonly List<Color> BlockColors = new();
+    public static Color RandomColor => BlockColors[Random.Range(0, BlockColors.Count)];
     public List<BlockSlot> BlockSlots { get; } = new();
     public int Score { get; private set; }
     public float NextBlockScore => Mathf.Pow(4, BlockColors.Count + 1);
@@ -128,7 +129,7 @@ public abstract class PuzzleGame : MonoBehaviour
     {
         foreach (var slot in BlockSlots)
         {
-            slot.RemoveBlock();
+            slot.RemoveAllBlock();
         }
     }
 
@@ -227,16 +228,11 @@ public abstract class PuzzleGame : MonoBehaviour
             SoundManager.Instance.PlayRemoveSound();
             EventCenter.Invoke(GameView.EventKeys.RefreshView);
         }
-        
-        DoAnima(() =>
-        {
-            var result = CheckComeDown();
-            if (result) DoAnima(CheckRemove);
-            else EndRound();
-        });
+
+        DoAnima(CheckComeDown);
     }
 
-    protected bool CheckComeDown()
+    protected void CheckComeDown()
     {
         bool result = false;
         for (int j = BoardLength - 1; j >= 0; j--)
@@ -264,7 +260,8 @@ public abstract class PuzzleGame : MonoBehaviour
             }
         }
 
-        return result;
+        if (result) DoAnima(CheckRemove);
+        else EndRound();
     }
 
     

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Blocks;
 using Common;
 using UnityEngine;
 using UnityEngine.UI;
@@ -62,8 +63,8 @@ public class GridControl : MonoSingleton<GridControl>
             var index = _remaining[Random.Range(0, _remaining.Count)];
             _remaining.Remove(index);
             var slot = NextNextGridSlots[index];
-            var grid = slot.GenerateGrid();
-            grid.transform.localScale *= 0.3f;
+            var block = slot.GenerateBlock(typeof(NormalBlock), PuzzleGame.RandomColor);
+            block.transform.localScale *= 0.3f;
         }
 
         _remaining.Clear();
@@ -78,18 +79,12 @@ public class GridControl : MonoSingleton<GridControl>
     {
         foreach (var slot in NextGridSlots)
         {
-            if (slot.SubBlock)
-            {
-                slot.RemoveBlock();
-            }
+            slot.RemoveAllBlock(false);
         }
 
         foreach (var slot in NextNextGridSlots)
         {
-            if (slot.SubBlock)
-            {
-                slot.RemoveBlock();
-            }
+            slot.RemoveAllBlock(false);
         }
         
         GeneratePreview();
