@@ -16,6 +16,8 @@ public class GameManager : MonoSingleton<GameManager>
     public PuzzleGame GameMode { get; set; }
 
     public ChallengeSystem ChallengeSystem { get; } = new();
+
+    public static bool IsDebug => Debug.isDebugBuild;
     void Awake()
     {
         var lastEndGame = PlayerPrefs.GetInt("LastEndGame", TimeUtil.Timestamp);

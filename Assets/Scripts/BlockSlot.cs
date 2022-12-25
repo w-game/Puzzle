@@ -8,7 +8,7 @@ public class BlockSlot : MonoBehaviour
 {
     public Vector2Int Pos { get; set; }
     public Block SubBlock { get; set; }
-    public Block SecondBlock { get; set; }
+    public SpecialBlock SecondBlock { get; set; }
     public PuzzleGame GameBoard { get; set; }
 
     public BlockSlot UpSlot => Pos.y > 0 ? GameManager.Instance.GameMode.BlockSlots[(Pos.y - 1) * PuzzleGame.BoardWidth + Pos.x] : null;
@@ -29,7 +29,7 @@ public class BlockSlot : MonoBehaviour
         }
         else
         {
-            SecondBlock = block;
+            SecondBlock = block as SpecialBlock;
         }
 
         if (color == Color.black)
@@ -91,17 +91,17 @@ public class BlockSlot : MonoBehaviour
         }
         else
         {
+            if (!SecondBlock)
+            {
+                block.HideSpecialIcon();
+            }
             var sequence = DOTween.Sequence();
             sequence.Append(block.transform.DOLocalMove(Vector3.zero, PuzzleGame.AnimaTime).SetEase(Ease.InQuad));
             sequence.AppendCallback(() =>
             {
                 if (SecondBlock)
                 {
-                    block.ShowSpecialIcon(SecondBlock.SpecialIcon.sprite);
-                }
-                else
-                {
-                    block.HideSpecialIcon();
+                    block.ShowSpecialIcon(SecondBlock.SpecialIcon.sprite, SecondBlock.SpecialIconColorChange);
                 }
             });
         }

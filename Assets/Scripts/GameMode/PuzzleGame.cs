@@ -57,6 +57,7 @@ public abstract class PuzzleGame : MonoBehaviour
     protected virtual void OnStart() { }
     protected virtual void OnRefresh() { }
     protected virtual void OnBlocksRemove(RemoveUnit unit) { }
+    protected virtual void OnRoundStart() { }
     protected virtual void OnRoundEnd() { }
     protected virtual void OnGameOver() { }
     protected virtual void OnGameEnd() { }
@@ -156,6 +157,7 @@ public abstract class PuzzleGame : MonoBehaviour
     
     public void NextRound()
     {
+        OnRoundStart();
         for (int i = 0; i < Control.NextGridSlots.Count; i++)
         {
             var ctrlSlot = Control.NextGridSlots[i];
@@ -271,20 +273,20 @@ public abstract class PuzzleGame : MonoBehaviour
     private void EndRound()
     {
         var result = CheckGameOver();
-        if (!result) OnRoundEnd();
+        if (result) GameOver();
+        else OnRoundEnd();
         
         EventCenter.Invoke(GameView.EventKeys.RefreshView);
         EventCenter.Invoke(GameView.EventKeys.EnableStartBtn);
     }
     
-    private bool CheckGameOver()
+    protected virtual bool CheckGameOver()
     {
         for (int i = 0; i < BoardWidth; i++)
         {
             var slot = BlockSlots[i];
             if (slot.SubBlock)
             {
-                GameOver();
                 return true;
             }
         }

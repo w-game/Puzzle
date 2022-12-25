@@ -58,6 +58,7 @@
      <Compile Include="Assets/Scripts/Blocks/RemoveUnit.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopGameResult.cs" />
      <Compile Include="Assets/Scripts/UI/View/MainView.cs" />
+     <Compile Include="Assets/Scripts/UI/Element/GmElement.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotBanner.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/ThreeBlockRemoveGoal.cs" />
      <Compile Include="Assets/Scripts/UI/View/GameView.cs" />
@@ -170,6 +171,7 @@
      <Compile Include="Assets/MSDK/Scripts/common/callback/ABUSplashAdInteractionListener.cs" />
      <Compile Include="Assets/Scripts/SoundManager.cs" />
      <Compile Include="Assets/Sample/Scripts/Main/GameEnter.cs" />
+     <Compile Include="Assets/Scripts/UI/Popup/PopGM.cs" />
      <Compile Include="Assets/Sample/Scripts/Main/Ui/MainUiViewScript.cs" />
      <Compile Include="Assets/Sample/Scripts/Utils/Constants/PlayerPreferenceConstant.cs" />
      <Compile Include="Assets/Scripts/Blocks/UnRemoveStaticBlock.cs" />

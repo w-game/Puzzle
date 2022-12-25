@@ -55,7 +55,11 @@ public class LevelGameMode : PuzzleGame
 
     protected override void OnGameOver()
     {
-        EventCenter.Invoke(LevelGameView.EventKeys.OnGameOver);
+        if (!CurLevel.IsFail)
+        {
+            EventCenter.Invoke(LevelGameView.EventKeys.OnGameOver);
+            CurLevel.IsFail = true;
+        }
     }
 
     private void CheckLevelGoal(RemoveUnit unit)
@@ -75,11 +79,12 @@ public class LevelGameMode : PuzzleGame
         AddColor(_ => _ < CurLevel.BlockCount);
         InitLevelBoard();
         CurLevel.InitGoals();
-        EventCenter.Invoke(LevelGameView.EventKeys.SetGoal);
         RefreshBoard(false);
         SaveBoard();
-
         CheckShowNewBlockTip();
+
+        EventCenter.Invoke(LevelGameView.EventKeys.RefreshRoundCount);
+        EventCenter.Invoke(LevelGameView.EventKeys.SetGoal);
     }
 
     private void InitLevelBoard()
@@ -140,9 +145,18 @@ public class LevelGameMode : PuzzleGame
         return gameLevel;
     }
 
-    public void LevelFail()
+    protected override bool CheckGameOver()
     {
+        var result = base.CheckGameOver();
+        if (result) return true;
         
+        return !CurLevel.CheckLevelRoundCount();
+    }
+
+    protected override void OnRoundStart()
+    {
+        CurLevel.RoundCount--;
+        EventCenter.Invoke(LevelGameView.EventKeys.RefreshRoundCount);
     }
 
     protected override void OnGameEnd()

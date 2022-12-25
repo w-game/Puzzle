@@ -121,8 +121,12 @@ MonoBehaviour:
     m_Address: Prefabs/UI/Popup/PopNewBlockIntroduce
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 8968ebd491621460d82eb1a20e72965b
+  - m_GUID: a074360cf6eb24c17acbaabcb8f87439
     m_Address: Textures/shadow_block
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bfa08a25c4a484665b31c541beefa723
+    m_Address: Prefabs/UI/Popup/PopGM
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

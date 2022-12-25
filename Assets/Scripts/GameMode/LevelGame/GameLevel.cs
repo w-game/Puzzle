@@ -12,7 +12,9 @@ namespace GameMode.LevelGame
         // public float MaxTime { get; private set; }
         public int BlockCount { get; private set; }
         public int BoardIndex { get; private set; }
+        public int RoundCount { get; set; }
         public bool IsPass { get; private set; }
+        public bool IsFail { get; set; }
 
         private LevelConfig _config;
         public void Init(LevelConfig config)
@@ -21,6 +23,7 @@ namespace GameMode.LevelGame
             // MaxTime = config.time;
             BoardIndex = config.boardIndex;
             BlockCount = config.blockCount;
+            RoundCount = config.roundCount;
         }
 
         public void InitGoals()
@@ -70,6 +73,16 @@ namespace GameMode.LevelGame
             if (result) IsPass = true;
 
             return result;
+        }
+
+        public bool CheckLevelRoundCount()
+        {
+            if (RoundCount <= 0)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
