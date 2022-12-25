@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Blocks
 {
-    public class StaticBlock : SpecialBlock
+    public abstract class StaticBlock : SpecialBlock
     {
         public static Color BlockPattern = Color.white;
         public override bool CanMove => false;

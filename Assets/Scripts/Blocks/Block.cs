@@ -44,11 +44,12 @@ namespace Blocks
             });
         }
         
-        protected void SetSpecialIcon(string path)
+        protected void SetSpecialIcon(string path, Color color)
         {
             AddressableMgr.Load<Sprite>(path, sprite =>
             {
                 SpecialIcon.sprite = sprite;
+                SpecialIcon.color = color;
                 SpecialIcon.gameObject.SetActive(true);
             });
         }
