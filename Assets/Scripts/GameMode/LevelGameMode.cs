@@ -25,8 +25,24 @@ public class LevelGameMode : PuzzleGame
         });
     }
 
+    private bool CheckLevelEnd()
+    {
+        if (GameManager.User.GameLevel >= _configs.levels.Count)
+        {
+            UIManager.Instance.ShowTip("您已通过现有所有的关卡！敬请期待之后的关卡更新。", () =>
+            {
+                UIManager.Instance.BackToHome();
+            });
+            return true;
+        }
+
+        return false;
+    }
+
     public override void StartGame()
     {
+        if (CheckLevelEnd()) return;
+        
         ClearSlots();
         var config = _configs.levels[GameManager.User.GameLevel];
         RefreshBlockColor(config.blockCount);
@@ -46,6 +62,22 @@ public class LevelGameMode : PuzzleGame
             }
         }
         InitLevel();
+    }
+    
+    public void InitLevel()
+    {
+        if (CheckLevelEnd()) return;
+
+        CurLevel = CreateLevel(GameManager.User.GameLevel);
+        AddColor(_ => _ < CurLevel.BlockCount);
+        InitLevelBoard();
+        CurLevel.InitGoals();
+        RefreshBoard(false);
+        SaveBoard();
+        CheckShowNewBlockTip();
+
+        EventCenter.Invoke(LevelGameView.EventKeys.RefreshRoundCount);
+        EventCenter.Invoke(LevelGameView.EventKeys.SetGoal);
     }
 
     protected override void OnBlocksRemove(RemoveUnit unit)
@@ -71,20 +103,6 @@ public class LevelGameMode : PuzzleGame
             GameManager.User.GameLevel++;
             EventCenter.Invoke(LevelGameView.EventKeys.OnLevelPass, Score);
         }
-    }
-
-    public void InitLevel()
-    {
-        CurLevel = CreateLevel(GameManager.User.GameLevel);
-        AddColor(_ => _ < CurLevel.BlockCount);
-        InitLevelBoard();
-        CurLevel.InitGoals();
-        RefreshBoard(false);
-        SaveBoard();
-        CheckShowNewBlockTip();
-
-        EventCenter.Invoke(LevelGameView.EventKeys.RefreshRoundCount);
-        EventCenter.Invoke(LevelGameView.EventKeys.SetGoal);
     }
 
     private void InitLevelBoard()
@@ -157,11 +175,6 @@ public class LevelGameMode : PuzzleGame
     {
         CurLevel.RoundCount--;
         EventCenter.Invoke(LevelGameView.EventKeys.RefreshRoundCount);
-    }
-
-    protected override void OnGameEnd()
-    {
-        SaveBoard();
     }
 
     private void CheckShowNewBlockTip()

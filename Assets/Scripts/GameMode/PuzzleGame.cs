@@ -130,7 +130,7 @@ public abstract class PuzzleGame : MonoBehaviour
     {
         foreach (var slot in BlockSlots)
         {
-            slot.RemoveAllBlock();
+            slot.RemoveAllBlock(false);
         }
     }
 

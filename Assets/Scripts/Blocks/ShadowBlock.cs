@@ -14,7 +14,7 @@ namespace Blocks
         {
             SLog.D("Block", "Shadow Block created");
             Pattern = BlockPattern;
-            SetSpecialIcon("Textures/shadow_block");
+            SetSpecialIcon("Textures/shadow_block", Color.white);
         }
     }
 }

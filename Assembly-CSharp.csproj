@@ -121,6 +121,7 @@
      <Compile Include="Assets/MSDK/Scripts/common/callback/ABUNativeAdCallback.cs" />
      <Compile Include="Assets/Sample/Scripts/Main/Helper/ToastManager.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialAdCallback.cs" />
+     <Compile Include="Assets/Scripts/UI/Popup/PopTip.cs" />
      <Compile Include="Assets/Scripts/UI/Element/AddBlockTip.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/ABUInterstitialFullAd.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopSetting.cs" />

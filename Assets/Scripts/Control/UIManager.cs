@@ -3,6 +3,7 @@ using Common;
 using UI;
 using UI.Popup;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class UIManager : MonoSingleton<UIManager>
 {
@@ -91,5 +92,10 @@ public class UIManager : MonoSingleton<UIManager>
                 }
             }
         }
+    }
+
+    public void ShowTip(string tip, UnityAction callback)
+    {
+        PushPop<PopTipData>(tip, callback);
     }
 }

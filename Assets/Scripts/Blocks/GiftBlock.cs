@@ -9,7 +9,7 @@ namespace Blocks
         {
             Pattern = color;
             SetIcon($"Textures/Blocks/normal_block_{Pattern}");
-            SetSpecialIcon("Textures/Blocks/chest");
+            SetSpecialIcon("Textures/Blocks/chest", Color.white);
         }
 
         public override void OnRemove()

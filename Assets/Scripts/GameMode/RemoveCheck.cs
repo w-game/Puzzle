@@ -157,6 +157,11 @@ public class RemoveCheck
             var originSlot = slot;
             while (slot.UpSlot && slot.UpSlot.SubBlock)
             {
+                if (!slot.UpSlot.SubBlock.CanRemove)
+                {
+                    break;
+                }
+                
                 if (slot.UpSlot.SubBlock.Pattern == _curCheckColor ||
                     slot.UpSlot.SubBlock is AnyBlock { Used: false })
                 {
@@ -172,6 +177,11 @@ public class RemoveCheck
             slot = originSlot;
             while (slot.DownSlot && slot.DownSlot.SubBlock)
             {
+                if (!slot.DownSlot.SubBlock.CanRemove)
+                {
+                    break;
+                }
+                
                 if (slot.DownSlot.SubBlock.Pattern == _curCheckColor ||
                     slot.DownSlot.SubBlock is AnyBlock { Used: false})
                 {
@@ -217,19 +227,23 @@ public class RemoveCheck
         List<BlockSlot> removeSlots = new List<BlockSlot>();
         foreach (var slot in slots)
         {
-
-            CheckRemoveStaticBlock(removeSlots, slot.Pos + Vector2Int.left);
-            CheckRemoveStaticBlock(removeSlots, slot.Pos + Vector2Int.right);
-            CheckRemoveStaticBlock(removeSlots, slot.Pos + Vector2Int.up);
-            CheckRemoveStaticBlock(removeSlots, slot.Pos + Vector2Int.down);
+            CheckRemoveStaticBlock(units, removeSlots, slot.Pos + Vector2Int.left);
+            CheckRemoveStaticBlock(units, removeSlots, slot.Pos + Vector2Int.right);
+            CheckRemoveStaticBlock(units, removeSlots, slot.Pos + Vector2Int.up);
+            CheckRemoveStaticBlock(units, removeSlots, slot.Pos + Vector2Int.down);
         }
 
         if (removeSlots.Count != 0) units.Add(new RemoveUnit(removeSlots, RemoveType.Special));
     }
     
-    private void CheckRemoveStaticBlock(List<BlockSlot> slots, Vector2Int pos)
+    private void CheckRemoveStaticBlock(List<RemoveUnit> units, List<BlockSlot> slots, Vector2Int pos)
     {
         var slot = GetSlotByPos(pos);
+        if (units.Find(_ => _.Slots.Contains(slot)) != null)
+        {
+            return;
+        }
+        
         if (slot && slot.SubBlock is RemoveStaticBlock)
         {
             slots.Add(slot);

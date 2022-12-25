@@ -129,6 +129,14 @@ MonoBehaviour:
     m_Address: Prefabs/UI/Popup/PopGM
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: eb8a2a42fb772422aa7e6138644ce1d7
+    m_Address: Textures/static_block
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 00de6f02b13864ab583c93de54709827
+    m_Address: Prefabs/UI/Popup/PopTip
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2b925b1802ff143b1842bb3154200482, type: 2}
   m_SchemaSet:
