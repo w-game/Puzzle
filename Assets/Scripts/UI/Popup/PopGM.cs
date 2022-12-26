@@ -21,7 +21,7 @@ namespace UI.Popup
             {
                 if (int.TryParse(data, out var d))
                 {
-                    GameManager.User.GameLevel = d;
+                    GameManager.User.GameLevel = d - 1;
                 }
             });
             power.Init(data =>

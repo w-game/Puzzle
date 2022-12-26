@@ -28,11 +28,6 @@ public class GameManager : MonoSingleton<GameManager>
         User.Init();
         SoundManager.Instance.Init();
         Application.targetFrameRate = 60;
-        
-        new SingleColorRemoveGoal();
-        new ThreeBlockRemoveGoal();
-        new HorizontalRemoveGoal();
-        new VerticalRemoveGoal();
     }
 
     public void CheckPower(int power, Action callback)
