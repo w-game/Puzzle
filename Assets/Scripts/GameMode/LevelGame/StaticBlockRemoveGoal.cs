@@ -8,7 +8,14 @@ namespace GameMode.LevelGame
         public override void Init(LevelGoalConfig config, Color color)
         {
             Pattern = StaticBlock.BlockPattern;
-            GoalCount = config.count;
+            
+            GameManager.Instance.PuzzleGame.BlockSlots.ForEach(slot =>
+            {
+                if (slot.SubBlock is RemoveStaticBlock)
+                {
+                    GoalCount++;
+                }
+            });
         }
 
         public override string ElementPath => "StaticBlockRemoveGoal";

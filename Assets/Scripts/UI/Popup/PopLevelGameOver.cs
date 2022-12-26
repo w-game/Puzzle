@@ -32,7 +32,7 @@ namespace UI.Popup
             {
                 UIManager.Instance.DecreasePower(restartBtn.transform, () =>
                 {
-                    GameManager.Instance.GameMode.StartGame();
+                    GameManager.Instance.PuzzleGame.StartGame();
                     CloseView();
                 });
             });

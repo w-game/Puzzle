@@ -29,7 +29,7 @@ public class PopGameResult : PopupBase
         {
             UIManager.Instance.DecreasePower(restart.transform, () =>
             {
-                GameManager.Instance.GameMode.StartGame();
+                GameManager.Instance.PuzzleGame.StartGame();
                 CloseView();
             });
         });
@@ -41,7 +41,7 @@ public class PopGameResult : PopupBase
         {
             if (result)
             {
-                var game = GameManager.Instance.GameMode as UnlimitedGameMode;
+                var game = GameManager.Instance.PuzzleGame as UnlimitedGameMode;
                 game?.Revive();
                 
                 CloseView();
