@@ -44,7 +44,7 @@ namespace UI
                 sequence.Append(transform.DOMove(_originPos, 0.2f));
                 sequence.AppendCallback(() =>
                 {
-                    moveUnit.localPosition = Vector3.zero;
+                    moveUnit.localPosition = Vector3.up * 64f;
                     moveUnit.localScale = Vector3.one;
                 });
             });

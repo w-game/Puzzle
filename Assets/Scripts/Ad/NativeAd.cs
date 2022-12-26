@@ -31,8 +31,7 @@ namespace Ad
 
         public override void CloseAd()
         {
-            NativeAdJavaObject.Call("destroy");
-            // NativeAdInstance.Dispose();
+            NativeAdJavaObject?.Call("destroy");
         }
     }
     
