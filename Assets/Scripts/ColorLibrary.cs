@@ -131,16 +131,10 @@ namespace Common
             "#9A53D0",
             "#2843AD"
         };
-        // public static List<string> ColorCoder = new()
-        // {
-        //     "#F7D967",
-        //     "#3DB3D0",
-        //     "#C24347",
-        //     "#1E588D",
-        // };
         public static void InitThemeColorCoder()
         {
-            ThemeColorCoder = FirstColorCoder[Random.Range(0, FirstColorCoder.Count)];
+            // ThemeColorCoder = FirstColorCoder[Random.Range(0, FirstColorCoder.Count)];
+            ThemeColorCoder = FirstColorCoder[0];
         }
     }
 }

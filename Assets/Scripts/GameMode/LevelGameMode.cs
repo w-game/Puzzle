@@ -46,19 +46,22 @@ public class LevelGameMode : PuzzleGame
         ClearSlots();
         var config = _configs.levels[GameManager.User.GameLevel];
         RefreshBlockColor(config.blockCount);
-        
-        var board = PlayerPrefsX.GetIntArray("Game Board", Array.Empty<int>());
-        if (board.Length != 0)
+
+        var boardData = PlayerPrefs.GetString("Game Board Data", "");
+        if (!string.IsNullOrEmpty(boardData))
         {
-            SLog.D(Tag, $"board length: {board.Length}");
-            for (int i = board.Length - 1; i >= 0; i--)
+            SLog.D(Tag, $"board data: {boardData}");
+            var slotsData = boardData.Split('|');
+            foreach (var data in slotsData)
             {
-                var colorIndex = board[i];
-                if (colorIndex != -1)
-                {
-                    var slot = BlockSlots[i];
-                    slot.GenerateBlock(typeof(NormalBlock), BlockColors[colorIndex]);
-                }
+                var str = data.Split(':');
+                var posStr = str[0].Split(',');
+                int x = int.Parse(posStr[0]);
+                int y = int.Parse(posStr[1]);
+                var slot = BlockSlots[y * BoardWidth + x];
+
+                var colorIndex = int.Parse(str[1]);
+                slot.GenerateBlock(typeof(NormalBlock), BlockColors[colorIndex]);
             }
         }
         InitLevel();
@@ -129,24 +132,24 @@ public class LevelGameMode : PuzzleGame
 
     private void SaveBoard()
     {
-        int[] boardData = new int[BoardWidth * BoardLength];
-        for (int i = BoardLength - 1; i > -1; i--)
+        string boardData = "";
+        for (int y = BoardLength - 1; y > -1; y--)
         {
-            for (int j = 0; j < BoardWidth; j++)
+            for (int x = 0; x < BoardWidth; x++)
             {
-                var slot = BlockSlots[i * BoardWidth + j];
-                if (slot.SubBlock)
+                var slot = BlockSlots[y * BoardWidth + x];
+                if (slot.SubBlock is NormalBlock)
                 {
-                    boardData[i * BoardWidth + j] = BlockColors.IndexOf(slot.SubBlock.Pattern);
-                }
-                else
-                {
-                    boardData[i * BoardWidth + j] = -1;
+                    if (!string.IsNullOrEmpty(boardData))
+                    {
+                        boardData += "|";
+                    }
+                    boardData += $"{x},{y}:{BlockColors.IndexOf(slot.SubBlock.Pattern)}";
                 }
             }
         }
 
-        PlayerPrefsX.SetIntArray("Game Board", boardData);
+        PlayerPrefs.SetString("Game Board Data", boardData);
     }
 
     private GameLevel CreateLevel(int levelIndex)

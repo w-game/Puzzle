@@ -6,7 +6,7 @@ namespace Blocks
     {
         protected override void SetPattern(Color color)
         {
-            Pattern = PuzzleGame.BlockColors[Random.Range(0, PuzzleGame.BlockColors.Count)];
+            Pattern = color;
         }
     }
 }

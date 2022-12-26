@@ -10,7 +10,13 @@ namespace GameMode.LevelGame
         {
             SpritePath = "Textures/shadow_block";
             Pattern = new Color(0.5f, 0.5f, 0.5f);
-            GoalCount = config.count;
+            GameManager.Instance.PuzzleGame.BlockSlots.ForEach(slot =>
+            {
+                if (slot.SecondBlock is ShadowBlock)
+                {
+                    GoalCount++;
+                }
+            });
         }
         
         protected override void IncreaseCount(RemoveUnit unit)

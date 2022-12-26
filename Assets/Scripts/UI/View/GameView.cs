@@ -32,7 +32,7 @@ public class GameView : ViewBase
 
     public override void OnCreate(params object[] objects)
     {
-        GameManager.Instance.GameMode = puzzleGame;
+        GameManager.Instance.PuzzleGame = puzzleGame;
         puzzleGame.OnGameInit += () =>
         {
             loadingMask.SetActive(false);

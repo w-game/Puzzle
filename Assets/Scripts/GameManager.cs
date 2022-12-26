@@ -13,7 +13,7 @@ public class GameManager : MonoSingleton<GameManager>
     public int LaunchGameGap { get; private set; }
     public static User User { get; } = new();
     
-    public PuzzleGame GameMode { get; set; }
+    public PuzzleGame PuzzleGame { get; set; }
 
     public ChallengeSystem ChallengeSystem { get; } = new();
 

@@ -229,6 +229,7 @@
      <Compile Include="Assets/Scripts/Common/Singleton.cs" />
      <Compile Include="Assets/Scripts/GridDrag.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/VerticalRemoveGoal.cs" />
+     <Compile Include="Assets/Scripts/GameMode/LevelGame/ColorVerticalRemoveGoal.cs" />
      <Compile Include="Assets/Scripts/Ad/AdIds.cs" />
      <Compile Include="Assets/Scripts/UI/Common/UiUtil.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotBase.cs" />
@@ -245,6 +246,7 @@
      <Compile Include="Assets/Scripts/Ad/NativeAd.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/GameLevel.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopNewBlockIntroduce.cs" />
+     <Compile Include="Assets/Scripts/GameMode/LevelGame/ColorHorizontalRemoveGoal.cs" />
      <Compile Include="Assets/Scripts/User.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/GMAdConfigAndroid.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdnType.cs" />

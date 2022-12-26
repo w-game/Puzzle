@@ -44,7 +44,7 @@ namespace GameMode.LevelGame
                         color = PuzzleGame.BlockColors[Random.Range(0, PuzzleGame.BlockColors.Count)];
                     }
                     
-                    var type = Type.GetType("GameMode.LevelGame." + $"{goalConfig.type}Goal");
+                    var type = Type.GetType("GameMode.LevelGame." + $"{goalConfig.type}RemoveGoal");
                     var goal = Activator.CreateInstance(type) as LevelGoal;
                     goal.Init(goalConfig, color);
                     Goals.Add(goal);

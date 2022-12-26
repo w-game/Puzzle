@@ -30,9 +30,15 @@ namespace UI.Popup
 
         private void NextLevel()
         {
-            CloseView();
-            var levelGameMode = GameManager.Instance.GameMode as LevelGameMode;
-            levelGameMode.InitLevel();
+            GameManager.Instance.CheckPower(PuzzleGame.PowerCost.Level, () =>
+            {
+                UIManager.Instance.DecreasePower(nextLevelBtn.transform, () =>
+                {
+                    var levelGameMode = GameManager.Instance.PuzzleGame as LevelGameMode;
+                    levelGameMode.InitLevel();
+                    CloseView();
+                });
+            });
         }
 
         private void BackToHome()
