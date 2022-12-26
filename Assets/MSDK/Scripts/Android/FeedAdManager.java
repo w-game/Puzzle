@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.bytedance.msdk.api.AdError;
 import com.bytedance.msdk.api.TTAdConstant;
+import com.bytedance.msdk.api.v2.GMAdConstant;
 import com.bytedance.msdk.api.v2.GMAdDislike;
 import com.bytedance.msdk.api.TTAdSize;
 import com.bytedance.msdk.api.TTDislikeCallback;
@@ -36,6 +37,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.Volley;
+import com.bytedance.msdk.api.v2.ad.nativeAd.GMNativeAd;
+import com.bytedance.msdk.api.v2.ad.nativeAd.GMVideoListener;
+import com.bytedance.msdk.api.v2.ad.nativeAd.GMNativeAdListener;
+import com.bytedance.msdk.api.v2.ad.nativeAd.GMNativeExpressAdListener;
 
 public class FeedAdManager {
 
@@ -48,12 +53,13 @@ public class FeedAdManager {
     private static final int ITEM_VIEW_TYPE_SMALL_PIC_AD = 2;
     private static final int ITEM_VIEW_TYPE_LARGE_PIC_AD = 3;
     private static final int ITEM_VIEW_TYPE_VIDEO = 4;
+    private static final int ITEM_VIEW_TYPE_VIDEO_VERTICAL = 7; //竖版视频
     private static final int ITEM_VIEW_TYPE_VERTICAL_IMG = 5;//竖版图片
     private static final int ITEM_VIEW_TYPE_EXPRESS_AD = 6;//竖版图片
     private Handler mHandler;
     private RequestQueue mQueue;
     private ViewGroup mCurrentFeedLayout;
-    private TTNativeAdListener mNativeAdListener;
+    private GMNativeAdListener mNativeAdListener;
 
     public static FeedAdManager getAdManager(Activity context) {
         mContext = context;
@@ -88,18 +94,19 @@ public class FeedAdManager {
         if (context == null) {
             return null;
         }
+    
         FrameLayout frameLayout = new FrameLayout(context);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.gravity = Gravity.CENTER;
+        layoutParams.gravity = Gravity.BOTTOM;
         frameLayout.setLayoutParams(layoutParams);
-        frameLayout.setBackgroundColor(Color.parseColor("#ffffff"));
         ViewGroup rootGroup = getRootLayout(context);
         rootGroup.addView(frameLayout);
+        
         return frameLayout;
     }
 
     //相关调用注意放在主线程
-    public void showExpressFeedAd(final Activity activity, final TTNativeAd ad, final TTNativeExpressAdListener nativeAdListener) {
+    public void showExpressFeedAd(final Activity activity, final GMNativeAd ad, final GMNativeExpressAdListener nativeAdListener) {
         //判断是否存在dislike按钮
         final ViewGroup viewGroup = getFrameLayout(activity);
         if (ad.hasDislike()) {
@@ -134,7 +141,7 @@ public class FeedAdManager {
         }
 
         //设置点击展示回调监听
-        ad.setTTNativeAdListener(new TTNativeExpressAdListener() {
+        ad.setNativeAdListener(new GMNativeExpressAdListener() {
             @Override
             public void onAdClick() {
                 Log.d(TAG, "onAdClick");
@@ -194,7 +201,7 @@ public class FeedAdManager {
         });
 
         //视频广告设置播放状态回调（可选）
-        ad.setTTVideoListener(new TTVideoListener() {
+        ad.setVideoListener(new TTVideoListener() {
 
             @Override
             public void onVideoStart() {
@@ -238,7 +245,7 @@ public class FeedAdManager {
 
 
     //相关调用注意放在主线程
-    public void showNativeFeedAd(final Activity context, final TTNativeAd nativeAd, TTNativeAdListener adListener) {
+    public void showNativeFeedAd(final Activity context, final GMNativeAd nativeAd, GMNativeAdListener adListener) {
         if (context == null || nativeAd == null) {
             return;
         }
@@ -253,15 +260,16 @@ public class FeedAdManager {
         mCurrentFeedLayout.addView(getNativeFeedView(nativeAd));
     }
 
-    public View getNativeFeedView(TTNativeAd ad) {
+    public View getNativeFeedView(GMNativeAd ad) {
         switch (getItemViewType(ad)) {
             case ITEM_VIEW_TYPE_SMALL_PIC_AD:
-                return getSmallAdView(ad);
+                return getSmallAdView( ad);
             case ITEM_VIEW_TYPE_LARGE_PIC_AD:
                 return getLargeAdView(ad);
             case ITEM_VIEW_TYPE_GROUP_PIC_AD:
                 return getGroupAdView(ad);
             case ITEM_VIEW_TYPE_VIDEO:
+            case ITEM_VIEW_TYPE_VIDEO_VERTICAL:
                 return getVideoView(ad);
             case ITEM_VIEW_TYPE_VERTICAL_IMG:
                 return getVerticalAdView(ad);
@@ -308,7 +316,7 @@ public class FeedAdManager {
     }
 
 
-    private View getVerticalAdView(final TTNativeAd ad) {
+    private View getVerticalAdView(final GMNativeAd ad) {
         VerticalAdViewHolder adViewHolder;
         View convertView = LayoutInflater.from(mContext).inflate(MResource.getIdByName(mContext, "layout", "listitem_ad_vertical_pic"), null, false);
         adViewHolder = new VerticalAdViewHolder();
@@ -327,7 +335,7 @@ public class FeedAdManager {
                 mainImageId(MResource.getIdByName(mContext, "id", "iv_listitem_image")).
                 callToActionId(MResource.getIdByName(mContext, "id", "btn_listitem_creative")).
                 logoLayoutId(MResource.getIdByName(mContext, "id", "tt_ad_logo")).//logoView 建议传入GroupView类型
-                iconImageId(MResource.getIdByName(mContext, "id", "iv_listitem_icon")).build();
+                        iconImageId(MResource.getIdByName(mContext, "id", "iv_listitem_icon")).build();
         bindData(convertView, adViewHolder, ad, viewBinder);
         if (ad.getImageUrl() != null) {
             loadImgByVolley(ad.getImageUrl(), adViewHolder.mVerticalImage, 900, 600);
@@ -336,7 +344,7 @@ public class FeedAdManager {
     }
 
     //渲染视频广告，以视频广告为例，以下说明
-    private View getVideoView(final TTNativeAd ad) {
+    private View getVideoView(final GMNativeAd ad) {
         final VideoAdViewHolder adViewHolder;
         View convertView = null;
         try {
@@ -357,10 +365,10 @@ public class FeedAdManager {
                     mediaViewIdId(MResource.getIdByName(mContext, "id", "iv_listitem_video")).
                     callToActionId(MResource.getIdByName(mContext, "id", "btn_listitem_creative")).
                     logoLayoutId(MResource.getIdByName(mContext, "id", "tt_ad_logo")).//logoView 建议传入GroupView类型
-                    iconImageId(MResource.getIdByName(mContext, "id", "iv_listitem_icon")).build();
+                            iconImageId(MResource.getIdByName(mContext, "id", "iv_listitem_icon")).build();
 
             //视频广告设置播放状态回调（可选）
-            ad.setTTVideoListener(new TTVideoListener() {
+            ad.setVideoListener(new GMVideoListener() {
 
                 @Override
                 public void onVideoStart() {
@@ -382,7 +390,7 @@ public class FeedAdManager {
 
                 @Override
                 public void onProgressUpdate(long l, long l1) {
-                    
+
                 }
 
                 @Override
@@ -407,7 +415,7 @@ public class FeedAdManager {
         return convertView;
     }
 
-    private View getLargeAdView(final TTNativeAd ad) {
+    private View getLargeAdView(final GMNativeAd ad) {
         final LargeAdViewHolder adViewHolder;
         View convertView = LayoutInflater.from(mContext).inflate(MResource.getIdByName(mContext, "layout", "listitem_ad_large_pic"), null, false);
         adViewHolder = new LargeAdViewHolder();
@@ -426,7 +434,7 @@ public class FeedAdManager {
                 mainImageId(MResource.getIdByName(mContext, "id", "iv_listitem_image")).
                 callToActionId(MResource.getIdByName(mContext, "id", "btn_listitem_creative")).
                 logoLayoutId(MResource.getIdByName(mContext, "id", "tt_ad_logo")).//logoView 建议传入GroupView类型
-                iconImageId(MResource.getIdByName(mContext, "id", "iv_listitem_icon")).build();
+                        iconImageId(MResource.getIdByName(mContext, "id", "iv_listitem_icon")).build();
         bindData(convertView, adViewHolder, ad, viewBinder);
         if (ad.getImageUrl() != null) {
             loadImgByVolley(ad.getImageUrl(), adViewHolder.mLargeImage, 900, 600);
@@ -434,7 +442,7 @@ public class FeedAdManager {
         return convertView;
     }
 
-    private View getGroupAdView(final TTNativeAd ad) {
+    private View getGroupAdView(final GMNativeAd ad) {
         GroupAdViewHolder adViewHolder;
         View convertView = LayoutInflater.from(mContext).inflate(MResource.getIdByName(mContext, "layout", "listitem_ad_group_pic"), null, false);
         adViewHolder = new GroupAdViewHolder();
@@ -455,7 +463,7 @@ public class FeedAdManager {
                 mainImageId(MResource.getIdByName(mContext, "id", "iv_listitem_image1")).
                 callToActionId(MResource.getIdByName(mContext, "id", "btn_listitem_creative")).
                 logoLayoutId(MResource.getIdByName(mContext, "id", "tt_ad_logo")).//logoView 建议传入GroupView类型
-                iconImageId(MResource.getIdByName(mContext, "id", "iv_listitem_icon")).build();
+                        iconImageId(MResource.getIdByName(mContext, "id", "iv_listitem_icon")).build();
 
         bindData(convertView, adViewHolder, ad, viewBinder);
         if (ad.getImageList() != null && ad.getImageList().size() >= 3) {
@@ -475,7 +483,7 @@ public class FeedAdManager {
         return convertView;
     }
 
-    private View getSmallAdView(final TTNativeAd ad) {
+    private View getSmallAdView(final GMNativeAd ad) {
         SmallAdViewHolder adViewHolder;
         View convertView = LayoutInflater.from(mContext).inflate(MResource.getIdByName(mContext, "layout", "listitem_ad_small_pic"), null, false);
         adViewHolder = new SmallAdViewHolder();
@@ -494,7 +502,7 @@ public class FeedAdManager {
                 mainImageId(MResource.getIdByName(mContext, "id", "iv_listitem_image")).
                 callToActionId(MResource.getIdByName(mContext, "id", "btn_listitem_creative")).
                 logoLayoutId(MResource.getIdByName(mContext, "id", "tt_ad_logo")).//logoView 建议传入GroupView类型
-                iconImageId(MResource.getIdByName(mContext, "id", "iv_listitem_icon")).build();
+                        iconImageId(MResource.getIdByName(mContext, "id", "iv_listitem_icon")).build();
         bindData(convertView, adViewHolder, ad, viewBinder);
         if (ad.getImageUrl() != null) {
             loadImgByVolley(ad.getImageUrl(), adViewHolder.mSmallImage, 900, 600);
@@ -502,7 +510,7 @@ public class FeedAdManager {
         return convertView;
     }
 
-    private void bindData(final View convertView, final AdViewHolder adViewHolder, final TTNativeAd ad, TTViewBinder viewBinder) {
+    private void bindData(final View convertView, final AdViewHolder adViewHolder, final GMNativeAd ad, TTViewBinder viewBinder) {
         //设置dislike弹窗，如果有
         if (ad.hasDislike()) {
             final GMAdDislike ttAdDislike = ad.getDislikeDialog((Activity) mContext);
@@ -545,7 +553,7 @@ public class FeedAdManager {
         }
 
         //设置事件回调
-        ad.setTTNativeAdListener(mTTNativeAdListener);
+        ad.setNativeAdListener(mGMNativeAdListener);
         //可以被点击的view, 也可以把convertView放进来意味item可被点击
         List<View> clickViewList = new ArrayList<>();
         clickViewList.add(convertView);
@@ -601,7 +609,7 @@ public class FeedAdManager {
         }
     }
 
-    TTNativeAdListener mTTNativeAdListener = new TTNativeAdListener() {
+    GMNativeAdListener mGMNativeAdListener = new GMNativeAdListener() {
         @Override
         public void onAdClick() {
             Log.d(TAG, "onAdClick");
@@ -635,7 +643,7 @@ public class FeedAdManager {
 
 
     //信息流广告的样式，有大图、小图、组图和视频，通过ad.getImageMode()来判断
-    public int getItemViewType(TTNativeAd ad) {
+    public int getItemViewType(GMNativeAd ad) {
         if (ad == null) {
             return ITEM_VIEW_TYPE_NORMAL;
         }
@@ -655,6 +663,8 @@ public class FeedAdManager {
             return ITEM_VIEW_TYPE_VIDEO;
         } else if (ad.getAdImageMode() == TTAdConstant.IMAGE_MODE_VERTICAL_IMG) {
             return ITEM_VIEW_TYPE_VERTICAL_IMG;
+        } else if (ad.getAdImageMode() == TTAdConstant.IMAGE_MODE_VIDEO_VERTICAL) {
+            return ITEM_VIEW_TYPE_VIDEO_VERTICAL;
         } else {
             return ITEM_VIEW_TYPE_NORMAL;
         }

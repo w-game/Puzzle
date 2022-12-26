@@ -7,7 +7,9 @@ namespace UI
 {
     public class PopupBase : ViewBase
     {
-        [SerializeField] private Transform panel;
+        [SerializeField] protected Transform panel;
+
+        private bool _adShowed;
         public override void DoOpenAnima()
         {
             panel.localScale = Vector3.zero;
@@ -22,8 +24,19 @@ namespace UI
 
         protected void ShowNativeAd()
         {
-            // AdManager.Instance.NativeAd.ShowAd(null);
-            AdManager.Instance.BannerAd.ShowAd(null);
+            AdManager.Instance.NativeAd.ShowAd(null);
+            _adShowed = true;
+            // AdManager.Instance.BannerAd.ShowAd(null);
+        }
+
+        protected override void CloseView()
+        {
+            base.CloseView();
+            if (_adShowed)
+            {
+                AdManager.Instance.NativeAd.CloseAd();
+                _adShowed = false;
+            }
         }
     }
 }

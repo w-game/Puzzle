@@ -287,6 +287,7 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne.json" />
      <None Include="Assets/Font/font.txt" />
+     <None Include="Assets/AddressableAssetsData/link.xml" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
