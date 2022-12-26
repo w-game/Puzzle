@@ -22,6 +22,11 @@ namespace Ad
         {
             LoadAd();
         }
+
+        public override void CloseAd()
+        {
+            
+        }
     }
 
     public class BannerAdListener : ABUBannerAdCallback

@@ -215,7 +215,7 @@ namespace ByteDance.Union
 
             public NativeAdInteractionListener(
                 ABUNativeAdInteractionCallback listener)
-                : base("com.bytedance.msdk.api.nativeAd.TTNativeAdListener")
+                : base("com.bytedance.msdk.api.v2.ad.nativeAd.GMNativeAdListener")
             {
                 this.listener = listener;
             }
@@ -240,7 +240,7 @@ namespace ByteDance.Union
 
             public ExpressNativeAdInteractionListener(
                 ABUNativeAdInteractionCallback listener)
-                : base("com.bytedance.msdk.api.nativeAd.TTNativeExpressAdListener")
+                : base("com.bytedance.msdk.api.v2.ad.nativeAd.GMNativeExpressAdListener")
             {
                 this.listener = listener;
             }

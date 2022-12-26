@@ -27,7 +27,7 @@ namespace UI
         public virtual void OnClose() { }
         
         public virtual void ScreenAdapt(Rect rect) { }
-        protected void CloseView()
+        protected virtual void CloseView()
         {
             BaseView.CloseView();
         }

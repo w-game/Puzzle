@@ -212,6 +212,11 @@
 -keep com.bytedance.ad.sdk.mediation.TToast { *; }
 -keep com.bytedance.ad.sdk.mediation.UIUtils { *; }
 -keep com.bytedance.ad.sdk.mediation.VideoOptionUtil { *; }
+-keep com.bytedance.ad.sdk.mediation.FullVideoAdWrapper { *; }
+-keep com.bytedance.ad.sdk.mediation.InterstitialAdWrapper { *; }
+-keep com.bytedance.ad.sdk.mediation.NativeAdWrapper { *; }
+-keep com.bytedance.ad.sdk.mediation.RewardVideoAdWrapper { *; }
+-keep com.bytedance.ad.sdk.mediation.SplashAdWrapper { *; }
 
 
 #自定义adn,adapter相关类

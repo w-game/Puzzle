@@ -21,7 +21,6 @@ namespace Ad
         private void PreloadAd()
         {
             RewardAd.LoadAd();
-            // NativeAd.LoadAd();
         }
     }
 }

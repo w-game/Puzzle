@@ -61,6 +61,11 @@ namespace Ad
             //ABURewardVideoAd.ShowRewardVideoAdWithRitScene(new RewardAdInteractionListener(this), ritSceneMap);
             LoadSuccess = false;
         }
+
+        public override void CloseAd()
+        {
+            
+        }
     }
     
     public sealed class RewardVideoAdListener : ABURewardVideoAdCallback

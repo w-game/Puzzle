@@ -6,5 +6,6 @@ namespace Ad
     {
         public abstract void LoadAd();
         public abstract void ShowAd(Action<bool> callback);
+        public abstract void CloseAd();
     }
 }
