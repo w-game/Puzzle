@@ -11,6 +11,8 @@ public class UIManager : MonoSingleton<UIManager>
     [SerializeField] private ViewStack popStack;
     [SerializeField] private ViewStack topStack;
 
+    [SerializeField] private GameObject topMask;
+    
     private TopStack TopStack => topStack as TopStack;
     public void PushMain<T>(params object[] objs) where T : ViewData, new()
     {
@@ -56,9 +58,11 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void DecreasePower(Transform target, Action callback)
     {
+        SetTopMask(true);
         EventCenter.Invoke<Action>(GamePower.EventKeys.OnDecreasePowerEnd, () =>
         {
             callback?.Invoke();
+            SetTopMask(false);
         });
         EventCenter.Invoke(GamePower.EventKeys.DecreasePower, target);
     }
@@ -97,5 +101,10 @@ public class UIManager : MonoSingleton<UIManager>
     public void ShowTip(string tip, UnityAction callback)
     {
         PushPop<PopTipData>(tip, callback);
+    }
+
+    public void SetTopMask(bool status)
+    {
+        topMask.SetActive(status);
     }
 }
