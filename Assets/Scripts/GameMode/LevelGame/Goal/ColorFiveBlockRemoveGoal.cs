@@ -1,11 +1,11 @@
 namespace GameMode.LevelGame
 {
-    public class ThreeBlockRemoveGoal : LevelGoal
+    public class ColorFiveBlockRemoveGoal : LevelGoal
     {
-        public override string ElementPath => "ThreeBlockRemoveGoal";
+        public override string ElementPath => "FiveBlockRemoveGoal";
         protected override void IncreaseCount(RemoveUnit unit)
         {
-            if (unit.BlockCount == 3)
+            if (unit.BlockCount == 5)
             {
                 IncreaseCount(unit.BlockIndex, 1);
             }

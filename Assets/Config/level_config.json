@@ -56,12 +56,8 @@
       "index": 4,
       "goal": [
         {
-          "type": "Horizontal",
-          "count": 5
-        },
-        {
-          "type": "Vertical",
-          "count": 5
+          "type": "FiveBlock",
+          "count": 3
         }
       ],
       "blockCount": 4,
@@ -290,10 +286,6 @@
         {
           "type": "StaticBlock",
           "count": -1
-        },
-        {
-          "type": "ThreeBlock",
-          "count": 5
         }
       ],
       "blockCount": 4,
@@ -326,6 +318,38 @@
       ],
       "blockCount": 4,
       "boardIndex": 12,
+      "roundCount": 30
+    },
+    {
+      "index": 22,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "Vertical",
+          "count": 10
+        }
+      ],
+      "blockCount": 4,
+      "boardIndex": 13,
+      "roundCount": 30
+    },
+    {
+      "index": 23,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "ColorVertical",
+          "count": 5
+        }
+      ],
+      "blockCount": 4,
+      "boardIndex": 14,
       "roundCount": 30
     }
   ],
@@ -552,17 +576,47 @@
         "7,7": "Shadow",
         "8,8": "Shadow"
       }
+    },
+    {
+      "blocks": {
+        "3,2": "Shadow",
+        "5,2": "Shadow",
+        "1,4": "Shadow",
+        "7,4": "Shadow",
+        "1,6": "Shadow",
+        "7,6": "Shadow",
+        "3,8": "Shadow",
+        "5,8": "Shadow"
+      }
+    },
+    {
+      "blocks": {
+        "4,3": "Shadow",
+        "3,4": "Shadow",
+        "5,4": "Shadow",
+        "2,5": "Shadow",
+        "6,5": "Shadow",
+        "2,6": "Shadow",
+        "6,6": "Shadow",
+        "2,7": "Shadow",
+        "6,7": "Shadow",
+        "2,8": "Shadow",
+        "6,8": "Shadow",
+        "3,6": "Shadow",
+        "4,6": "Shadow",
+        "5,6": "Shadow"
+      }
     }
   ],
   "levelNewBlock": {
-    "1": {
+    "10": {
       "type": "RemoveStaticBlock",
       "blockName": "可消除型静态方块",
       "des": "这个方块会被固定在它生成时的位置上不可移动。但当它周围有其他方块被消除时，它也会被一起消除。",
       "path": "",
       "color": "#FFFFFF"
     },
-    "11": {
+    "20": {
       "type": "ShadowBlock",
       "blockName": "标志方块",
       "des": "这个方块会被固定在其生成时的位置上不可移动，并且不会阻挡其他方块。但当它所在棋格有其他方块被消除时，它也会一起被消除",
