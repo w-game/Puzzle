@@ -43,7 +43,7 @@ public class LevelGameMode : PuzzleGame
     {
         if (CheckLevelEnd()) return;
         
-        ClearSlots();
+        ClearSlots(ClearSlotType.All);
         var config = _configs.levels[GameManager.User.GameLevel];
         RefreshBlockColor(config.blockCount);
 
@@ -79,8 +79,8 @@ public class LevelGameMode : PuzzleGame
         SaveBoard();
         CheckShowNewBlockTip();
 
-        EventCenter.Invoke(LevelGameView.EventKeys.RefreshRoundCount);
-        EventCenter.Invoke(LevelGameView.EventKeys.SetGoal);
+        EventCenter.Invoke(LevelGameView.LevelEventKeys.RefreshRoundCount);
+        EventCenter.Invoke(LevelGameView.LevelEventKeys.SetGoal);
     }
 
     protected override void OnBlocksRemove(RemoveUnit unit)
@@ -90,13 +90,13 @@ public class LevelGameMode : PuzzleGame
 
     protected override void OnGameOver()
     {
-        EventCenter.Invoke(LevelGameView.EventKeys.OnGameOver);
+        EventCenter.Invoke(LevelGameView.LevelEventKeys.OnGameOver);
     }
 
     private void CheckLevelGoal(RemoveUnit unit)
     {
         CurLevel.CheckLevelGoal(unit);
-        EventCenter.Invoke(LevelGameView.EventKeys.RefreshGoal);
+        EventCenter.Invoke(LevelGameView.LevelEventKeys.RefreshGoal);
     }
 
     private void InitLevelBoard()
@@ -167,7 +167,7 @@ public class LevelGameMode : PuzzleGame
     protected override void OnRoundStart()
     {
         CurLevel.RoundCount--;
-        EventCenter.Invoke(LevelGameView.EventKeys.RefreshRoundCount);
+        EventCenter.Invoke(LevelGameView.LevelEventKeys.RefreshRoundCount);
     }
 
     protected override void OnRoundEnd()
@@ -175,7 +175,7 @@ public class LevelGameMode : PuzzleGame
         if (CurLevel.IsPass)
         {
             GameManager.User.GameLevel++;
-            EventCenter.Invoke(LevelGameView.EventKeys.OnLevelPass, Score);
+            EventCenter.Invoke(LevelGameView.LevelEventKeys.OnLevelPass, Score);
         }
     }
 
@@ -184,6 +184,35 @@ public class LevelGameMode : PuzzleGame
         if (_configs.levelNewBlock.TryGetValue(GameManager.User.GameLevel, out var config))
         {
             UIManager.Instance.PushPop<PopNewBlockIntroduceData>(config);
+        }
+    }
+
+    public void CheckClearSlots()
+    {
+        if (GameManager.User.ClearSlotsCount > 0)
+        {
+            ClearSlots(ClearSlotType.Normal);
+            GameManager.User.ClearSlotsCount--;
+            EventCenter.Invoke(LevelGameView.LevelEventKeys.RefreshTool);
+            SaveBoard();
+        }
+        else
+        {
+            UIManager.Instance.PushPop<PopGameToolNotEnoughData>("CLEAR_SLOTS_COUNT", "道具「清空棋盘」数量不足，无法使用！");
+        }
+    }
+
+    public void CheckRefreshControl()
+    {
+        if (GameManager.User.ClearControlPanelCount > 0)
+        {
+            GridControl.Instance.Refresh();
+            GameManager.User.ClearControlPanelCount--;
+            EventCenter.Invoke(LevelGameView.LevelEventKeys.RefreshTool);
+        }
+        else
+        {
+            UIManager.Instance.PushPop<PopGameToolNotEnoughData>("CLEAR_CONTROL_COUNT", "道具「重置控制栏」数量不足，无法使用！");
         }
     }
 }

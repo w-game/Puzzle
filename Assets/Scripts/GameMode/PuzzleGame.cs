@@ -12,6 +12,12 @@ public enum PuzzleGameMode
     Unlimited = 1
 }
 
+public enum ClearSlotType
+{
+    All,
+    Normal
+}
+
 public abstract class PuzzleGame : MonoBehaviour
 {
     public static class PowerCost
@@ -113,7 +119,7 @@ public abstract class PuzzleGame : MonoBehaviour
     {
         Score = 0;
         _undeterminedGrids.Clear();
-        if (clearSlots) ClearSlots();
+        if (clearSlots) ClearSlots(ClearSlotType.All);
         
         Control.Refresh();
         
@@ -126,11 +132,22 @@ public abstract class PuzzleGame : MonoBehaviour
     /// <summary>
     /// 清除棋盘
     /// </summary>
-    protected void ClearSlots()
+    protected void ClearSlots(ClearSlotType type)
     {
-        foreach (var slot in BlockSlots)
+        switch (type)
         {
-            slot.RemoveAllBlock(false);
+            case ClearSlotType.All:
+                BlockSlots.ForEach(slot => slot.RemoveAllBlock(false));
+                break;
+            case ClearSlotType.Normal:
+                BlockSlots.ForEach(slot =>
+                {
+                    if (slot.SubBlock is NormalBlock)
+                    {
+                        slot.RemoveMainBlock(false);
+                    }
+                });
+                break;
         }
     }
 

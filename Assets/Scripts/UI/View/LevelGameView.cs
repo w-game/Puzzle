@@ -1,6 +1,7 @@
 using TMPro;
 using UI.Popup;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI.View
 {
@@ -13,19 +14,24 @@ namespace UI.View
     
     public class LevelGameView : GameView
     {
-        public enum EventKeys
+        public enum LevelEventKeys
         {
             SetGoal,
             RefreshGoal,
             OnLevelPass,
             OnGameOver,
-            RefreshRoundCount
+            RefreshRoundCount,
+            RefreshTool
         }
         
         [SerializeField] private LevelGoalElement levelGoalElement;
         [SerializeField] private TextMeshProUGUI levelTxt;
         [SerializeField] private TextMeshProUGUI roundCountTxt;
         [SerializeField] private LevelTime levelTime;
+        [SerializeField] private Button clearControlPanelBtn;
+        [SerializeField] private TextMeshProUGUI clearControlPanelCount;
+        [SerializeField] private Button clearSlotsBtn;
+        [SerializeField] private TextMeshProUGUI clearSlotsCount;
 
         private LevelGameMode _levelGameMode;
         public override void OnCreate(params object[] objects)
@@ -33,11 +39,33 @@ namespace UI.View
             base.OnCreate(objects);
             _levelGameMode = puzzleGame as LevelGameMode;
             
-            AddEvent(EventKeys.SetGoal, SetGoal);
-            AddEvent(EventKeys.RefreshGoal, RefreshGoal);
-            AddEvent<int>(EventKeys.OnLevelPass, OnLevelPass);
-            AddEvent(EventKeys.OnGameOver, OnGameOver);
-            AddEvent(EventKeys.RefreshRoundCount, RefreshRoundCount);
+            clearControlPanelBtn.onClick.AddListener(ClearControlPanel);
+            clearSlotsBtn.onClick.AddListener(ClearSlots);
+            
+            RefreshTool();
+            
+            AddEvent(LevelEventKeys.SetGoal, SetGoal);
+            AddEvent(LevelEventKeys.RefreshGoal, RefreshGoal);
+            AddEvent<int>(LevelEventKeys.OnLevelPass, OnLevelPass);
+            AddEvent(LevelEventKeys.OnGameOver, OnGameOver);
+            AddEvent(LevelEventKeys.RefreshRoundCount, RefreshRoundCount);
+            AddEvent(LevelEventKeys.RefreshTool, RefreshTool);
+        }
+
+        private void ClearControlPanel()
+        {
+            _levelGameMode.CheckRefreshControl();
+        }
+        
+        private void ClearSlots()
+        {
+            _levelGameMode.CheckClearSlots();
+        }
+
+        private void RefreshTool()
+        {
+            clearSlotsCount.text = $"{GameManager.User.ClearSlotsCount}";
+            clearControlPanelCount.text = $"{GameManager.User.ClearControlPanelCount}";
         }
 
         private void SetGoal()

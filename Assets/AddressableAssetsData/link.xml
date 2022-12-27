@@ -13,6 +13,7 @@
     <type fullname="UI.LevelGoalElement" preserve="all" />
     <type fullname="UI.LevelGoalItemElement" preserve="all" />
     <type fullname="UI.LevelTime" preserve="all" />
+    <type fullname="UI.Popup.PopGameToolNotEnough" preserve="all" />
     <type fullname="UI.Popup.PopGM" preserve="all" />
     <type fullname="UI.Popup.PopLevelGameOver" preserve="all" />
     <type fullname="UI.Popup.PopNewBlockIntroduce" preserve="all" />

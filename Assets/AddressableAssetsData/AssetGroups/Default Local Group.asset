@@ -137,6 +137,10 @@ MonoBehaviour:
     m_Address: Prefabs/UI/Popup/PopTip
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 7091c8eba6224486fbb0d04ed6d24db6
+    m_Address: Prefabs/UI/Popup/PopGameToolNotEnough
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2b925b1802ff143b1842bb3154200482, type: 2}
   m_SchemaSet:
