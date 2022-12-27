@@ -37,6 +37,12 @@ namespace Ad
 
         public override void ShowAd(Action<bool> callback)
         {
+            if (GameManager.IsDebug)
+            {
+                callback?.Invoke(true);
+                return;
+            }
+            
             // 为保障播放流畅，建议在视频加载完成后展示
             if (!LoadSuccess || !ABURewardVideoAd.isReady())
             {

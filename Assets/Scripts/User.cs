@@ -84,6 +84,18 @@ public class User
         }
     }
 
+    public int ClearSlotsCount
+    {
+        get => PlayerPrefs.GetInt("CLEAR_SLOTS_COUNT", 3);
+        set => PlayerPrefs.SetInt("CLEAR_SLOTS_COUNT", value);
+    }
+    
+    public int ClearControlPanelCount
+    {
+        get => PlayerPrefs.GetInt("CLEAR_CONTROL_COUNT", 3);
+        set => PlayerPrefs.SetInt("CLEAR_CONTROL_COUNT", value);
+    }
+
     private Timer _powerTimer;
 
     public void Init()
