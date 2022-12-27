@@ -311,7 +311,7 @@ public abstract class PuzzleGame : MonoBehaviour
         return false;
     }
 
-    protected void GameOver()
+    public void GameOver()
     {
         // if (!GameStatus) return;
         // GameStatus = false;

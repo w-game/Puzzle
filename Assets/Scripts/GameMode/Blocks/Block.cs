@@ -26,11 +26,14 @@ namespace Blocks
         public virtual bool CanMove => true;
         public virtual bool CanRemove => true;
         public virtual bool MainBlock => true;
+        
+        public BlockSlot Slot { get; set; }
     
-        public void Init(Color color)
+        public void Init(Color color, BlockSlot slot)
         {
             _img = transform.Find("Icon").GetComponent<Image>();
             SpecialIcon = _img.transform.Find("SpecialIcon").GetComponent<Image>();
+            Slot = slot;
             SetPattern(color);
         }
     
@@ -54,6 +57,7 @@ namespace Blocks
             });
         }
 
+        public virtual void OnRoundEnd() { }
         public virtual void OnPlaced() { }
         public virtual void OnRemove() { }
 
@@ -64,33 +68,8 @@ namespace Blocks
             sequence.AppendCallback(callback);
         }
         
-        public void ShowSpecialIcon(Sprite sprite, bool changeColor)
-        {
-            SpecialIcon.sprite = sprite;
-            SpecialIcon.gameObject.SetActive(true);
-            
-            if (changeColor)
-            {
-                var color = SpecialIcon.color;
-                if (color.r + color.g + color.b < 1.5f)
-                {
-                    var c = Pattern * 1.5f;
-                    c.a = 1;
-                    SpecialIcon.color = c;
-                }
-                else
-                {
-                    var c = Pattern * 1.5f;
-                    c.a = 1;
-                    SpecialIcon.color = c;
-                }
-            }
-        }
+        public virtual void ShowSpecialIcon(Sprite sprite, bool changeColor) { }
 
-        public void HideSpecialIcon()
-        {
-            SpecialIcon.gameObject.SetActive(false);
-            SpecialIcon.color = Color.white;
-        }
+        public virtual void HideSpecialIcon() { }
     }
 }

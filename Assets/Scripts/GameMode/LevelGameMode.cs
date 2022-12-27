@@ -156,14 +156,6 @@ public class LevelGameMode : PuzzleGame
         return gameLevel;
     }
 
-    protected override bool CheckGameOver()
-    {
-        var result = base.CheckGameOver();
-        if (result) return true;
-        
-        return !CurLevel.CheckLevelRoundCount();
-    }
-
     protected override void OnRoundStart()
     {
         CurLevel.RoundCount--;
@@ -176,7 +168,18 @@ public class LevelGameMode : PuzzleGame
         {
             GameManager.User.GameLevel++;
             EventCenter.Invoke(LevelGameView.LevelEventKeys.OnLevelPass, Score);
+            return;
         }
+        
+        if (!CurLevel.CheckLevelRoundCount())
+        {
+            GameOver();
+            return;
+        }
+        
+        BlockSlots.ForEach(slot => slot.SubBlock?.OnRoundEnd());
+        
+        CurLevel.Goals.ForEach(goal => goal.Refresh());
     }
 
     private void CheckShowNewBlockTip()

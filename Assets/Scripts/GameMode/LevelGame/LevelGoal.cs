@@ -8,7 +8,8 @@ namespace GameMode.LevelGame
         public string SpritePath { get; protected set; }
         public Color Pattern { get; protected set; }
         protected int GoalCount { get; set; }
-        private int CurCount { get; set; }
+        protected int CurCount { get; set; }
+        public virtual string CountTipStr => $"x{RemainCount}";
         public int RemainCount => GoalCount - CurCount;
         public bool IsComplete { get; private set; }
 
@@ -45,6 +46,12 @@ namespace GameMode.LevelGame
             OnComplete();
         }
 
+        protected virtual void OnRefresh() { }
         protected virtual void OnComplete() { }
+
+        public void Refresh()
+        {
+            OnRefresh();
+        }
     }
 }

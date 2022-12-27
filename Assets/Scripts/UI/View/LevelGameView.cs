@@ -45,7 +45,7 @@ namespace UI.View
             RefreshTool();
             
             AddEvent(LevelEventKeys.SetGoal, SetGoal);
-            AddEvent(LevelEventKeys.RefreshGoal, RefreshGoal);
+            AddEvent(LevelEventKeys.RefreshGoal, levelGoalElement.RefreshGoal);
             AddEvent<int>(LevelEventKeys.OnLevelPass, OnLevelPass);
             AddEvent(LevelEventKeys.OnGameOver, OnGameOver);
             AddEvent(LevelEventKeys.RefreshRoundCount, RefreshRoundCount);
@@ -80,11 +80,6 @@ namespace UI.View
             roundCountTxt.text = $"{_levelGameMode.CurLevel.RoundCount}";
         }
         
-        private void RefreshGoal()
-        {
-            levelGoalElement.RefreshGoal();
-        }
-
         private void OnLevelPass(int score)
         {
             // levelTime.Stop();
