@@ -10,7 +10,10 @@ namespace UI
         {
             AddressableMgr.Load<Sprite>(path, sprite =>
             {
-                image.sprite = sprite;
+                if (image)
+                {
+                    image.sprite = sprite;
+                }
             });
         }
     }

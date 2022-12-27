@@ -176,8 +176,10 @@ public class LevelGameMode : PuzzleGame
             GameOver();
             return;
         }
-        
-        BlockSlots.ForEach(slot => slot.SubBlock?.OnRoundEnd());
+
+        var blockSlots = BlockSlots.FindAll(slot => slot.SubBlock && slot.SubBlock.CheckExecuteEffect());
+        blockSlots.ForEach(slot => slot.SubBlock.ExecuteEffect());
+        BlockSlots.ForEach(slot => { if (slot.SubBlock) slot.SubBlock.OnRoundEnd(); });
         
         CurLevel.Goals.ForEach(goal => goal.Refresh());
     }

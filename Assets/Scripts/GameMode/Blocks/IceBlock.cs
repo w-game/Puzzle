@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Blocks
 {
     public class IceBlock : SpecialBlock
     {
-        private bool _first = true;
+        private List<NormalBlock> _beEffectBlocks = new();
         protected override void SetPattern(Color color)
         {
             if (color == Color.white)
@@ -13,35 +14,46 @@ namespace Blocks
             }
 
             Pattern = color;
-            SetSpecialIcon("Textures/icon_ice", Color.white);
+            SetSpecialIcon("Textures/icon_radiation", Color.white);
         }
 
-        public override void OnRoundEnd()
+        public override bool CheckExecuteEffect()
         {
-            if (_first)
-            {
-                _first = false;
-                return;
-            }
+            var result = false;
             if (Slot.LeftSlot && Slot.LeftSlot.SubBlock is NormalBlock b1)
             {
-                ChangeToIceBlock(b1);
+                result = true;
+                _beEffectBlocks.Add(b1);
             }
             
             if (Slot.RightSlot && Slot.RightSlot.SubBlock is NormalBlock b2)
             {
-                ChangeToIceBlock(b2);
+                result = true;
+                _beEffectBlocks.Add(b2);
             }
             
             if (Slot.UpSlot && Slot.UpSlot.SubBlock is NormalBlock b3)
             {
-                ChangeToIceBlock(b3);
+                result = true;
+                _beEffectBlocks.Add(b3);
             }
             
             if (Slot.DownSlot && Slot.DownSlot.SubBlock is NormalBlock b4)
             {
-                ChangeToIceBlock(b4);
+                result = true;
+                _beEffectBlocks.Add(b4);
             }
+
+            return result;
+        }
+
+        public override void ExecuteEffect()
+        {
+            foreach (var block in _beEffectBlocks)
+            {
+                ChangeToIceBlock(block);
+            }
+            _beEffectBlocks.Clear();
         }
 
         private void ChangeToIceBlock(NormalBlock block)

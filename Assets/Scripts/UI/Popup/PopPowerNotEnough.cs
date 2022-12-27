@@ -39,6 +39,7 @@ namespace UI.Popup
                 if (result)
                 {
                     GameManager.User.IncreasePower(5);
+                    CloseView();
                 }
             });
         }
