@@ -7,7 +7,6 @@ namespace GameMode.LevelGame
     public class LevelConfigs
     {
         public List<LevelConfig> levels;
-        public List<LevelBoardConfig> levelBoards;
         public Dictionary<int, LevelNewBlockConfig> levelNewBlock;
     }
 
@@ -16,8 +15,8 @@ namespace GameMode.LevelGame
     {
         public List<LevelGoalConfig> goal;
         public int blockCount;
-        public int boardIndex;
         public int roundCount;
+        public Dictionary<string, string> blocks;
     }
     
     [Serializable]
@@ -27,12 +26,6 @@ namespace GameMode.LevelGame
         public int count;
     }
 
-    [Serializable]
-    public class LevelBoardConfig
-    {
-        public Dictionary<string, string> blocks;
-    }
-    
     [Serializable]
     public class LevelNewBlockConfig
     {
