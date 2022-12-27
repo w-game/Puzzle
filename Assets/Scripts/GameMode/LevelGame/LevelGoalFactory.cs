@@ -22,6 +22,8 @@ namespace GameMode.LevelGame
             _goals.Add("ShadowBlock", new ShadowBlockRemoveGoal().GetType());
             _goals.Add("FiveBlock", new FiveBlockRemoveGoal().GetType());
             _goals.Add("ColorFiveBlock", new ColorFiveBlockRemoveGoal().GetType());
+            _goals.Add("StopIceBlock", new StopIceBlockRemoveGoal().GetType());
+            _goals.Add("CountIceBlock", new CountIceBlockRemoveGoal().GetType());
         }
 
         public LevelGoal GetGoal(string goalName)

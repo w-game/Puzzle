@@ -257,7 +257,7 @@
         }
       ],
       "blockCount": 4,
-      "roundCount": 30,
+      "roundCount": 35,
       "blocks": {
         "4,3": "RemoveStatic",
         "2,2": "RemoveStatic",
@@ -320,7 +320,7 @@
         }
       ],
       "blockCount": 4,
-      "roundCount": 30,
+      "roundCount": 20,
       "blocks": {
         "3,6": "RemoveStatic",
         "4,6": "RemoveStatic",
@@ -612,7 +612,7 @@
       "goal": [
         {
           "type": "ShadowBlock",
-          "count": -1
+          "count": 0
         },
         {
           "type": "ColorHorizontal",
@@ -620,7 +620,7 @@
         }
       ],
       "blockCount": 4,
-      "roundCount": 30,
+      "roundCount": 40,
       "blocks": {
         "1,3": "Shadow",
         "2,3": "Shadow",
@@ -653,7 +653,7 @@
         }
       ],
       "blockCount": 4,
-      "roundCount": 30,
+      "roundCount": 35,
       "blocks": {
         "4,2": "Shadow",
         "3,3": "Shadow",
@@ -686,7 +686,7 @@
         }
       ],
       "blockCount": 4,
-      "roundCount": 50,
+      "roundCount": 40,
       "blocks": {
         "4,3": "Shadow",
         "4,4": "Shadow",
@@ -856,7 +856,7 @@
         }
       ],
       "blockCount": 4,
-      "roundCount": 30,
+      "roundCount": 20,
       "blocks": {
         "0,7": "RemoveStatic",
         "1,6": "RemoveStatic",
@@ -1111,11 +1111,11 @@
         },
         {
           "type": "FiveBlock",
-          "count": 3
+          "count": 1
         }
       ],
       "blockCount": 4,
-      "roundCount": 50,
+      "roundCount": 60,
       "blocks": {
         "0,2": "RemoveStatic",
         "1,2": "RemoveStatic",
@@ -1147,6 +1147,51 @@
         "7,6": "Shadow",
         "7,7": "Shadow",
         "7,8": "Shadow"
+      }
+    },
+    {
+      "index": 40,
+      "goal": [
+        {
+          "type": "IceBlock",
+          "count": -1
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 20,
+      "blocks": {
+        "3,8": "RemoveStatic",
+        "4,7": "RemoveStatic",
+        "5,8": "RemoveStatic",
+        "4,8": "Ice"
+      }
+    },
+    {
+      "index": 41,
+      "goal": [
+        {
+          "type": "StopIceBlock",
+          "count": -1
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 20,
+      "blocks": {
+        "4,8": "Ice"
+      }
+    },
+    {
+      "index": 42,
+      "goal": [
+        {
+          "type": "CountIceBlock",
+          "count": 10
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 20,
+      "blocks": {
+        "4,8": "Ice"
       }
     }
   ],

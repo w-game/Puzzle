@@ -32,12 +32,7 @@ public class BlockSlot : MonoBehaviour
             SecondBlock = block as SpecialBlock;
         }
 
-        if (color == Color.black)
-        {
-            color = PuzzleGame.BlockColors[Random.Range(0, PuzzleGame.BlockColors.Count)];
-        }
-        
-        block.Init(color);
+        block.Init(color, this);
         return block;
     }
 
@@ -85,6 +80,7 @@ public class BlockSlot : MonoBehaviour
     {
         block.transform.SetParent(transform);
         SubBlock = block;
+        SubBlock.Slot = this;
         if (!anima)
         {
             block.transform.localPosition = Vector3.zero;

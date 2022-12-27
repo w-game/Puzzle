@@ -29,7 +29,7 @@ namespace UI
         
         public void RefreshData()
         {
-            countTxt.text = $"x{_levelGoal.RemainCount}";
+            countTxt.text = _levelGoal.CountTipStr;
         }
     }
 }
