@@ -36,7 +36,6 @@ namespace UI.View
         private LevelGameMode _levelGameMode;
         public override void OnCreate(params object[] objects)
         {
-            base.OnCreate(objects);
             _levelGameMode = puzzleGame as LevelGameMode;
             
             clearControlPanelBtn.onClick.AddListener(ClearControlPanel);
@@ -50,6 +49,8 @@ namespace UI.View
             AddEvent(LevelEventKeys.OnGameOver, OnGameOver);
             AddEvent(LevelEventKeys.RefreshRoundCount, RefreshRoundCount);
             AddEvent(LevelEventKeys.RefreshTool, RefreshTool);
+            
+            base.OnCreate(objects);
         }
 
         private void ClearControlPanel()

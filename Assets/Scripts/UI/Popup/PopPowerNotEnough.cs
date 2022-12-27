@@ -40,6 +40,7 @@ namespace UI.Popup
                 {
                     GameManager.User.IncreasePower(5);
                     CloseView();
+                    EventCenter.Invoke(GamePower.EventKeys.Close);
                 }
             });
         }
