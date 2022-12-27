@@ -1,5 +1,6 @@
 using Common;
 using DG.Tweening;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,14 +50,13 @@ namespace Blocks
         
         protected void SetSpecialIcon(string path, Color color)
         {
-            AddressableMgr.Load<Sprite>(path, sprite =>
-            {
-                SpecialIcon.sprite = sprite;
-                SpecialIcon.color = color;
-                SpecialIcon.gameObject.SetActive(true);
-            });
+            SpecialIcon.SetImage(path);
+            SpecialIcon.color = color;
+            SpecialIcon.gameObject.SetActive(true);
         }
 
+        public virtual bool CheckExecuteEffect() { return false; }
+        public virtual void ExecuteEffect() { }
         public virtual void OnRoundEnd() { }
         public virtual void OnPlaced() { }
         public virtual void OnRemove() { }
