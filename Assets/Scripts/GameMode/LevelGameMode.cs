@@ -90,32 +90,22 @@ public class LevelGameMode : PuzzleGame
 
     protected override void OnGameOver()
     {
-        if (!CurLevel.IsFail)
-        {
-            EventCenter.Invoke(LevelGameView.EventKeys.OnGameOver);
-            CurLevel.IsFail = true;
-        }
+        EventCenter.Invoke(LevelGameView.EventKeys.OnGameOver);
     }
 
     private void CheckLevelGoal(RemoveUnit unit)
     {
-        var result = CurLevel.CheckLevelGoal(unit);
+        CurLevel.CheckLevelGoal(unit);
         EventCenter.Invoke(LevelGameView.EventKeys.RefreshGoal);
-        if (result)
-        {
-            GameManager.User.GameLevel++;
-            EventCenter.Invoke(LevelGameView.EventKeys.OnLevelPass, Score);
-        }
     }
 
     private void InitLevelBoard()
     {
-        if (CurLevel.BoardIndex == -1) return;
+        if (CurLevel.Boards.Count == 0) return;
+        
+        SLog.D(Tag, $"Board Config: {CurLevel.Boards}");
 
-        var levelBoard = _configs.levelBoards[CurLevel.BoardIndex];
-        SLog.D(Tag, $"Board Config: {levelBoard}");
-
-        foreach (var posStr in levelBoard.blocks.Keys)
+        foreach (var posStr in CurLevel.Boards.Keys)
         {
             var pos = posStr.Split(',');
             int x = int.Parse(pos[0]);
@@ -124,7 +114,7 @@ public class LevelGameMode : PuzzleGame
             var slot = BlockSlots[y * BoardWidth + x];
             slot.RemoveAllBlock(false);
         
-            slot.GenerateBlock(Type.GetType($"Blocks.{levelBoard.blocks[posStr]}Block"), Color.white);
+            slot.GenerateBlock(Type.GetType($"Blocks.{CurLevel.Boards[posStr]}Block"), Color.white);
         }
 
         CheckComeDown();
@@ -178,6 +168,15 @@ public class LevelGameMode : PuzzleGame
     {
         CurLevel.RoundCount--;
         EventCenter.Invoke(LevelGameView.EventKeys.RefreshRoundCount);
+    }
+
+    protected override void OnRoundEnd()
+    {
+        if (CurLevel.IsPass)
+        {
+            GameManager.User.GameLevel++;
+            EventCenter.Invoke(LevelGameView.EventKeys.OnLevelPass, Score);
+        }
     }
 
     private void CheckShowNewBlockTip()

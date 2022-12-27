@@ -13,15 +13,15 @@ namespace GameMode.LevelGame
 
         private void InitGoalInstances()
         {
-            _goals.Add("SingleColor", typeof(SingleColorRemoveGoal));
-            _goals.Add("Horizontal", typeof(HorizontalRemoveGoal));
-            _goals.Add("ColorHorizontal", typeof(ColorHorizontalRemoveGoal));
-            _goals.Add("Vertical", typeof(VerticalRemoveGoal));
-            _goals.Add("ColorVertical", typeof(ColorVerticalRemoveGoal));
-            _goals.Add("StaticBlock", typeof(StaticBlockRemoveGoal));
-            _goals.Add("ShadowBlock", typeof(ShadowBlockRemoveGoal));
-            _goals.Add("FiveBlock", typeof(FiveBlockRemoveGoal));
-            _goals.Add("ColorFiveBlock", typeof(ColorFiveBlockRemoveGoal));
+            _goals.Add("SingleColor", new SingleColorRemoveGoal().GetType());
+            _goals.Add("Horizontal", new HorizontalRemoveGoal().GetType());
+            _goals.Add("ColorHorizontal", new ColorHorizontalRemoveGoal().GetType());
+            _goals.Add("Vertical", new VerticalRemoveGoal().GetType());
+            _goals.Add("ColorVertical", new ColorVerticalRemoveGoal().GetType());
+            _goals.Add("StaticBlock", new StaticBlockRemoveGoal().GetType());
+            _goals.Add("ShadowBlock", new ShadowBlockRemoveGoal().GetType());
+            _goals.Add("FiveBlock", new FiveBlockRemoveGoal().GetType());
+            _goals.Add("ColorFiveBlock", new ColorFiveBlockRemoveGoal().GetType());
         }
 
         public LevelGoal GetGoal(string goalName)

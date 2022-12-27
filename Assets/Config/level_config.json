@@ -9,15 +9,15 @@
         }
       ],
       "blockCount": 3,
-      "boardIndex": -1,
-      "roundCount": 30
+      "roundCount": 20,
+      "blocks": { }
     },
     {
       "index": 1,
       "goal": [
         {
           "type": "SingleColor",
-          "count": 15
+          "count": 10
         },
         {
           "type": "SingleColor",
@@ -25,8 +25,8 @@
         }
       ],
       "blockCount": 4,
-      "boardIndex": -1,
-      "roundCount": 30
+      "roundCount": 25,
+      "blocks": { }
     },
     {
       "index": 2,
@@ -37,8 +37,8 @@
         }
       ],
       "blockCount": 4,
-      "boardIndex": -1,
-      "roundCount": 30
+      "roundCount": 20,
+      "blocks": { }
     },
     {
       "index": 3,
@@ -49,20 +49,24 @@
         }
       ],
       "blockCount": 4,
-      "boardIndex": -1,
-      "roundCount": 30
+      "roundCount": 20,
+      "blocks": { }
     },
     {
       "index": 4,
       "goal": [
         {
-          "type": "FiveBlock",
-          "count": 3
+          "type": "SingleColor",
+          "count": 10
+        },
+        {
+          "type": "Vertical",
+          "count": 5
         }
       ],
       "blockCount": 4,
-      "boardIndex": -1,
-      "roundCount": 30
+      "roundCount": 20,
+      "blocks": { }
     },
     {
       "index": 5,
@@ -72,13 +76,13 @@
           "count": 10
         },
         {
-          "type": "Vertical",
+          "type": "Horizontal",
           "count": 5
         }
       ],
       "blockCount": 4,
-      "boardIndex": -1,
-      "roundCount": 30
+      "roundCount": 20,
+      "blocks": { }
     },
     {
       "index": 6,
@@ -86,276 +90,11 @@
         {
           "type": "SingleColor",
           "count": 10
-        },
-        {
-          "type": "Horizontal",
-          "count": 5
-        }
-      ],
-      "blockCount": 4,
-      "boardIndex": -1,
-      "roundCount": 30
-    },
-    {
-      "index": 7,
-      "goal": [
-        {
-          "type": "SingleColor",
-          "count": 10
         }
       ],
       "blockCount": 4,
       "boardIndex": 0,
-      "roundCount": 30
-    },
-    {
-      "index": 8,
-      "goal": [
-        {
-          "type": "SingleColor",
-          "count": 10
-        },
-        {
-          "type": "Vertical",
-          "count": 5
-        }
-      ],
-      "blockCount": 4,
-      "boardIndex": 0,
-      "roundCount": 30
-    },
-    {
-      "index": 9,
-      "goal": [
-        {
-          "type": "SingleColor",
-          "count": 10
-        },
-        {
-          "type": "Horizontal",
-          "count": 5
-        }
-      ],
-      "blockCount": 4,
-      "boardIndex": 0,
-      "roundCount": 30
-    },
-    {
-      "index": 10,
-      "goal": [
-        {
-          "type": "StaticBlock",
-          "count": -1
-        }
-      ],
-      "blockCount": 4,
-      "boardIndex": 1,
-      "roundCount": 30
-    },
-    {
-      "index": 11,
-      "goal": [
-        {
-          "type": "StaticBlock",
-          "count": -1
-        },
-        {
-          "type": "SingleColor",
-          "count": 15
-        }
-      ],
-      "blockCount": 4,
-      "boardIndex": 2,
-      "roundCount": 30
-    },
-    {
-      "index": 12,
-      "goal": [
-        {
-          "type": "StaticBlock",
-          "count": -1
-        },
-        {
-          "type": "SingleColor",
-          "count": 20
-        }
-      ],
-      "blockCount": 4,
-      "boardIndex": 3,
-      "roundCount": 30
-    },
-    {
-      "index": 13,
-      "goal": [
-        {
-          "type": "StaticBlock",
-          "count": -1
-        },
-        {
-          "type": "SingleColor",
-          "count": 25
-        }
-      ],
-      "blockCount": 4,
-      "boardIndex": 4,
-      "roundCount": 30
-    },
-    {
-      "index": 14,
-      "goal": [
-        {
-          "type": "StaticBlock",
-          "count": -1
-        },
-        {
-          "type": "SingleColor",
-          "count": 25
-        }
-      ],
-      "blockCount": 4,
-      "boardIndex": 5,
-      "roundCount": 30
-    },
-    {
-      "index": 15,
-      "goal": [
-        {
-          "type": "StaticBlock",
-          "count": 15
-        },
-        {
-          "type": "Horizontal",
-          "count": 5
-        }
-      ],
-      "blockCount": 4,
-      "boardIndex": 6,
-      "roundCount": 30
-    },
-    {
-      "index": 16,
-      "goal": [
-        {
-          "type": "StaticBlock",
-          "count": -1
-        },
-        {
-          "type": "Vertical",
-          "count": 5
-        }
-      ],
-      "blockCount": 4,
-      "boardIndex": 7,
-      "roundCount": 30
-    },
-    {
-      "index": 17,
-      "goal": [
-        {
-          "type": "StaticBlock",
-          "count": -1
-        },
-        {
-          "type": "Horizontal",
-          "count": 10
-        }
-      ],
-      "blockCount": 4,
-      "boardIndex": 8,
-      "roundCount": 30
-    },
-    {
-      "index": 18,
-      "goal": [
-        {
-          "type": "StaticBlock",
-          "count": 12
-        },
-        {
-          "type": "Vertical",
-          "count": 10
-        }
-      ],
-      "blockCount": 4,
-      "boardIndex": 9,
-      "roundCount": 30
-    },
-    {
-      "index": 19,
-      "goal": [
-        {
-          "type": "StaticBlock",
-          "count": -1
-        }
-      ],
-      "blockCount": 4,
-      "boardIndex": 10,
-      "roundCount": 30
-    },
-    {
-      "index": 20,
-      "goal": [
-        {
-          "type": "ShadowBlock",
-          "count": -1
-        }
-      ],
-      "blockCount": 4,
-      "boardIndex": 11,
-      "roundCount": 30
-    },
-    {
-      "index": 21,
-      "goal": [
-        {
-          "type": "ShadowBlock",
-          "count": -1
-        },
-        {
-          "type": "SingleColor",
-          "count": 20
-        }
-      ],
-      "blockCount": 4,
-      "boardIndex": 12,
-      "roundCount": 30
-    },
-    {
-      "index": 22,
-      "goal": [
-        {
-          "type": "ShadowBlock",
-          "count": -1
-        },
-        {
-          "type": "Vertical",
-          "count": 10
-        }
-      ],
-      "blockCount": 4,
-      "boardIndex": 13,
-      "roundCount": 30
-    },
-    {
-      "index": 23,
-      "goal": [
-        {
-          "type": "ShadowBlock",
-          "count": -1
-        },
-        {
-          "type": "ColorVertical",
-          "count": 5
-        }
-      ],
-      "blockCount": 4,
-      "boardIndex": 14,
-      "roundCount": 30
-    }
-  ],
-  "levelBoards": [
-    {
-      "index": 0,
+      "roundCount": 20,
       "blocks": {
         "1,3": "RemoveStatic",
         "2,3": "RemoveStatic",
@@ -367,7 +106,84 @@
       }
     },
     {
-      "index": 1,
+      "index": 7,
+      "goal": [
+        {
+          "type": "SingleColor",
+          "count": 10
+        },
+        {
+          "type": "Vertical",
+          "count": 5
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 20,
+      "blocks": {
+        "1,3": "RemoveStatic",
+        "2,3": "RemoveStatic",
+        "6,3": "RemoveStatic",
+        "7,3": "RemoveStatic",
+        "3,6": "RemoveStatic",
+        "5,6": "RemoveStatic",
+        "4,7": "RemoveStatic"
+      }
+    },
+    {
+      "index": 8,
+      "goal": [
+        {
+          "type": "SingleColor",
+          "count": 10
+        },
+        {
+          "type": "Horizontal",
+          "count": 5
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 20,
+      "blocks": {
+        "1,3": "RemoveStatic",
+        "2,3": "RemoveStatic",
+        "6,3": "RemoveStatic",
+        "7,3": "RemoveStatic",
+        "3,6": "RemoveStatic",
+        "5,6": "RemoveStatic",
+        "4,7": "RemoveStatic"
+      }
+    },
+    {
+      "index": 9,
+      "goal": [
+        {
+          "type": "FiveBlock",
+          "count": 3
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
+      "blocks": {
+        "1,3": "RemoveStatic",
+        "2,3": "RemoveStatic",
+        "6,3": "RemoveStatic",
+        "7,3": "RemoveStatic",
+        "3,6": "RemoveStatic",
+        "5,6": "RemoveStatic",
+        "4,7": "RemoveStatic"
+      }
+    },
+    {
+      "index": 10,
+      "goal": [
+        {
+          "type": "StaticBlock",
+          "count": 0
+        }
+      ],
+      "blockCount": 4,
+      "boardIndex": 1,
+      "roundCount": 30,
       "blocks": {
         "4,4": "RemoveStatic",
         "3,3": "RemoveStatic",
@@ -377,7 +193,19 @@
       }
     },
     {
-      "index": 2,
+      "index": 11,
+      "goal": [
+        {
+          "type": "StaticBlock",
+          "count": 0
+        },
+        {
+          "type": "SingleColor",
+          "count": 15
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
       "blocks": {
         "4,4": "RemoveStatic",
         "3,3": "RemoveStatic",
@@ -391,7 +219,19 @@
       }
     },
     {
-      "index": 3,
+      "index": 12,
+      "goal": [
+        {
+          "type": "StaticBlock",
+          "count": 0
+        },
+        {
+          "type": "SingleColor",
+          "count": 20
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
       "blocks": {
         "0,8": "RemoveStatic",
         "1,7": "RemoveStatic",
@@ -405,7 +245,19 @@
       }
     },
     {
-      "index": 4,
+      "index": 13,
+      "goal": [
+        {
+          "type": "StaticBlock",
+          "count": 0
+        },
+        {
+          "type": "SingleColor",
+          "count": 25
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
       "blocks": {
         "4,3": "RemoveStatic",
         "2,2": "RemoveStatic",
@@ -424,7 +276,19 @@
       }
     },
     {
-      "index": 5,
+      "index": 14,
+      "goal": [
+        {
+          "type": "StaticBlock",
+          "count": 0
+        },
+        {
+          "type": "SingleColor",
+          "count": 25
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
       "blocks": {
         "2,4": "RemoveStatic",
         "6,4": "RemoveStatic",
@@ -444,7 +308,19 @@
       }
     },
     {
-      "index": 6,
+      "index": 15,
+      "goal": [
+        {
+          "type": "StaticBlock",
+          "count": 0
+        },
+        {
+          "type": "Horizontal",
+          "count": 5
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
       "blocks": {
         "3,6": "RemoveStatic",
         "4,6": "RemoveStatic",
@@ -464,7 +340,19 @@
       }
     },
     {
-      "index": 7,
+      "index": 16,
+      "goal": [
+        {
+          "type": "StaticBlock",
+          "count": 0
+        },
+        {
+          "type": "Vertical",
+          "count": 5
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
       "blocks": {
         "4,1": "RemoveStatic",
         "5,2": "RemoveStatic",
@@ -482,7 +370,19 @@
       }
     },
     {
-      "index": 8,
+      "index": 17,
+      "goal": [
+        {
+          "type": "StaticBlock",
+          "count": 0
+        },
+        {
+          "type": "Horizontal",
+          "count": 10
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
       "blocks": {
         "4,3": "RemoveStatic",
         "3,4": "RemoveStatic",
@@ -498,7 +398,19 @@
       }
     },
     {
-      "index": 9,
+      "index": 18,
+      "goal": [
+        {
+          "type": "StaticBlock",
+          "count": 0
+        },
+        {
+          "type": "Vertical",
+          "count": 10
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
       "blocks": {
         "3,3": "RemoveStatic",
         "5,3": "RemoveStatic",
@@ -515,7 +427,15 @@
       }
     },
     {
-      "index": 10,
+      "index": 19,
+      "goal": [
+        {
+          "type": "StaticBlock",
+          "count": 0
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
       "blocks": {
         "2,2": "RemoveStatic",
         "3,2": "RemoveStatic",
@@ -552,6 +472,15 @@
       }
     },
     {
+      "index": 20,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
       "blocks": {
         "5,3": "Shadow",
         "5,4": "Shadow",
@@ -565,6 +494,19 @@
       }
     },
     {
+      "index": 21,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "SingleColor",
+          "count": 20
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
       "blocks": {
         "0,8": "Shadow",
         "1,7": "Shadow",
@@ -578,6 +520,19 @@
       }
     },
     {
+      "index": 22,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "Vertical",
+          "count": 10
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
       "blocks": {
         "3,2": "Shadow",
         "5,2": "Shadow",
@@ -590,6 +545,19 @@
       }
     },
     {
+      "index": 23,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "Horizontal",
+          "count": 10
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
       "blocks": {
         "4,3": "Shadow",
         "3,4": "Shadow",
@@ -605,6 +573,580 @@
         "3,6": "Shadow",
         "4,6": "Shadow",
         "5,6": "Shadow"
+      }
+    },
+    {
+      "index": 24,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "ColorVertical",
+          "count": 5
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
+      "blocks": {
+        "0,8": "Shadow",
+        "1,7": "Shadow",
+        "2,6": "Shadow",
+        "3,5": "Shadow",
+        "4,4": "Shadow",
+        "5,5": "Shadow",
+        "6,6": "Shadow",
+        "7,7": "Shadow",
+        "8,8": "Shadow",
+        "4,6": "Shadow",
+        "3,7": "Shadow",
+        "5,7": "Shadow",
+        "2,8": "Shadow",
+        "4,8": "Shadow",
+        "6,8": "Shadow"
+      }
+    },
+    {
+      "index": 25,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "ColorHorizontal",
+          "count": 5
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
+      "blocks": {
+        "1,3": "Shadow",
+        "2,3": "Shadow",
+        "3,3": "Shadow",
+        "4,3": "Shadow",
+        "5,3": "Shadow",
+        "6,3": "Shadow",
+        "7,3": "Shadow",
+        "1,4": "Shadow",
+        "4,4": "Shadow",
+        "7,4": "Shadow",
+        "4,5": "Shadow",
+        "4,6": "Shadow",
+        "4,7": "Shadow",
+        "4,8": "Shadow",
+        "3,8": "Shadow",
+        "5,8": "Shadow"
+      }
+    },
+    {
+      "index": 26,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "FiveBlock",
+          "count": 3
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
+      "blocks": {
+        "4,2": "Shadow",
+        "3,3": "Shadow",
+        "5,3": "Shadow",
+        "2,4": "Shadow",
+        "4,4": "Shadow",
+        "6,4": "Shadow",
+        "2,5": "Shadow",
+        "3,5": "Shadow",
+        "5,5": "Shadow",
+        "2,6": "Shadow",
+        "3,6": "Shadow",
+        "4,6": "Shadow"
+      }
+    },
+    {
+      "index": 27,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "SingleColor",
+          "count": 20
+        },
+        {
+          "type": "ColorVertical",
+          "count": 10
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 50,
+      "blocks": {
+        "4,3": "Shadow",
+        "4,4": "Shadow",
+        "3,4": "Shadow",
+        "4,5": "Shadow",
+        "4,6": "Shadow",
+        "4,7": "Shadow",
+        "4,8": "Shadow",
+        "3,8": "Shadow",
+        "5,8": "Shadow"
+      }
+    },
+    {
+      "index": 28,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "SingleColor",
+          "count": 20
+        },
+        {
+          "type": "ColorVertical",
+          "count": 10
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 60,
+      "blocks": {
+        "1,3": "Shadow",
+        "2,3": "Shadow",
+        "3,3": "Shadow",
+        "5,3": "Shadow",
+        "6,3": "Shadow",
+        "7,3": "Shadow",
+        "2,5": "Shadow",
+        "3,5": "Shadow",
+        "5,5": "Shadow",
+        "6,5": "Shadow",
+        "4,7": "Shadow"
+      }
+    },
+    {
+      "index": 29,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "SingleColor",
+          "count": 20
+        },
+        {
+          "type": "ColorHorizontal",
+          "count": 10
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 60,
+      "blocks": {
+        "1,2": "Shadow",
+        "1,3": "Shadow",
+        "4,2": "Shadow",
+        "4,3": "Shadow",
+        "7,2": "Shadow",
+        "7,3": "Shadow",
+        "1,5": "Shadow",
+        "1,6": "Shadow",
+        "4,5": "Shadow",
+        "4,6": "Shadow",
+        "7,5": "Shadow",
+        "7,6": "Shadow",
+        "1,8": "Shadow",
+        "2,8": "Shadow",
+        "3,8": "Shadow",
+        "5,8": "Shadow",
+        "6,8": "Shadow",
+        "7,8": "Shadow"
+      }
+    },
+    {
+      "index": 30,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 20,
+      "blocks": {
+        "4,1": "RemoveStatic",
+        "4,2": "RemoveStatic",
+        "4,3": "RemoveStatic",
+        "4,4": "RemoveStatic",
+        "2,4": "RemoveStatic",
+        "6,4": "RemoveStatic",
+        "3,5": "RemoveStatic",
+        "5,5": "RemoveStatic",
+        "4,6": "RemoveStatic",
+        "4,8": "Shadow"
+      }
+    },
+    {
+      "index": 31,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 20,
+      "blocks": {
+        "0,2": "RemoveStatic",
+        "8,2": "RemoveStatic",
+        "1,3": "RemoveStatic",
+        "7,3": "RemoveStatic",
+        "0,4": "Shadow",
+        "8,4": "Shadow",
+        "2,4": "RemoveStatic",
+        "6,4": "RemoveStatic",
+        "1,5": "RemoveStatic",
+        "7,5": "RemoveStatic",
+        "0,6": "RemoveStatic",
+        "8,6": "RemoveStatic"
+      }
+    },
+    {
+      "index": 32,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "StaticBlock",
+          "count": 0
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 20,
+      "blocks": {
+        "0,6": "RemoveStatic",
+        "1,7": "RemoveStatic",
+        "2,8": "RemoveStatic",
+        "0,8": "Shadow",
+        "6,8": "RemoveStatic",
+        "7,7": "RemoveStatic",
+        "8,6": "RemoveStatic",
+        "8,8": "Shadow"
+      }
+    },
+    {
+      "index": 33,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "StaticBlock",
+          "count": -5
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
+      "blocks": {
+        "0,7": "RemoveStatic",
+        "1,6": "RemoveStatic",
+        "2,5": "RemoveStatic",
+        "3,4": "RemoveStatic",
+        "4,3": "RemoveStatic",
+        "5,4": "RemoveStatic",
+        "6,5": "RemoveStatic",
+        "7,6": "RemoveStatic",
+        "8,7": "RemoveStatic",
+        "2,8": "RemoveStatic",
+        "3,7": "RemoveStatic",
+        "4,6": "RemoveStatic",
+        "5,7": "RemoveStatic",
+        "6,8": "RemoveStatic",
+        "4,8": "Shadow"
+      }
+    },
+    {
+      "index": 34,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "StaticBlock",
+          "count": -6
+        },
+        {
+          "type": "ColorHorizontal",
+          "count": 5
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
+      "blocks": {
+        "3,2": "RemoveStatic",
+        "4,2": "RemoveStatic",
+        "5,2": "RemoveStatic",
+        "2,3": "RemoveStatic",
+        "6,3": "RemoveStatic",
+        "1,4": "RemoveStatic",
+        "1,5": "RemoveStatic",
+        "1,6": "RemoveStatic",
+        "7,4": "RemoveStatic",
+        "7,5": "RemoveStatic",
+        "7,6": "RemoveStatic",
+        "2,7": "RemoveStatic",
+        "6,7": "RemoveStatic",
+        "3,8": "RemoveStatic",
+        "4,8": "RemoveStatic",
+        "5,8": "RemoveStatic",
+        "4,5": "Shadow"
+      }
+    },
+    {
+      "index": 35,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "StaticBlock",
+          "count": -6
+        },
+        {
+          "type": "ColorVertical",
+          "count": 5
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
+      "blocks": {
+        "4,1": "RemoveStatic",
+        "3,2": "RemoveStatic",
+        "4,2": "RemoveStatic",
+        "5,2": "RemoveStatic",
+        "2,3": "RemoveStatic",
+        "3,3": "RemoveStatic",
+        "4,3": "RemoveStatic",
+        "5,3": "RemoveStatic",
+        "6,3": "RemoveStatic",
+        "1,4": "RemoveStatic",
+        "2,4": "RemoveStatic",
+        "3,4": "RemoveStatic",
+        "5,4": "RemoveStatic",
+        "6,4": "RemoveStatic",
+        "7,4": "RemoveStatic",
+        "2,5": "RemoveStatic",
+        "3,5": "RemoveStatic",
+        "4,5": "RemoveStatic",
+        "5,5": "RemoveStatic",
+        "6,5": "RemoveStatic",
+        "3,6": "RemoveStatic",
+        "4,6": "RemoveStatic",
+        "5,6": "RemoveStatic",
+        "4,7": "RemoveStatic",
+        "4,4": "Shadow"
+      }
+    },
+    {
+      "index": 36,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "StaticBlock",
+          "count": 0
+        },
+        {
+          "type": "ColorHorizontal",
+          "count": 5
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
+      "blocks": {
+        "2,3": "RemoveStatic",
+        "6,3": "RemoveStatic",
+        "1,4": "RemoveStatic",
+        "2,4": "RemoveStatic",
+        "3,4": "RemoveStatic",
+        "4,4": "RemoveStatic",
+        "5,4": "RemoveStatic",
+        "6,4": "RemoveStatic",
+        "7,4": "RemoveStatic",
+        "2,5": "RemoveStatic",
+        "3,5": "Shadow",
+        "4,5": "Shadow",
+        "5,5": "Shadow",
+        "6,5": "RemoveStatic",
+        "1,6": "RemoveStatic",
+        "2,6": "RemoveStatic",
+        "6,6": "RemoveStatic",
+        "7,6": "RemoveStatic",
+        "2,7": "RemoveStatic",
+        "6,7": "RemoveStatic",
+        "2,8": "RemoveStatic",
+        "6,8": "RemoveStatic"
+      }
+    },
+    {
+      "index": 37,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "StaticBlock",
+          "count": -5
+        },
+        {
+          "type": "ColorHorizontal",
+          "count": 5
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 40,
+      "blocks": {
+        "1,2": "RemoveStatic",
+        "2,2": "RemoveStatic",
+        "3,2": "RemoveStatic",
+        "4,2": "RemoveStatic",
+        "5,2": "RemoveStatic",
+        "6,2": "RemoveStatic",
+        "7,2": "RemoveStatic",
+        "1,3": "RemoveStatic",
+        "1,4": "RemoveStatic",
+        "1,5": "RemoveStatic",
+        "1,6": "RemoveStatic",
+        "1,7": "RemoveStatic",
+        "1,8": "RemoveStatic",
+        "7,3": "RemoveStatic",
+        "7,4": "RemoveStatic",
+        "7,5": "RemoveStatic",
+        "7,6": "RemoveStatic",
+        "7,7": "RemoveStatic",
+        "7,8": "RemoveStatic",
+        "2,8": "RemoveStatic",
+        "3,8": "RemoveStatic",
+        "4,8": "RemoveStatic",
+        "5,8": "RemoveStatic",
+        "6,8": "RemoveStatic",
+        "3,4": "RemoveStatic",
+        "4,4": "RemoveStatic",
+        "5,4": "RemoveStatic",
+        "3,5": "RemoveStatic",
+        "3,6": "RemoveStatic",
+        "5,5": "RemoveStatic",
+        "5,6": "RemoveStatic",
+        "4,6": "RemoveStatic",
+        "4,5": "Shadow"
+      }
+    },
+    {
+      "index": 38,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "StaticBlock",
+          "count": 0
+        },
+        {
+          "type": "SingleColor",
+          "count": 20
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 30,
+      "blocks": {
+        "0,6": "RemoveStatic",
+        "0,7": "RemoveStatic",
+        "0,8": "RemoveStatic",
+        "1,8": "RemoveStatic",
+        "2,8": "Shadow",
+        "3,8": "Shadow",
+        "3,7": "Shadow",
+        "3,6": "Shadow",
+        "5,7": "RemoveStatic",
+        "6,6": "RemoveStatic",
+        "6,7": "RemoveStatic",
+        "6,8": "RemoveStatic",
+        "7,8": "Shadow",
+        "8,8": "Shadow",
+        "7,7": "Shadow",
+        "8,7": "Shadow",
+        "4,1": "RemoveStatic",
+        "4,2": "RemoveStatic",
+        "4,3": "RemoveStatic",
+        "4,4": "RemoveStatic",
+        "5,8": "Shadow"
+      }
+    },
+    {
+      "index": 39,
+      "goal": [
+        {
+          "type": "ShadowBlock",
+          "count": -1
+        },
+        {
+          "type": "StaticBlock",
+          "count": 0
+        },
+        {
+          "type": "FiveBlock",
+          "count": 3
+        }
+      ],
+      "blockCount": 4,
+      "roundCount": 50,
+      "blocks": {
+        "0,2": "RemoveStatic",
+        "1,2": "RemoveStatic",
+        "2,2": "RemoveStatic",
+        "3,2": "RemoveStatic",
+        "4,2": "RemoveStatic",
+        "5,2": "RemoveStatic",
+        "6,2": "RemoveStatic",
+        "7,2": "RemoveStatic",
+        "8,2": "RemoveStatic",
+        "1,4": "Shadow",
+        "1,5": "Shadow",
+        "1,6": "Shadow",
+        "2,6": "Shadow",
+        "3,4": "Shadow",
+        "3,5": "Shadow",
+        "3,6": "Shadow",
+        "3,7": "Shadow",
+        "3,8": "Shadow",
+        "5,4": "Shadow",
+        "5,5": "Shadow",
+        "5,6": "Shadow",
+        "5,7": "Shadow",
+        "5,8": "Shadow",
+        "6,4": "Shadow",
+        "6,8": "Shadow",
+        "7,4": "Shadow",
+        "7,5": "Shadow",
+        "7,6": "Shadow",
+        "7,7": "Shadow",
+        "7,8": "Shadow"
       }
     }
   ],

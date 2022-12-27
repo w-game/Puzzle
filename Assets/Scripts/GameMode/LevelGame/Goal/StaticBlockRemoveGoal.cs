@@ -16,6 +16,8 @@ namespace GameMode.LevelGame
                     GoalCount++;
                 }
             });
+
+            GoalCount += config.count;
         }
 
         public override string ElementPath => "StaticBlockRemoveGoal";

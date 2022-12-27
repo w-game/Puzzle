@@ -98,7 +98,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 89f0ead450d5541039ad5b1c61af7203
-    m_Address: Prefabs/UI/Element/ThreeBlockRemoveGoal
+    m_Address: Prefabs/UI/Element/FiveBlockRemoveGoal
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: d6a1d51c093da482caec35dcf913644b
