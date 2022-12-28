@@ -45,17 +45,17 @@ public class HomeView : ViewBase
         switch (gameMode)
         {
             case PuzzleGameMode.Level:
-                StartGame<LevelGameViewData>(levelStartGameBtn.transform);
+                StartGame<LevelGameViewData>(PuzzleGame.PowerCost.Level, levelStartGameBtn.transform);
                 break;
             case PuzzleGameMode.Unlimited:
-                StartGame<UnlimitedGameViewData>(unlimitedStartGameBtn.transform);
+                StartGame<UnlimitedGameViewData>(PuzzleGame.PowerCost.Unlimited, unlimitedStartGameBtn.transform);
                 break;
         }
     }
 
-    private void StartGame<T>(Transform trans) where T : ViewData, new()
+    private void StartGame<T>(int power, Transform trans) where T : ViewData, new()
     {
-        GameManager.Instance.CheckPower(PuzzleGame.PowerCost.Level, () =>
+        GameManager.Instance.CheckPower(power, () =>
         {
             UIManager.Instance.DecreasePower(trans, () =>
             {

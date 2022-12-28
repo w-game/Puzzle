@@ -39,6 +39,7 @@ namespace UI.Popup
                 if (result)
                 {
                     GameManager.User.IncreasePower(5);
+                    UIManager.Instance.ShowToast("获得5点体力");
                     CloseView();
                     EventCenter.Invoke(GamePower.EventKeys.Close);
                 }

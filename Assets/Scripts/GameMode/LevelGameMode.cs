@@ -42,6 +42,7 @@ public class LevelGameMode : PuzzleGame
     public override void StartGame()
     {
         if (CheckLevelEnd()) return;
+        GameStatus = true;
         
         ClearSlots(ClearSlotType.All);
         var config = _configs.levels[GameManager.User.GameLevel];
