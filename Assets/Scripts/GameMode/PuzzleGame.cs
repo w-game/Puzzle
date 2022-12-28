@@ -15,7 +15,8 @@ public enum PuzzleGameMode
 public enum ClearSlotType
 {
     All,
-    Normal
+    Normal,
+    NotNormal
 }
 
 public abstract class PuzzleGame : MonoBehaviour
@@ -143,6 +144,15 @@ public abstract class PuzzleGame : MonoBehaviour
                 BlockSlots.ForEach(slot =>
                 {
                     if (slot.SubBlock is NormalBlock)
+                    {
+                        slot.RemoveMainBlock(false);
+                    }
+                });
+                break;
+            case ClearSlotType.NotNormal:
+                BlockSlots.ForEach(slot =>
+                {
+                    if (slot.SubBlock is not NormalBlock)
                     {
                         slot.RemoveMainBlock(false);
                     }

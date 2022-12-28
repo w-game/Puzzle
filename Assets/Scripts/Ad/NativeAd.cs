@@ -26,7 +26,11 @@ namespace Ad
 
         public override void ShowAd(Action<bool> callback)
         {
-            LoadAd();
+            if (AdManager.Instance.NativeAdSwitch)
+            {
+                SLog.D("Native Ad", "Native Ad请求展示");
+                LoadAd();
+            }
         }
 
         public override void CloseAd()

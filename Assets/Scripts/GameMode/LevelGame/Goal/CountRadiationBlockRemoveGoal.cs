@@ -1,31 +1,31 @@
 using Blocks;
-using UI.View;
 using UnityEngine;
 
 namespace GameMode.LevelGame
 {
-    public class StopIceBlockRemoveGoal : IceBlockRemoveGoal
+    public class CountRadiationBlockRemoveGoal : RadiationBlockRemoveGoal
     {
-        public override string CountTipStr => "x全部";
-
         public override void Init(LevelGoalConfig config, Color color)
         {
             base.Init(config, color);
-            OnRefresh();
+            GoalCount = config.count;
         }
 
         protected override void OnRefresh()
         {
-            GoalCount = 0;
-            CurCount = 0;
+            var count = 0;
             GameManager.Instance.PuzzleGame.BlockSlots.ForEach(slot =>
             {
-                if (slot.SubBlock is IceBlock)
+                if (slot.SubBlock is RadiationBlock)
                 {
-                    GoalCount++;
+                    count++;
                 }
             });
-            EventCenter.Invoke(LevelGameView.LevelEventKeys.RefreshGoal);
+
+            if (count == 0 && GoalCount > CurCount)
+            {
+                GameManager.Instance.PuzzleGame.GameOver();
+            }
         }
     }
 }

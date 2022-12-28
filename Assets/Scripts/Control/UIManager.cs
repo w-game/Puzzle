@@ -107,4 +107,9 @@ public class UIManager : MonoSingleton<UIManager>
     {
         topMask.SetActive(status);
     }
+
+    public void ShowCheckBox(string des, UnityAction sureAction, UnityAction cancelAction = null)
+    {
+        PushPop<PopCheckBoxData>(des, sureAction, cancelAction);
+    }
 }

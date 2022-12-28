@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace GameMode.LevelGame
 {
-    public class IceBlockRemoveGoal : LevelGoal
+    public class RadiationBlockRemoveGoal : LevelGoal
     {
         public override string ElementPath => "SingleColorRemoveGoal";
 
         public override void Init(LevelGoalConfig config, Color color)
         {
-            SpritePath = "Textures/icon_ice";
+            SpritePath = "Textures/icon_radiation";
             Pattern = Color.white;
         }
 
@@ -18,7 +18,7 @@ namespace GameMode.LevelGame
             var count = 0;
             unit.Slots.ForEach(slot =>
             {
-                if (slot.SubBlock is IceBlock)
+                if (slot.SubBlock is RadiationBlock)
                 {
                     count++;
                 }
