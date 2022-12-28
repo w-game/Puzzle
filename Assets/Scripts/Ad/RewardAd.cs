@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using ByteDance.Union;
+using Common;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Ad
 {
     public class RewardAd : AdBase
     {
+        public const string Tag = "Reward Ad";
         public bool LoadSuccess { get; set; }
         public override void LoadAd()
         {
@@ -46,8 +48,7 @@ namespace Ad
             // 为保障播放流畅，建议在视频加载完成后展示
             if (!LoadSuccess || !ABURewardVideoAd.isReady())
             {
-                var msg = "请先加载广告或等广告加载完成";
-                Debug.Log("<Unity Log>..." + msg);
+                SLog.D(Tag, "请先加载广告或等广告加载完成");
                 return;
             }
             // ritScene信息
@@ -86,17 +87,17 @@ namespace Ad
         public void OnError(int code, string message)
         {
             var errMsg = "OnRewardVideoAdLoadError-- code : " + code + "--message : " + message;
-            Debug.LogError("<Unity Log>..." + errMsg);
+            SLog.E(RewardAd.Tag, errMsg);
         }
 
         public void OnRewardVideoAdLoad(object ad)
         {
-            Debug.Log("<Unity Log>..." + "OnRewardVideoAdLoad");
+            SLog.D(RewardAd.Tag, "OnRewardVideoAdLoad");
         }
 
         public void OnRewardVideoAdCached()
         {
-            Debug.Log("<Unity Log>..." + "OnRewardVideoCached");
+            SLog.D(RewardAd.Tag, "OnRewardVideoCached");
             _rewardAd.LoadSuccess = true;
         }
     }
@@ -113,12 +114,12 @@ namespace Ad
 
         public void OnAdShow()
         {
-            Debug.Log("<Unity Log>..." + "expressRewardAd show");
+            SLog.D(RewardAd.Tag, "Reward Ad Showed");
             _rewardAd.LoadSuccess = false;
             string ecpm = ABURewardVideoAd.GetPreEcpm();
             string ritID = ABURewardVideoAd.GetAdNetworkRitId();
             string adnName = ABURewardVideoAd.GetAdRitInfoAdnName();
-            Debug.Log("<Unity Log>..." + ", ecpm:" + ecpm + ",  " + "ritID:" + ritID + ",  " + "adnName:" + adnName);
+            SLog.D(RewardAd.Tag, $"ecpm: {ecpm}, ritId: {ritID}, adnName: {adnName}");
 
             _rewardAd.LoadAd();
             Callback?.Invoke(true);
@@ -133,36 +134,36 @@ namespace Ad
 
         public void OnAdVideoBarClick()
         {
-            Debug.Log("<Unity Log>..." + "expressRewardAd bar click");
+            SLog.D(RewardAd.Tag, "expressRewardAd bar click");
         }
 
         public void OnAdClose()
         {
-            Debug.Log("<Unity Log>..." + "expressRewardAd close");
+            SLog.D(RewardAd.Tag, "expressRewardAd close");
             _rewardAd.LoadSuccess = false;
         }
 
         public void OnVideoComplete()
         {
-            Debug.Log("<Unity Log>..." + "expressRewardAd complete");
+            SLog.D(RewardAd.Tag, "expressRewardAd complete");
         }
 
         public void OnVideoError(int errCode, string errMsg)
         {
             string logs = " < Unity Log > ..." + "play error code:" + errCode + ",errMsg:" + errMsg;
-            Debug.LogError(logs);
+            SLog.E(RewardAd.Tag, logs);
         }
 
         public void OnRewardVerify(bool rewardVerify)
         {
             var message = "verify:" + rewardVerify;
-            Debug.Log("<Unity Log>..." + message);
+            SLog.D(RewardAd.Tag, message);
         }
 
         public void OnSkippedVideo()
         {
             var message = "expressrewardAd OnSkippedVideo for Android";
-            Debug.Log("<Unity Log>..." + message);
+            SLog.D(RewardAd.Tag, message);
         }
 
         /// <summary>
@@ -176,7 +177,7 @@ namespace Ad
         /// </summary>
         public void OnWaterfallRitFillFail(string fillFailMessageInfo)
         {
-            Debug.Log("<Unity Log>...fillFailMessageInfo:" + fillFailMessageInfo);
+            SLog.D(RewardAd.Tag, $"fillFailMessageInfo: {fillFailMessageInfo}");
         }
 
         /// <summary>
@@ -186,23 +187,23 @@ namespace Ad
         /// </summary>
         public void OnAdShowFailed(int errcode, string errorMsg)
         {
-            Debug.Log("<Unity Log>...OnAdShowFailed Errcode:" + errcode + ", errMsg:" + errorMsg);
+            SLog.D(RewardAd.Tag, $"OnAdShowFailed Errcode: {errcode}, errMsg: {errorMsg}");
         }
 
         public void OnRewardVerify(bool rewardVerify, ABUAdapterRewardAdInfo rewardInfo)
         {
-            Debug.Log("<Unity Log>..." + "InterstitialFullAd OnRewardVerify"
-                + ", rewardName : " + rewardInfo.rewardName// 发放奖励的名称
-                + ", rewardAmount : " + rewardInfo.rewardAmount// 发放奖励的金额
-                + ", tradeId : " + rewardInfo.tradeId// 交易的唯一标识
-                + ", verify : " + rewardInfo.verify// 是否验证通过
-                + ", verifyByGroMoreS2S : " + rewardInfo.verifyByGroMoreS2S// 是否是通过GroMore的S2S的验证
-                + ", adnName : " + rewardInfo.adnName// 验证奖励发放的媒体名称，官方支持的ADN名称详见`ABUAdnType`注释部分，自定义ADN名称同平台配置
-                + ", reason : " + rewardInfo.reason// 验证失败的原因
-                + ", errorCode : " + rewardInfo.errorCode// 无法完成验证的错误码
-                + ", errorMsg : " + rewardInfo.errorMsg// 无法完成验证的错误原因，包括网络错误、服务端无响应、服务端无法验证等
-                + ", rewardType : " + rewardInfo.rewardType// 奖励类型，0:基础奖励 1:进阶奖励-互动 2:进阶奖励-超过30s的视频播放完成  目前支持返回该字段的adn：csj
-                + ", rewardPropose : " + rewardInfo.rewardPropose);// 建议奖励百分比， 基础奖励为1，进阶奖励为0.0 ~ 1.0，开发者自行换算  目前支持返回该字段的adn：csj
+           SLog.D(RewardAd.Tag, "InterstitialFullAd OnRewardVerify"
+               + ", rewardName : " + rewardInfo.rewardName// 发放奖励的名称
+               + ", rewardAmount : " + rewardInfo.rewardAmount// 发放奖励的金额
+               + ", tradeId : " + rewardInfo.tradeId// 交易的唯一标识
+               + ", verify : " + rewardInfo.verify// 是否验证通过
+               + ", verifyByGroMoreS2S : " + rewardInfo.verifyByGroMoreS2S// 是否是通过GroMore的S2S的验证
+               + ", adnName : " + rewardInfo.adnName// 验证奖励发放的媒体名称，官方支持的ADN名称详见`ABUAdnType`注释部分，自定义ADN名称同平台配置
+               + ", reason : " + rewardInfo.reason// 验证失败的原因
+               + ", errorCode : " + rewardInfo.errorCode// 无法完成验证的错误码
+               + ", errorMsg : " + rewardInfo.errorMsg// 无法完成验证的错误原因，包括网络错误、服务端无响应、服务端无法验证等
+               + ", rewardType : " + rewardInfo.rewardType// 奖励类型，0:基础奖励 1:进阶奖励-互动 2:进阶奖励-超过30s的视频播放完成  目前支持返回该字段的adn：csj
+               + ", rewardPropose : " + rewardInfo.rewardPropose);// 建议奖励百分比， 基础奖励为1，进阶奖励为0.0 ~ 1.0，开发者自行换算  目前支持返回该字段的adn：csj
         }
 
     }
