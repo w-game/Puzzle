@@ -1366,22 +1366,46 @@
   "levelNewBlock": {
     "6": {
       "type": "RemoveStaticBlock",
-      "blockName": "可消除型静态方块",
-      "des": "这个方块会被固定在它生成时的位置上不可移动。但当它周围有其他方块被消除时，它也会被一起消除。",
+      "info": {
+        "Chinese": {
+          "blockName": "可消除型静态方块",
+          "des": "这个方块会被固定在它生成时的位置上不可移动。但当它周围有其他方块被消除时，它也会被一起消除。"
+        },
+        "English": {
+          "blockName": "Destroyable Static Block",
+          "des": "The block will be fixed in its generated position and cannot be moved. But when other blocks around it are eliminated, it will also be eliminated together."
+        }
+      },
       "path": "",
       "color": "#FFFFFF"
     },
     "20": {
       "type": "ShadowBlock",
-      "blockName": "标志方块",
-      "des": "这个方块会被固定在其生成时的位置上不可移动，并且不会阻挡其他方块。但当它所在棋格有其他方块被消除时，它也会一起被消除",
+      "info": {
+        "Chinese": {
+          "blockName": "标志方块",
+          "des": "这个方块会被固定在其生成时的位置上不可移动，并且不会阻挡其他方块。但当它所在棋格有其他方块被消除时，它也会一起被消除。"
+        },
+        "English": {
+          "blockName": "Mark Block",
+          "des": "The block will be fixed in its spawn position and cannot be moved, and will not block other blocks. But when other block are eliminated in its grid, it will also be eliminated together."
+        }
+      },
       "path": "Textures/shadow_block",
       "color": "#FFFFFF"
     },
     "40": {
       "type": "RadiationBlock",
-      "blockName": "辐射方块",
-      "des": "在每次回合结束时，在它周围的其他普通方块都会被变成辐射方块",
+      "info": {
+        "Chinese": {
+          "blockName": "辐射方块",
+          "des": "在每次回合结束时，在它周围的其他普通方块都会被变成辐射方块。"
+        },
+        "English": {
+          "blockName": "Radiation Block",
+          "des": "At the end of each turn, other normal blocks around it are turned into radiation block."
+        }
+      },
       "path": "Textures/icon_radiation",
       "color": "#FFFFFF"
     }

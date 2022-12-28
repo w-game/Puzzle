@@ -855,6 +855,9 @@ MonoBehaviour:
   getToolBtn: {fileID: 2018407386983274409}
   cancelBtn: {fileID: 1416481390486778884}
   des: {fileID: 8758501967626946699}
+  title: {fileID: 1581790854598085941}
+  getToolBtnTxt: {fileID: 6312021123680159972}
+  cancelBtnTxt: {fileID: 7628581271688564382}
 --- !u!1 &6183764327254508914
 GameObject:
   m_ObjectHideFlags: 0

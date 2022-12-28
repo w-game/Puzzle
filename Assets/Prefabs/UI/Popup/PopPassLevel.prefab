@@ -710,6 +710,9 @@ MonoBehaviour:
   scoreTxt: {fileID: 5840068694753681812}
   nextLevelBtn: {fileID: 8968434265809467222}
   homeBtn: {fileID: 6827168751805336621}
+  title: {fileID: 1297367749888658621}
+  nextLevelBtnTxt: {fileID: 4017447528896162306}
+  backToHomeBtnTxt: {fileID: 8958537604404518772}
 --- !u!1 &1297367750394935979
 GameObject:
   m_ObjectHideFlags: 0

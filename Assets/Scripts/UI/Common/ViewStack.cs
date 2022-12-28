@@ -46,5 +46,18 @@ namespace UI
                 }
             }
         }
+
+        public ViewBase GetView<T>() where T : ViewBase
+        {
+            foreach (var baseView in _views)
+            {
+                if (baseView.SubView is T)
+                {
+                    return baseView.SubView;
+                }
+            }
+
+            return null;
+        }
     }
 }

@@ -29,7 +29,7 @@ public class LevelGameMode : PuzzleGame
     {
         if (GameManager.User.GameLevel >= _configs.levels.Count)
         {
-            UIManager.Instance.ShowTip("您已通过现有所有的关卡！敬请期待之后的关卡更新。", () =>
+            UIManager.Instance.ShowTip(GameManager.Language.LevelEndTipDes, () =>
             {
                 UIManager.Instance.BackToHome();
             });
@@ -205,7 +205,7 @@ public class LevelGameMode : PuzzleGame
         }
         else
         {
-            UIManager.Instance.PushPop<PopGameToolNotEnoughData>("CLEAR_SLOTS_COUNT", "道具「清空棋盘」数量不足，无法使用！");
+            UIManager.Instance.PushPop<PopGameToolNotEnoughData>("CLEAR_SLOTS_COUNT", GameManager.Language.ToolClearSlotsName);
         }
     }
 
@@ -219,7 +219,7 @@ public class LevelGameMode : PuzzleGame
         }
         else
         {
-            UIManager.Instance.PushPop<PopGameToolNotEnoughData>("CLEAR_CONTROL_COUNT", "道具「重置控制栏」数量不足，无法使用！");
+            UIManager.Instance.PushPop<PopGameToolNotEnoughData>("CLEAR_CONTROL_COUNT", GameManager.Language.ToolClearControlName);
         }
     }
 }

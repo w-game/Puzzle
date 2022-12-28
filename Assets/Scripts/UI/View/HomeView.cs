@@ -24,20 +24,34 @@ public class HomeView : ViewBase
     
     [SerializeField] private Button levelStartGameBtn;
     [SerializeField] private Button unlimitedStartGameBtn;
+    [SerializeField] private Button languageBtn;
     [SerializeField] private Button guideBtn;
     [SerializeField] private Button settingBtn;
     [SerializeField] private TextMeshProUGUI maxScore;
     [SerializeField] private TextMeshProUGUI allRemove;
+    
+    [Header("本地化")]
+    [SerializeField] private TextMeshProUGUI levelModeBtnTxt;
+    [SerializeField] private TextMeshProUGUI unlimitedModeBtnTxt;
     public override void OnCreate(params object[] objects)
     {
         levelStartGameBtn.onClick.AddListener(() => StartGame(PuzzleGameMode.Level));
         unlimitedStartGameBtn.onClick.AddListener(() => StartGame(PuzzleGameMode.Unlimited));
+        languageBtn.onClick.AddListener(() => UIManager.Instance.PushPop<PopLanguageData>());
         guideBtn.onClick.AddListener(OnGuideBtnClick);
         settingBtn.onClick.AddListener(OnSettingBtnClick);
         
         RefreshView();
         AddEvent(EventKeys.RefreshView, RefreshView);
         UIManager.Instance.CheckCloseSplash();
+    }
+
+    public override void Localization()
+    {
+        var language = GameManager.Language;
+        levelModeBtnTxt.text = language.LevelModeStartBtn;
+        unlimitedModeBtnTxt.text = language.UnlimitedModeStartBtn;
+        allRemove.text = string.Format(GameManager.Language.AllRemoveTxt, GameManager.User.AllRemoveCount);
     }
 
     private void StartGame(PuzzleGameMode gameMode)
@@ -77,6 +91,6 @@ public class HomeView : ViewBase
     private void RefreshView()
     {
         maxScore.text = GameManager.User.MaxScore.ToString();
-        allRemove.text = $"共完成过{GameManager.User.AllRemoveCount}次全部消除";
+        allRemove.text = string.Format(GameManager.Language.AllRemoveTxt, GameManager.User.AllRemoveCount);
     }
 }

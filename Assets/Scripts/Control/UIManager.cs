@@ -112,4 +112,9 @@ public class UIManager : MonoSingleton<UIManager>
     {
         PushPop<PopCheckBoxData>(des, sureAction, cancelAction);
     }
+
+    public ViewBase GetHomeView()
+    {
+        return mainStack.GetView<HomeView>();
+    }
 }

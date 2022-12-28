@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -19,6 +18,12 @@ namespace UI.Popup
         [SerializeField] private TextMeshProUGUI des;
         [SerializeField] private Button sureBtn;
         [SerializeField] private Button cancelBtn;
+        
+        [Header("本地化")]
+        [SerializeField] private TextMeshProUGUI title;
+        [Space]
+        [SerializeField] private TextMeshProUGUI sureBtnTxt;
+        [SerializeField] private TextMeshProUGUI cancelBtnTxt;
         public override void OnCreate(params object[] objects)
         {
             des.text = $"{objects[0]}";
@@ -42,6 +47,14 @@ namespace UI.Popup
             {
                 cancelBtn.onClick.AddListener(CloseView);
             }
+        }
+
+        public override void Localization()
+        {
+            var language = GameManager.Language;
+            title.text = language.CheckBoxTitle;
+            sureBtnTxt.text = language.Confirm;
+            cancelBtnTxt.text = language.CancelText;
         }
     }
 }

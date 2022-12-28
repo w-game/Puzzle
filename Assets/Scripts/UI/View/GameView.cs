@@ -75,7 +75,7 @@ public class GameView : ViewBase
 
     private void OnHomeBtnClicked()
     {
-        UIManager.Instance.ShowCheckBox("退出后进入关卡后的所有操作都不会保存，是否确认退出？", () =>
+        UIManager.Instance.ShowCheckBox(GameManager.Language.BackToHomeCheckDes, () =>
         {
             puzzleGame.EndGame();
             CloseView();

@@ -118,6 +118,10 @@ MonoBehaviour:
   panel: {fileID: 1027051306648701776}
   restartBtn: {fileID: 7175312853194497015}
   backBtn: {fileID: 4204636572904483186}
+  title: {fileID: 1027051305715140081}
+  des: {fileID: 4078554312258099980}
+  restartBtnTxt: {fileID: 4701370024363552332}
+  backToHomeBtnTxt: {fileID: 4533427159273453086}
 --- !u!1 &1027051305715140047
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +283,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027051306218402791}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -803,7 +807,7 @@ GameObject:
   - component: {fileID: 6774062902576610353}
   - component: {fileID: 4078554312258099980}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Des
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

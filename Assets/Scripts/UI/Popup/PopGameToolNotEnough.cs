@@ -20,13 +20,27 @@ namespace UI.Popup
         [SerializeField] private Button cancelBtn;
         [SerializeField] private TextMeshProUGUI des;
 
+        [Header("本地化")] 
+        [SerializeField] private TextMeshProUGUI title;
+        [Space]
+        [SerializeField] private TextMeshProUGUI getToolBtnTxt;
+        [SerializeField] private TextMeshProUGUI cancelBtnTxt;
+        
         private string _toolId;
         public override void OnCreate(params object[] objects)
         {
             _toolId = objects[0] as string;
-            des.text = $"{objects[1]}";
+            des.text = string.Format(GameManager.Language.ToolNotEnoughDes, objects[1]);
             getToolBtn.onClick.AddListener(GetTool);
             cancelBtn.onClick.AddListener(CloseView);
+        }
+
+        public override void Localization()
+        {
+            var language = GameManager.Language;
+            title.text = language.ToolNotEnoughTitle;
+            getToolBtnTxt.text = language.GetToolBtnText;
+            cancelBtnTxt.text = language.CancelText;
         }
 
         private void GetTool()

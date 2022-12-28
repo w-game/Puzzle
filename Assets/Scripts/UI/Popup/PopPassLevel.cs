@@ -19,6 +19,12 @@ namespace UI.Popup
         [SerializeField] private Button nextLevelBtn;
         [SerializeField] private Button homeBtn;
 
+        [Header("本地化")]
+        [SerializeField] private TextMeshProUGUI title;
+        [Space]
+        [SerializeField] private TextMeshProUGUI nextLevelBtnTxt;
+        [SerializeField] private TextMeshProUGUI backToHomeBtnTxt;
+
         public override void OnCreate(params object[] objects)
         {
             scoreTxt.text = $"{objects[0]}";
@@ -26,6 +32,14 @@ namespace UI.Popup
             homeBtn.onClick.AddListener(BackToHome);
             
             ShowNativeAd();
+        }
+
+        public override void Localization()
+        {
+            var language = GameManager.Language;
+            title.text = language.LevelSuccessTitle;
+            nextLevelBtnTxt.text = language.NextLevelText;
+            backToHomeBtnTxt.text = language.BackToHomeText;
         }
 
         private void NextLevel()

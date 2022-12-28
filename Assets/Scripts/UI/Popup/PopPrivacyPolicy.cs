@@ -61,7 +61,7 @@ public class PopPrivacyPolicy : PopupBase
                     if (!result)
                     {
                         _requestPermission = false;
-                        UIManager.Instance.ShowToast("权限获取失败，无法进入游戏");
+                        UIManager.Instance.ShowToast(GameManager.Language.GetPermissionFail);
                         return;
                     }
                 }
