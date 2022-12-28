@@ -6,6 +6,7 @@ public class User
 {
     private const string Tag = "User";
     public const int MaxPower = 30;
+    public const int InitialPower = 10;
     public Dictionary<GameToolName, GameTool> Tools { get; } = new();
 
     private int _maxScore;
@@ -113,7 +114,7 @@ public class User
         {
             Power++;
         });
-        _power = PlayerPrefs.GetInt("Power", MaxPower);
+        _power = PlayerPrefs.GetInt("Power", InitialPower);
 
         var gap = PlayerPrefs.GetInt("OfflineAccTime", 0);
         gap += GameManager.Instance.LaunchGameGap;

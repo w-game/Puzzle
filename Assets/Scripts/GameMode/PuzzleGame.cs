@@ -38,6 +38,7 @@ public abstract class PuzzleGame : MonoBehaviour
     public static Color RandomColor => BlockColors[Random.Range(0, BlockColors.Count)];
     public List<BlockSlot> BlockSlots { get; } = new();
     public int Score { get; private set; }
+    protected bool GameStatus { get; set; }
     public float NextBlockScore => Mathf.Pow(4, BlockColors.Count + 1);
     
     
@@ -111,6 +112,7 @@ public abstract class PuzzleGame : MonoBehaviour
 
     public virtual void StartGame()
     {
+        GameStatus = true;
         RefreshBlockColor();
         RefreshBoard();
         OnStart();
@@ -323,8 +325,8 @@ public abstract class PuzzleGame : MonoBehaviour
 
     public void GameOver()
     {
-        // if (!GameStatus) return;
-        // GameStatus = false;
+        if (!GameStatus) return;
+        GameStatus = false;
         GameManager.User.MaxScore = Score;
         OnGameOver();
     }

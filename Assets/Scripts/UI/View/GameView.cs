@@ -75,9 +75,11 @@ public class GameView : ViewBase
 
     private void OnHomeBtnClicked()
     {
-        puzzleGame.EndGame();
-        CloseView();
-        SLog.D("GameView", "OnHomeBtnClicked");
+        UIManager.Instance.ShowCheckBox("退出后进入关卡后的所有操作都不会保存，是否确认退出？", () =>
+        {
+            puzzleGame.EndGame();
+            CloseView();
+        });
     }
 
     protected virtual void Refresh()
