@@ -1367,9 +1367,13 @@
     "6": {
       "type": "RemoveStaticBlock",
       "info": {
-        "Chinese": {
+        "SimplifiedChinese": {
           "blockName": "可消除型静态方块",
           "des": "这个方块会被固定在它生成时的位置上不可移动。但当它周围有其他方块被消除时，它也会被一起消除。"
+        },
+        "TraditionalChinese": {
+          "blockName": "可消除型靜態方塊",
+          "des": "這個方塊會被固定在它生成時的位置上不可移動。但當它周圍有其他方塊被消除時，它也會被一起消除。"
         },
         "English": {
           "blockName": "Destroyable Static Block",
@@ -1382,9 +1386,13 @@
     "20": {
       "type": "ShadowBlock",
       "info": {
-        "Chinese": {
+        "SimplifiedChinese": {
           "blockName": "标志方块",
           "des": "这个方块会被固定在其生成时的位置上不可移动，并且不会阻挡其他方块。但当它所在棋格有其他方块被消除时，它也会一起被消除。"
+        },
+        "TraditionalChinese": {
+          "blockName": "標誌方塊",
+          "des": "這個方塊會被固定在其生成時的位置上不可移動，並且不會阻擋其他方塊。但當它所在棋格有其他方塊被消除時，它也會一起被消除。"
         },
         "English": {
           "blockName": "Mark Block",
@@ -1397,9 +1405,13 @@
     "40": {
       "type": "RadiationBlock",
       "info": {
-        "Chinese": {
+        "SimplifiedChinese": {
           "blockName": "辐射方块",
           "des": "在每次回合结束时，在它周围的其他普通方块都会被变成辐射方块。"
+        },
+        "TraditionalChinese": {
+          "blockName": "輻射方塊",
+          "des": "在每次回合結束時，在它周圍的其他普通方塊都會被變成輻射方塊。"
         },
         "English": {
           "blockName": "Radiation Block",
