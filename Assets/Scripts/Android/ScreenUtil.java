@@ -10,8 +10,6 @@ import android.view.WindowInsets;
 public class ScreenUtil {
     public int getNotchHeight()
     {
-        Log.d("Puzzle ScreenUtil", "Unity写Java代码测试");
-
         int top = 0;
         try {
             Class<?> classType = Class.forName("com.unity3d.player.UnityPlayer");
@@ -30,8 +28,6 @@ public class ScreenUtil {
 //                    }
 //                }
             }
-
-            Log.d("Puzzle ScreenUtil", String.format("%d", top));
         } catch (Exception ignored)
         {
             Log.e("Puzzle ScreenUtil", ignored.getMessage());
