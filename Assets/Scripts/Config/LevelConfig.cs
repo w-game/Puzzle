@@ -30,9 +30,15 @@ namespace GameMode.LevelGame
     public class LevelNewBlockConfig
     {
         public string type;
-        public string blockName;
-        public string des;
+        public Dictionary<string, LevelNewBlockInfoConfig> info;
         public string path;
         public string color;
+    }
+
+    [Serializable]
+    public class LevelNewBlockInfoConfig
+    {
+        public string blockName;
+        public string des;
     }
 }

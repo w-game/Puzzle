@@ -34,6 +34,7 @@ namespace UI
                 var safeArea = Screen.safeArea;
                 SubView.ScreenAdapt(new Rect(0, AndroidNative.GetNotchHeight(), safeArea.width, safeArea.height));
 #endif
+                SubView.Localization();
                 if (viewData.AnimaSwitch)
                 {
                     SubView.DoOpenAnima();

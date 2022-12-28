@@ -19,12 +19,26 @@ namespace UI.Popup
         [SerializeField] private TextMeshProUGUI blockName;
         [SerializeField] private TextMeshProUGUI des;
         [SerializeField] private Button btn;
+        
+        [Header("本地化")]
+        [SerializeField] private TextMeshProUGUI title;
+        [Space]
+        [SerializeField] private TextMeshProUGUI sureBtnTxt;
+
+        public override void Localization()
+        {
+            var language = GameManager.Language;
+            title.text = language.NewSpecialBlockTitle;
+            sureBtnTxt.text = language.SureText;
+        }
+
         public override void OnCreate(params object[] objects)
         {
             var config = objects[0] as LevelNewBlockConfig;
+            var infoConfig = config.info[GameManager.Language.GetType().Name];
 
-            blockName.text = config.blockName;
-            des.text = config.des;
+            blockName.text = infoConfig.blockName;
+            des.text = infoConfig.des;
 
             if (!string.IsNullOrEmpty(config.path))
             {

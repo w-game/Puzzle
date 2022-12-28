@@ -975,3 +975,5 @@ MonoBehaviour:
   panel: {fileID: 1581790855216294740}
   des: {fileID: 8758501967626946699}
   sureBtn: {fileID: 8923054906048247811}
+  title: {fileID: 1581790854598085941}
+  sureBtnTxt: {fileID: 6395813023785128410}

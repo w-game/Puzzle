@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,12 @@ namespace UI.Popup
         // [SerializeField] private List<PlayingTipData> playingTipDatas;
     
         // private int _index = -1;
+        [Header("本地化")]
+        [SerializeField] private TextMeshProUGUI title;
+        [Space]
+        [SerializeField] private TextMeshProUGUI des;
+        [SerializeField] private TextMeshProUGUI doneTxt;
+
         private PuzzleGame _puzzleGame;
         public override void OnCreate(params object[] objects)
         {
@@ -33,7 +40,15 @@ namespace UI.Popup
             // RefreshBtns();
             // NextTip();
         }
-    
+
+        public override void Localization()
+        {
+            var language = GameManager.Language;
+            title.text = language.GameIntroductionTitle;
+            des.text = language.GameIntroductionDes;
+            doneTxt.text = language.GotItText;
+        }
+
         // private void PreTip()
         // {
         //     _index--;

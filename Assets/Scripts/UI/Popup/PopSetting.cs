@@ -1,6 +1,8 @@
 using Ad;
 using Common;
+using TMPro;
 using UI;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,9 +20,23 @@ public class PopSetting : PopupBase
     [SerializeField] private Slider soundEffect;
     [SerializeField] private Slider fpsSlider;
     [SerializeField] private Slider adSlider;
-    [SerializeField] private Button fpsBtn;
-    [SerializeField] private Button adBtn;
-    [SerializeField] private Button completeBtn;
+    [SerializeField] private SButton fpsBtn;
+    [SerializeField] private SButton adBtn;
+    [SerializeField] private SButton completeBtn;
+
+    [Header("本地化")] 
+    [SerializeField] private TextMeshProUGUI title;
+    [Space]
+    [SerializeField] private TextMeshProUGUI soundSection;
+    [SerializeField] private TextMeshProUGUI bgmItemLabel;
+    [SerializeField] private TextMeshProUGUI soundEffectItemLabel;
+    [Space]
+    [SerializeField] private TextMeshProUGUI gameSection;
+    [SerializeField] private TextMeshProUGUI fpsItemLabel;
+    [Space]
+    [SerializeField] private TextMeshProUGUI adSection;
+    [SerializeField] private TextMeshProUGUI popupAdItemLabel;
+
     public override void OnCreate(params object[] objects)
     {
         bgm.onValueChanged.AddListener(OnBgmValueChanged);
@@ -30,6 +46,24 @@ public class PopSetting : PopupBase
         adBtn.onClick.AddListener(OnAdBtnClicked);
         
         Init();
+    }
+
+    public override void Localization()
+    {
+        var language = GameManager.Language;
+        title.text = language.GameSettingTitle;
+        
+        completeBtn.SetButtonText(language.Done);
+        
+        soundSection.text = language.SoundText;
+        soundEffectItemLabel.text = language.SoundEffectText;
+        bgmItemLabel.text = language.BGMText;
+
+        gameSection.text = language.GameText;
+        fpsItemLabel.text = language.FPSText;
+
+        adSection.text = language.AdText;
+        popupAdItemLabel.text = language.PopupAdText;
     }
 
     private void Init()
@@ -60,7 +94,7 @@ public class PopSetting : PopupBase
     {
         if (adSlider.value > 0.5f)
         {
-            UIManager.Instance.ShowCheckBox("关闭展示弹窗广告将减少开发者收入，是否确认关闭？", SetNativeSwitch);
+            UIManager.Instance.ShowCheckBox(GameManager.Language.ClosePopupAdCheckDes, SetNativeSwitch);
         }
         else
         {

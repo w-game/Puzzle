@@ -17,10 +17,21 @@ namespace UI.Popup
     {
         [SerializeField] private TextMeshProUGUI des;
         [SerializeField] private Button sureBtn;
+        
+        [Header("本地化")]
+        [SerializeField] private TextMeshProUGUI title;
+        [SerializeField] private TextMeshProUGUI sureBtnTxt;
         public override void OnCreate(params object[] objects)
         {
             des.text = $"{objects[0]}";
             sureBtn.onClick.AddListener(objects[1] as UnityAction);
+        }
+
+        public override void Localization()
+        {
+            var language = GameManager.Language;
+            title.text = language.TipTitle;
+            sureBtnTxt.text = language.SureText;
         }
     }
 }

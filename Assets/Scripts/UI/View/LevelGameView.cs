@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UI.Popup;
 using UnityEngine;
@@ -33,6 +34,10 @@ namespace UI.View
         [SerializeField] private Button clearSlotsBtn;
         [SerializeField] private TextMeshProUGUI clearSlotsCount;
 
+        [Header("本地化")]
+        [SerializeField] private TextMeshProUGUI clearAllSlotsPropTxt;
+        [SerializeField] private TextMeshProUGUI refreshControlBarTxt;
+        
         private LevelGameMode _levelGameMode;
         public override void OnCreate(params object[] objects)
         {
@@ -51,6 +56,13 @@ namespace UI.View
             AddEvent(LevelEventKeys.RefreshTool, RefreshTool);
             
             base.OnCreate(objects);
+        }
+
+        public override void Localization()
+        {
+            var language = GameManager.Language;
+            clearAllSlotsPropTxt.text = language.ToolClearSlotsName;
+            refreshControlBarTxt.text = language.ToolClearControlName;
         }
 
         private void ClearControlPanel()
@@ -72,7 +84,7 @@ namespace UI.View
         private void SetGoal()
         {
             levelGoalElement.SetGoal(_levelGameMode.CurLevel.Goals);
-            levelTxt.text = $"第{_levelGameMode.CurLevel.LevelIndex + 1}关";
+            levelTxt.text = String.Format(GameManager.Language.Level, _levelGameMode.CurLevel.LevelIndex + 1);
             // levelTime.SetTime(_levelGameMode.CurLevel.MaxTime, OnGameOver);
         }
 

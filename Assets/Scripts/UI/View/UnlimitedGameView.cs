@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -16,10 +17,18 @@ namespace UI.View
     {
         [SerializeField] private TextMeshProUGUI nextBlockScore;
 
+        [Header("本地化")]
+        [SerializeField] private TextMeshProUGUI nextBlockTipUpper;
+
+        public override void Localization()
+        {
+            nextBlockTipUpper.text = GameManager.Language.NextNewBlockTipUpper;
+        }
+
         protected override void Refresh()
         {
             base.Refresh();
-            nextBlockScore.text = $"还差<color=#C24347>{puzzleGame.NextBlockScore - puzzleGame.Score}</color>分";
+            nextBlockScore.text = String.Format(GameManager.Language.NextNewBlockTipBottom, puzzleGame.NextBlockScore - puzzleGame.Score);
         }
     }
 }

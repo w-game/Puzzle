@@ -149,6 +149,10 @@ MonoBehaviour:
     m_Address: Prefabs/UI/Popup/PopCheckBox
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: d47241ff740c94551a23ed2ee6e202ba
+    m_Address: Prefabs/UI/Popup/PopLanguage
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2b925b1802ff143b1842bb3154200482, type: 2}
   m_SchemaSet:

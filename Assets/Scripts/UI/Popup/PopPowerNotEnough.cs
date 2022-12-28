@@ -1,4 +1,5 @@
 using Ad;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +18,13 @@ namespace UI.Popup
         [SerializeField] private Button receivePowerBtn;
         [SerializeField] private Button sureBtn;
 
+        [Header("本地化")] 
+        [SerializeField] private TextMeshProUGUI title;
+        [Space]
+        [SerializeField] private TextMeshProUGUI des;
+        [SerializeField] private TextMeshProUGUI getPowerBtnTxt;
+        [SerializeField] private TextMeshProUGUI sureBtnTxt;
+
         public override void OnCreate(params object[] objects)
         {
             receivePowerBtn.onClick.AddListener(ReceivePower);
@@ -24,6 +32,16 @@ namespace UI.Popup
             
             ShowNativeAd();
             EventCenter.Invoke(GamePower.EventKeys.Show);
+        }
+
+        public override void Localization()
+        {
+            var language = GameManager.Language;
+            title.text = language.PowerNotEnoughTitle;
+            des.text = language.PowerNotEnoughDes;
+
+            getPowerBtnTxt.text = language.GetPowerText;
+            sureBtnTxt.text = language.SureText;
         }
 
         private void OnSureBtnClicked()
@@ -39,7 +57,7 @@ namespace UI.Popup
                 if (result)
                 {
                     GameManager.User.IncreasePower(5);
-                    UIManager.Instance.ShowToast("获得5点体力");
+                    UIManager.Instance.ShowToast(GameManager.Language.GetPowerText);
                     CloseView();
                     EventCenter.Invoke(GamePower.EventKeys.Close);
                 }

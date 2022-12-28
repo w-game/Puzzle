@@ -1266,6 +1266,8 @@ MonoBehaviour:
   blockName: {fileID: 3546587470048758053}
   des: {fileID: 8758501967626946699}
   btn: {fileID: 8923054906048247811}
+  title: {fileID: 1581790854598085941}
+  sureBtnTxt: {fileID: 6395813023785128410}
 --- !u!1 &6958598344279632740
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,17 @@ public class GameManager : MonoSingleton<GameManager>
 
     public ChallengeSystem ChallengeSystem { get; } = new();
 
+    public static LanguageBase Language { get; private set; }
+    public static ELanguage LanguageType
+    {
+        get => Language.L;
+        set
+        {
+            PlayerPrefs.SetString("LANGUAGE", value.ToString());
+            Language = LanguageBase.Languages[value];
+        }
+    }
+
     public static bool IsDebug => Debug.isDebugBuild;
     void Awake()
     {
@@ -28,6 +39,16 @@ public class GameManager : MonoSingleton<GameManager>
         User.Init();
         SoundManager.Instance.Init();
         Application.targetFrameRate = 60;
+        
+        InitLanguage();
+    }
+
+    private void InitLanguage()
+    {
+        var l = PlayerPrefs.GetString("LANGUAGE", ELanguage.SimplifiedChinese.ToString());
+        Enum.TryParse<ELanguage>(l, out var languageName);
+        LanguageBase.Languages.TryGetValue(languageName, out var language);
+        Language = language;
     }
 
     public void CheckPower(int power, Action callback)

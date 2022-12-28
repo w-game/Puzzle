@@ -1299,6 +1299,9 @@ MonoBehaviour:
   des: {fileID: 8758501967626946699}
   sureBtn: {fileID: 8923054906048247811}
   cancelBtn: {fileID: 1621394497198806138}
+  title: {fileID: 1581790854598085941}
+  sureBtnTxt: {fileID: 6395813023785128410}
+  cancelBtnTxt: {fileID: 4455801025270777193}
 --- !u!1 &7502249262042419234
 GameObject:
   m_ObjectHideFlags: 0
