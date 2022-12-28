@@ -1,3 +1,4 @@
+using Ad;
 using Common;
 using UI;
 using UnityEngine;
@@ -16,7 +17,9 @@ public class PopSetting : PopupBase
     [SerializeField] private Slider bgm;
     [SerializeField] private Slider soundEffect;
     [SerializeField] private Slider fpsSlider;
+    [SerializeField] private Slider adSlider;
     [SerializeField] private Button fpsBtn;
+    [SerializeField] private Button adBtn;
     [SerializeField] private Button completeBtn;
     public override void OnCreate(params object[] objects)
     {
@@ -24,6 +27,7 @@ public class PopSetting : PopupBase
         soundEffect.onValueChanged.AddListener(OnSoundEffectValueChanged);
         fpsBtn.onClick.AddListener(OnFpsBtnClick);
         completeBtn.onClick.AddListener(CloseView);
+        adBtn.onClick.AddListener(OnAdBtnClicked);
         
         Init();
     }
@@ -33,6 +37,7 @@ public class PopSetting : PopupBase
         fpsSlider.value = Application.targetFrameRate == 60 ? 1 : 0;
         bgm.value = SoundManager.Instance.BgmVolume;
         soundEffect.value = SoundManager.Instance.SoundEffectVolume;
+        adSlider.value = AdManager.Instance.NativeAdSwitch ? 1 : 0;
     }
 
     private void OnBgmValueChanged(float value)
@@ -49,5 +54,23 @@ public class PopSetting : PopupBase
     {
         fpsSlider.value = 1 - fpsSlider.value < 0.1f ? 0 : 1;
         Application.targetFrameRate = fpsSlider.value > 0.9f ? 60 : 30;
+    }
+
+    private void OnAdBtnClicked()
+    {
+        if (adSlider.value > 0.5f)
+        {
+            UIManager.Instance.ShowCheckBox("关闭展示弹窗广告将减少开发者收入，是否确认关闭？", SetNativeSwitch);
+        }
+        else
+        {
+            SetNativeSwitch();
+        }
+    }
+
+    private void SetNativeSwitch()
+    {
+        adSlider.value = adSlider.value > 0.5f ? 0 : 1;
+        AdManager.Instance.NativeAdSwitch = adSlider.value > 0.5f;
     }
 }

@@ -1153,7 +1153,7 @@
       "index": 40,
       "goal": [
         {
-          "type": "IceBlock",
+          "type": "StopRadiationBlock",
           "count": -1
         }
       ],
@@ -1163,44 +1163,44 @@
         "3,8": "RemoveStatic",
         "4,7": "RemoveStatic",
         "5,8": "RemoveStatic",
-        "4,8": "Ice"
+        "4,8": "Radiation"
       }
     },
     {
       "index": 41,
       "goal": [
         {
-          "type": "StopIceBlock",
+          "type": "StopRadiationBlock",
           "count": -1
         }
       ],
       "blockCount": 4,
       "roundCount": 20,
       "blocks": {
-        "4,8": "Ice"
+        "4,8": "Radiation"
       }
     },
     {
       "index": 42,
       "goal": [
         {
-          "type": "StopIceBlock",
+          "type": "StopRadiationBlock",
           "count": -1
         }
       ],
       "blockCount": 4,
       "roundCount": 30,
       "blocks": {
-        "1,8": "Ice",
-        "4,8": "Ice",
-        "7,8": "Ice"
+        "1,8": "Radiation",
+        "4,8": "Radiation",
+        "7,8": "Radiation"
       }
     },
     {
       "index": 43,
       "goal": [
         {
-          "type": "StopIceBlock",
+          "type": "StopRadiationBlock",
           "count": -1
         }
       ],
@@ -1216,63 +1216,60 @@
         "6,6": "RemoveStatic",
         "7,5": "RemoveStatic",
         "8,6": "RemoveStatic",
-        "1,8": "Ice",
-        "4,8": "Ice",
-        "7,8": "Ice"
+        "1,8": "Radiation",
+        "4,8": "Radiation",
+        "7,8": "Radiation"
       }
     },
     {
       "index": 44,
       "goal": [
         {
-          "type": "StopIceBlock",
+          "type": "StopRadiationBlock",
           "count": -1
         }
       ],
       "blockCount": 4,
-      "roundCount": 40,
+      "roundCount": 60,
       "blocks": {
         "1,6": "RemoveStatic",
-        "3,6": "RemoveStatic",
-        "5,6": "RemoveStatic",
+        "4,6": "RemoveStatic",
         "7,6": "RemoveStatic",
         "1,1": "RemoveStatic",
-        "3,1": "RemoveStatic",
-        "5,1": "RemoveStatic",
+        "4,1": "RemoveStatic",
         "7,1": "RemoveStatic",
-        "1,5": "Ice",
-        "3,5": "Ice",
-        "5,5": "Ice",
-        "7,5": "Ice",
-        "4,8": "Ice"
+        "1,5": "Radiation",
+        "4,5": "Radiation",
+        "7,5": "Radiation",
+        "4,8": "Radiation"
       }
     },
     {
       "index": 45,
       "goal": [
         {
-          "type": "CountIceBlock",
+          "type": "CountRadiationBlock",
           "count": 10
         }
       ],
       "blockCount": 4,
       "roundCount": 20,
       "blocks": {
-        "4,8": "Ice"
+        "4,8": "Radiation"
       }
     },
     {
       "index": 46,
       "goal": [
         {
-          "type": "CountIceBlock",
+          "type": "CountRadiationBlock",
           "count": 10
         }
       ],
       "blockCount": 4,
-      "roundCount": 30,
+      "roundCount": 25,
       "blocks": {
-        "4,1": "Ice",
+        "4,1": "Radiation",
         "4,2": "RemoveStatic"
       }
     },
@@ -1280,14 +1277,14 @@
       "index": 47,
       "goal": [
         {
-          "type": "CountIceBlock",
+          "type": "CountRadiationBlock",
           "count": 10
         }
       ],
       "blockCount": 4,
-      "roundCount": 30,
+      "roundCount": 45,
       "blocks": {
-        "4,4": "Ice",
+        "4,4": "Radiation",
         "3,1": "RemoveStatic",
         "4,1": "RemoveStatic",
         "5,1": "RemoveStatic",
@@ -1314,14 +1311,14 @@
       "index": 48,
       "goal": [
         {
-          "type": "CountIceBlock",
+          "type": "CountRadiationBlock",
           "count": 10
         }
       ],
       "blockCount": 4,
       "roundCount": 30,
       "blocks": {
-        "4,8": "Ice",
+        "4,8": "Radiation",
         "0,8": "RemoveStatic",
         "2,8": "RemoveStatic",
         "6,8": "RemoveStatic",
@@ -1351,23 +1348,23 @@
       "index": 49,
       "goal": [
         {
-          "type": "CountIceBlock",
+          "type": "CountRadiationBlock",
           "count": 20
         },
         {
-          "type": "StopIceBlock",
+          "type": "StopRadiationBlock",
           "count": -1
         }
       ],
       "blockCount": 4,
       "roundCount": 30,
       "blocks": {
-        "4,0": "Ice"
+        "4,0": "Radiation"
       }
     }
   ],
   "levelNewBlock": {
-    "10": {
+    "6": {
       "type": "RemoveStaticBlock",
       "blockName": "可消除型静态方块",
       "des": "这个方块会被固定在它生成时的位置上不可移动。但当它周围有其他方块被消除时，它也会被一起消除。",
@@ -1379,6 +1376,13 @@
       "blockName": "标志方块",
       "des": "这个方块会被固定在其生成时的位置上不可移动，并且不会阻挡其他方块。但当它所在棋格有其他方块被消除时，它也会一起被消除",
       "path": "Textures/shadow_block",
+      "color": "#FFFFFF"
+    },
+    "40": {
+      "type": "RadiationBlock",
+      "blockName": "辐射方块",
+      "des": "在每次回合结束时，在它周围的其他普通方块都会被变成辐射方块",
+      "path": "Textures/icon_radiation",
       "color": "#FFFFFF"
     }
   }

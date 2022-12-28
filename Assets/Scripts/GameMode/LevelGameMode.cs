@@ -102,6 +102,7 @@ public class LevelGameMode : PuzzleGame
     private void InitLevelBoard()
     {
         if (CurLevel.Boards.Count == 0) return;
+        ClearSlots(ClearSlotType.NotNormal);
         
         SLog.D(Tag, $"Board Config: {CurLevel.Boards}");
 

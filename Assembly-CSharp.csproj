@@ -44,7 +44,7 @@
      <Compile Include="Assets/Scripts/UI/Common/ViewStack/MainStack.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/ABUConstantHelper.cs" />
      <Compile Include="Assets/MSDK/Scripts/Dummy/ABURewardVideoAd.cs" />
-     <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/IceBlockRemoveGoal.cs" />
+     <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/RadiationBlockRemoveGoal.cs" />
      <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/NativeAdExample.cs" />
      <Compile Include="Assets/MSDK/Scripts/iOS/dto/ABUAdUnit.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGameMode.cs" />
@@ -175,7 +175,7 @@
      <Compile Include="Assets/Sample/Scripts/Main/GameEnter.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopGM.cs" />
      <Compile Include="Assets/Sample/Scripts/Main/Ui/MainUiViewScript.cs" />
-     <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/StopIceBlockRemoveGoal.cs" />
+     <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/StopRadiationBlockRemoveGoal.cs" />
      <Compile Include="Assets/Sample/Scripts/Utils/Constants/PlayerPreferenceConstant.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/UnRemoveStaticBlock.cs" />
      <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/AdFunctionScript.cs" />
@@ -198,7 +198,7 @@
      <Compile Include="Assets/Scripts/ColorLibrary.cs" />
      <Compile Include="Assets/MSDK/Scripts/iOS/ABUUserInfoForSegment.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/ABUInterstitialAd.cs" />
-     <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/CountIceBlockRemoveGoal.cs" />
+     <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/CountRadiationBlockRemoveGoal.cs" />
      <Compile Include="Assets/Scripts/Common/PlayerPrefsX.cs" />
      <Compile Include="Assets/Sample/Scripts/Internationalization/LanguageType.cs" />
      <Compile Include="Assets/Sample/Scripts/Main/Helper/PrefabLoader.cs" />
@@ -245,7 +245,7 @@
      <Compile Include="Assets/Scripts/UI/Element/GamePower.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/ABUUserInfoForSegment.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/ABUPrivacyConfig.cs" />
-     <Compile Include="Assets/Scripts/GameMode/Blocks/IceBlock.cs" />
+     <Compile Include="Assets/Scripts/GameMode/Blocks/RadiationBlock.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopPowerNotEnough.cs" />
      <Compile Include="Assets/Scripts/Challenge/RemoveCountChallenge.cs" />
      <Compile Include="Assets/Scripts/Ad/NativeAd.cs" />
@@ -269,9 +269,9 @@
      <Compile Include="Assets/MSDK/Scripts/Android/NativeAd.cs" />
      <Compile Include="Assets/Scripts/UI/Element/LevelGoalItemElement.cs" />
      <Compile Include="Assets/Scripts/Ad/RewardAd.cs" />
+     <Compile Include="Assets/Scripts/UI/Popup/PopCheckBox.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
-     <None Include="Assets/AddressableAssetsData/link.xml" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
      <None Include="Assets/Sample/link.xml" />
      <None Include="Assets/Config/level_config.json" />
@@ -279,7 +279,6 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets/Import/ArcadeGameBGM#17/ReadMe.txt" />
-     <None Include="Assets/StreamingAssets/UnityServicesProjectConfiguration.json" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />

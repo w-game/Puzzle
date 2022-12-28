@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Blocks
 {
-    public class IceBlock : SpecialBlock
+    public class RadiationBlock : SpecialBlock
     {
         private List<NormalBlock> _beEffectBlocks = new();
         protected override void SetPattern(Color color)
