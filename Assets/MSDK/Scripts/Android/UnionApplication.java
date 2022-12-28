@@ -27,10 +27,10 @@ public class UnionApplication  extends Application {
        userInfo.setUserValueGroup("msdk demo user value group");
        return new TTAdConfig.Builder()
                .appId("5354735")
-               .appName("APP测试媒体")
+               .appName("不一样的方块消")
                .openAdnTest(false)//开启第三方ADN测试时需要设置为true，会每次重新拉去最新配置，release 包情况下必须关闭.默认false
                .isPanglePaid(false)//是否为费用户
-               .openDebugLog(true) //测试阶段打开，可以通过日志排查问题，上线时去除该调用
+               .openDebugLog(false) //测试阶段打开，可以通过日志排查问题，上线时去除该调用
                .usePangleTextureView(true) //使用TextureView控件播放视频,默认为SurfaceView,当有SurfaceView冲突的场景，可以使用TextureView
                .setPangleTitleBarTheme(TTAdConstant.TITLE_BAR_THEME_DARK)
                .allowPangleShowNotify(true) //是否允许sdk展示通知栏提示

@@ -12,12 +12,18 @@ namespace Common
     {
         public static void D(string tag, object msg)
         {
-            Debug.Log($"{tag} -> {msg}");
+            if (GameManager.IsDebug)
+            {
+                Debug.Log($"{tag} -> {msg}");
+            }
         }
         
         public static void E(string tag, object msg)
         {
-            Debug.LogError($"{tag} -> {msg}");
+            if (GameManager.IsDebug)
+            {
+                Debug.LogError($"{tag} -> {msg}");
+            }
         }
     }
 }
