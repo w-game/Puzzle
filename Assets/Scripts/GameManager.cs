@@ -1,4 +1,5 @@
 using System;
+using Ad;
 using Common;
 using GameMode.LevelGame;
 using GameSystem;
@@ -31,16 +32,21 @@ public class GameManager : MonoSingleton<GameManager>
     public static bool IsDebug => Debug.isDebugBuild;
     void Awake()
     {
-        var lastEndGame = PlayerPrefs.GetInt("LastEndGame", TimeUtil.Timestamp);
-        LaunchGameGap = TimeUtil.Timestamp - lastEndGame;
-        SLog.D("Game", $"距离上次退出游戏{LaunchGameGap}s");
-        
-        UIManager.Instance.PushMain<HomeViewData>();
+        InitGameTime();
         User.Init();
         SoundManager.Instance.Init();
         Application.targetFrameRate = 60;
-        
         InitLanguage();
+        AdManager.Instance.Init();
+
+        UIManager.Instance.PushMain<HomeViewData>();
+    }
+
+    private void InitGameTime()
+    {
+        var lastEndGame = PlayerPrefs.GetInt("LastEndGame", TimeUtil.Timestamp);
+        LaunchGameGap = TimeUtil.Timestamp - lastEndGame;
+        SLog.D("Game", $"距离上次退出游戏{LaunchGameGap}s");
     }
 
     private void InitLanguage()

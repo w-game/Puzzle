@@ -41,24 +41,24 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets/Plugins/API/OmAgent.cs" />
+     <Compile Include="Assets/Plugins/API/OmInitilizer.cs" />
+     <Compile Include="Assets/Plugins/API/Om.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics2D.cs" />
+     <Compile Include="Assets/Plugins/API/OmEvents.cs" />
+     <Compile Include="Assets/Plugins/API/OmJSON.cs" />
+     <Compile Include="Assets/Plugins/API/AndroidAgent.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUI.cs" />
+     <Compile Include="Assets/Plugins/API/OMProjectSettings.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUnityVersion.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleEPOOutline.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUtils.cs" />
+     <Compile Include="Assets/Plugins/API/iOSAgent.cs" />
+     <Compile Include="Assets/Plugins/API/OmUtils.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleSprite.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleAudio.cs" />
-     <Compile Include="Assets/Plugins/API/Om.cs" />
-     <Compile Include="Assets/Plugins/API/OMProjectSettings.cs" />
-     <Compile Include="Assets/Plugins/API/AndroidAgent.cs" />
-     <Compile Include="Assets/Plugins/API/OmAgent.cs" />
-     <Compile Include="Assets/Plugins/API/iOSAgent.cs" />
-     <Compile Include="Assets/Plugins/API/OmUtils.cs" />
-     <Compile Include="Assets/Plugins/API/OmJSON.cs" />
      <Compile Include="Assets/Plugins/API/OmImpressionData.cs" />
-     <Compile Include="Assets/Plugins/API/OmInitilizer.cs" />
-     <Compile Include="Assets/Plugins/API/OmEvents.cs" />
      <None Include="Assets/Plugins/Demigiant/DOTween/readme.txt" />
      <None Include="Assets/Plugins/Android/AndroidManifest.xml" />
      <Reference Include="UnityEngine">

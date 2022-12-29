@@ -31,14 +31,14 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void CheckCloseSplash()
     {
-        if (GameManager.User.PrivacyPolicy)
-        {
-            TopStack.Push<PopPrivacyPolicyData>();
-        }
-        else
-        {
-            CloseSplash();
-        }
+        // if (GameManager.User.PrivacyPolicy)
+        // {
+        //     TopStack.Push<PopPrivacyPolicyData>();
+        // }
+        // else
+        // {
+        // }
+        CloseSplash();
     }
 
     public void CloseSplash()

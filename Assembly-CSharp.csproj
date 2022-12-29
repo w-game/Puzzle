@@ -145,8 +145,10 @@
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/ColorFiveBlockRemoveGoal.cs" />
      <Compile Include="Assets/Scripts/UI/Element/LevelGoalItemElement.cs" />
      <Compile Include="Assets/Scripts/Ad/RewardAd.cs" />
+     <Compile Include="Assets/Scripts/Splash.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
+     <None Include="Assets/AddressableAssetsData/link.xml" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
      <None Include="Assets/Config/level_config.json" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />

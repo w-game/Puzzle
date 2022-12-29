@@ -21,7 +21,6 @@ namespace UI
             {
                 splash.gameObject.SetActive(false);
             });
-            AdManager.Instance.Init();
         }
 
         public void ShowToast(string msg)
