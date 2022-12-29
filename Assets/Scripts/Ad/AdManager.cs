@@ -1,4 +1,3 @@
-using ByteDance.Union;
 using Common;
 using UnityEngine;
 
@@ -18,10 +17,6 @@ namespace Ad
         
         public override void Init()
         {
-            ABUUserConfig userConfig = new();
-            userConfig.logEnable = false;
-            ABUAdSDK.setupMSDK("5354735", "msdk demo", userConfig);
-            
             PreloadAd();
         }
 
