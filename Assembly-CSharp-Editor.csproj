@@ -41,6 +41,10 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets/Editor/ModifyUnityAndroidAppManifest.cs" />
+     <None Include="Assets/ExternalDependencyManager/Editor/GoogleRegistries.xml" />
+     <None Include="Assets/ExternalDependencyManager/Editor/external-dependency-manager_version-1.2.155_manifest.txt" />
+     <None Include="Assets/ExternalDependencyManager/Editor/external-dependency-manager_version-1.2.170_manifest.txt" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
@@ -349,6 +353,33 @@
      </Reference>
      <Reference Include="unityplastic">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
+     </Reference>
+     <Reference Include="Google.PackageManagerResolver_v1.2.155">
+     <HintPath>/Users/chenglongnie/Puzzle/Assets/ExternalDependencyManager/Editor/Google.PackageManagerResolver_v1.2.155.dll</HintPath>
+     </Reference>
+     <Reference Include="Google.IOSResolver_v1.2.155">
+     <HintPath>/Users/chenglongnie/Puzzle/Assets/ExternalDependencyManager/Editor/Google.IOSResolver_v1.2.155.dll</HintPath>
+     </Reference>
+     <Reference Include="Google.JarResolver_v1.2.155">
+     <HintPath>/Users/chenglongnie/Puzzle/Assets/ExternalDependencyManager/Editor/Google.JarResolver_v1.2.155.dll</HintPath>
+     </Reference>
+     <Reference Include="Google.VersionHandlerImpl_v1.2.155">
+     <HintPath>/Users/chenglongnie/Puzzle/Assets/ExternalDependencyManager/Editor/Google.VersionHandlerImpl_v1.2.155.dll</HintPath>
+     </Reference>
+     <Reference Include="Google.VersionHandler">
+     <HintPath>/Users/chenglongnie/Puzzle/Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll</HintPath>
+     </Reference>
+     <Reference Include="Google.VersionHandlerImpl">
+     <HintPath>/Users/chenglongnie/Puzzle/Assets/ExternalDependencyManager/Editor/1.2.170/Google.VersionHandlerImpl.dll</HintPath>
+     </Reference>
+     <Reference Include="Google.PackageManagerResolver">
+     <HintPath>/Users/chenglongnie/Puzzle/Assets/ExternalDependencyManager/Editor/1.2.170/Google.PackageManagerResolver.dll</HintPath>
+     </Reference>
+     <Reference Include="Google.IOSResolver">
+     <HintPath>/Users/chenglongnie/Puzzle/Assets/ExternalDependencyManager/Editor/1.2.170/Google.IOSResolver.dll</HintPath>
+     </Reference>
+     <Reference Include="Google.JarResolver">
+     <HintPath>/Users/chenglongnie/Puzzle/Assets/ExternalDependencyManager/Editor/1.2.170/Google.JarResolver.dll</HintPath>
      </Reference>
      <Reference Include="nunit.framework">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
@@ -939,9 +970,10 @@
       <Project>{9acc78a9-9174-5372-286f-63e1e9e5b875}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets" />
+    <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
+      <Project>{91b8c7aa-e518-982d-1d3f-4f31abea7114}</Project>
+      <Name>Assembly-CSharp-Editor-firstpass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

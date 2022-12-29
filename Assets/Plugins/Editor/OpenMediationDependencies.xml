@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dependencies><version>2.7.1</version><androidPackages><androidPackage spec="com.openmediation:om-android-sdk:2.6.5@aar"><repositories><repository>https://dl.openmediation.com/omcenter/</repository></repositories></androidPackage></androidPackages><iosPods><iosPod name="OpenMediation" version="2.5.0"><sources><source>https://github.com/CocoaPods/Specs</source></sources></iosPod></iosPods></dependencies>

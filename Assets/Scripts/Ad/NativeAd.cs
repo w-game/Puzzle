@@ -1,19 +1,29 @@
-using System;
 using Common;
-using UnityEngine;
+using UnityEngine.Events;
 
 namespace Ad
 {
     public class NativeAd : AdBase
     {
-        public AndroidJavaObject NativeAdJavaObject { get; set; }
+        public override void InitAd()
+        {
+            OmEvents.onPromotionAdShowedEvent += msg =>
+            {
+                SLog.D("Native Ad", $"Native Ad展示成功！\n{msg}");
+            };
+
+            OmEvents.onPromotionAdShowFailedEvent += msg =>
+            {
+                SLog.D("Native Ad", $"Native Ad展示失败！\n{msg}");
+            };
+        }
 
         public override void LoadAd()
         {
-
+            
         }
 
-        public override void ShowAd(Action<bool> callback)
+        public override void ShowAd(UnityAction<bool> callback)
         {
             if (AdManager.Instance.NativeAdSwitch)
             {
@@ -24,7 +34,7 @@ namespace Ad
 
         public override void CloseAd()
         {
-            NativeAdJavaObject?.Call("destroy");
+            Om.Agent.hidePromotionAd();
         }
     }
 }

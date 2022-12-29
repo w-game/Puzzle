@@ -45,7 +45,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void InitLanguage()
     {
-        var l = PlayerPrefs.GetString("LANGUAGE", ELanguage.SimplifiedChinese.ToString());
+        var l = PlayerPrefs.GetString("LANGUAGE", ELanguage.TraditionalChinese.ToString());
         Enum.TryParse<ELanguage>(l, out var languageName);
         LanguageBase.Languages.TryGetValue(languageName, out var language);
         Language = language;

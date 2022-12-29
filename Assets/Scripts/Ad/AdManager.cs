@@ -17,7 +17,24 @@ namespace Ad
         
         public override void Init()
         {
-            PreloadAd();
+            SLog.D("Ads","开始初始化广告SDK");
+            OmEvents.onSdkInitSuccessEvent += OnInitSuccess;
+            OmEvents.onSdkInitFailedEvent += OnInitFailed;
+            Om.Agent.init("YivoA4Zs7qGtA62X7WBd4Q8PRj8nNmzw");
+        }
+
+        private void OnInitSuccess()
+        {
+            NativeAd.InitAd();
+            RewardAd.InitAd();
+            BannerAd.InitAd();
+            BannerAd.LoadAd();
+            SLog.D("Ads", "广告SDK初始化完成！");
+        }
+        
+        private void OnInitFailed(string msg)
+        {
+            SLog.D("Ads", $"广告SDK初始化失败！\n{msg}");
         }
 
         private void PreloadAd()

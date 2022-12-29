@@ -26,7 +26,6 @@ namespace UI
         {
             AdManager.Instance.NativeAd.ShowAd(null);
             _adShowed = true;
-            // AdManager.Instance.BannerAd.ShowAd(null);
         }
 
         protected override void CloseView()
