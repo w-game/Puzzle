@@ -61,7 +61,7 @@ public class PopPrivacyPolicy : PopupBase
                     if (!result)
                     {
                         _requestPermission = false;
-                        UIManager.Instance.ShowToast(GameManager.Language.GetPermissionFail);
+                        UIManager.Instance.ShowToast(ToastType.Error, GameManager.Language.GetPermissionFail);
                         return;
                     }
                 }

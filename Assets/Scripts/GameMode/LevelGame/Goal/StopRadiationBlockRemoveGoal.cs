@@ -18,14 +18,14 @@ namespace GameMode.LevelGame
         {
             GoalCount = 0;
             CurCount = 0;
-            GameManager.Instance.PuzzleGame.BlockSlots.ForEach(slot =>
+            PuzzleGame.Cur.BlockSlots.ForEach(slot =>
             {
                 if (slot.SubBlock is RadiationBlock)
                 {
                     GoalCount++;
                 }
             });
-            EventCenter.Invoke(LevelGameView.LevelEventKeys.RefreshGoal);
+            EventCenter.Invoke(GameView.EventKeys.RefreshGoal);
         }
     }
 }

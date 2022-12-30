@@ -30,8 +30,6 @@ public class RemoveUnit
             slot.RemoveMainBlock();
         }
 
-        GameManager.Instance.ChallengeSystem.CheckProcess(this);
-
         return Slots.Count * rate;
     }
 }
@@ -49,8 +47,6 @@ public class SecondRemoveUnit : RemoveUnit
             slot.SecondBlock?.OnRemove();
             slot.RemoveSecondBlock();
         }
-
-        GameManager.Instance.ChallengeSystem.CheckProcess(this);
 
         return Slots.Count * rate;
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Blocks;
 using Common;
 using DG.Tweening;
+using GameMode.LevelGame;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,9 +15,11 @@ public enum PuzzleGameMode
 
 public enum ClearSlotType
 {
+    None,
     All,
     Normal,
-    NotNormal
+    NotNormal,
+    SecondBlock
 }
 
 public abstract class PuzzleGame : MonoBehaviour
@@ -24,7 +27,7 @@ public abstract class PuzzleGame : MonoBehaviour
     public static class PowerCost
     {
         public const int Level = 1;
-        public const int Unlimited = 2;
+        public const int Endless = 2;
     }
     public const int BoardWidth = 9;
     public const int BoardLength = 9;
@@ -46,6 +49,8 @@ public abstract class PuzzleGame : MonoBehaviour
     
     private readonly Dictionary<Block, BlockSlot> _undeterminedGrids = new();
     private GridControl Control => GridControl.Instance;
+    public static LevelConfigs Config { get; set; }
+    public static PuzzleGame Cur { get; set; }
 
     private RemoveCheck _removeCheck = new(BoardWidth, BoardLength);
 
@@ -58,6 +63,7 @@ public abstract class PuzzleGame : MonoBehaviour
         _rect.sizeDelta = new Vector2(
             BlockSize * BoardWidth + (BoardWidth - 1) * 10,
             BlockSize * BoardLength + (BoardLength - 1) * 10);
+        Cur = this;
     }
 
     protected virtual void AddInitGameProcess(Process process) { }
@@ -125,8 +131,8 @@ public abstract class PuzzleGame : MonoBehaviour
         if (clearSlots) ClearSlots(ClearSlotType.All);
         
         Control.Refresh();
-        
-        EventCenter.Invoke(GameView.EventKeys.EnableStartBtn);
+
+        EventCenter.Invoke(GameView.EventKeys.ModifyStartBtnStatus, true);
         EventCenter.Invoke(GameView.EventKeys.RefreshView);
         
         OnRefresh();
@@ -135,19 +141,19 @@ public abstract class PuzzleGame : MonoBehaviour
     /// <summary>
     /// 清除棋盘
     /// </summary>
-    protected void ClearSlots(ClearSlotType type)
+    public void ClearSlots(ClearSlotType type, bool anima = false)
     {
         switch (type)
         {
             case ClearSlotType.All:
-                BlockSlots.ForEach(slot => slot.RemoveAllBlock(false));
+                BlockSlots.ForEach(slot => slot.RemoveAllBlock(anima));
                 break;
             case ClearSlotType.Normal:
                 BlockSlots.ForEach(slot =>
                 {
                     if (slot.SubBlock is NormalBlock)
                     {
-                        slot.RemoveMainBlock(false);
+                        slot.RemoveMainBlock(anima);
                     }
                 });
                 break;
@@ -156,11 +162,50 @@ public abstract class PuzzleGame : MonoBehaviour
                 {
                     if (slot.SubBlock is not NormalBlock)
                     {
-                        slot.RemoveMainBlock(false);
+                        slot.RemoveMainBlock(anima);
+                    }
+                    
+                    if (slot.SecondBlock)
+                    {
+                        slot.RemoveSecondBlock(anima);
                     }
                 });
                 break;
+            case ClearSlotType.SecondBlock:
+                BlockSlots.ForEach(slot =>
+                {
+                    if (slot.SecondBlock)
+                    {
+                        slot.RemoveSecondBlock(anima);
+                    }
+                });
+                break;
+            case ClearSlotType.None:
+                break;
         }
+    }
+
+    public List<BlockSlot> GenerateSpecialBlocks(Dictionary<string,string> blocks, ClearSlotType type)
+    {
+        List<BlockSlot> slots = new List<BlockSlot>();
+        if (blocks.Count == 0) return slots;
+        ClearSlots(type);
+        foreach (var posStr in blocks.Keys)
+        {
+            var pos = posStr.Split(',');
+            int x = int.Parse(pos[0]);
+            int y = int.Parse(pos[1]);
+            
+            var slot = BlockSlots[y * BoardWidth + x];
+            slot.RemoveAllBlock(false);
+        
+            slot.GenerateBlock(Type.GetType($"Blocks.{blocks[posStr]}Block"), Color.white);
+            slots.Add(slot);
+        }
+
+        StartCheck(false);
+
+        return slots;
     }
 
     protected void RefreshBlockColor(int count = 3)
@@ -221,10 +266,23 @@ public abstract class PuzzleGame : MonoBehaviour
             downSlot.SetGrid(grid, true);
         }
         _undeterminedGrids.Clear();
-        DoAnima(CheckRemove);
+        StartCheck(true);
+    }
+
+    public void StartCheck(bool anima)
+    {
+        EventCenter.Invoke(GameView.EventKeys.ModifyStartBtnStatus, false);
+        if (anima)
+        {
+            DoAnima(CheckRemove);
+        }
+        else
+        {
+            CheckRemove();
+        }
     }
     
-    protected void DoAnima(TweenCallback callback)
+    public void DoAnima(TweenCallback callback)
     {
         var sequence = DOTween.Sequence();
         sequence.AppendInterval(AnimaTime);
@@ -263,7 +321,7 @@ public abstract class PuzzleGame : MonoBehaviour
         DoAnima(CheckComeDown);
     }
 
-    protected void CheckComeDown()
+    public void CheckComeDown()
     {
         bool result = false;
         for (int j = BoardLength - 1; j >= 0; j--)
@@ -306,7 +364,7 @@ public abstract class PuzzleGame : MonoBehaviour
         else OnRoundEnd();
         
         EventCenter.Invoke(GameView.EventKeys.RefreshView);
-        EventCenter.Invoke(GameView.EventKeys.EnableStartBtn);
+        EventCenter.Invoke(GameView.EventKeys.ModifyStartBtnStatus, true);
     }
     
     protected virtual bool CheckGameOver()
@@ -334,5 +392,26 @@ public abstract class PuzzleGame : MonoBehaviour
     public void EndGame()
     {
         OnGameEnd();
+    }
+    
+    public void MoveUp(BlockSlot slot)
+    {
+        if (slot.UpSlot)
+        {
+            if (slot.UpSlot.SubBlock)
+            {
+                MoveUp(slot.UpSlot);
+            }
+
+            if (!slot.UpSlot.SubBlock)
+            {
+                slot.UpSlot.SetGrid(slot.SubBlock);
+                slot.SubBlock = null;
+            }
+            else
+            {
+                GameOver();
+            }
+        }
     }
 }

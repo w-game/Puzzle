@@ -1,7 +1,7 @@
 using System;
 using Common;
 using GameMode.LevelGame;
-using GameSystem;
+using Newtonsoft.Json;
 using UI.Popup;
 using UnityEngine;
 
@@ -13,10 +13,6 @@ public class GameManager : MonoSingleton<GameManager>
     public int LaunchGameGap { get; private set; }
     public static User User { get; } = new();
     
-    public PuzzleGame PuzzleGame { get; set; }
-
-    public ChallengeSystem ChallengeSystem { get; } = new();
-
     public static LanguageBase Language { get; private set; }
     public static ELanguage LanguageType
     {
@@ -41,6 +37,7 @@ public class GameManager : MonoSingleton<GameManager>
         Application.targetFrameRate = 60;
         
         InitLanguage();
+        LoadConfig();
     }
 
     private void InitLanguage()
@@ -49,6 +46,14 @@ public class GameManager : MonoSingleton<GameManager>
         Enum.TryParse<ELanguage>(l, out var languageName);
         LanguageBase.Languages.TryGetValue(languageName, out var language);
         Language = language;
+    }
+
+    private void LoadConfig()
+    {
+        AddressableMgr.Load<TextAsset>("Config/level_config", json =>
+        {
+            PuzzleGame.Config = JsonConvert.DeserializeObject<LevelConfigs>(json.text);
+        });
     }
 
     public void CheckPower(int power, Action callback)

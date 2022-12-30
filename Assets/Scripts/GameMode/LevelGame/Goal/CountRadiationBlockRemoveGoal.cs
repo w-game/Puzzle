@@ -14,7 +14,7 @@ namespace GameMode.LevelGame
         protected override void OnRefresh()
         {
             var count = 0;
-            GameManager.Instance.PuzzleGame.BlockSlots.ForEach(slot =>
+            PuzzleGame.Cur.BlockSlots.ForEach(slot =>
             {
                 if (slot.SubBlock is RadiationBlock)
                 {
@@ -24,7 +24,7 @@ namespace GameMode.LevelGame
 
             if (count == 0 && GoalCount > CurCount)
             {
-                GameManager.Instance.PuzzleGame.GameOver();
+                GameEvent.OnFail();
             }
         }
     }

@@ -57,7 +57,6 @@ namespace Blocks
 
         public virtual bool CheckExecuteEffect() { return false; }
         public virtual void ExecuteEffect() { }
-        public virtual void OnRoundEnd() { }
         public virtual void OnPlaced() { }
         public virtual void OnRemove() { }
 
