@@ -1,6 +1,7 @@
 <linker>
   <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="BlockSlot" preserve="all" />
+    <type fullname="EndlessGameMode" preserve="all" />
     <type fullname="GridControl" preserve="all" />
     <type fullname="HomeView" preserve="all" />
     <type fullname="LevelGameMode" preserve="all" />
@@ -8,6 +9,7 @@
     <type fullname="PopPrivacyPolicy" preserve="all" />
     <type fullname="PopSetting" preserve="all" />
     <type fullname="UI.BaseView" preserve="all" />
+    <type fullname="UI.ChallengeResultElement" preserve="all" />
     <type fullname="UI.GameToolElement" preserve="all" />
     <type fullname="UI.GmElement" preserve="all" />
     <type fullname="UI.LanguageElement" preserve="all" />
@@ -25,9 +27,8 @@
     <type fullname="UI.Popup.PopPowerNotEnough" preserve="all" />
     <type fullname="UI.Popup.PopTip" preserve="all" />
     <type fullname="UI.SButton" preserve="all" />
+    <type fullname="UI.View.EndlessGameView" preserve="all" />
     <type fullname="UI.View.LevelGameView" preserve="all" />
-    <type fullname="UI.View.UnlimitedGameView" preserve="all" />
-    <type fullname="UnlimitedGameMode" preserve="all" />
   </assembly>
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
     <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
@@ -100,6 +101,8 @@
     <type fullname="UnityEngine.UI.SpriteState" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Canvas" preserve="all" />
+    <type fullname="UnityEngine.CanvasGroup" preserve="all" />
     <type fullname="UnityEngine.CanvasRenderer" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.VideoModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
