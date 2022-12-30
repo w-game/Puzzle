@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UI;
 using UI.Popup;
@@ -62,7 +61,7 @@ public class HomeView : ViewBase
                 StartGame<LevelGameViewData>(PuzzleGame.PowerCost.Level, levelStartGameBtn.transform);
                 break;
             case PuzzleGameMode.Unlimited:
-                StartGame<UnlimitedGameViewData>(PuzzleGame.PowerCost.Unlimited, unlimitedStartGameBtn.transform);
+                StartGame<EndlessGameViewData>(PuzzleGame.PowerCost.Endless, unlimitedStartGameBtn.transform);
                 break;
         }
     }

@@ -48,7 +48,7 @@ namespace UI.Popup
             {
                 UIManager.Instance.DecreasePower(restartBtn.transform, () =>
                 {
-                    GameManager.Instance.PuzzleGame.StartGame();
+                    PuzzleGame.Cur.StartGame();
                     CloseView();
                 });
             });

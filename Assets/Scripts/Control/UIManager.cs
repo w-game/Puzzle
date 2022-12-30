@@ -51,9 +51,9 @@ public class UIManager : MonoSingleton<UIManager>
         TopStack.AddBlockTip.ShowTip(color);
     }
 
-    public void ShowToast(string msg)
+    public void ShowToast(ToastType type, string msg)
     {
-        TopStack.ShowToast(msg);
+        TopStack.ShowToast(type, msg);
     }
 
     public void DecreasePower(Transform target, Action callback)

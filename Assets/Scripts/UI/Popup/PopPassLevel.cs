@@ -48,7 +48,7 @@ namespace UI.Popup
             {
                 UIManager.Instance.DecreasePower(nextLevelBtn.transform, () =>
                 {
-                    var levelGameMode = GameManager.Instance.PuzzleGame as LevelGameMode;
+                    var levelGameMode = PuzzleGame.Cur as LevelGameMode;
                     levelGameMode.InitLevel();
                     CloseView();
                 });

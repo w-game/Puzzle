@@ -10,24 +10,11 @@ using UnityEngine;
 public class LevelGameMode : PuzzleGame
 {
     private const string Tag = "Level Game";
-    private LevelConfigs _configs;
     public GameLevel CurLevel { get; private set; }
-
-    protected override void AddInitGameProcess(Process process)
-    {
-        process.Add("Load Level Config", p =>
-        {
-            AddressableMgr.Load<TextAsset>("Config/level_config", json =>
-            {
-                _configs = JsonConvert.DeserializeObject<LevelConfigs>(json.text);
-                p.Next();
-            });
-        });
-    }
 
     private bool CheckLevelEnd()
     {
-        if (GameManager.User.GameLevel >= _configs.levels.Count)
+        if (GameManager.User.GameLevel >= Config.levels.Count)
         {
             UIManager.Instance.ShowTip(GameManager.Language.LevelEndTipDes, () =>
             {
@@ -45,7 +32,7 @@ public class LevelGameMode : PuzzleGame
         GameStatus = true;
         
         ClearSlots(ClearSlotType.All);
-        var config = _configs.levels[GameManager.User.GameLevel];
+        var config = Config.levels[GameManager.User.GameLevel];
         RefreshBlockColor(config.blockCount);
 
         var boardData = PlayerPrefs.GetString("Game Board Data", "");
@@ -80,7 +67,7 @@ public class LevelGameMode : PuzzleGame
         SaveBoard();
         CheckShowNewBlockTip();
 
-        EventCenter.Invoke(LevelGameView.LevelEventKeys.RefreshRoundCount);
+        EventCenter.Invoke(GameView.EventKeys.RefreshRoundCount, CurLevel.RoundCount);
         EventCenter.Invoke(LevelGameView.LevelEventKeys.SetGoal);
     }
 
@@ -97,29 +84,12 @@ public class LevelGameMode : PuzzleGame
     private void CheckLevelGoal(RemoveUnit unit)
     {
         CurLevel.CheckLevelGoal(unit);
-        EventCenter.Invoke(LevelGameView.LevelEventKeys.RefreshGoal);
+        EventCenter.Invoke(GameView.EventKeys.RefreshGoal);
     }
 
     private void InitLevelBoard()
     {
-        if (CurLevel.Boards.Count == 0) return;
-        ClearSlots(ClearSlotType.NotNormal);
-        
-        SLog.D(Tag, $"Board Config: {CurLevel.Boards}");
-
-        foreach (var posStr in CurLevel.Boards.Keys)
-        {
-            var pos = posStr.Split(',');
-            int x = int.Parse(pos[0]);
-            int y = int.Parse(pos[1]);
-            
-            var slot = BlockSlots[y * BoardWidth + x];
-            slot.RemoveAllBlock(false);
-        
-            slot.GenerateBlock(Type.GetType($"Blocks.{CurLevel.Boards[posStr]}Block"), Color.white);
-        }
-
-        CheckComeDown();
+        GenerateSpecialBlocks(CurLevel.SpecialBlocks, ClearSlotType.NotNormal);
     }
 
     private void SaveBoard()
@@ -146,7 +116,7 @@ public class LevelGameMode : PuzzleGame
 
     private GameLevel CreateLevel(int levelIndex)
     {
-        var config = _configs.levels[GameManager.User.GameLevel];
+        var config = Config.levels[GameManager.User.GameLevel];
         SLog.D("Level Game", $"当前关卡：{levelIndex} Goal Count:{config.goal.Count}");
         var gameLevel = new GameLevel
         {
@@ -161,7 +131,7 @@ public class LevelGameMode : PuzzleGame
     protected override void OnRoundStart()
     {
         CurLevel.RoundCount--;
-        EventCenter.Invoke(LevelGameView.LevelEventKeys.RefreshRoundCount);
+        EventCenter.Invoke(GameView.EventKeys.RefreshRoundCount, CurLevel.RoundCount);
     }
 
     protected override void OnRoundEnd()
@@ -181,14 +151,13 @@ public class LevelGameMode : PuzzleGame
 
         var blockSlots = BlockSlots.FindAll(slot => slot.SubBlock && slot.SubBlock.CheckExecuteEffect());
         blockSlots.ForEach(slot => slot.SubBlock.ExecuteEffect());
-        BlockSlots.ForEach(slot => { if (slot.SubBlock) slot.SubBlock.OnRoundEnd(); });
         
         CurLevel.Goals.ForEach(goal => goal.Refresh());
     }
 
     private void CheckShowNewBlockTip()
     {
-        if (_configs.levelNewBlock.TryGetValue(GameManager.User.GameLevel, out var config))
+        if (Config.levelNewBlock.TryGetValue(GameManager.User.GameLevel, out var config))
         {
             UIManager.Instance.PushPop<PopNewBlockIntroduceData>(config);
         }
