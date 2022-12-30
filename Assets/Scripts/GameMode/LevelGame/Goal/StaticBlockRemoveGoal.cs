@@ -9,7 +9,7 @@ namespace GameMode.LevelGame
         {
             Pattern = StaticBlock.BlockPattern;
             
-            GameManager.Instance.PuzzleGame.BlockSlots.ForEach(slot =>
+            PuzzleGame.Cur.BlockSlots.ForEach(slot =>
             {
                 if (slot.SubBlock is RemoveStaticBlock)
                 {

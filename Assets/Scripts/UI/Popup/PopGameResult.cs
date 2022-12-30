@@ -40,11 +40,11 @@ public class PopGameResult : PopupBase
 
     private void Restart()
     {
-        GameManager.Instance.CheckPower(PuzzleGame.PowerCost.Unlimited, () =>
+        GameManager.Instance.CheckPower(PuzzleGame.PowerCost.Endless, () =>
         {
             UIManager.Instance.DecreasePower(restart.transform, () =>
             {
-                GameManager.Instance.PuzzleGame.StartGame();
+                PuzzleGame.Cur.StartGame();
                 CloseView();
             });
         });
@@ -56,7 +56,7 @@ public class PopGameResult : PopupBase
         {
             if (result)
             {
-                var game = GameManager.Instance.PuzzleGame as UnlimitedGameMode;
+                var game = PuzzleGame.Cur as EndlessGameMode;
                 game?.Revive();
                 
                 CloseView();

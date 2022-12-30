@@ -18,16 +18,12 @@ namespace UI.View
         public enum LevelEventKeys
         {
             SetGoal,
-            RefreshGoal,
             OnLevelPass,
             OnGameOver,
-            RefreshRoundCount,
             RefreshTool
         }
         
-        [SerializeField] private LevelGoalElement levelGoalElement;
         [SerializeField] private TextMeshProUGUI levelTxt;
-        [SerializeField] private TextMeshProUGUI roundCountTxt;
         [SerializeField] private LevelTime levelTime;
         [SerializeField] private Button clearControlPanelBtn;
         [SerializeField] private TextMeshProUGUI clearControlPanelCount;
@@ -49,10 +45,8 @@ namespace UI.View
             RefreshTool();
             
             AddEvent(LevelEventKeys.SetGoal, SetGoal);
-            AddEvent(LevelEventKeys.RefreshGoal, levelGoalElement.RefreshGoal);
             AddEvent<int>(LevelEventKeys.OnLevelPass, OnLevelPass);
             AddEvent(LevelEventKeys.OnGameOver, OnGameOver);
-            AddEvent(LevelEventKeys.RefreshRoundCount, RefreshRoundCount);
             AddEvent(LevelEventKeys.RefreshTool, RefreshTool);
             
             base.OnCreate(objects);
@@ -83,16 +77,11 @@ namespace UI.View
 
         private void SetGoal()
         {
-            levelGoalElement.SetGoal(_levelGameMode.CurLevel.Goals);
+            goalElement.SetGoal(_levelGameMode.CurLevel.Goals);
             levelTxt.text = String.Format(GameManager.Language.Level, _levelGameMode.CurLevel.LevelIndex + 1);
             // levelTime.SetTime(_levelGameMode.CurLevel.MaxTime, OnGameOver);
         }
 
-        private void RefreshRoundCount()
-        {
-            roundCountTxt.text = $"{_levelGameMode.CurLevel.RoundCount}";
-        }
-        
         private void OnLevelPass(int score)
         {
             // levelTime.Stop();

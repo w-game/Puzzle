@@ -3195,9 +3195,9 @@ MonoBehaviour:
   scoreTxt: {fileID: 3174864570986561024}
   comboTxt: {fileID: 4322458455551035789}
   topElementAdapt: {fileID: 7239406957208868189}
-  levelGoalElement: {fileID: 3143325509893519619}
+  goalElement: {fileID: 3143325509893519619}
+  roundCount: {fileID: 5079191670160587131}
   levelTxt: {fileID: 451145831910147594}
-  roundCountTxt: {fileID: 5079191670160587131}
   levelTime: {fileID: 15178715855383739}
   clearControlPanelBtn: {fileID: 5439480646142298045}
   clearControlPanelCount: {fileID: 4002921793933711913}

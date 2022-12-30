@@ -2,6 +2,7 @@ using Ad;
 using Common;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace UI
 {
@@ -9,7 +10,7 @@ namespace UI
     {
         [SerializeField] private CanvasGroup splash;
         [SerializeField] private AddBlockTip addBlockTip;
-        [SerializeField] private SToast toast;
+        [FormerlySerializedAs("toast")] [SerializeField] private ToastElement toastElement;
 
         public AddBlockTip AddBlockTip => addBlockTip;
         public void CloseSplash()
@@ -23,9 +24,13 @@ namespace UI
             });
         }
 
-        public void ShowToast(string msg)
+        public void ShowToast(ToastType type, string msg)
         {
-            toast.ShowToast(msg);
+            toastElement.ShowToast(new SToast
+            {
+                Type = type,
+                msg = msg
+            });
         }
     }
 }

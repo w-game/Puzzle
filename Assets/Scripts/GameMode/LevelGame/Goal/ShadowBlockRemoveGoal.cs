@@ -10,7 +10,7 @@ namespace GameMode.LevelGame
         {
             SpritePath = "Textures/shadow_block";
             Pattern = new Color(0.5f, 0.5f, 0.5f);
-            GameManager.Instance.PuzzleGame.BlockSlots.ForEach(slot =>
+            PuzzleGame.Cur.BlockSlots.ForEach(slot =>
             {
                 if (slot.SecondBlock is ShadowBlock)
                 {

@@ -1,3 +1,4 @@
+using Common.GameMode;
 using UnityEngine;
 
 namespace GameMode.LevelGame
@@ -12,6 +13,8 @@ namespace GameMode.LevelGame
         public virtual string CountTipStr => $"x{RemainCount}";
         public int RemainCount => GoalCount - CurCount;
         public bool IsComplete { get; private set; }
+
+        public GameEvent GameEvent { get; set; }
 
         public virtual void Init(LevelGoalConfig config, Color color)
         {
