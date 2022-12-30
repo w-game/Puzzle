@@ -1,17 +1,18 @@
 using System.Collections.Generic;
 using Common;
 using System;
+using Common.GameMode;
 using Random = UnityEngine.Random;
 
 namespace GameMode.LevelGame
 {
-    public class GameLevel
+    public class GameLevel : GameEvent
     {
         public int LevelIndex { get; set; }
         public List<LevelGoal> Goals { get; } = new();
         // public float MaxTime { get; private set; }
         public int BlockCount { get; private set; }
-        public Dictionary<string, string> Boards { get; private set; }
+        public Dictionary<string, string> SpecialBlocks { get; private set; }
         public int RoundCount { get; set; }
         public bool IsPass { get; private set; }
 
@@ -20,7 +21,7 @@ namespace GameMode.LevelGame
         {
             _config = config;
             // MaxTime = config.time;
-            Boards = config.blocks;
+            SpecialBlocks = config.blocks;
             BlockCount = config.blockCount;
             RoundCount = config.roundCount;
         }
@@ -45,6 +46,7 @@ namespace GameMode.LevelGame
 
                     var goal = LevelGoalFactory.Instance.GetGoal(goalConfig.type);
                     goal.Init(goalConfig, color);
+                    goal.GameEvent = this;
                     Goals.Add(goal);
                 }
             }
@@ -81,6 +83,11 @@ namespace GameMode.LevelGame
             }
 
             return true;
+        }
+
+        public override void OnFail()
+        {
+            PuzzleGame.Cur.GameOver();
         }
     }
 }

@@ -1,4 +1,5 @@
 using Ad;
+using Common;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -40,7 +41,7 @@ namespace UI.Popup
             title.text = language.PowerNotEnoughTitle;
             des.text = language.PowerNotEnoughDes;
 
-            getPowerBtnTxt.text = language.GetPowerText;
+            getPowerBtnTxt.text = language.GetPowerBtnText;
             sureBtnTxt.text = language.SureText;
         }
 
@@ -57,7 +58,7 @@ namespace UI.Popup
                 if (result)
                 {
                     GameManager.User.IncreasePower(5);
-                    UIManager.Instance.ShowToast(GameManager.Language.GetPowerText);
+                    UIManager.Instance.ShowToast(ToastType.Info, GameManager.Language.GetPowerTip);
                     CloseView();
                     EventCenter.Invoke(GamePower.EventKeys.Close);
                 }

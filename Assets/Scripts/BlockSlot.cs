@@ -2,7 +2,6 @@ using System;
 using Blocks;
 using DG.Tweening;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class BlockSlot : MonoBehaviour
 {
@@ -11,10 +10,10 @@ public class BlockSlot : MonoBehaviour
     public SpecialBlock SecondBlock { get; set; }
     public PuzzleGame GameBoard { get; set; }
 
-    public BlockSlot UpSlot => Pos.y > 0 ? GameManager.Instance.PuzzleGame.BlockSlots[(Pos.y - 1) * PuzzleGame.BoardWidth + Pos.x] : null;
-    public BlockSlot DownSlot => Pos.y < PuzzleGame.BoardLength - 1 ? GameManager.Instance.PuzzleGame.BlockSlots[(Pos.y + 1) * PuzzleGame.BoardWidth + Pos.x] : null;
-    public BlockSlot RightSlot => Pos.x < PuzzleGame.BoardWidth - 1 ? GameManager.Instance.PuzzleGame.BlockSlots[Pos.y * PuzzleGame.BoardWidth + Pos.x + 1] : null;
-    public BlockSlot LeftSlot => Pos.x > 0 ? GameManager.Instance.PuzzleGame.BlockSlots[Pos.y * PuzzleGame.BoardWidth + Pos.x - 1] : null;
+    public BlockSlot UpSlot => Pos.y > 0 ? PuzzleGame.Cur.BlockSlots[(Pos.y - 1) * PuzzleGame.BoardWidth + Pos.x] : null;
+    public BlockSlot DownSlot => Pos.y < PuzzleGame.BoardLength - 1 ? PuzzleGame.Cur.BlockSlots[(Pos.y + 1) * PuzzleGame.BoardWidth + Pos.x] : null;
+    public BlockSlot RightSlot => Pos.x < PuzzleGame.BoardWidth - 1 ? PuzzleGame.Cur.BlockSlots[Pos.y * PuzzleGame.BoardWidth + Pos.x + 1] : null;
+    public BlockSlot LeftSlot => Pos.x > 0 ? PuzzleGame.Cur.BlockSlots[Pos.y * PuzzleGame.BoardWidth + Pos.x - 1] : null;
 
     public bool IsEmpty => SubBlock == null;
     
@@ -56,8 +55,11 @@ public class BlockSlot : MonoBehaviour
 
     private void OnRemoveBlockAnimaEnd(Block block, Action callback)
     {
-        Destroy(block.gameObject);
-        callback?.Invoke();
+        if (block)
+        {
+            Destroy(block.gameObject);
+            callback?.Invoke();
+        }
     }
 
     public void RemoveMainBlock(bool anima = true)
