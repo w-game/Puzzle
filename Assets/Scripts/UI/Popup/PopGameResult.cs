@@ -28,6 +28,7 @@ public class PopGameResult : PopupBase
     {
         restart.onClick.AddListener(Restart);
         revive.onClick.AddListener(Revive);
+        ShowNativeAd();
     }
 
     public override void Localization()

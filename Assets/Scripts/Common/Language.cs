@@ -78,6 +78,7 @@ namespace Common
         public abstract string ToastWarningType { get; }
         public abstract string ToastErrorType { get; }
         public abstract string RoundCountLabel { get; }
+        public abstract string GetRewardTip { get; }
     }
 
     public class SimplifiedChinese : LanguageBase
@@ -144,6 +145,7 @@ namespace Common
         public override string ToastWarningType => "警告";
         public override string ToastErrorType => "错误";
         public override string RoundCountLabel => "剩余步数";
+        public override string GetRewardTip => "恭喜获得奖励！";
     }
     
     public class TraditionalChinese : LanguageBase
@@ -212,6 +214,7 @@ namespace Common
         public override string ToastWarningType => "警告";
         public override string ToastErrorType => "錯誤";
         public override string RoundCountLabel => "剩餘步數";
+        public override string GetRewardTip => "恭喜獲得獎勵！";
     }
     
     public class English : LanguageBase
@@ -278,6 +281,7 @@ namespace Common
         public override string ToastWarningType => "WARNING";
         public override string ToastErrorType => "ERROR";
         public override string RoundCountLabel => "Rounds";
+        public override string GetRewardTip => "Get Reward Successfully!";
     }
 
 }

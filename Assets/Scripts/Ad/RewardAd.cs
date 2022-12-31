@@ -122,6 +122,7 @@ namespace Ad
             SLog.D(RewardAd.Tag, $"ecpm: {ecpm}, ritId: {ritID}, adnName: {adnName}");
 
             _rewardAd.LoadAd();
+            UIManager.Instance.ShowToast(ToastType.Info, GameManager.Language.GetRewardTip);
             Callback?.Invoke(true);
         }
 

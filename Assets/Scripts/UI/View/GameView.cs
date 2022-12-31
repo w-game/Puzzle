@@ -46,7 +46,6 @@ public abstract class GameView : ViewBase
                 puzzleGame.StartGame();
             }
         };
-        puzzleGame.Init();
 
         startBtn.onClick.AddListener(StartGame);
         homeBtn.onClick.AddListener(OnHomeBtnClicked);
@@ -57,6 +56,7 @@ public abstract class GameView : ViewBase
         AddEvent(EventKeys.RefreshGoal, goalElement.RefreshGoal);
         AddEvent<int>(EventKeys.RefreshRoundCount, RefreshRoundCount);
         Refresh();
+        puzzleGame.Init();
     }
 
     public override void ScreenAdapt(Rect rect)

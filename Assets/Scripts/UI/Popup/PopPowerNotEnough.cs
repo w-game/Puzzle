@@ -47,6 +47,7 @@ namespace UI.Popup
 
         private void OnSureBtnClicked()
         {
+            AdManager.Instance.NativeAd.CloseAd();
             UIManager.Instance.BackToHome();
             EventCenter.Invoke(GamePower.EventKeys.Close);
         }
