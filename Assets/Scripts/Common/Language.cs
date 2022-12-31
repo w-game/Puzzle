@@ -217,7 +217,7 @@ namespace Common
         public override string ToastErrorType => "錯誤";
         public override string RoundCountLabel => "剩餘步數";
         public override string GetRewardTip => "恭喜獲得獎勵！";
-        public override string AdLoadFail => "廣告讀取失敗！";
+        public override string AdLoadFail => "廣告讀取失敗，請重試！";
     }
     
     public class English : LanguageBase
@@ -285,7 +285,7 @@ namespace Common
         public override string ToastErrorType => "ERROR";
         public override string RoundCountLabel => "Rounds";
         public override string GetRewardTip => "Get Reward Successfully!";
-        public override string AdLoadFail => "Ad load failed!";
+        public override string AdLoadFail => "Ad load failed, please try again!";
     }
 
 }
