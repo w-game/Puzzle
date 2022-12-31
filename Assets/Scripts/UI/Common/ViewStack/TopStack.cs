@@ -1,6 +1,7 @@
 using Ad;
 using Common;
 using DG.Tweening;
+using UI.View;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -21,8 +22,8 @@ namespace UI
             sequence.AppendCallback(() =>
             {
                 splash.gameObject.SetActive(false);
+                splash.GetComponent<SplashView>().OnClose();
             });
-            AdManager.Instance.Init();
         }
 
         public void ShowToast(ToastType type, string msg)

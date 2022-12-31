@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Common;
+using GameMode.EndlessGame;
 using UnityEngine;
 
 public class User
@@ -42,13 +43,16 @@ public class User
         }
     }
 
+    public bool NewPlayerGuide
+    {
+        get => PlayerPrefs.GetInt("NEW_PLAYER_GUIDE", 1) == 1;
+        set => PlayerPrefs.SetInt("NEW_PLAYER_GUIDE", value ? 1 : 0);
+    }
+
     public bool IsNewPlayer
     {
-        get
-        {
-            var status = PlayerPrefs.GetInt($"NewPlayer", 0);
-            return status == 0;
-        }
+        get => PlayerPrefs.GetInt("NEW_PLAYER", 1) == 1;
+        set => PlayerPrefs.SetInt("NEW_PLAYER", value ? 1 : 0);
     }
 
     public bool PrivacyPolicy
@@ -138,11 +142,6 @@ public class User
         var count = PlayerPrefs.GetInt($"AllRemoveCount_{blockColorCount}", 0) + 1;
         PlayerPrefs.SetInt($"AllRemoveCount_{blockColorCount}", count);
         EventCenter.Invoke(HomeView.EventKeys.RefreshView);
-    }
-
-    public void SetOldPlayer()
-    {
-        PlayerPrefs.SetInt("NewPlayer", 1);
     }
 
     public void IncreasePower(int power)

@@ -11,7 +11,7 @@ namespace Ad
         public AndroidJavaObject NativeAdJavaObject { get; set; }
         public ABUNativeAd NativeAdInstance { get; set; }
 
-        public override void LoadAd()
+        public override void LoadAd(Action<bool> callback)
         {
             var adUnit = new GMAdSlotNative.Builder()
                 .SetCodeId(AdIds.NativeAd)
@@ -29,7 +29,7 @@ namespace Ad
             if (AdManager.Instance.NativeAdSwitch)
             {
                 SLog.D("Native Ad", "Native Ad请求展示");
-                LoadAd();
+                LoadAd(callback);
             }
         }
 

@@ -8,7 +8,7 @@ namespace Ad
     {
         public const string Tag = "Banner Ad";
 
-        public override void LoadAd()
+        public override void LoadAd(Action<bool> callback)
         {
             var slot = new GMAdSlotBanner.Builder()
                 .SetCodeId("102232371")
@@ -20,7 +20,7 @@ namespace Ad
 
         public override void ShowAd(Action<bool> callback)
         {
-            LoadAd();
+            LoadAd(callback);
         }
 
         public override void CloseAd()

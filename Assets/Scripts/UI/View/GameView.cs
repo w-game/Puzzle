@@ -37,7 +37,7 @@ public abstract class GameView : ViewBase
         puzzleGame.OnGameInit += () =>
         {
             loadingMask.SetActive(false);
-            if (GameManager.User.IsNewPlayer)
+            if (GameManager.User.NewPlayerGuide)
             {
                 UIManager.Instance.PushPop<PopNewPlayerGuideData>(puzzleGame);
             }

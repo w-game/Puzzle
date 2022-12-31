@@ -79,7 +79,7 @@ namespace UI.Popup
         private void EndTip()
         {
             CloseView();
-            GameManager.User.SetOldPlayer();
+            GameManager.User.NewPlayerGuide = false;
             _puzzleGame?.StartGame();
         }
     }

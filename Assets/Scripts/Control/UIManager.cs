@@ -1,4 +1,5 @@
 using System;
+using Ad;
 using Common;
 using UI;
 using UI.Popup;
@@ -43,7 +44,11 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void CloseSplash()
     {
-        TopStack.CloseSplash();
+        AdManager.Instance.Init();
+        AdManager.Instance.SplashAd.ShowAd(result =>
+        {
+            TopStack.CloseSplash();
+        });
     }
 
     public void ShowAddBlockTip(Color color)

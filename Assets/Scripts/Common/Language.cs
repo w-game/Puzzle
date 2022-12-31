@@ -79,6 +79,7 @@ namespace Common
         public abstract string ToastErrorType { get; }
         public abstract string RoundCountLabel { get; }
         public abstract string GetRewardTip { get; }
+        public abstract string AdLoadFail { get; }
     }
 
     public class SimplifiedChinese : LanguageBase
@@ -146,6 +147,7 @@ namespace Common
         public override string ToastErrorType => "错误";
         public override string RoundCountLabel => "剩余步数";
         public override string GetRewardTip => "恭喜获得奖励！";
+        public override string AdLoadFail => "广告读取失败，请重试！";
     }
     
     public class TraditionalChinese : LanguageBase
@@ -215,6 +217,7 @@ namespace Common
         public override string ToastErrorType => "錯誤";
         public override string RoundCountLabel => "剩餘步數";
         public override string GetRewardTip => "恭喜獲得獎勵！";
+        public override string AdLoadFail => "廣告讀取失敗！";
     }
     
     public class English : LanguageBase
@@ -233,7 +236,7 @@ namespace Common
         public override string GameOverText => "Game Over";
         public override string Restart => "Restart";
         public override string Revive => "Continue";
-        public override string ToolNotEnoughTitle => "Insufficient Game Props";
+        public override string ToolNotEnoughTitle => "Lack of Game Props";
         public override string ToolNotEnoughDes => "The item 「{0}」 is insufficient and cannot be used!";
         public override string ToolClearSlotsName => "Clear The Board";
         public override string ToolClearControlName => "Refresh Control Bar";
@@ -250,7 +253,7 @@ namespace Common
         public override string GotItText => "Got it";
         public override string LevelSuccessTitle => "Success";
         public override string NextLevelText => "Next Level";
-        public override string PowerNotEnoughTitle => "Energy Not Enough";
+        public override string PowerNotEnoughTitle => "Lack of Energy";
         public override string PowerNotEnoughDes => "Every 10 minutes will restore 1 point of energy.";
         public override string GetPowerBtnText => "Get (5)";
         public override string GetPowerTip => "Get 5 points of energy.";
@@ -282,6 +285,7 @@ namespace Common
         public override string ToastErrorType => "ERROR";
         public override string RoundCountLabel => "Rounds";
         public override string GetRewardTip => "Get Reward Successfully!";
+        public override string AdLoadFail => "Ad load failed!";
     }
 
 }

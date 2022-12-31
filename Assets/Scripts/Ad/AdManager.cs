@@ -9,6 +9,7 @@ namespace Ad
         public RewardAd RewardAd { get; } = new();
         public NativeAd NativeAd { get; } = new();
         public BannerAd BannerAd { get; } = new();
+        public SplashAd SplashAd { get; } = new();
 
         public bool NativeAdSwitch
         {
@@ -21,13 +22,6 @@ namespace Ad
             ABUUserConfig userConfig = new();
             userConfig.logEnable = false;
             ABUAdSDK.setupMSDK("5354735", "msdk demo", userConfig);
-            
-            PreloadAd();
-        }
-
-        private void PreloadAd()
-        {
-            RewardAd.LoadAd();
         }
     }
 }

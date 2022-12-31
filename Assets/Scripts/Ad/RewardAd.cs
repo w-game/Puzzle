@@ -1,40 +1,38 @@
 using System;
-using System.Collections.Generic;
 using ByteDance.Union;
 using Common;
-using Newtonsoft.Json;
-using UnityEngine;
 
 namespace Ad
 {
     public class RewardAd : AdBase
     {
         public const string Tag = "Reward Ad";
-        public bool LoadSuccess { get; set; }
-        public override void LoadAd()
-        {
-            var dict = new Dictionary<string, string>();
-            dict.Add("key1", "value1");
-            dict.Add("key2", "value2");
-            dict.Add("key3", "value3");
-            var dictJson = JsonConvert.SerializeObject(dict);
 
+        private bool IsLoaded { get; set; }
+        public override void LoadAd(Action<bool> callback)
+        {
             var adSlot = new GMAdSlotRewardVideo.Builder()
                 .SetCodeId(AdIds.RewardAd)
-                // .SetRewardName("金币") // 奖励的名称
-                // .SetRewardAmount(3) // 奖励的数量
                 .SetUserID("user123") // 用户id,必传参数   只对穿山甲adn有效
                 .setScenarioId("1233211223")
-#if UNITY_IOS // 扩展信息这里安卓和iOS传值方式不同
-                .SetCustomData(dict)
-#else
-                .SetCustomData(new Dictionary<string, string>()
-                {
-                    { "pangle","950602537"},
-                })
-#endif
                 .Build();
-            ABURewardVideoAd.LoadRewardVideoAd(adSlot, new RewardVideoAdListener(this));
+            ABURewardVideoAd.LoadRewardVideoAd(adSlot, new RewardVideoAdListener(this)
+            {
+                OnLoadEnd = result =>
+                {
+                    UIManager.Instance.SetTopMask(false);
+                    if (result)
+                    {
+                        IsLoaded = true;
+                        ShowAd(callback);
+                    }
+                    else
+                    {
+                        UIManager.Instance.ShowToast(ToastType.Info, GameManager.Language.AdLoadFail);
+                        callback?.Invoke(false);
+                    }
+                }
+            });
         }
 
         public override void ShowAd(Action<bool> callback)
@@ -45,28 +43,22 @@ namespace Ad
                 return;
             }
             
-            // 为保障播放流畅，建议在视频加载完成后展示
-            if (!LoadSuccess || !ABURewardVideoAd.isReady())
+            if (!IsLoaded || !ABURewardVideoAd.isReady())
             {
+                UIManager.Instance.SetTopMask(true);
+                LoadAd(callback);
                 SLog.D(Tag, "请先加载广告或等广告加载完成");
                 return;
             }
-            // ritScene信息
-            // 设置已定义的场景
-            Dictionary<string, object> ritSceneMap = new Dictionary<string, object>();
-            // ABUShowExtroInfoKeySceneType设置为非BURitSceneType_custom即可
-            ritSceneMap.Add(ABUConstantHelper.ABUShowExtroInfoKeySceneType, ABURitSceneType.ABURitSceneType_game_finish_rewards);
-            // 设置自定义的场景
-            Dictionary<string, object> ritSceneMap_custom = new Dictionary<string, object>();
-            // ABUShowExtroInfoKeySceneType设置为BURitSceneType_custom即可
-            ritSceneMap_custom.Add(ABUConstantHelper.ABUShowExtroInfoKeySceneType, ABURitSceneType.BURitSceneType_custom);
-            // 同时请务必设置
-            ritSceneMap_custom.Add(ABUConstantHelper.ABUShowExtroInfoKeySceneDescription, "custom info");
+            
+            // Dictionary<string, object> ritSceneMap = new Dictionary<string, object>();
+            // ritSceneMap.Add(ABUConstantHelper.ABUShowExtroInfoKeySceneType, ABURitSceneType.ABURitSceneType_game_finish_rewards);
+            // Dictionary<string, object> ritSceneMap_custom = new Dictionary<string, object>();
+            // ritSceneMap_custom.Add(ABUConstantHelper.ABUShowExtroInfoKeySceneType, ABURitSceneType.BURitSceneType_custom);
+            // ritSceneMap_custom.Add(ABUConstantHelper.ABUShowExtroInfoKeySceneDescription, "custom info");
             // 普通展示方式
             ABURewardVideoAd.ShowRewardVideoAd(new RewardAdInteractionListener(this) { Callback = callback });
-            // 带scene的展示方式
-            //ABURewardVideoAd.ShowRewardVideoAdWithRitScene(new RewardAdInteractionListener(this), ritSceneMap);
-            LoadSuccess = false;
+            IsLoaded = false;
         }
 
         public override void CloseAd()
@@ -79,6 +71,7 @@ namespace Ad
     {
         private RewardAd _rewardAd;
 
+        public Action<bool> OnLoadEnd;
         public RewardVideoAdListener(RewardAd rewardAd)
         {
             _rewardAd = rewardAd;
@@ -88,17 +81,18 @@ namespace Ad
         {
             var errMsg = "OnRewardVideoAdLoadError-- code : " + code + "--message : " + message;
             SLog.E(RewardAd.Tag, errMsg);
+            OnLoadEnd?.Invoke(false);
         }
 
         public void OnRewardVideoAdLoad(object ad)
         {
             SLog.D(RewardAd.Tag, "OnRewardVideoAdLoad");
+            OnLoadEnd?.Invoke(true);
         }
 
         public void OnRewardVideoAdCached()
         {
             SLog.D(RewardAd.Tag, "OnRewardVideoCached");
-            _rewardAd.LoadSuccess = true;
         }
     }
 
@@ -115,13 +109,11 @@ namespace Ad
         public void OnAdShow()
         {
             SLog.D(RewardAd.Tag, "Reward Ad Showed");
-            _rewardAd.LoadSuccess = false;
             string ecpm = ABURewardVideoAd.GetPreEcpm();
             string ritID = ABURewardVideoAd.GetAdNetworkRitId();
             string adnName = ABURewardVideoAd.GetAdRitInfoAdnName();
             SLog.D(RewardAd.Tag, $"ecpm: {ecpm}, ritId: {ritID}, adnName: {adnName}");
 
-            _rewardAd.LoadAd();
             UIManager.Instance.ShowToast(ToastType.Info, GameManager.Language.GetRewardTip);
             Callback?.Invoke(true);
         }
@@ -130,7 +122,6 @@ namespace Ad
         {
             var s = "code : " + code + "--message = " + message;
             Log.D("<Unity Log>..." + s);
-            Callback?.Invoke(false);
         }
 
         public void OnAdVideoBarClick()
@@ -141,7 +132,6 @@ namespace Ad
         public void OnAdClose()
         {
             SLog.D(RewardAd.Tag, "expressRewardAd close");
-            _rewardAd.LoadSuccess = false;
         }
 
         public void OnVideoComplete()
@@ -159,6 +149,7 @@ namespace Ad
         {
             var message = "verify:" + rewardVerify;
             SLog.D(RewardAd.Tag, message);
+            Callback?.Invoke(false);
         }
 
         public void OnSkippedVideo()
