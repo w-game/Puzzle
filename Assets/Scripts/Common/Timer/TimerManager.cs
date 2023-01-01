@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Common;
 using UnityEngine;
 
-public class TimerManager : MonoSingleton<TimerManager>
+public class TimerManager : SMonoSingleton<TimerManager>
 {
     private List<Timer> _timers = new List<Timer>();
     private List<Timer> _waitForRemove = new List<Timer>();

@@ -1,11 +1,14 @@
 using System;
+using System.Collections.Generic;
 using Common;
 using GameMode.LevelGame;
 using Newtonsoft.Json;
+using TapTap.Common;
+using TapTap.TapDB;
 using UI.Popup;
 using UnityEngine;
 
-public class GameManager : MonoSingleton<GameManager>
+public class GameManager : SMonoSingleton<GameManager>
 {
     /// <summary>
     /// 启动游戏间隔时间
@@ -25,7 +28,8 @@ public class GameManager : MonoSingleton<GameManager>
     }
 
     public static bool IsDebug => Debug.isDebugBuild;
-    void Awake()
+
+    private void Awake()
     {
         var lastEndGame = PlayerPrefs.GetInt("LastEndGame", TimeUtil.Timestamp);
         LaunchGameGap = TimeUtil.Timestamp - lastEndGame;
@@ -38,6 +42,17 @@ public class GameManager : MonoSingleton<GameManager>
         
         InitLanguage();
         LoadConfig();
+        InitTapTap();
+    }
+
+    private void InitTapTap()
+    {
+        TapDB.Init("89uji6xvwyqlkeht2j", "taptap", Application.version, true);
+        TapDB.SetUser(User.UserId);
+        SEvent.TrackEvent("#app_launch", new Dictionary<string, object>()
+        {
+            {"#user_id", User.UserId}
+        });
     }
 
     private void InitLanguage()

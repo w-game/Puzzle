@@ -16,6 +16,7 @@ namespace Ad
                 .SetUserID("user123") // 用户id,必传参数   只对穿山甲adn有效
                 .setScenarioId("1233211223")
                 .Build();
+            SEvent.TrackEvent("#reward_ad_request", "");
             ABURewardVideoAd.LoadRewardVideoAd(adSlot, new RewardVideoAdListener(this)
             {
                 OnLoadEnd = result =>
@@ -115,6 +116,7 @@ namespace Ad
             SLog.D(RewardAd.Tag, $"ecpm: {ecpm}, ritId: {ritID}, adnName: {adnName}");
 
             UIManager.Instance.ShowToast(ToastType.Info, GameManager.Language.GetRewardTip);
+            SEvent.TrackEvent("#reward_ad_show", "");
             Callback?.Invoke(true);
         }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Common;
 namespace GameMode.LevelGame
 {
-    public class LevelGoalFactory : Singleton<LevelGoalFactory>
+    public class LevelGoalFactory : SSingleton<LevelGoalFactory>
     {
         private Dictionary<string, Type> _goals = new();
         public LevelGoalFactory()

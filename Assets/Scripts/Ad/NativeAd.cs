@@ -21,6 +21,7 @@ namespace Ad
                 .setScenarioId("1233211223")
                 .SetUseSurfaceView(true)
                 .Build();
+            SEvent.TrackEvent("#native_ad_request", "");
             ABUNativeAd.LoadNativeAd(adUnit, new NativeAdListener(this));
         }
 
@@ -81,6 +82,7 @@ namespace Ad
         public void OnAdShow(int index)
         {
             SLog.D("Native Ad", "原生广告展示成功");
+            SEvent.TrackEvent("#native_ad_show", "");
         }
 
         public void OnAdDismiss(int index)

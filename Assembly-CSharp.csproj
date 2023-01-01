@@ -26,7 +26,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\Assembly-CSharp\</OutputPath>
-    <DefineConstants>UNITY_2021_3_7;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_IOS;TEXTCORE_1_0_OR_NEWER;ENABLE_RUNTIME_GI;ENABLE_GAMECENTER;ENABLE_NETWORK;ENABLE_IOS_ON_DEMAND_RESOURCES;ENABLE_IOS_APP_SLICING;PLAYERCONNECTION_LISTENS_FIXED_PORT;DEBUGGER_LISTENS_FIXED_PORT;PLATFORM_SUPPORTS_ADS_ID;SUPPORT_ENVIRONMENT_VARIABLES;PLATFORM_SUPPORTS_PROFILER;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_ETC_COMPRESSION;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;UNITY_IOS;PLATFORM_IPHONE;UNITY_IPHONE;UNITY_IPHONE_API;UNITY_HAS_GOOGLEVR;ENABLE_SPATIALTRACKING;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2021_3_7;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169,0649</NoWarn>
@@ -42,17 +42,9 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets/Scripts/UI/Common/ViewStack/MainStack.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/ABUConstantHelper.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABURewardVideoAd.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/RadiationBlockRemoveGoal.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/NativeAdExample.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/dto/ABUAdUnit.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGameMode.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopNewPlayerGuide.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/PlatformUtil.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Helper/ItemClickDelegate.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdInteractionType.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/MainHeaderLayoutScript.cs" />
      <Compile Include="Assets/Scripts/GameMode/RemoveCheck.cs" />
      <Compile Include="Assets/Scripts/BlockSlot.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/AllRemoveGoal.cs" />
@@ -60,188 +52,82 @@
      <Compile Include="Assets/Scripts/UI/Popup/PopGameResult.cs" />
      <Compile Include="Assets/Scripts/UI/View/MainView.cs" />
      <Compile Include="Assets/Scripts/UI/Element/GmElement.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotBanner.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/FiveBlockRemoveGoal.cs" />
      <Compile Include="Assets/Scripts/UI/View/GameView.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/ThirdLevelInputItemScript.cs" />
      <Compile Include="Assets/Scripts/UI/Common/ElementBase.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABURewardVideoAdCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUBannerAdInteractionCallback.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/ChallengeResult.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUNativeAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/ABUAdapterRewardAdInfo.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdStyleType.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUSplashAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUDownloadType.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotDraw.cs" />
      <Compile Include="Assets/Scripts/Process/ProcessUnit.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUInterstitialAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUUserInfoGender.cs" />
      <Compile Include="Assets/Scripts/SLog.cs" />
      <Compile Include="Assets/Scripts/UI/Common/Element.cs" />
      <Compile Include="Assets/Scripts/UI/Common/SButton.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUNativeAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUDrawAdCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdSDKThemeStatus.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Entity/MainListEntity.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUFullScreenVideoAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUFullScreenVideoAdInteractionCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/AndroidSlotHelper.cs" />
      <Compile Include="Assets/Scripts/Ad/AdManager.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/Constant/ABUAdPositionId.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/UnityDispatcher.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/Reward/ClearBottomRowAllBlocks.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUAdSDK.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdOrientationType.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialFullAdInteractionCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUDrawAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUSplashAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABURewardVideoAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUBannerAd.cs" />
      <Compile Include="Assets/Scripts/Process/ProcessSystem.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/enum/ABURitSceneType.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/SpecialBlock.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUBannerAd.cs" />
      <Compile Include="Assets/Scripts/UI/Common/PopupBase.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUFullScreenVideoAdCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUDrawAdInteractionCallback.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/GiftBlock.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/Block.cs" />
      <Compile Include="Assets/Scripts/GameMode/PuzzleGame.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUInterstitialFullAd.cs" />
      <Compile Include="Assets/Scripts/UI/View/HomeView.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUAppDownloadCallback.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/StaticBlock.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotInterstitialFull.cs" />
      <Compile Include="Assets/Scripts/UI/Element/LevelGoalElement.cs" />
-     <Compile Include="Assets/Scripts/Common/MonoSingleton.cs" />
+     <Compile Include="Assets/Scripts/Common/SMonoSingleton.cs" />
      <Compile Include="Assets/Scripts/UI/Element/ChallengeResultElement.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotInterstitial.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/SecondLevelItemScript.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUBannerAdCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUSplashAd.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/LiteDataUtil.cs" />
      <Compile Include="Assets/Scripts/Control/UIManager.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUNativeAdCallback.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Helper/ToastManager.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialAdCallback.cs" />
-     <Compile Include="Assets/Scripts/UI/View/SplashView.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopTip.cs" />
      <Compile Include="Assets/Scripts/UI/Element/AddBlockTip.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUInterstitialFullAd.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopSetting.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUSDKInitConfig.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUInterstitialAd.cs" />
      <Compile Include="Assets/Scripts/UI/Element/GameToolElement.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/DrawAdExample.cs" />
      <Compile Include="Assets/Scripts/Ad/BannerAd.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/ThirdLevelItemScript.cs" />
      <Compile Include="Assets/Scripts/UI/Common/ViewStack/TopStack.cs" />
      <Compile Include="Assets/Scripts/Common/Util.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/ABUMSDKHelper.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/Reward.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/Punishment.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/RemoveStaticBlock.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUAdDislike.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUSplashAdListener.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/SingleTon.cs" />
      <Compile Include="Assets/Scripts/GameManager.cs" />
      <Compile Include="Assets/Scripts/Common/ToastElement.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/Punishment/GenerateNewRowAtBottom.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUBannerAd.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/ChallengeFactory.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUDrawAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSize.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopCheckBox.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUNativeAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUUserInfoForSegment.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialAdInteractionCallback.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/ToastLayoutScript.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/Constants/MainListItemId.cs" />
      <Compile Include="Assets/Scripts/UI/Common/ViewBase.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/NormalBlock.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/TimeUtil.cs" />
      <Compile Include="Assets/Scripts/Common/TimeUtil.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/InterstitalFullAdExample.cs" />
      <Compile Include="Assets/Scripts/Common/Timer/TimerManager.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/StaticBlockRemoveGoal.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUDrawAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/ABUUserConfig.cs" />
      <Compile Include="Assets/Scripts/UI/Common/ViewStack.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/DetailItemViewScript.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/dto/ABUAdUnit.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/ScreenOrentationAdapterScript.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/InterstitalAdExample.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotRewardVideo.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/HorizontalRemoveGoal.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUAppDownloadCallback.cs" />
      <Compile Include="Assets/Scripts/AddressableMgr.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUAdSDK.cs" />
      <Compile Include="Assets/Scripts/Event/EventCenter.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopPassLevel.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUSplashAdInteractionListener.cs" />
      <Compile Include="Assets/Scripts/SoundManager.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/GameEnter.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopGM.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/MainUiViewScript.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/StopRadiationBlockRemoveGoal.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/Constants/PlayerPreferenceConstant.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/UnRemoveStaticBlock.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/AdFunctionScript.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUFullScreenVideoAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUFullScreenVideoAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABURewardAdInteractionCallback.cs" />
      <Compile Include="Assets/Scripts/Config/LevelConfig.cs" />
      <Compile Include="Assets/Scripts/Common/Timer/Timer.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUInterstitialFullAd.cs" />
      <Compile Include="Assets/Scripts/UI/View/LevelGameView.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/Challenge.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/SplashAdExample.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/FunctionDispatcher.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/AnyBlock.cs" />
      <Compile Include="Assets/Scripts/Process/Process.cs" />
      <Compile Include="Assets/Scripts/GameMode/EndlessGameMode.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/FullscreenAdExample.cs" />
      <Compile Include="Assets/Scripts/UI/View/EndlessGameView.cs" />
      <Compile Include="Assets/Scripts/ColorLibrary.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUUserInfoForSegment.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUInterstitialAd.cs" />
      <Compile Include="Assets/Scripts/GameMode/GameEvent.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/CountRadiationBlockRemoveGoal.cs" />
      <Compile Include="Assets/Scripts/Common/PlayerPrefsX.cs" />
-     <Compile Include="Assets/Sample/Scripts/Internationalization/LanguageType.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Helper/PrefabLoader.cs" />
      <Compile Include="Assets/Scripts/UI/Element/LevelTime.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUSDKInitConfig.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopLanguage.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/BannerAdExample.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Helper/LocalImageLoader.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/BaseUi.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/LevelGoal.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotFullVideo.cs" />
      <Compile Include="Assets/Scripts/UI/Common/ViewStack/PopStack.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/In/IFunctionDispatcher.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Helper/MainListDataManager.cs" />
      <Compile Include="Assets/Scripts/Common/Language.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/ShadowBlock.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Helper/MultipleClickDelegate.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUSplashButtonType.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUSDKInitConfig.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABURewardVideoAd.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/ABUiOSBridgeTools.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotSplash.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialFullAdCallback.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/Reward/PowerReward.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/UiUtil.cs" />
      <Compile Include="Assets/Scripts/UI/Common/BaseView.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopPrivacyPolicy.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUDislikeInteractionListener.cs" />
      <Compile Include="Assets/Scripts/GridControl.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUAdSDK.cs" />
      <Compile Include="Assets/Scripts/Android/AndroidNative.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/SingleColorRemoveGoal.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/Log.cs" />
-     <Compile Include="Assets/Scripts/Common/Singleton.cs" />
+     <Compile Include="Assets/Scripts/Common/SSingleton.cs" />
      <Compile Include="Assets/Scripts/UI/Element/LanguageElement.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopGameToolNotEnough.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/Punishment/GenerateRandomNormalBlockAtTop.cs" />
@@ -250,15 +136,7 @@
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/ColorVerticalRemoveGoal.cs" />
      <Compile Include="Assets/Scripts/Ad/AdIds.cs" />
      <Compile Include="Assets/Scripts/UI/Common/UiUtil.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotBase.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/UnityThreadUtil.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/dto/ABUAdUnit.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/PrimaryLevelItemScript.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUAdDislike.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Sample.cs" />
      <Compile Include="Assets/Scripts/UI/Element/GamePower.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUUserInfoForSegment.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/ABUPrivacyConfig.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/RadiationBlock.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopPowerNotEnough.cs" />
      <Compile Include="Assets/Scripts/Ad/NativeAd.cs" />
@@ -266,24 +144,147 @@
      <Compile Include="Assets/Scripts/UI/Popup/PopNewBlockIntroduce.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/ColorHorizontalRemoveGoal.cs" />
      <Compile Include="Assets/Scripts/User.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/GMAdConfigAndroid.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdnType.cs" />
-     <Compile Include="Assets/Sample/Scripts/Internationalization/AppStringText.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopLevelGameOver.cs" />
      <Compile Include="Assets/Scripts/Ad/AdBase.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/Reward/ClearSingleColorAllBlocks.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUNativeAdInteractionCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUFeedAdListener.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/ShadowBlockRemoveGoal.cs" />
      <Compile Include="Assets/Scripts/GameTool/GameTool.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/LevelGoalFactory.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotNative.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/ColorFiveBlockRemoveGoal.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/DetailUiViewScript.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/NativeAd.cs" />
      <Compile Include="Assets/Scripts/UI/Element/LevelGoalItemElement.cs" />
      <Compile Include="Assets/Scripts/Ad/RewardAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdStyleType.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUSDKInitConfig.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUBannerAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdSDKThemeStatus.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/dto/ABUAdUnit.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/GMAdConfigAndroid.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUSplashAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUSplashAdInteractionListener.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/In/IFunctionDispatcher.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/AdFunctionScript.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Entity/MainListEntity.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdOrientationType.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUFullScreenVideoAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUNativeAdCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUFullScreenVideoAdInteractionCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUUserInfoForSegment.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Helper/ToastManager.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUBannerAdInteractionCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialFullAdInteractionCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUDislikeInteractionListener.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/UnityThreadUtil.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/SplashAdExample.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/DetailItemViewScript.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUDrawAd.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/DrawAdExample.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotNative.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUInterstitialAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUUserInfoForSegment.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotInterstitial.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/PlatformUtil.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUAdSDK.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/TimeUtil.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/dto/ABUAdUnit.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/ABUConstantHelper.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUDownloadType.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/FunctionDispatcher.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdnType.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUDrawAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialAdInteractionCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialAdCallback.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/BannerAdExample.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUInterstitialAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUUserInfoGender.cs" />
+     <Compile Include="Assets/Sample/Scripts/Internationalization/AppStringText.cs" />
+     <Compile Include="Assets/Scripts/UI/View/SplashView.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/GameEnter.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/InterstitalFullAdExample.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/SecondLevelItemScript.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/ABUiOSBridgeTools.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/AndroidSlotHelper.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotDraw.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/ThirdLevelItemScript.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/ScreenOrentationAdapterScript.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/ABUPrivacyConfig.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Helper/ItemClickDelegate.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUInterstitialFullAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUBannerAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/dto/ABUAdUnit.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUFullScreenVideoAd.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Helper/MainListDataManager.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/InterstitalAdExample.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/MainUiViewScript.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotBanner.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/PrimaryLevelItemScript.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotSplash.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/Constant/ABUAdPositionId.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUInterstitialFullAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSize.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUAdDislike.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotRewardVideo.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdInteractionType.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUAdDislike.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUFullScreenVideoAdCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUSplashAdListener.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/UnityDispatcher.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/ToastLayoutScript.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUNativeAd.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/MainHeaderLayoutScript.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUDrawAdInteractionCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUSplashAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotBase.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUBannerAdCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUAppDownloadCallback.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/DetailUiViewScript.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUSplashAd.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/LiteDataUtil.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Sample.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/Log.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUFullScreenVideoAd.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/Constants/MainListItemId.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/SingleTon.cs" />
      <Compile Include="Assets/Scripts/Ad/SplashAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/NativeAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABURewardVideoAd.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/ThirdLevelInputItemScript.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Helper/LocalImageLoader.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABURewardVideoAd.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Helper/MultipleClickDelegate.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUNativeAdInteractionCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUAdSDK.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotInterstitialFull.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/ABUMSDKHelper.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUBannerAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUSplashButtonType.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUFeedAdListener.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUAppDownloadCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialFullAdCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUNativeAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUNativeAd.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/BaseUi.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUSDKInitConfig.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABURewardAdInteractionCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUUserInfoForSegment.cs" />
+     <Compile Include="Assets/Sample/Scripts/Internationalization/LanguageType.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUDrawAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/ABUAdapterRewardAdInfo.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/FullscreenAdExample.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUSDKInitConfig.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABURewardVideoAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUInterstitialAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotFullVideo.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/UiUtil.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABURewardVideoAdCallback.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/Constants/PlayerPreferenceConstant.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUInterstitialFullAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/ABUUserConfig.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/enum/ABURitSceneType.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Helper/PrefabLoader.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/NativeAdExample.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUDrawAdCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUAdSDK.cs" />
+     <Compile Include="Assets/Scripts/Common/SEvent.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/AddressableAssetsData/link.xml" />
@@ -571,6 +572,24 @@
      <Reference Include="Unity.Burst.Cecil.Rocks">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
      </Reference>
+     <Reference Include="TapTap.TapDB">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.taptap.tds.tapdb@6694403f8d/Plugins/TapTap.TapDB.dll</HintPath>
+     </Reference>
+     <Reference Include="TapTap.Common">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.taptap.tds.common@389f11737d/Plugins/TapTap.Common.dll</HintPath>
+     </Reference>
+     <Reference Include="Common">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/Common.dll</HintPath>
+     </Reference>
+     <Reference Include="LC.Newtonsoft.Json">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/LC.Newtonsoft.Json.dll</HintPath>
+     </Reference>
+     <Reference Include="Storage">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/Storage.dll</HintPath>
+     </Reference>
+     <Reference Include="Storage.Unity">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/Storage.Unity.dll</HintPath>
+     </Reference>
      <Reference Include="UnityEditor.iOS.Extensions.Xcode">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
      </Reference>
@@ -583,371 +602,380 @@
      <Reference Include="Unity.Android.Gradle">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/PlaybackEngines/AndroidPlayer/Unity.Android.Gradle.dll</HintPath>
      </Reference>
-     <Reference Include="netstandard">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/ref/2.1.0/netstandard.dll</HintPath>
-     </Reference>
-     <Reference Include="Microsoft.Win32.Primitives">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/Microsoft.Win32.Primitives.dll</HintPath>
-     </Reference>
-     <Reference Include="System.AppContext">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.AppContext.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Buffers">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Buffers.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Collections.Concurrent">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.Concurrent.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Collections.NonGeneric">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.NonGeneric.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Collections.Specialized">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.Specialized.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Collections">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.dll</HintPath>
-     </Reference>
-     <Reference Include="System.ComponentModel.EventBasedAsync">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.EventBasedAsync.dll</HintPath>
-     </Reference>
-     <Reference Include="System.ComponentModel.Primitives">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.Primitives.dll</HintPath>
-     </Reference>
-     <Reference Include="System.ComponentModel.TypeConverter">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.TypeConverter.dll</HintPath>
-     </Reference>
-     <Reference Include="System.ComponentModel">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Console">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Console.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Data.Common">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Data.Common.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Diagnostics.Contracts">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Contracts.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Diagnostics.Debug">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Debug.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Diagnostics.FileVersionInfo">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.FileVersionInfo.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Diagnostics.Process">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Process.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Diagnostics.StackTrace">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.StackTrace.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Diagnostics.TextWriterTraceListener">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.TextWriterTraceListener.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Diagnostics.Tools">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Tools.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Diagnostics.TraceSource">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.TraceSource.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Diagnostics.Tracing">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Tracing.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Drawing.Primitives">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Drawing.Primitives.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Dynamic.Runtime">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Dynamic.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Globalization.Calendars">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Globalization.Calendars.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Globalization.Extensions">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Globalization.Extensions.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Globalization">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Globalization.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.Compression.ZipFile">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.Compression.ZipFile.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.Compression">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.Compression.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.FileSystem.DriveInfo">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.DriveInfo.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.FileSystem.Primitives">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.Primitives.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.FileSystem.Watcher">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.Watcher.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.FileSystem">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.IsolatedStorage">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.IsolatedStorage.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.MemoryMappedFiles">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.MemoryMappedFiles.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.Pipes">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.Pipes.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.UnmanagedMemoryStream">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.UnmanagedMemoryStream.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Linq.Expressions">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.Expressions.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Linq.Parallel">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.Parallel.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Linq.Queryable">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.Queryable.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Linq">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Memory">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Memory.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.Http">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Http.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.NameResolution">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.NameResolution.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.NetworkInformation">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.NetworkInformation.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.Ping">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Ping.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.Primitives">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Primitives.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.Requests">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Requests.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.Security">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Security.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.Sockets">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Sockets.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.WebHeaderCollection">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.WebHeaderCollection.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.WebSockets.Client">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.WebSockets.Client.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.WebSockets">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.WebSockets.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Numerics.Vectors">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Numerics.Vectors.dll</HintPath>
-     </Reference>
-     <Reference Include="System.ObjectModel">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.ObjectModel.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Reflection.DispatchProxy">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.DispatchProxy.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Reflection.Emit.ILGeneration">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Emit.ILGeneration.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Reflection.Emit.Lightweight">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Emit.Lightweight.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Reflection.Emit">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Emit.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Reflection.Extensions">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Extensions.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Reflection.Primitives">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Primitives.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Reflection">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Resources.Reader">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Resources.Reader.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Resources.ResourceManager">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Resources.ResourceManager.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Resources.Writer">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Resources.Writer.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.CompilerServices.VisualC">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.CompilerServices.VisualC.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.Extensions">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Extensions.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.Handles">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Handles.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.InteropServices">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.InteropServices.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.Numerics">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Numerics.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.Serialization.Formatters">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Formatters.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.Serialization.Json">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Json.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.Serialization.Primitives">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Primitives.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.Serialization.Xml">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Xml.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Security.Claims">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Claims.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Security.Cryptography.Algorithms">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Algorithms.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Security.Cryptography.Csp">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Csp.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Security.Cryptography.Encoding">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Encoding.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Security.Cryptography.Primitives">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Primitives.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Security.Cryptography.X509Certificates">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.X509Certificates.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Security.Principal">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Principal.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Security.SecureString">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.SecureString.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Text.Encoding.Extensions">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Text.Encoding.Extensions.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Text.Encoding">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Text.Encoding.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Text.RegularExpressions">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Text.RegularExpressions.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Threading.Overlapped">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Overlapped.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Threading.Tasks.Extensions">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Tasks.Extensions.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Threading.Tasks.Parallel">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Tasks.Parallel.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Threading.Tasks">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Tasks.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Threading.Thread">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Thread.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Threading.ThreadPool">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.ThreadPool.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Threading.Timer">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Timer.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Threading">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.dll</HintPath>
-     </Reference>
-     <Reference Include="System.ValueTuple">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.ValueTuple.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Xml.ReaderWriter">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.ReaderWriter.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Xml.XDocument">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XDocument.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Xml.XPath.XDocument">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XPath.XDocument.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Xml.XPath">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XPath.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Xml.XmlDocument">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XmlDocument.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Xml.XmlSerializer">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XmlSerializer.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.InteropServices.WindowsRuntime">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/Extensions/2.0.0/System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
-     </Reference>
-     <Reference Include="System.ComponentModel.Composition">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.ComponentModel.Composition.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Core">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Core.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Data">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Data.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Drawing">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Drawing.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.Compression.FileSystem">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.IO.Compression.FileSystem.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Net.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Numerics">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Numerics.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.Serialization">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Runtime.Serialization.dll</HintPath>
-     </Reference>
-     <Reference Include="System.ServiceModel.Web">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.ServiceModel.Web.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Transactions">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Transactions.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Web">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Web.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Windows">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Windows.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Xml.Linq">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Xml.Linq.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Xml.Serialization">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Xml">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Xml.dll</HintPath>
+     <Reference Include="mscorlib">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/mscorlib.dll</HintPath>
      </Reference>
      <Reference Include="System">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.dll</HintPath>
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.dll</HintPath>
      </Reference>
-     <Reference Include="mscorlib">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll</HintPath>
+     <Reference Include="System.Core">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Core.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Serialization">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Runtime.Serialization.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Xml.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.Linq">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Xml.Linq.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Numerics">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Numerics.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Numerics.Vectors">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Numerics.Vectors.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Http">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Net.Http.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.Compression">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.IO.Compression.dll</HintPath>
+     </Reference>
+     <Reference Include="Microsoft.CSharp">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Microsoft.CSharp.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Data">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Data.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Data.DataSetExtensions">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Data.DataSetExtensions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Drawing">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Drawing.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.Compression.FileSystem">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.IO.Compression.FileSystem.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ComponentModel.Composition">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.ComponentModel.Composition.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Transactions">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Transactions.dll</HintPath>
+     </Reference>
+     <Reference Include="Microsoft.Win32.Primitives">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/Microsoft.Win32.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.AppContext">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.AppContext.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Buffers">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Buffers.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Collections.Concurrent">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Collections.Concurrent.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Collections.NonGeneric">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Collections.NonGeneric.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Collections.Specialized">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Collections.Specialized.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Collections">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Collections.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ComponentModel.Annotations">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ComponentModel.Annotations.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ComponentModel.EventBasedAsync">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ComponentModel.EventBasedAsync.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ComponentModel.Primitives">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ComponentModel.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ComponentModel.TypeConverter">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ComponentModel.TypeConverter.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ComponentModel">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ComponentModel.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Console">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Console.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Data.Common">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Data.Common.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.Contracts">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.Contracts.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.Debug">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.Debug.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.FileVersionInfo">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.FileVersionInfo.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.Process">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.Process.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.StackTrace">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.StackTrace.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.TextWriterTraceListener">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.TextWriterTraceListener.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.Tools">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.Tools.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.TraceSource">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.TraceSource.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Drawing.Primitives">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Drawing.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Dynamic.Runtime">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Dynamic.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Globalization.Calendars">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Globalization.Calendars.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Globalization.Extensions">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Globalization.Extensions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Globalization">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Globalization.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.Compression.ZipFile">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.Compression.ZipFile.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.FileSystem.DriveInfo">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.FileSystem.DriveInfo.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.FileSystem.Primitives">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.FileSystem.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.FileSystem.Watcher">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.FileSystem.Watcher.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.FileSystem">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.FileSystem.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.IsolatedStorage">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.IsolatedStorage.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.MemoryMappedFiles">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.MemoryMappedFiles.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.Pipes">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.Pipes.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.UnmanagedMemoryStream">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.UnmanagedMemoryStream.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Linq.Expressions">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Linq.Expressions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Linq.Parallel">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Linq.Parallel.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Linq.Queryable">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Linq.Queryable.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Linq">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Linq.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Memory">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Memory.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Http.Rtc">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.Http.Rtc.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.NameResolution">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.NameResolution.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.NetworkInformation">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.NetworkInformation.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Ping">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.Ping.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Primitives">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Requests">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.Requests.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Security">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.Security.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Sockets">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.Sockets.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.WebHeaderCollection">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.WebHeaderCollection.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.WebSockets.Client">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.WebSockets.Client.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.WebSockets">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.WebSockets.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ObjectModel">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ObjectModel.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection.DispatchProxy">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.DispatchProxy.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection.Emit.ILGeneration">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.Emit.ILGeneration.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection.Emit.Lightweight">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.Emit.Lightweight.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection.Emit">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.Emit.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection.Extensions">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.Extensions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection.Primitives">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Resources.Reader">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Resources.Reader.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Resources.ResourceManager">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Resources.ResourceManager.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Resources.Writer">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Resources.Writer.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.CompilerServices.VisualC">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.CompilerServices.VisualC.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Extensions">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Extensions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Handles">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Handles.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.InteropServices.WindowsRuntime">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.InteropServices">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.InteropServices.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Numerics">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Numerics.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Serialization.Formatters">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Serialization.Formatters.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Serialization.Json">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Serialization.Json.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Serialization.Primitives">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Serialization.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Serialization.Xml">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Serialization.Xml.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Claims">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Claims.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Cryptography.Algorithms">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Cryptography.Algorithms.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Cryptography.Csp">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Cryptography.Csp.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Cryptography.Encoding">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Cryptography.Encoding.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Cryptography.Primitives">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Cryptography.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Cryptography.X509Certificates">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Cryptography.X509Certificates.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Principal">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Principal.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.SecureString">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.SecureString.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ServiceModel.Duplex">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ServiceModel.Duplex.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ServiceModel.Http">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ServiceModel.Http.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ServiceModel.NetTcp">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ServiceModel.NetTcp.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ServiceModel.Primitives">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ServiceModel.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ServiceModel.Security">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ServiceModel.Security.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Text.Encoding.Extensions">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Text.Encoding.Extensions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Text.Encoding">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Text.Encoding.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Text.RegularExpressions">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Text.RegularExpressions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.Overlapped">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.Overlapped.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.Tasks.Extensions">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.Tasks.Extensions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.Tasks.Parallel">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.Tasks.Parallel.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.Tasks">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.Tasks.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.Thread">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.Thread.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.ThreadPool">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.ThreadPool.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.Timer">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.Timer.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ValueTuple">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ValueTuple.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.ReaderWriter">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Xml.ReaderWriter.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.XDocument">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Xml.XDocument.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.XPath.XDocument">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Xml.XPath.XDocument.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.XPath">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Xml.XPath.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.XmlDocument">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Xml.XmlDocument.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.XmlSerializer">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Xml.XmlSerializer.dll</HintPath>
+     </Reference>
+     <Reference Include="netstandard">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/netstandard.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InternalAPIEngineBridge.001">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
@@ -1131,6 +1159,18 @@
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
+     </Reference>
+     <Reference Include="TapTap.TapDB.Editor">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapTap.TapDB.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="TapTap.Common.Editor">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapTap.Common.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="TapSDK.UI.Editor">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapSDK.UI.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="TapSDK.UI">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapSDK.UI.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>

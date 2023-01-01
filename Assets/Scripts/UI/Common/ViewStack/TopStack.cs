@@ -1,30 +1,16 @@
-using Ad;
 using Common;
-using DG.Tweening;
 using UI.View;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace UI
 {
     public class TopStack : ViewStack
     {
-        [SerializeField] private CanvasGroup splash;
         [SerializeField] private AddBlockTip addBlockTip;
-        [FormerlySerializedAs("toast")] [SerializeField] private ToastElement toastElement;
+        [SerializeField] private ToastElement toastElement;
+        [SerializeField] private SplashView splash;
 
         public AddBlockTip AddBlockTip => addBlockTip;
-        public void CloseSplash()
-        {
-            var sequence = DOTween.Sequence();
-            sequence.AppendInterval(1f);
-            sequence.Append(splash.DOFade(0, 0.2f));
-            sequence.AppendCallback(() =>
-            {
-                splash.gameObject.SetActive(false);
-                splash.GetComponent<SplashView>().OnClose();
-            });
-        }
 
         public void ShowToast(ToastType type, string msg)
         {
@@ -33,6 +19,11 @@ namespace UI
                 Type = type,
                 msg = msg
             });
+        }
+
+        public void CheckCloseSplash()
+        {
+            splash.CheckClose();
         }
     }
 }

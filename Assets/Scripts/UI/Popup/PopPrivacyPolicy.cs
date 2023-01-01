@@ -38,12 +38,17 @@ public class PopPrivacyPolicy : PopupBase
     public override void OnCreate(params object[] objects)
     {
         sureBtn.onClick.AddListener(RequestPermission);
-        cancelBtn.onClick.AddListener(Application.Quit);
+        cancelBtn.onClick.AddListener(() =>
+        {
+            SEvent.TrackEvent("#privacy_policy_disagree", "");
+            Application.Quit();
+        });
     }
 
     private void RequestPermission()
     {
         _requestPermission = true;
+        SEvent.TrackEvent("#privacy_policy_agree", "");
         Permission.RequestUserPermissions(Permissions);
     }
 
@@ -67,9 +72,9 @@ public class PopPrivacyPolicy : PopupBase
                 }
                 
                 CloseView();
-                UIManager.Instance.CloseSplash();
                 GameManager.User.IsNewPlayer = false;
                 GameManager.User.PrivacyPolicy = false;
+                UIManager.Instance.CheckCloseSplash();
             }
         }
     }

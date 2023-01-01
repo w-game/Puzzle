@@ -1,10 +1,9 @@
 using ByteDance.Union;
-using Common;
 using UnityEngine;
 
 namespace Ad
 {
-    public class AdManager : Singleton<AdManager>
+    public class AdManager : Common.SSingleton<AdManager>
     {
         public RewardAd RewardAd { get; } = new();
         public NativeAd NativeAd { get; } = new();

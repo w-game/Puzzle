@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Common
 {
-    public class SoundManager : MonoSingleton<SoundManager>
+    public class SoundManager : SMonoSingleton<SoundManager>
     {
         [SerializeField] private AudioClip slideSound;
         [SerializeField] private AudioClip removeSound;

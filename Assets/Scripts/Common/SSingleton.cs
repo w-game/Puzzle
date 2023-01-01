@@ -1,6 +1,6 @@
 namespace Common
 {
-    public abstract class Singleton<T> where T : new()
+    public abstract class SSingleton<T> where T : new()
     {
         private static T _instance;
 

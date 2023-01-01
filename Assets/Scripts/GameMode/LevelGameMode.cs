@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Blocks;
 using Common;
 using GameMode.LevelGame;
@@ -58,6 +59,10 @@ public class LevelGameMode : PuzzleGame
         if (CheckLevelEnd()) return;
 
         CurLevel = CreateLevel(GameManager.User.GameLevel);
+        SEvent.TrackEvent("#cur_level", new Dictionary<string, object>()
+        {
+            { "#level", CurLevel.LevelIndex }
+        });
         AddColor(_ => _ < CurLevel.BlockCount);
         InitLevelBoard();
         CurLevel.InitGoals();

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Common
 {
-    public class MonoSingleton<T> : MonoBehaviour where T : Object
+    public class SMonoSingleton<T> : MonoBehaviour where T : Object
     {
         private static T _instance;
 

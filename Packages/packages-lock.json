@@ -1,5 +1,28 @@
 {
   "dependencies": {
+    "com.leancloud.storage": {
+      "version": "https://github.com/leancloud/csharp-sdk-upm.git#storage-1.0.2",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "beef2954fb0dbe2471952c34a32a5885a427ce9a"
+    },
+    "com.taptap.tds.common": {
+      "version": "https://github.com/TapTap/TapCommon-Unity.git#3.16.5",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "389f11737d6cfb7d12c314ab54efa79a45df0589"
+    },
+    "com.taptap.tds.tapdb": {
+      "version": "https://github.com/TapTap/TapDB-Unity.git#3.16.5",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.taptap.tds.common": "https://github.com/TapTap/TapCommon-Unity.git#3.16.5"
+      },
+      "hash": "6694403f8dd1124f80ac79bca08f0972f03eb641"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.6",
       "depth": 1,

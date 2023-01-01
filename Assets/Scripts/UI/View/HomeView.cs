@@ -1,3 +1,4 @@
+using Common;
 using TMPro;
 using UI;
 using UI.Popup;
@@ -42,7 +43,6 @@ public class HomeView : ViewBase
         
         RefreshView();
         AddEvent(EventKeys.RefreshView, RefreshView);
-        UIManager.Instance.CheckCloseSplash();
     }
 
     public override void Localization()
@@ -58,9 +58,11 @@ public class HomeView : ViewBase
         switch (gameMode)
         {
             case PuzzleGameMode.Level:
+                SEvent.TrackEvent("#level_mode", "");
                 StartGame<LevelGameViewData>(PuzzleGame.PowerCost.Level, levelStartGameBtn.transform);
                 break;
             case PuzzleGameMode.Unlimited:
+                SEvent.TrackEvent("#endless_mode", "");
                 StartGame<EndlessGameViewData>(PuzzleGame.PowerCost.Endless, unlimitedStartGameBtn.transform);
                 break;
         }

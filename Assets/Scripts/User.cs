@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Common;
 using GameMode.EndlessGame;
+using TapTap.Common;
 using UnityEngine;
 
 public class User
@@ -10,7 +11,22 @@ public class User
     public const int InitialPower = 10;
     public Dictionary<GameToolName, GameTool> Tools { get; } = new();
 
-    private int _maxScore;
+    public string UserId
+    {
+        get
+        {
+            var id = PlayerPrefs.GetString("USER_ID", "");
+            if (string.IsNullOrEmpty(id))
+            {
+                id = TapUUID.UUID();
+                PlayerPrefs.SetString("USER_ID", id);
+            }
+
+            return id;
+        }
+    }
+
+        private int _maxScore;
     public int MaxScore
     {
         get => _maxScore;
@@ -156,6 +172,4 @@ public class User
         Power -= power;
         return true;
     }
-    
-    
 }

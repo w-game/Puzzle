@@ -4,7 +4,7 @@ using Common;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GridControl : MonoSingleton<GridControl>
+public class GridControl : SMonoSingleton<GridControl>
 {
     [SerializeField] private Transform mainCtrlContent;
     [SerializeField] private Transform secondaryCtrlContent;
@@ -15,7 +15,7 @@ public class GridControl : MonoSingleton<GridControl>
     private static List<int> _indexs = new() { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
     private List<int> _remaining = new();
 
-    public void Init()
+    public new void Init()
     {
         for (int i = 0; i < PuzzleGame.BoardWidth; i++)
         {

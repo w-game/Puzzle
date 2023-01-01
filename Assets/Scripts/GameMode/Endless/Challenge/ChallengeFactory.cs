@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameMode.EndlessGame
 {
-    public class ChallengeFactory : Singleton<ChallengeFactory>
+    public class ChallengeFactory : SSingleton<ChallengeFactory>
     {
         private Dictionary<Reward, float> Rewards { get; } = new();
         private Dictionary<Punishment, float> Punishments { get; } = new();

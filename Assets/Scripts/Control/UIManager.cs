@@ -1,12 +1,11 @@
 using System;
-using Ad;
 using Common;
 using UI;
 using UI.Popup;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class UIManager : MonoSingleton<UIManager>
+public class UIManager : SMonoSingleton<UIManager>
 {
     [SerializeField] private ViewStack mainStack;
     [SerializeField] private ViewStack popStack;
@@ -24,31 +23,15 @@ public class UIManager : MonoSingleton<UIManager>
     {
         popStack.Push<T>(objs);
     }
+    
+    public void PushTop<T>() where T : ViewData, new()
+    {
+        topStack.Push<T>();
+    }
 
     public void PopMain<T>() where T : ViewData
     {
         mainStack.Pop<T>();
-    }
-
-    public void CheckCloseSplash()
-    {
-        if (GameManager.User.PrivacyPolicy)
-        {
-            TopStack.Push<PopPrivacyPolicyData>();
-        }
-        else
-        {
-            CloseSplash();
-        }
-    }
-
-    public void CloseSplash()
-    {
-        AdManager.Instance.Init();
-        AdManager.Instance.SplashAd.ShowAd(result =>
-        {
-            TopStack.CloseSplash();
-        });
     }
 
     public void ShowAddBlockTip(Color color)
@@ -121,5 +104,10 @@ public class UIManager : MonoSingleton<UIManager>
     public ViewBase GetHomeView()
     {
         return mainStack.GetView<HomeView>();
+    }
+
+    public void CheckCloseSplash()
+    {
+        TopStack.CheckCloseSplash();
     }
 }
