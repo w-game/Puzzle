@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562759a4a959b46f9b80591303d2133c, type: 3}
   m_Name: ProjectSettings
   m_EditorClassIdentifier: 
-  autoInit: 0
-  androidAppKey: 
-  iosAppKey: 
+  autoInit: 1
+  androidAppKey: YivoA4Zs7qGtA62X7WBd4Q8PRj8nNmzw
+  iosAppKey: cS8YQtKcRKM3uYl4egXg7pdLiN5mR3d5
   isAdmobEnabled: 1
   isCN: 0
   admobAndroidAppId: ca-app-pub-6256911226025858~9736953900
-  admobIosAppId: 
+  admobIosAppId: ca-app-pub-6256911226025858~9008666917
   skadnetworkIds:
   - 488r3q3dtq.skadnetwork
   - ysrr86aavx.skadnetwork

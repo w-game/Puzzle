@@ -20,7 +20,12 @@ namespace Ad
             SLog.D("Ads","开始初始化广告SDK");
             OmEvents.onSdkInitSuccessEvent += OnInitSuccess;
             OmEvents.onSdkInitFailedEvent += OnInitFailed;
-            Om.Agent.init("YivoA4Zs7qGtA62X7WBd4Q8PRj8nNmzw");
+            string appId = "YivoA4Zs7qGtA62X7WBd4Q8PRj8nNmzw";
+#if UNITY_IOS && !UNITY_EDITOR
+            appId = "cS8YQtKcRKM3uYl4egXg7pdLiN5mR3d5";
+#endif
+            SLog.D("Ads",$"{Om.Agent.GetType()} [{appId}]");
+            Om.Agent.init(appId);
         }
 
         private void OnInitSuccess()

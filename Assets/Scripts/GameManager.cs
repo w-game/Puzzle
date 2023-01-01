@@ -4,6 +4,7 @@ using Common;
 using GameMode.LevelGame;
 using Newtonsoft.Json;
 using UI.Popup;
+using Unity.Advertisement.IosSupport;
 using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
@@ -37,6 +38,19 @@ public class GameManager : MonoSingleton<GameManager>
         LoadConfig();
 
         UIManager.Instance.PushMain<HomeViewData>();
+        
+        RegisterIOS();
+    }
+
+    private void RegisterIOS()
+    {
+        
+#if UNITY_IOS
+        if (ATTrackingStatusBinding.GetAuthorizationTrackingStatus() == ATTrackingStatusBinding.AuthorizationTrackingStatus.NOT_DETERMINED)
+        {
+            ATTrackingStatusBinding.RequestAuthorizationTracking();
+        }
+#endif
     }
 
     private void InitGameTime()

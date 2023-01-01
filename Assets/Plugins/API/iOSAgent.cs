@@ -1,6 +1,6 @@
 // Copyright 2020 ADTIMING TECHNOLOGY COMPANY LIMITED
 // Licensed under the GNU Lesser General Public License Version 3
-﻿#if UNITY_IPHONE || UNITY_IOS
+ #if UNITY_IPHONE || UNITY_IOS
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
