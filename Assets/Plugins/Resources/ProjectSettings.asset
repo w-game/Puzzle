@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ProjectSettings
   m_EditorClassIdentifier: 
   autoInit: 1
-  androidAppKey: YivoA4Zs7qGtA62X7WBd4Q8PRj8nNmzw
+  androidAppKey: 9fHBUuuYSFKvyyQjPYD5GiXNkdAc2ezJ
   iosAppKey: cS8YQtKcRKM3uYl4egXg7pdLiN5mR3d5
   isAdmobEnabled: 1
   isCN: 0

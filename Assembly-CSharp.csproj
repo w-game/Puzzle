@@ -160,6 +160,7 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
+     <None Include="Assets/StreamingAssets/UnityServicesProjectConfiguration.json" />
      <None Include="Assets/Config/level_config.json" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
@@ -876,6 +877,9 @@
      <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.Advertisement.IosSupport.Editor">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.Advertisement.IosSupport.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="UnityEngine.UI">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
      </Reference>
@@ -896,6 +900,9 @@
      </Reference>
      <Reference Include="Unity.2D.Common.Editor">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Advertisement.IosSupport">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.Advertisement.IosSupport.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow.Editor">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
@@ -1010,12 +1017,6 @@
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Advertisement.IosSupport.Editor">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.Advertisement.IosSupport.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Advertisement.IosSupport">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.Advertisement.IosSupport.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>

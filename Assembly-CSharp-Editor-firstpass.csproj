@@ -832,6 +832,9 @@
      <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.Advertisement.IosSupport.Editor">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.Advertisement.IosSupport.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="UnityEngine.UI">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
      </Reference>
@@ -852,6 +855,9 @@
      </Reference>
      <Reference Include="Unity.2D.Common.Editor">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Advertisement.IosSupport">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.Advertisement.IosSupport.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow.Editor">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
@@ -966,12 +972,6 @@
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Advertisement.IosSupport.Editor">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.Advertisement.IosSupport.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Advertisement.IosSupport">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.Advertisement.IosSupport.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
