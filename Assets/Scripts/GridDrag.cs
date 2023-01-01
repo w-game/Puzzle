@@ -1,17 +1,32 @@
 using System.Linq;
 using Common;
+using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class GridDrag : MonoBehaviour, IBeginDragHandler, IDragHandler
+public class GridDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public GridControl control;
     public BlockSlot Slot { get; set; }
 
     private Vector2 _lastPos;
-    
+
+    private Image _img;
+
+    private void Awake()
+    {
+        _img = gameObject.AddComponent<Image>();
+        _img.SetImage("Textures/frame");
+        _img.color = new Color(1f, 190f / 255f, 0f);
+        _img.enabled = false;
+        _img.type = Image.Type.Sliced;
+        _img.pixelsPerUnitMultiplier = 2;
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
+        _img.enabled = true;
         _lastPos = eventData.position;
     }
 
@@ -29,6 +44,11 @@ public class GridDrag : MonoBehaviour, IBeginDragHandler, IDragHandler
         }
 
         _lastPos = eventData.position;
+    }
+    
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        _img.enabled = false;
     }
 
     private void MoveBlock(BlockSlot slot, int dir)
@@ -69,5 +89,10 @@ public class GridDrag : MonoBehaviour, IBeginDragHandler, IDragHandler
                 SoundManager.Instance.PlaySlideSound();
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(_img);
     }
 }
