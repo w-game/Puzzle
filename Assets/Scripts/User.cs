@@ -7,7 +7,7 @@ using UnityEngine;
 public class User
 {
     private const string Tag = "User";
-    public const int MaxPower = 30;
+    public const int MaxPower = 10;
     public const int InitialPower = 10;
     public Dictionary<GameToolName, GameTool> Tools { get; } = new();
 

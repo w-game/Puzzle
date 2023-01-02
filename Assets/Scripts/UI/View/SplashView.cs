@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Ad;
+using Common;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -25,10 +27,23 @@ namespace UI.View
             else
             {
                 AdManager.Instance.Init();
-                AdManager.Instance.SplashAd.ShowAd(result =>
+                SEvent.TrackEvent("#new_user", new Dictionary<string, object>()
                 {
-                    DoClose();
+                    {"#new_user", GameManager.User.IsNewPlayer}
                 });
+                if (GameManager.User.IsNewPlayer)
+                {
+                    GameManager.User.IsNewPlayer = false;
+                    DoClose();
+                }
+                else
+                {
+                    AdManager.Instance.SplashAd.ShowAd(result =>
+                    {
+                        DoClose();
+                    });
+                }
+                
             }
         }
 

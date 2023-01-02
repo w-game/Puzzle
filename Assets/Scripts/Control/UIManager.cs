@@ -12,6 +12,7 @@ public class UIManager : SMonoSingleton<UIManager>
     [SerializeField] private ViewStack topStack;
 
     [SerializeField] private GameObject topMask;
+    [SerializeField] private GameObject loadingMask;
     
     private TopStack TopStack => topStack as TopStack;
     public void PushMain<T>(params object[] objs) where T : ViewData, new()
@@ -96,6 +97,11 @@ public class UIManager : SMonoSingleton<UIManager>
         topMask.SetActive(status);
     }
 
+    public void SetLoadingMask(bool status)
+    {
+        loadingMask.SetActive(status);
+    }
+    
     public void ShowCheckBox(string des, UnityAction sureAction, UnityAction cancelAction = null)
     {
         PushPop<PopCheckBoxData>(des, sureAction, cancelAction);

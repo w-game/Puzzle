@@ -16,12 +16,12 @@ namespace Ad
                 .SetUserID("user123") // 用户id,必传参数   只对穿山甲adn有效
                 .setScenarioId("1233211223")
                 .Build();
-            SEvent.TrackEvent("#reward_ad_request", "");
+            SEvent.TrackEvent("#reward_ad_request");
+            UIManager.Instance.SetLoadingMask(true);
             ABURewardVideoAd.LoadRewardVideoAd(adSlot, new RewardVideoAdListener(this)
             {
                 OnLoadEnd = result =>
                 {
-                    UIManager.Instance.SetTopMask(false);
                     if (result)
                     {
                         IsLoaded = true;
@@ -29,9 +29,10 @@ namespace Ad
                     }
                     else
                     {
-                        UIManager.Instance.ShowToast(ToastType.Info, GameManager.Language.AdLoadFail);
+                        UIManager.Instance.ShowToast(ToastType.Error, GameManager.Language.AdLoadFail);
                         callback?.Invoke(false);
                     }
+                    UIManager.Instance.SetLoadingMask(false);
                 }
             });
         }
@@ -46,7 +47,6 @@ namespace Ad
             
             if (!IsLoaded || !ABURewardVideoAd.isReady())
             {
-                UIManager.Instance.SetTopMask(true);
                 LoadAd(callback);
                 SLog.D(Tag, "请先加载广告或等广告加载完成");
                 return;
@@ -116,8 +116,7 @@ namespace Ad
             SLog.D(RewardAd.Tag, $"ecpm: {ecpm}, ritId: {ritID}, adnName: {adnName}");
 
             UIManager.Instance.ShowToast(ToastType.Info, GameManager.Language.GetRewardTip);
-            SEvent.TrackEvent("#reward_ad_show", "");
-            Callback?.Invoke(true);
+            SEvent.TrackEvent("#reward_ad_show");
         }
 
         public void OnViewRenderFail(int code, string message)
@@ -151,7 +150,7 @@ namespace Ad
         {
             var message = "verify:" + rewardVerify;
             SLog.D(RewardAd.Tag, message);
-            Callback?.Invoke(false);
+            Callback?.Invoke(true);
         }
 
         public void OnSkippedVideo()
@@ -182,6 +181,7 @@ namespace Ad
         public void OnAdShowFailed(int errcode, string errorMsg)
         {
             SLog.D(RewardAd.Tag, $"OnAdShowFailed Errcode: {errcode}, errMsg: {errorMsg}");
+            Callback?.Invoke(false);
         }
 
         public void OnRewardVerify(bool rewardVerify, ABUAdapterRewardAdInfo rewardInfo)

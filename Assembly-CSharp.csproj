@@ -42,9 +42,17 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets/Scripts/UI/Common/ViewStack/MainStack.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/ABUConstantHelper.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABURewardVideoAd.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/RadiationBlockRemoveGoal.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/NativeAdExample.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/dto/ABUAdUnit.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGameMode.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopNewPlayerGuide.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/PlatformUtil.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Helper/ItemClickDelegate.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdInteractionType.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/MainHeaderLayoutScript.cs" />
      <Compile Include="Assets/Scripts/GameMode/RemoveCheck.cs" />
      <Compile Include="Assets/Scripts/BlockSlot.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/AllRemoveGoal.cs" />
@@ -52,81 +60,189 @@
      <Compile Include="Assets/Scripts/UI/Popup/PopGameResult.cs" />
      <Compile Include="Assets/Scripts/UI/View/MainView.cs" />
      <Compile Include="Assets/Scripts/UI/Element/GmElement.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotBanner.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/FiveBlockRemoveGoal.cs" />
+     <Compile Include="Assets/Scripts/Ad/SplashAd.cs" />
      <Compile Include="Assets/Scripts/UI/View/GameView.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/ThirdLevelInputItemScript.cs" />
      <Compile Include="Assets/Scripts/UI/Common/ElementBase.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABURewardVideoAdCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUBannerAdInteractionCallback.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/ChallengeResult.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUNativeAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/ABUAdapterRewardAdInfo.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdStyleType.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUSplashAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUDownloadType.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotDraw.cs" />
      <Compile Include="Assets/Scripts/Process/ProcessUnit.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUInterstitialAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUUserInfoGender.cs" />
      <Compile Include="Assets/Scripts/SLog.cs" />
      <Compile Include="Assets/Scripts/UI/Common/Element.cs" />
      <Compile Include="Assets/Scripts/UI/Common/SButton.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUNativeAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUDrawAdCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdSDKThemeStatus.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Entity/MainListEntity.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUFullScreenVideoAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUFullScreenVideoAdInteractionCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/AndroidSlotHelper.cs" />
      <Compile Include="Assets/Scripts/Ad/AdManager.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/Constant/ABUAdPositionId.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/UnityDispatcher.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/Reward/ClearBottomRowAllBlocks.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUAdSDK.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdOrientationType.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialFullAdInteractionCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUDrawAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUSplashAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABURewardVideoAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUBannerAd.cs" />
      <Compile Include="Assets/Scripts/Process/ProcessSystem.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/enum/ABURitSceneType.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/SpecialBlock.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUBannerAd.cs" />
      <Compile Include="Assets/Scripts/UI/Common/PopupBase.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUFullScreenVideoAdCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUDrawAdInteractionCallback.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/GiftBlock.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/Block.cs" />
      <Compile Include="Assets/Scripts/GameMode/PuzzleGame.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUInterstitialFullAd.cs" />
      <Compile Include="Assets/Scripts/UI/View/HomeView.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUAppDownloadCallback.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/StaticBlock.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotInterstitialFull.cs" />
      <Compile Include="Assets/Scripts/UI/Element/LevelGoalElement.cs" />
      <Compile Include="Assets/Scripts/Common/SMonoSingleton.cs" />
      <Compile Include="Assets/Scripts/UI/Element/ChallengeResultElement.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotInterstitial.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/SecondLevelItemScript.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUBannerAdCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUSplashAd.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/LiteDataUtil.cs" />
      <Compile Include="Assets/Scripts/Control/UIManager.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUNativeAdCallback.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Helper/ToastManager.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialAdCallback.cs" />
+     <Compile Include="Assets/Scripts/UI/View/SplashView.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopTip.cs" />
      <Compile Include="Assets/Scripts/UI/Element/AddBlockTip.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUInterstitialFullAd.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopSetting.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUSDKInitConfig.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUInterstitialAd.cs" />
      <Compile Include="Assets/Scripts/UI/Element/GameToolElement.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/DrawAdExample.cs" />
      <Compile Include="Assets/Scripts/Ad/BannerAd.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/ThirdLevelItemScript.cs" />
      <Compile Include="Assets/Scripts/UI/Common/ViewStack/TopStack.cs" />
      <Compile Include="Assets/Scripts/Common/Util.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/ABUMSDKHelper.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/Reward.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/Punishment.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/RemoveStaticBlock.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUAdDislike.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUSplashAdListener.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/SingleTon.cs" />
      <Compile Include="Assets/Scripts/GameManager.cs" />
      <Compile Include="Assets/Scripts/Common/ToastElement.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/Punishment/GenerateNewRowAtBottom.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUBannerAd.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/ChallengeFactory.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUDrawAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSize.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopCheckBox.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUNativeAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUUserInfoForSegment.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialAdInteractionCallback.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/ToastLayoutScript.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/Constants/MainListItemId.cs" />
      <Compile Include="Assets/Scripts/UI/Common/ViewBase.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/NormalBlock.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/TimeUtil.cs" />
      <Compile Include="Assets/Scripts/Common/TimeUtil.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/InterstitalFullAdExample.cs" />
      <Compile Include="Assets/Scripts/Common/Timer/TimerManager.cs" />
+     <Compile Include="Assets/Scripts/Common/SEvent.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/StaticBlockRemoveGoal.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUDrawAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/ABUUserConfig.cs" />
      <Compile Include="Assets/Scripts/UI/Common/ViewStack.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/DetailItemViewScript.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/dto/ABUAdUnit.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/ScreenOrentationAdapterScript.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/InterstitalAdExample.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotRewardVideo.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/HorizontalRemoveGoal.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUAppDownloadCallback.cs" />
      <Compile Include="Assets/Scripts/AddressableMgr.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUAdSDK.cs" />
      <Compile Include="Assets/Scripts/Event/EventCenter.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopPassLevel.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUSplashAdInteractionListener.cs" />
      <Compile Include="Assets/Scripts/SoundManager.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/GameEnter.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopGM.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/MainUiViewScript.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/StopRadiationBlockRemoveGoal.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/Constants/PlayerPreferenceConstant.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/UnRemoveStaticBlock.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/AdFunctionScript.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUFullScreenVideoAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUFullScreenVideoAd.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABURewardAdInteractionCallback.cs" />
      <Compile Include="Assets/Scripts/Config/LevelConfig.cs" />
      <Compile Include="Assets/Scripts/Common/Timer/Timer.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUInterstitialFullAd.cs" />
      <Compile Include="Assets/Scripts/UI/View/LevelGameView.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/Challenge.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/SplashAdExample.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/FunctionDispatcher.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/AnyBlock.cs" />
      <Compile Include="Assets/Scripts/Process/Process.cs" />
      <Compile Include="Assets/Scripts/GameMode/EndlessGameMode.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/FullscreenAdExample.cs" />
      <Compile Include="Assets/Scripts/UI/View/EndlessGameView.cs" />
      <Compile Include="Assets/Scripts/ColorLibrary.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUUserInfoForSegment.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUInterstitialAd.cs" />
      <Compile Include="Assets/Scripts/GameMode/GameEvent.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/CountRadiationBlockRemoveGoal.cs" />
      <Compile Include="Assets/Scripts/Common/PlayerPrefsX.cs" />
+     <Compile Include="Assets/Sample/Scripts/Internationalization/LanguageType.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Helper/PrefabLoader.cs" />
      <Compile Include="Assets/Scripts/UI/Element/LevelTime.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUSDKInitConfig.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopLanguage.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/BannerAdExample.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Helper/LocalImageLoader.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/BaseUi.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/LevelGoal.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotFullVideo.cs" />
      <Compile Include="Assets/Scripts/UI/Common/ViewStack/PopStack.cs" />
+     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/In/IFunctionDispatcher.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Helper/MainListDataManager.cs" />
      <Compile Include="Assets/Scripts/Common/Language.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/ShadowBlock.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Helper/MultipleClickDelegate.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUSplashButtonType.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/ABUSDKInitConfig.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABURewardVideoAd.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/ABUiOSBridgeTools.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotSplash.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialFullAdCallback.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/Reward/PowerReward.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/UiUtil.cs" />
      <Compile Include="Assets/Scripts/UI/Common/BaseView.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopPrivacyPolicy.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUDislikeInteractionListener.cs" />
      <Compile Include="Assets/Scripts/GridControl.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUAdSDK.cs" />
      <Compile Include="Assets/Scripts/Android/AndroidNative.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/SingleColorRemoveGoal.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/Log.cs" />
      <Compile Include="Assets/Scripts/Common/SSingleton.cs" />
      <Compile Include="Assets/Scripts/UI/Element/LanguageElement.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopGameToolNotEnough.cs" />
@@ -136,7 +252,15 @@
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/ColorVerticalRemoveGoal.cs" />
      <Compile Include="Assets/Scripts/Ad/AdIds.cs" />
      <Compile Include="Assets/Scripts/UI/Common/UiUtil.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotBase.cs" />
+     <Compile Include="Assets/Sample/Scripts/Utils/UnityThreadUtil.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/dto/ABUAdUnit.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/PrimaryLevelItemScript.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUAdDislike.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Sample.cs" />
      <Compile Include="Assets/Scripts/UI/Element/GamePower.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/ABUUserInfoForSegment.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/ABUPrivacyConfig.cs" />
      <Compile Include="Assets/Scripts/GameMode/Blocks/RadiationBlock.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopPowerNotEnough.cs" />
      <Compile Include="Assets/Scripts/Ad/NativeAd.cs" />
@@ -144,147 +268,24 @@
      <Compile Include="Assets/Scripts/UI/Popup/PopNewBlockIntroduce.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/ColorHorizontalRemoveGoal.cs" />
      <Compile Include="Assets/Scripts/User.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/GMAdConfigAndroid.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdnType.cs" />
+     <Compile Include="Assets/Sample/Scripts/Internationalization/AppStringText.cs" />
      <Compile Include="Assets/Scripts/UI/Popup/PopLevelGameOver.cs" />
      <Compile Include="Assets/Scripts/Ad/AdBase.cs" />
      <Compile Include="Assets/Scripts/GameMode/Endless/Challenge/Reward/ClearSingleColorAllBlocks.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUNativeAdInteractionCallback.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUFeedAdListener.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/ShadowBlockRemoveGoal.cs" />
      <Compile Include="Assets/Scripts/GameTool/GameTool.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/LevelGoalFactory.cs" />
+     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotNative.cs" />
      <Compile Include="Assets/Scripts/GameMode/LevelGame/Goal/ColorFiveBlockRemoveGoal.cs" />
+     <Compile Include="Assets/Sample/Scripts/Main/Ui/DetailUiViewScript.cs" />
+     <Compile Include="Assets/MSDK/Scripts/Android/NativeAd.cs" />
      <Compile Include="Assets/Scripts/UI/Element/LevelGoalItemElement.cs" />
      <Compile Include="Assets/Scripts/Ad/RewardAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdStyleType.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUSDKInitConfig.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUBannerAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdSDKThemeStatus.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/dto/ABUAdUnit.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/GMAdConfigAndroid.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUSplashAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUSplashAdInteractionListener.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/In/IFunctionDispatcher.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/AdFunctionScript.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Entity/MainListEntity.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdOrientationType.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUFullScreenVideoAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUNativeAdCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUFullScreenVideoAdInteractionCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUUserInfoForSegment.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Helper/ToastManager.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUBannerAdInteractionCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialFullAdInteractionCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUDislikeInteractionListener.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/UnityThreadUtil.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/SplashAdExample.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/DetailItemViewScript.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUDrawAd.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/DrawAdExample.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotNative.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUInterstitialAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUUserInfoForSegment.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotInterstitial.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/PlatformUtil.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUAdSDK.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/TimeUtil.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/dto/ABUAdUnit.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/ABUConstantHelper.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUDownloadType.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/FunctionDispatcher.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdnType.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUDrawAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialAdInteractionCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialAdCallback.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/BannerAdExample.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUInterstitialAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUUserInfoGender.cs" />
-     <Compile Include="Assets/Sample/Scripts/Internationalization/AppStringText.cs" />
-     <Compile Include="Assets/Scripts/UI/View/SplashView.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/GameEnter.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/InterstitalFullAdExample.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/SecondLevelItemScript.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/ABUiOSBridgeTools.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/AndroidSlotHelper.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotDraw.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/ThirdLevelItemScript.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/ScreenOrentationAdapterScript.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/ABUPrivacyConfig.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Helper/ItemClickDelegate.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUInterstitialFullAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUBannerAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/dto/ABUAdUnit.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUFullScreenVideoAd.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Helper/MainListDataManager.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/InterstitalAdExample.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/MainUiViewScript.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotBanner.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/PrimaryLevelItemScript.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotSplash.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/Constant/ABUAdPositionId.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUInterstitialFullAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSize.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUAdDislike.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotRewardVideo.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdInteractionType.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUAdDislike.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUFullScreenVideoAdCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUSplashAdListener.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/UnityDispatcher.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/ToastLayoutScript.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUNativeAd.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/MainHeaderLayoutScript.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUDrawAdInteractionCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUSplashAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotBase.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUBannerAdCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUAppDownloadCallback.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/DetailUiViewScript.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUSplashAd.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/LiteDataUtil.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Sample.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/Log.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUFullScreenVideoAd.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/Constants/MainListItemId.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/SingleTon.cs" />
-     <Compile Include="Assets/Scripts/Ad/SplashAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/NativeAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABURewardVideoAd.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/ThirdLevelInputItemScript.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Helper/LocalImageLoader.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABURewardVideoAd.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Helper/MultipleClickDelegate.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUNativeAdInteractionCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUAdSDK.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotInterstitialFull.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/ABUMSDKHelper.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUBannerAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/enum/ABUSplashButtonType.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUFeedAdListener.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUAppDownloadCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUInterstitialFullAdCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUNativeAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUNativeAd.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Ui/BaseUi.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUSDKInitConfig.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABURewardAdInteractionCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUUserInfoForSegment.cs" />
-     <Compile Include="Assets/Sample/Scripts/Internationalization/LanguageType.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABUDrawAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/ABUAdapterRewardAdInfo.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/FullscreenAdExample.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUSDKInitConfig.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Android/ABURewardVideoAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUInterstitialAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotFullVideo.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/UiUtil.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABURewardVideoAdCallback.cs" />
-     <Compile Include="Assets/Sample/Scripts/Utils/Constants/PlayerPreferenceConstant.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/ABUInterstitialFullAd.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/ABUUserConfig.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/enum/ABURitSceneType.cs" />
-     <Compile Include="Assets/Sample/Scripts/Main/Helper/PrefabLoader.cs" />
-     <Compile Include="Assets/Sample/Scripts/ProvideForCpUse/BasicFunction/NativeAdExample.cs" />
-     <Compile Include="Assets/MSDK/Scripts/common/callback/ABUDrawAdCallback.cs" />
-     <Compile Include="Assets/MSDK/Scripts/Dummy/ABUAdSDK.cs" />
-     <Compile Include="Assets/Scripts/Common/SEvent.cs" />
+     <Compile Include="Assets/Scripts/UI/Element/Loading.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/AddressableAssetsData/link.xml" />
@@ -302,6 +303,7 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
+     <None Include="Assets/StreamingAssets/UnityServicesProjectConfiguration.json" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
      <None Include="Assets/Import/MgLEGO Moody Tunes/Moody Tunes ReadMe.txt" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
@@ -548,11 +550,26 @@
      <Reference Include="UnityEditor.UnityConnectModule">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
+     <Reference Include="TapTap.TapDB">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.taptap.tds.tapdb@6694403f8d/Plugins/TapTap.TapDB.dll</HintPath>
+     </Reference>
      <Reference Include="DOTween">
      <HintPath>/Users/chenglongnie/Puzzle/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
      </Reference>
+     <Reference Include="Common">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/Common.dll</HintPath>
+     </Reference>
+     <Reference Include="LC.Newtonsoft.Json">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/LC.Newtonsoft.Json.dll</HintPath>
+     </Reference>
+     <Reference Include="TapTap.Common">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.taptap.tds.common@389f11737d/Plugins/TapTap.Common.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Burst.Unsafe">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.Unsafe.dll</HintPath>
+     </Reference>
+     <Reference Include="Storage">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/Storage.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
@@ -563,6 +580,9 @@
      <Reference Include="Newtonsoft.Json">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
      </Reference>
+     <Reference Include="Storage.Unity">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/Storage.Unity.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Burst.Cecil.Mdb">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
      </Reference>
@@ -571,24 +591,6 @@
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Rocks">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
-     </Reference>
-     <Reference Include="TapTap.TapDB">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.taptap.tds.tapdb@6694403f8d/Plugins/TapTap.TapDB.dll</HintPath>
-     </Reference>
-     <Reference Include="TapTap.Common">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.taptap.tds.common@389f11737d/Plugins/TapTap.Common.dll</HintPath>
-     </Reference>
-     <Reference Include="Common">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/Common.dll</HintPath>
-     </Reference>
-     <Reference Include="LC.Newtonsoft.Json">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/LC.Newtonsoft.Json.dll</HintPath>
-     </Reference>
-     <Reference Include="Storage">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/Storage.dll</HintPath>
-     </Reference>
-     <Reference Include="Storage.Unity">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/Storage.Unity.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.iOS.Extensions.Xcode">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -1007,6 +1009,9 @@
      <Reference Include="Unity.Searcher.Editor">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="TapTap.TapDB.Editor">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapTap.TapDB.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.2D.IK.Editor">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
      </Reference>
@@ -1076,6 +1081,9 @@
      <Reference Include="Unity.TextMeshPro">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
      </Reference>
+     <Reference Include="TapTap.Common.Editor">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapTap.Common.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Burst.Editor">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
      </Reference>
@@ -1121,8 +1129,14 @@
      <Reference Include="Unity.RenderPipelines.Universal.Editor">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="TapSDK.UI.Editor">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapSDK.UI.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.VisualScripting.Shared.Editor">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="TapSDK.UI">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapSDK.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core.Environments">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.Services.Core.Environments.dll</HintPath>
@@ -1159,18 +1173,6 @@
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
-     </Reference>
-     <Reference Include="TapTap.TapDB.Editor">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapTap.TapDB.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="TapTap.Common.Editor">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapTap.Common.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="TapSDK.UI.Editor">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapSDK.UI.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="TapSDK.UI">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapSDK.UI.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>

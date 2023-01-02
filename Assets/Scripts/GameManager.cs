@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using TapTap.Common;
 using TapTap.TapDB;
 using UI.Popup;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : SMonoSingleton<GameManager>
@@ -84,5 +85,21 @@ public class GameManager : SMonoSingleton<GameManager>
     private void OnApplicationQuit()
     {
         PlayerPrefs.SetInt("LastEndGame", TimeUtil.Timestamp);
+    }
+
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        SEvent.TrackEvent("#app_focus", new Dictionary<string, object>()
+        {
+            {"#app_focus_status", hasFocus}
+        });
+    }
+
+    private void OnApplicationPause(bool pauseStatus)
+    {
+        SEvent.TrackEvent("#app_pause", new Dictionary<string, object>()
+        {
+            {"#app_pause_status", pauseStatus}
+        });
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ByteDance.Union;
 using Common;
 using UnityEngine;
+using TimeUtil = Common.TimeUtil;
 
 namespace Ad
 {
@@ -21,12 +22,16 @@ namespace Ad
                 .setScenarioId("1233211223")
                 .SetUseSurfaceView(true)
                 .Build();
-            SEvent.TrackEvent("#native_ad_request", "");
+            SEvent.TrackEvent("#native_ad_request");
+            
             ABUNativeAd.LoadNativeAd(adUnit, new NativeAdListener(this));
         }
 
         public override void ShowAd(Action<bool> callback)
         {
+#if UNITY_EDITOR
+            return;
+#endif
             if (AdManager.Instance.NativeAdSwitch)
             {
                 SLog.D("Native Ad", "Native Ad请求展示");
@@ -61,7 +66,7 @@ namespace Ad
             {
                 _nativeAd.NativeAdJavaObject = list.Call<AndroidJavaObject>("get", 0);
                 _nativeAd.NativeAdInstance = nativeAds[0];
-                _nativeAd.NativeAdInstance.SetAdInteractionListener(new NativeAdCallback(_nativeAd));
+                _nativeAd.NativeAdInstance.SetAdInteractionListener(new NativeAdCallback());
                 _nativeAd.NativeAdInstance.ShowNativeAd(0, 0, 0);
             }
         }
@@ -69,12 +74,6 @@ namespace Ad
 
     public class NativeAdCallback : ABUNativeAdInteractionCallback
     {
-        private NativeAd _nativeAd;
-        public NativeAdCallback(NativeAd nativeAd)
-        {
-            _nativeAd = nativeAd;
-        }
-
         public void OnAdClicked(int index)
         {
         }
@@ -82,7 +81,7 @@ namespace Ad
         public void OnAdShow(int index)
         {
             SLog.D("Native Ad", "原生广告展示成功");
-            SEvent.TrackEvent("#native_ad_show", "");
+            SEvent.TrackEvent("#native_ad_show");
         }
 
         public void OnAdDismiss(int index)

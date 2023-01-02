@@ -22,8 +22,8 @@ namespace Ad
                 {
                     if (result)
                     {
-                        ShowAd(callback);
                         _isAdReady = true;
+                        ShowAd(callback);
                     }
                     else
                     {
@@ -35,24 +35,21 @@ namespace Ad
 
         public override void ShowAd(Action<bool> callback)
         {
-            if (GameManager.User.IsNewPlayer)
+#if UNITY_EDITOR
+            callback?.Invoke(false);
+            return;
+#endif
+            if (_isAdReady)
             {
-                callback?.Invoke(false);
+                ABUSplashAd.ShowSplashAd(new SplashAdCallback()
+                {
+                    Callback = callback
+                });
+                _isAdReady = false;
             }
             else
             {
-                if (_isAdReady)
-                {
-                    ABUSplashAd.ShowSplashAd(new SplashAdCallback()
-                    {
-                        Callback = callback
-                    });
-                    _isAdReady = false;
-                }
-                else
-                {
-                    LoadAd(callback);
-                }
+                LoadAd(callback);
             }
         }
 

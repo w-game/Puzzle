@@ -41,9 +41,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets/MSDK/Scripts/iOS/Editor/XCodePostProcess.cs" />
-     <Compile Include="Assets/Sample/Editor/ModifyUnityAndroidAppManifestSample.cs" />
      <Compile Include="Assets/Sample/Editor/XCodePostProcess.cs" />
+     <Compile Include="Assets/Sample/Editor/ModifyUnityAndroidAppManifestSample.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/Editor/XCodePostProcess.cs" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
@@ -305,11 +305,20 @@
      <Reference Include="UnityEditor.iOS.Extensions">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
      </Reference>
+     <Reference Include="TapTap.TapDB">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.taptap.tds.tapdb@6694403f8d/Plugins/TapTap.TapDB.dll</HintPath>
+     </Reference>
      <Reference Include="log4netPlastic">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
      </Reference>
      <Reference Include="DOTween">
      <HintPath>/Users/chenglongnie/Puzzle/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
+     </Reference>
+     <Reference Include="Common">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/Common.dll</HintPath>
+     </Reference>
+     <Reference Include="LC.Newtonsoft.Json">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/LC.Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Plastic.Newtonsoft.Json">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
@@ -317,11 +326,17 @@
      <Reference Include="Unity.Plastic.Antlr3.Runtime">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
      </Reference>
+     <Reference Include="TapTap.Common">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.taptap.tds.common@389f11737d/Plugins/TapTap.Common.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Burst.Unsafe">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.Unsafe.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.TextureAssets">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/EditorAssetResources/Unity.VisualScripting.TextureAssets.dll</HintPath>
+     </Reference>
+     <Reference Include="Storage">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/Storage.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
@@ -335,14 +350,17 @@
      <Reference Include="Newtonsoft.Json">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
      </Reference>
+     <Reference Include="Storage.Unity">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/Storage.Unity.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.VisualScripting.YamlDotNet">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll</HintPath>
      </Reference>
-     <Reference Include="DOTweenEditor">
-     <HintPath>/Users/chenglongnie/Puzzle/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.Burst.Cecil.Mdb">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
+     </Reference>
+     <Reference Include="DOTweenEditor">
+     <HintPath>/Users/chenglongnie/Puzzle/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
@@ -352,24 +370,6 @@
      </Reference>
      <Reference Include="unityplastic">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
-     </Reference>
-     <Reference Include="TapTap.TapDB">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.taptap.tds.tapdb@6694403f8d/Plugins/TapTap.TapDB.dll</HintPath>
-     </Reference>
-     <Reference Include="TapTap.Common">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.taptap.tds.common@389f11737d/Plugins/TapTap.Common.dll</HintPath>
-     </Reference>
-     <Reference Include="Common">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/Common.dll</HintPath>
-     </Reference>
-     <Reference Include="LC.Newtonsoft.Json">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/LC.Newtonsoft.Json.dll</HintPath>
-     </Reference>
-     <Reference Include="Storage">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/Storage.dll</HintPath>
-     </Reference>
-     <Reference Include="Storage.Unity">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.leancloud.storage@beef2954fb/Plugins/Storage.Unity.dll</HintPath>
      </Reference>
      <Reference Include="nunit.framework">
      <HintPath>/Users/chenglongnie/Puzzle/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
@@ -797,6 +797,9 @@
      <Reference Include="Unity.Searcher.Editor">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="TapTap.TapDB.Editor">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapTap.TapDB.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.2D.IK.Editor">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
      </Reference>
@@ -866,6 +869,9 @@
      <Reference Include="Unity.TextMeshPro">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
      </Reference>
+     <Reference Include="TapTap.Common.Editor">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapTap.Common.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Burst.Editor">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
      </Reference>
@@ -911,8 +917,14 @@
      <Reference Include="Unity.RenderPipelines.Universal.Editor">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="TapSDK.UI.Editor">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapSDK.UI.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.VisualScripting.Shared.Editor">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="TapSDK.UI">
+     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapSDK.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core.Environments">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.Services.Core.Environments.dll</HintPath>
@@ -949,18 +961,6 @@
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
      <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
-     </Reference>
-     <Reference Include="TapTap.TapDB.Editor">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapTap.TapDB.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="TapTap.Common.Editor">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapTap.Common.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="TapSDK.UI.Editor">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapSDK.UI.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="TapSDK.UI">
-     <HintPath>/Users/chenglongnie/Puzzle/Library/ScriptAssemblies/TapSDK.UI.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -5,22 +5,24 @@ namespace Common
 {
     public class SEvent
     {
-        public static void TrackEvent(string eventName, string properties)
+        public static void TrackEvent(string eventName, Dictionary<string, object> properties = null)
         {
-            SLog.D("Remote Event", $"上报事件 [{eventName}]\n{properties}");
-            TapDB.TrackEvent(eventName, properties);
-        }
-
-        public static void TrackEvent(string eventName, Dictionary<string, object> properties)
-        {
-            var pps = "{\n";
-            foreach (var propertyName in properties.Keys)
+            if (properties != null)
             {
-                pps += $"\t{propertyName}: {properties[propertyName]}\n";
+                var pps = "{\n";
+                foreach (var propertyName in properties.Keys)
+                {
+                    pps += $"\t{propertyName}: {properties[propertyName]}\n";
+                }
+                pps += "}";
+                SLog.D("Remote Event", $"上报事件 [{eventName}]\n{pps}");
             }
-            pps += "}";
+            else
+            {
+                properties = new Dictionary<string, object>();
+                SLog.D("Remote Event", $"上报事件 [{eventName}] properties: null");
+            }
             
-            SLog.D("Remote Event", $"上报事件 [{eventName}]\n{pps}");
             TapDB.TrackEvent(eventName, properties);
         }
     }
