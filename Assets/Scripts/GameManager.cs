@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Ad;
 using Common;
 using GameMode.LevelGame;
 using Newtonsoft.Json;
@@ -43,17 +44,23 @@ public class GameManager : SMonoSingleton<GameManager>
         
         InitLanguage();
         LoadConfig();
+        InitThirdSDK();
+    }
+
+    private void InitThirdSDK()
+    {
+        AdManager.Instance.Init();
         InitTapTap();
+        SEvent.TrackEvent("#app_launch", new Dictionary<string, object>()
+        {
+            {"#user_id", User.UserId}
+        });
     }
 
     private void InitTapTap()
     {
         TapDB.Init("89uji6xvwyqlkeht2j", "taptap", Application.version, true);
         TapDB.SetUser(User.UserId);
-        SEvent.TrackEvent("#app_launch", new Dictionary<string, object>()
-        {
-            {"#user_id", User.UserId}
-        });
     }
 
     private void InitLanguage()

@@ -72,8 +72,7 @@ public class PopPrivacyPolicy : PopupBase
                 }
                 
                 CloseView();
-                GameManager.User.PrivacyPolicy = false;
-                UIManager.Instance.CheckCloseSplash();
+                // UIManager.Instance.CheckCloseSplash();
             }
         }
     }

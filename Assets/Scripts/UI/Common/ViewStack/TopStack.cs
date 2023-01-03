@@ -20,10 +20,5 @@ namespace UI
                 msg = msg
             });
         }
-
-        public void CheckCloseSplash()
-        {
-            splash.CheckClose();
-        }
     }
 }

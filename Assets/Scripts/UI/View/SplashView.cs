@@ -18,32 +18,23 @@ namespace UI.View
             CheckClose();
         }
 
-        public void CheckClose()
+        private void CheckClose()
         {
-            if (GameManager.User.PrivacyPolicy)
+            SEvent.TrackEvent("#new_user", new Dictionary<string, object>()
             {
-                UIManager.Instance.PushTop<PopPrivacyPolicyData>();
+                {"#new_user", GameManager.User.IsNewPlayer}
+            });
+            if (GameManager.User.IsNewPlayer)
+            {
+                GameManager.User.IsNewPlayer = false;
+                DoClose();
             }
             else
             {
-                AdManager.Instance.Init();
-                SEvent.TrackEvent("#new_user", new Dictionary<string, object>()
+                AdManager.Instance.SplashAd.ShowAd(result =>
                 {
-                    {"#new_user", GameManager.User.IsNewPlayer}
-                });
-                if (GameManager.User.IsNewPlayer)
-                {
-                    GameManager.User.IsNewPlayer = false;
                     DoClose();
-                }
-                else
-                {
-                    AdManager.Instance.SplashAd.ShowAd(result =>
-                    {
-                        DoClose();
-                    });
-                }
-                
+                });
             }
         }
 

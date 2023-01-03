@@ -111,9 +111,4 @@ public class UIManager : SMonoSingleton<UIManager>
     {
         return mainStack.GetView<HomeView>();
     }
-
-    public void CheckCloseSplash()
-    {
-        TopStack.CheckCloseSplash();
-    }
 }

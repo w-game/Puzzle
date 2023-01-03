@@ -71,12 +71,6 @@ public class User
         set => PlayerPrefs.SetInt("NEW_PLAYER", value ? 1 : 0);
     }
 
-    public bool PrivacyPolicy
-    {
-        get => PlayerPrefs.GetInt("PrivacyPolicy", 0) == 0;
-        set => PlayerPrefs.SetInt("PrivacyPolicy", value ? 0 : 1);
-    }
-
     public int GameLevel
     {
         get => PlayerPrefs.GetInt("GameLevel", 0);
