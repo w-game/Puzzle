@@ -73,6 +73,7 @@
      <Compile Include="Assets/MSDK/Scripts/common/ABUAdapterRewardAdInfo.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/enum/ABUAdStyleType.cs" />
      <Compile Include="Assets/MSDK/Scripts/Android/ABUSplashAd.cs" />
+     <Compile Include="Assets/Scripts/UI/Element/Loading.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/enum/ABUDownloadType.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotDraw.cs" />
      <Compile Include="Assets/Scripts/Process/ProcessUnit.cs" />
@@ -285,7 +286,7 @@
      <Compile Include="Assets/MSDK/Scripts/Android/NativeAd.cs" />
      <Compile Include="Assets/Scripts/UI/Element/LevelGoalItemElement.cs" />
      <Compile Include="Assets/Scripts/Ad/RewardAd.cs" />
-     <Compile Include="Assets/Scripts/UI/Element/Loading.cs" />
+     <Compile Include="Assets/Scripts/SkipUnitySplash.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/AddressableAssetsData/link.xml" />
@@ -303,7 +304,6 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
-     <None Include="Assets/StreamingAssets/UnityServicesProjectConfiguration.json" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
      <None Include="Assets/Import/MgLEGO Moody Tunes/Moody Tunes ReadMe.txt" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
