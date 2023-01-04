@@ -43,8 +43,8 @@
   <ItemGroup>
      <Compile Include="Assets/Sample/Editor/XCodePostProcess.cs" />
      <Compile Include="Assets/Sample/Editor/ModifyUnityAndroidAppManifestSample.cs" />
-     <Compile Include="Assets/MSDK/Scripts/iOS/Editor/XCodePostProcess.cs" />
      <Compile Include="Assets/Editor/AndroidPostBuildProcessor.cs" />
+     <Compile Include="Assets/MSDK/Scripts/iOS/Editor/XCodePostProcess.cs" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>

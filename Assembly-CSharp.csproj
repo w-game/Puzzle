@@ -254,6 +254,7 @@
      <Compile Include="Assets/Scripts/Ad/AdIds.cs" />
      <Compile Include="Assets/Scripts/UI/Common/UiUtil.cs" />
      <Compile Include="Assets/MSDK/Scripts/common/slot/GMAdSlotBase.cs" />
+     <Compile Include="Assets/Scripts/SkipUnitySplash.cs" />
      <Compile Include="Assets/Sample/Scripts/Utils/UnityThreadUtil.cs" />
      <Compile Include="Assets/MSDK/Scripts/Dummy/dto/ABUAdUnit.cs" />
      <Compile Include="Assets/Sample/Scripts/Main/Ui/PrimaryLevelItemScript.cs" />
@@ -286,10 +287,8 @@
      <Compile Include="Assets/MSDK/Scripts/Android/NativeAd.cs" />
      <Compile Include="Assets/Scripts/UI/Element/LevelGoalItemElement.cs" />
      <Compile Include="Assets/Scripts/Ad/RewardAd.cs" />
-     <Compile Include="Assets/Scripts/SkipUnitySplash.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
-     <None Include="Assets/AddressableAssetsData/link.xml" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
      <None Include="Assets/Sample/link.xml" />
      <None Include="Assets/Config/level_config.json" />
@@ -459,9 +458,6 @@
      </Reference>
      <Reference Include="UnityEngine.UmbraModule">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.UmbraModule.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.UnityAnalyticsModule">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UnityConnectModule">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll</HintPath>

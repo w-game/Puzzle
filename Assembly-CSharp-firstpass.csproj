@@ -228,9 +228,6 @@
      <Reference Include="UnityEngine.UmbraModule">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.UmbraModule.dll</HintPath>
      </Reference>
-     <Reference Include="UnityEngine.UnityAnalyticsModule">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEngine.UnityConnectModule">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.7f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll</HintPath>
      </Reference>

@@ -49,6 +49,7 @@ public class GameManager : SMonoSingleton<GameManager>
 
     private void InitThirdSDK()
     {
+        SLog.D("Game", $"初始化第三方SDK");
         AdManager.Instance.Init();
         InitTapTap();
         SEvent.TrackEvent("#app_launch", new Dictionary<string, object>()
