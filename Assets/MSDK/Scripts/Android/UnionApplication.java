@@ -33,8 +33,8 @@ public class UnionApplication  extends Application {
                .openDebugLog(false) //测试阶段打开，可以通过日志排查问题，上线时去除该调用
                .usePangleTextureView(true) //使用TextureView控件播放视频,默认为SurfaceView,当有SurfaceView冲突的场景，可以使用TextureView
                .setPangleTitleBarTheme(TTAdConstant.TITLE_BAR_THEME_DARK)
-               .allowPangleShowNotify(true) //是否允许sdk展示通知栏提示
-               .allowPangleShowPageWhenScreenLock(true) //是否在锁屏场景支持展示广告落地页
+               .allowPangleShowNotify(false) //是否允许sdk展示通知栏提示
+               .allowPangleShowPageWhenScreenLock(false) //是否在锁屏场景支持展示广告落地页
                .setPangleDirectDownloadNetworkType(TTAdConstant.NETWORK_STATE_WIFI, TTAdConstant.NETWORK_STATE_3G) //允许直接下载的网络状态集合
                .needPangleClearTaskReset()//特殊机型过滤，部分机型出现包解析失败问题（大部分是三星）。参数取android.os.Build.MODEL
                .setUserInfoForSegment(userInfo) // 设置流量分组的信息

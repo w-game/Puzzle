@@ -33,7 +33,7 @@
     （SDK将通过此权限正常触发广告行为，并保证广告的正确投放。此权限需要在用户隐私文档中声明)-->
 <!--    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />-->
 
-    <uses-sdk tools:overrideLibrary="com.google.android.gms.ads_base,com.google.android.gms.ads.impl,com.google.android.gms.gass,com.google.android.gms.ads,com.kwad.sdk,com.sigmob.windad,com.unity3d.ads,com.bun.miitmdid,com.mbridge.msdk.video,com.mbridge.msdk.mbsignalcommon,com.mbridge.msdk.playercommon,com.mbridge.msdk.reward,com.mbridge.msdk.banner,com.mbridge.msdk.splash,com.mbridge.msdk.videocommon,com.mbridge.msdk,com.mbridge.msdk.intervideo,com.mbridge.msdk.mbnative,com.mbridge.msdk.nativex,com.mbridge.msdk.advanced,com.mbridge.msdk.interstitial,com.tencent.klevin,com.bytedance.sdk.openadsdk.adhost"/>
+    <uses-sdk tools:overrideLibrary="com.google.android.gms.ads_base,com.google.android.gms.ads.impl,com.google.android.gms.gass,com.google.android.gms.ads,com.kwad.sdk,com.sigmob.windad,com.unity3d.ads,com.bun.miitmdid,com.tencent.klevin,com.bytedance.sdk.openadsdk.adhost"/>
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
@@ -170,15 +170,15 @@
 
           <!--===flag_not_allow_delete_mintegral_start===-->
         <!-- mintegral start================== -->
-        <provider
-            android:name="com.mbridge.msdk.foundation.tools.MBFileProvider"
-            android:authorities="${applicationId}.mbFileProvider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/mb_provider_paths" />
-        </provider>
+<!--        <provider-->
+<!--            android:name="com.mbridge.msdk.foundation.tools.MBFileProvider"-->
+<!--            android:authorities="${applicationId}.mbFileProvider"-->
+<!--            android:exported="false"-->
+<!--            android:grantUriPermissions="true">-->
+<!--            <meta-data-->
+<!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
+<!--                android:resource="@xml/mb_provider_paths" />-->
+<!--        </provider>-->
         <!-- mintegral end================== -->
         <!--===flag_not_allow_delete_mintegral_end===-->
     </application>
